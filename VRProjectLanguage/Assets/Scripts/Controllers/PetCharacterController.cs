@@ -21,6 +21,7 @@ public class PetCharacterController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         _currentAction();
+        if (Input.anyKey) Application.Quit();
 	}
 
     void move()
