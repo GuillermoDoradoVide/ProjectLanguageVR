@@ -25,6 +25,7 @@ public class SampleMovementScript : stateScript {
         _gameObjectTransform.position = Vector3.MoveTowards(_gameObjectTransform.position, _speechPosition[_currentNextPosition].position, Time.deltaTime * _speed);
         if (_gameObjectTransform.position == _speechPosition[_currentNextPosition].position)
         {
+            _gameObjectTransform.rotation = _speechPosition[_currentNextPosition].rotation;
             if (_currentNextPosition < _speechPosition.Length - 1)
             {
                 _currentNextPosition++;
