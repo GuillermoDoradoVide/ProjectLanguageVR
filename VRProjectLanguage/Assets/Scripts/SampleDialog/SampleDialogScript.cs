@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class SampleDialogScript : MonoBehaviour {
+public class SampleDialogScript : stateScript {
 
     //Material change atrib
     public MeshRenderer _meshRenderer;
@@ -30,6 +31,7 @@ public class SampleDialogScript : MonoBehaviour {
     public float _mouthIdlePosition_Y;
     //Animation controller
     public Animator _animationController;
+    public bool _finished = false;
 
 	// Use this for initialization
 	void Start () {
@@ -47,25 +49,13 @@ public class SampleDialogScript : MonoBehaviour {
         freqData = new float[nSamples];
         _mouthIdlePosition_Y = _mouth.transform.position.y;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (!_audioSource.isPlaying)
-        {
-            playSound();
-        }
-        if (detectCharacterIsSpeaking())
-        {
-            speakAnimationController();
-        } 
-	}
 
-    bool detectCharacterIsSpeaking()
+    // Update is called once per frame
+    public override void doUpdate()
     {
-        return true;
     }
 
-    void speakAnimationController()
+    public void speakAnimationController()
     {
         float _speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * _volume;
         _animationController.SetFloat("_Intensity", _speechVolumeResult);
@@ -73,7 +63,7 @@ public class SampleDialogScript : MonoBehaviour {
         {
             _animationController.SetBool("_Speaking", true);
             _meshRenderer.material.color = Color.blue;
-            _mouth.transform.position = new Vector3 (_mouth.transform.position.x, _mouthIdlePosition_Y - _speechVolumeResult, _mouth.transform.position.z);
+            _mouth.transform.position = new Vector3(_mouth.transform.position.x, _mouthIdlePosition_Y - _speechVolumeResult, _mouth.transform.position.z);
         }
         else
         {
@@ -110,10 +100,24 @@ public class SampleDialogScript : MonoBehaviour {
         return (filterSum / qSamples);
     }
 
-    void playSound()
+    public bool playSound()
     {
-        Debug.Log(_audioClip.Length);
-        if (_currentSound > _audioClip.Length - 1) {
+        if (_audioSource.isPlaying)
+        {
+            speakAnimationController();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void StartNextSound()
+    {
+        Debug.Log("StartNextSound");
+        if (_currentSound > _audioClip.Length - 1)
+        {
             _currentSound = 0;
         }
         _audioSource.clip = _audioClip[_currentSound];
