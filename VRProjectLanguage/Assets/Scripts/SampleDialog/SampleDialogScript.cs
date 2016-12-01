@@ -9,7 +9,7 @@ public class SampleDialogScript : MonoBehaviour {
     public Color _alternativeColor;
     //AudioControlers
     public AudioSource _audioSource;
-    public AudioClip _audioClip;
+    public AudioClip[] _audioClip;
     // speech controller atrib
     float _volume = 40;
     int fLow = 200;
@@ -17,7 +17,8 @@ public class SampleDialogScript : MonoBehaviour {
     float[] freqData;
     int nSamples = 256;
     int fMax = 24000;
-    float _voiceMinimumVolumeCoutOff = 0.1f;
+    float _voiceMinimumVolumeCoutOff = 0.05f;
+    int _currentSound = 0;
     //average sound values
     int sizeFilter = 5;
     float[] filter;
@@ -32,13 +33,12 @@ public class SampleDialogScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        _meshRenderer = GetComponent<MeshRenderer>();
         _color = _meshRenderer.material.color;
         _audioSource = GetComponent<AudioSource>();
         _animationController = GetComponent<Animator>();
-        if (_audioClip.name != null)
+        if (_audioClip.Length != 0)
         {
-            _audioSource.clip = _audioClip;
+            _audioSource.clip = _audioClip[0];
         }
         else
         {
@@ -50,7 +50,10 @@ public class SampleDialogScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!_audioSource.isPlaying) _audioSource.Play();
+        if (!_audioSource.isPlaying)
+        {
+            playSound();
+        }
         if (detectCharacterIsSpeaking())
         {
             speakAnimationController();
@@ -105,6 +108,17 @@ public class SampleDialogScript : MonoBehaviour {
         if (posFilter > qSamples) qSamples = posFilter;
         posFilter = posFilter % sizeFilter;
         return (filterSum / qSamples);
+    }
+
+    void playSound()
+    {
+        Debug.Log(_audioClip.Length);
+        if (_currentSound > _audioClip.Length - 1) {
+            _currentSound = 0;
+        }
+        _audioSource.clip = _audioClip[_currentSound];
+        _audioSource.PlayOneShot(_audioSource.clip);
+        _currentSound++;
     }
 
 }

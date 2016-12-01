@@ -4,7 +4,23 @@ timeCreated: 1480593005
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: Bone
+    100002: Bone_001
+    100004: //RootNode
+    100006: Head_Bones
+    100008: loutou2_long_polySurface5
+    400000: Bone
+    400002: Bone_001
+    400004: //RootNode
+    400006: Head_Bones
+    400008: loutou2_long_polySurface5
+    4300000: loutou2_long_polySurface5
+    7400000: Default Take
+    7400002: lowSpeechAnim
+    7400004: highSpeechAnim
+    9500000: //RootNode
+    13700000: loutou2_long_polySurface5
   materials:
     importMaterials: 1
     materialName: 0
@@ -25,7 +41,121 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Head_Bones
+        weight: 1
+      - path: Head_Bones/Bone
+        weight: 1
+      - path: Head_Bones/Bone_001
+        weight: 1
+      - path: loutou2_long_polySurface5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: lowSpeechAnim
+      takeName: ArmatureAction
+      firstFrame: 10
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Head_Bones
+        weight: 1
+      - path: Head_Bones/Bone
+        weight: 1
+      - path: Head_Bones/Bone_001
+        weight: 1
+      - path: loutou2_long_polySurface5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: highSpeechAnim
+      takeName: ArmatureAction
+      firstFrame: 23
+      lastFrame: 33
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Head_Bones
+        weight: 1
+      - path: Head_Bones/Bone
+        weight: 1
+      - path: Head_Bones/Bone_001
+        weight: 1
+      - path: loutou2_long_polySurface5
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
