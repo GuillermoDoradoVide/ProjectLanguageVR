@@ -27,12 +27,15 @@ public class SampleDialogScript : MonoBehaviour {
     //mouth controllers
     public GameObject _mouth;
     public float _mouthIdlePosition_Y;
+    //Animation controller
+    public Animator _animationController;
 
 	// Use this for initialization
 	void Start () {
         _meshRenderer = GetComponent<MeshRenderer>();
         _color = _meshRenderer.material.color;
         _audioSource = GetComponent<AudioSource>();
+        _animationController = GetComponent<Animator>();
         if (_audioClip.name != null)
         {
             _audioSource.clip = _audioClip;
@@ -62,14 +65,18 @@ public class SampleDialogScript : MonoBehaviour {
     void speakAnimationController()
     {
         float _speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * _volume;
+        _animationController.SetFloat("_Intensity", _speechVolumeResult);
         if (_speechVolumeResult > _voiceMinimumVolumeCoutOff)
         {
+            _animationController.SetBool("_Speaking", true);
             _meshRenderer.material.color = Color.blue;
             _mouth.transform.position = new Vector3 (_mouth.transform.position.x, _mouthIdlePosition_Y - _speechVolumeResult, _mouth.transform.position.z);
         }
         else
         {
             _meshRenderer.material.color = _color;
+            _animationController.SetBool("_Speaking", false);
+            _animationController.SetFloat("_Intensity", 0.0f);
         }
     }
 
