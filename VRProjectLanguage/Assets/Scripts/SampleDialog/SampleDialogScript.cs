@@ -18,7 +18,7 @@ public class SampleDialogScript : stateScript {
     float[] freqData;
     int nSamples = 256;
     int fMax = 24000;
-    float _voiceMinimumVolumeCoutOff = 0.05f;
+    float _voiceMinimumVolumeCoutOff = 0.001f;
     int _currentSound = 0;
     //average sound values
     int sizeFilter = 5;
@@ -38,6 +38,7 @@ public class SampleDialogScript : stateScript {
         _color = _meshRenderer.material.color;
         _audioSource = GetComponent<AudioSource>();
         _animationController = GetComponent<Animator>();
+
         if (_audioClip.Length != 0)
         {
             _audioSource.clip = _audioClip[0];
@@ -58,6 +59,7 @@ public class SampleDialogScript : stateScript {
     public void speakAnimationController()
     {
         float _speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * _volume;
+        Debug.Log("Final: " + _speechVolumeResult);
         _animationController.SetFloat("_Intensity", _speechVolumeResult);
         if (_speechVolumeResult > _voiceMinimumVolumeCoutOff)
         {
@@ -87,6 +89,7 @@ public class SampleDialogScript : stateScript {
         {
             sum += freqData[i];
         }
+        Debug.Log("Inicial: " + (sum / ((n2 - n1) + 1)));
         return (sum / ((n2 - n1) + 1));
     }
 
@@ -109,6 +112,7 @@ public class SampleDialogScript : stateScript {
         }
         else
         {
+            _animationController.SetFloat("_Intensity", 0);
             return true;
         }
     }
