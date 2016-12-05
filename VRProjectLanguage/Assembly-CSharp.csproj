@@ -76,8 +76,9 @@
      <Compile Include="Assets\Scripts\Controllers\PetCharacterController.cs" />
      <Compile Include="Assets\Scripts\SampleDialog\SampleDialogScript.cs" />
      <Compile Include="Assets\Scripts\SampleMovement\SampleMovementScript.cs" />
-     <Compile Include="Assets\Scripts\StateMachine\stateMachine.cs" />
-     <Compile Include="Assets\Scripts\StateMachine\stateScript.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\StateScript.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\idleState.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />

@@ -1,10 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class StateMachine : MonoBehaviour {
-    public stateScript _state;
-	// Update is called once per frame
-	void Update () {
-        _state.doUpdate();
+    public static Stack<StateScript> _ActionsStack;
+    public StateScript[] _listOfState;
+    public StateScript _CurrentState;
+
+   void Start ()
+    {
+        _ActionsStack = new Stack<StateScript>();
+        foreach (StateScript _state in _listOfState)
+        {
+            _state._OwnwerStateMachine = this;
+            newState(_state);
+        }
+        _CurrentState = _ActionsStack.Peek();
+    }
+    void Update () {
+        _CurrentState._CurrentAction();
 	}
+
+    public void nextState()
+    {
+        popState();
+        getCurrentState();
+    }
+
+    public void popState()
+    {
+        if (_ActionsStack.Count != 0)
+        {
+            StateScript _lastState = _ActionsStack.Pop();
+        }
+    }
+
+    public void getCurrentState()
+    {
+        if (_ActionsStack.Count != 0)
+        {
+            _CurrentState = _ActionsStack.Peek();
+            if (_CurrentState.GetComponent<SampleDialogScript>())
+            {
+                _CurrentState.GetComponent<SampleDialogScript>().StartSound();
+            }
+        }  
+    }
+
+    public void newState(StateScript _newState)
+    {
+        _newState._OwnwerStateMachine = this;
+        _ActionsStack.Push(_newState);
+    }
+
+    void OnDestroy ()
+    {
+        _ActionsStack.Clear();
+    }
 }

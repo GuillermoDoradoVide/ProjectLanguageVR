@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class SampleMovementScript : stateScript {
+public class SampleMovementScript : StateScript {
 
     public Transform[] _speechPosition;
     public int _currentNextPosition = 0;
@@ -14,13 +15,16 @@ public class SampleMovementScript : stateScript {
     // Use this for initialization
     void Start () {
         _gameObjectTransform = _gameObjectToMove.GetComponent<Transform>();
+        isTriggerable = false;
+        init();
     }
 
     // Update is called once per frame
    public  override void doUpdate () {
+        moveToNext();
     }
 
-    public bool moveToNext()
+    public void moveToNext()
     {
         _gameObjectTransform.position = Vector3.MoveTowards(_gameObjectTransform.position, _speechPosition[_currentNextPosition].position, Time.deltaTime * _speed);
         if (_gameObjectTransform.position == _speechPosition[_currentNextPosition].position)
@@ -30,8 +34,7 @@ public class SampleMovementScript : stateScript {
             {
                 _currentNextPosition++;
             }
-            return true;
+            changeThisStateToFinished();
         }
-        else return false;
     }
 }

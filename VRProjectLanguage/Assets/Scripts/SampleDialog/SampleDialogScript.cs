@@ -2,16 +2,15 @@
 using System.Collections;
 using System;
 
-public class SampleDialogScript : stateScript
+public class SampleDialogScript : StateScript
 {
-
     //Material change atrib
     public MeshRenderer _meshRenderer;
     public Color _color;
     public Color _alternativeColor;
     //AudioControlers
     public AudioSource _audioSource;
-    public AudioClip[] _audioClip;
+    public AudioClip _audioClip;
     // speech controller atrib
     float _volume = 40;
     int fLow = 200;
@@ -47,25 +46,47 @@ public class SampleDialogScript : stateScript
     // Use this for initialization
     void Start()
     {
-        _color = _meshRenderer.material.color;
-        _audioSource = GetComponent<AudioSource>();
-        _animationController = GetComponent<Animator>();
-        samples = new float[qSamples2];
-        if (_audioClip.Length != 0)
+        if (_audioClip != null)
         {
-            _audioSource.clip = _audioClip[0];
+            _color = _meshRenderer.material.color;
+            _audioSource = GetComponent<AudioSource>();
+            //_animationController = GetComponent<Animator>();
+            samples = new float[qSamples2];
+            freqData = new float[nSamples];
+            _mouthIdlePosition_Y = _mouth.transform.position.y;
+            isTriggerable = false;
         }
         else
         {
-            Debug.Log("No hay archivo de audio cargado en el personaje");
+            Debug.Log("No hay archivo de audio cargado en el estado");
         }
-        freqData = new float[nSamples];
-        _mouthIdlePosition_Y = _mouth.transform.position.y;
+        init();
     }
 
     // Update is called once per frame
     public override void doUpdate()
     {
+        playSound();
+    }
+
+    public void StartSound()
+    {
+        Debug.Log("StartSound: " + _audioClip.name);
+        _audioSource.clip = _audioClip;
+        _audioSource.PlayOneShot(_audioSource.clip);
+    }
+
+    public void playSound()
+    {
+        if (_audioSource.isPlaying)
+        {
+            speakAnimationController();
+        }
+        else
+        {
+            _animationController.SetFloat("_Intensity", 0);
+            changeThisStateToFinished();
+        }
     }
 
     public void speakAnimationController()
@@ -121,32 +142,6 @@ public class SampleDialogScript : stateScript
         if (posFilter > qSamples) qSamples = posFilter;
         posFilter = posFilter % sizeFilter;
         return (filterSum / qSamples);
-    }
-
-    public bool playSound()
-    {
-        if (_audioSource.isPlaying)
-        {
-            speakAnimationController();
-            return false;
-        }
-        else
-        {
-            _animationController.SetFloat("_Intensity", 0);
-            return true;
-        }
-    }
-
-    public void StartNextSound()
-    {
-        Debug.Log("StartNextSound");
-        if (_currentSound > _audioClip.Length - 1)
-        {
-            _currentSound = 0;
-        }
-        _audioSource.clip = _audioClip[_currentSound];
-        _audioSource.PlayOneShot(_audioSource.clip);
-        _currentSound++;
     }
 
     void GetVolume()
