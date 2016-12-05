@@ -13,14 +13,13 @@ public class SampleMovementScript : StateScript {
     public bool _finished = false;
 
     // Use this for initialization
-    void Start () {
+    public override void doAtStart()
+    {
         _gameObjectTransform = _gameObjectToMove.GetComponent<Transform>();
-        isTriggerable = false;
-        init();
     }
 
     // Update is called once per frame
-   public  override void doUpdate () {
+   public override void doUpdate () {
         moveToNext();
     }
 

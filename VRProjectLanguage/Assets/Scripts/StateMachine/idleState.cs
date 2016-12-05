@@ -5,10 +5,9 @@ using System;
 public class idleState : StateScript {
 
 
-    void Start ()
+    public override void doAtStart()
     {
-        init();
-        isTriggerable = false;
+        //nothing
     }
     public override void doUpdate()
     {

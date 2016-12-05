@@ -31,7 +31,7 @@ public class StateMachine : MonoBehaviour {
     {
         if (_ActionsStack.Count != 0)
         {
-            StateScript _lastState = _ActionsStack.Pop();
+            _ActionsStack.Pop();
         }
     }
 

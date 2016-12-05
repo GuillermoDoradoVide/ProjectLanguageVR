@@ -6,11 +6,19 @@ public abstract class StateScript : MonoBehaviour {
     public delegate void action();
     public action _CurrentAction;
     public abstract void doUpdate();
+    public abstract void doAtStart();
     public StateMachine _OwnwerStateMachine;
 
-    public void init()
+     void Start()
+    {
+        init();
+        doAtStart();
+    }
+
+    void init()
     {
         _CurrentAction = doUpdate;
+        isTriggerable = false;
     }
 
     public void changeThisStateToFinished()

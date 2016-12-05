@@ -19,7 +19,6 @@ public class SampleDialogScript : StateScript
     int nSamples = 256;
     int fMax = 24000;
     float _voiceMinimumVolumeCoutOff = 0.001f;
-    int _currentSound = 0;
     //average sound values
     int sizeFilter = 5;
     float[] filter;
@@ -44,7 +43,7 @@ public class SampleDialogScript : StateScript
     private float[] samples;        // audio sample
 
     // Use this for initialization
-    void Start()
+    public override void doAtStart()
     {
         if (_audioClip != null)
         {
@@ -54,13 +53,11 @@ public class SampleDialogScript : StateScript
             samples = new float[qSamples2];
             freqData = new float[nSamples];
             _mouthIdlePosition_Y = _mouth.transform.position.y;
-            isTriggerable = false;
         }
         else
         {
             Debug.Log("No hay archivo de audio cargado en el estado");
         }
-        init();
     }
 
     // Update is called once per frame
