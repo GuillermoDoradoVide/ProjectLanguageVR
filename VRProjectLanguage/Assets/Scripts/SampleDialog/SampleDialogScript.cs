@@ -68,7 +68,7 @@ public class SampleDialogScript : StateScript
 
     public void StartSound()
     {
-        Debug.Log("StartSound: " + _audioClip.name);
+        //Debug.Log("StartSound: " + _audioClip.name);
         _audioSource.clip = _audioClip;
         _audioSource.PlayOneShot(_audioSource.clip);
     }
@@ -92,7 +92,7 @@ public class SampleDialogScript : StateScript
         _intensity.transform.localScale = new Vector3(_intensity.transform.localScale.x, /*volume2 * */rmsValue, _intensity.transform.localScale.z);
 
         float _speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * _volume;
-        Debug.Log("Final: " + _speechVolumeResult);
+        //Debug.Log("Final: " + _speechVolumeResult);
         _animationController.SetFloat("_Frequency", _speechVolumeResult);
         //_animationController.Play("Talk", -1, rmsValue * 2);
 
@@ -110,7 +110,7 @@ public class SampleDialogScript : StateScript
             _animationController.SetBool("_Speaking", false);
             _animationController.SetFloat("_Intensity", 0.0f);
         }
-        Debug.Log("Comparación: [" + movingAverage(bandVol(fLow, fHigh)) + "] :: [" + rmsValue + "]");
+        //Debug.Log("Comparación: [" + movingAverage(bandVol(fLow, fHigh)) + "] :: [" + rmsValue + "]");
     }
 
     //Method unityAnswers http://answers.unity3d.com/questions/139323/any-way-of-quotautomaticquot-lip-syncing.html
@@ -127,7 +127,7 @@ public class SampleDialogScript : StateScript
         {
             sum += freqData[i];
         }
-        Debug.Log("Inicial: " + (sum / ((n2 - n1) + 1)));
+        //Debug.Log("Inicial: " + (sum / ((n2 - n1) + 1)));
         return (sum / ((n2 - n1) + 1));
     }
 
@@ -155,5 +155,10 @@ public class SampleDialogScript : StateScript
         {
             dbValue = -160;        // clamp it to -160 dB min
         }
+    }
+    [ContextMenu("prueba de context menu")]
+    void pruebaDeContextMenu()
+    {
+        Debug.Log("Hola Guillermo, ¿Qué tal el context menu?");
     }
 }

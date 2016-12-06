@@ -18,7 +18,7 @@ public class StateMachine : MonoBehaviour {
         _CurrentState = _ActionsStack.Peek();
     }
     void Update () {
-        _CurrentState._CurrentAction();
+        _CurrentState.doAtUpdate();
 	}
 
     public void nextState()
