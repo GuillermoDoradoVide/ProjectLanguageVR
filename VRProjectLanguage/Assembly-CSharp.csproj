@@ -73,8 +73,11 @@
      <Compile Include="Assets\OVR\Scripts\Util\OVRSceneSampleController.cs" />
      <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
      <Compile Include="Assets\OVR\Scripts\Util\OVRWaitCursor.cs" />
+     <Compile Include="Assets\Scripts\Controllers\MainController.cs" />
      <Compile Include="Assets\Scripts\Controllers\PetCharacterController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\SceneController.cs" />
      <Compile Include="Assets\Scripts\Controllers\menuMainController.cs" />
+     <Compile Include="Assets\Scripts\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Scripts\InGameMenus\menuController.cs" />
      <Compile Include="Assets\Scripts\SampleDialog\SampleDialogScript.cs" />
      <Compile Include="Assets\Scripts\SampleMovement\SampleMovementScript.cs" />

@@ -100,14 +100,14 @@ public class SampleDialogScript : StateScript
         _animationController.SetFloat("_Intensity", rmsValue);
         if (_speechVolumeResult > _voiceMinimumVolumeCoutOff)
         {
-            _animationController.SetBool("_Speaking", true);
+            //_animationController.SetBool("_Speaking", true);
             _meshRenderer.material.color = Color.blue;
             _mouth.transform.position = new Vector3(_mouth.transform.position.x, _mouthIdlePosition_Y - _speechVolumeResult, _mouth.transform.position.z);
         }
         else
         {
             _meshRenderer.material.color = _color;
-            _animationController.SetBool("_Speaking", false);
+            //_animationController.SetBool("_Speaking", false);
             _animationController.SetFloat("_Intensity", 0.0f);
         }
         //Debug.Log("Comparación: [" + movingAverage(bandVol(fLow, fHigh)) + "] :: [" + rmsValue + "]");
