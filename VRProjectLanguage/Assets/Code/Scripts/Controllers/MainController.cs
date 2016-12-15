@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainController : MonoBehaviour {
+public class MainController : SingletonComponent<MainController> {
 
     public SceneController sceneController;
 
-    protected void Awake()
+    protected override void doAtAwake()
     {
         sceneController = SceneController.Instance;
     }
@@ -16,11 +16,7 @@ public class MainController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        sceneController.doUpdate();
 
-    void OnDisable()
-    {
-        DestroyImmediate(sceneController);
     }
 }

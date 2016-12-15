@@ -77,6 +77,7 @@
      <Compile Include="Assets\Code\Scripts\Controllers\PetCharacterController.cs" />
      <Compile Include="Assets\Code\Scripts\Controllers\SceneController.cs" />
      <Compile Include="Assets\Code\Scripts\Controllers\menuMainController.cs" />
+     <Compile Include="Assets\Code\Scripts\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\Scripts\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Code\Scripts\InGameMenus\menuController.cs" />
      <Compile Include="Assets\Code\Scripts\SampleDialog\SampleDialogScript.cs" />

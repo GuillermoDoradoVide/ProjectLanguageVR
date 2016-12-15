@@ -2,8 +2,8 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
-
-public class SceneController : SingletonComponent<SceneController>
+[CreateAssetMenu(fileName = "SceneController", menuName = "Controllers/SceneController", order = 1)]
+public class SceneController : ScriptableObjectSingletonComponent<SceneController>
 {
     private string currentSceneName;
     private string nextSceneName;
@@ -55,6 +55,7 @@ public class SceneController : SingletonComponent<SceneController>
     protected override void doAtAwake()
     {
         nextSceneName = "Sample_Tutorial";
+        Debug.Log("[SceneManager] loading '" + nextSceneName + "' scene.");
         sceneState = SceneState.Reset; // first process
         sceneStateUpdates = new SceneStateUpdate[(int)SceneState.Count];
         //Set each scene state delegate
@@ -85,7 +86,7 @@ public class SceneController : SingletonComponent<SceneController>
         }
     }
 
-    protected void Update()
+    public void doUpdate()
     {
         if (sceneStateUpdates[(int)sceneState] != null)
         {
