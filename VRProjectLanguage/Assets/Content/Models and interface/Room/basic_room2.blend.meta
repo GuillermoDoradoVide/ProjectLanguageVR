@@ -32,6 +32,7 @@ ModelImporter:
     100048: Habitacion_001
     100050: Luces
     100052: proyector
+    100054: Libro
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -59,6 +60,7 @@ ModelImporter:
     400048: Habitacion_001
     400050: Luces
     400052: proyector
+    400054: Libro
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002
@@ -85,6 +87,7 @@ ModelImporter:
     2300046: Habitacion_001
     2300048: Luces
     2300050: proyector
+    2300052: Libro
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
@@ -111,6 +114,7 @@ ModelImporter:
     3300046: Habitacion_001
     3300048: Luces
     3300050: proyector
+    3300052: Libro
     4300000: Cube_006
     4300002: Cube_005
     4300004: Cube_004
@@ -137,6 +141,7 @@ ModelImporter:
     4300046: Habitacion_000
     4300048: Luces
     4300050: proyector
+    4300052: Libro
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -168,7 +173,7 @@ ModelImporter:
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
