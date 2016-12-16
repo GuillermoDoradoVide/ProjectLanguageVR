@@ -5,6 +5,7 @@ using System;
 public class SampleMovementScript : StateScript {
 
     public Transform[] _speechPosition;
+    public Camera playerCamera;
     public int _currentNextPosition = 0;
     public float _speed;
     public GameObject _gameObjectToMove;

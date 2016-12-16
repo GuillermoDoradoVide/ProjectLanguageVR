@@ -106,7 +106,7 @@ public class menuMainController : MonoBehaviour {
     public void showAnimation()
     {
         if(!menus.activeSelf)menus.SetActive(true);
-        if (menusTransform.localPosition.y < 0)
+        if (menusTransform.localPosition.y < -0.65f)
         {
             menus.transform.Translate(Vector3.up * Time.deltaTime * menuMovementSpeed);
         }

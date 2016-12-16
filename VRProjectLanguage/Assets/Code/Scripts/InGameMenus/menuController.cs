@@ -17,6 +17,7 @@ public class menuController : MonoBehaviour {
     {
         material = GetComponent<MeshRenderer>().material;
         normal = material.color;
+        transform.LookAt(playerCamera.transform);
     }
 
 	// Use this for initialization
