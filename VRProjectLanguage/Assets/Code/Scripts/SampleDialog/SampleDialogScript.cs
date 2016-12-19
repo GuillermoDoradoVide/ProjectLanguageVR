@@ -69,28 +69,29 @@ public class SampleDialogScript : StateScript
     public override void atInit()
     {
         _audioSource.clip = _audioClip;
-        _audioSource.PlayOneShot(_audioSource.clip);
-        //
+        _audioSource.Play();
+        //PlayOneShot(_audioSource.clip);
     }
 
     public override void atPause()
     {
         Debug.Log("pausa del audio");
         _audioSource.Pause();
+        _animationController.SetFloat("_Frequency", 0);
     }
 
     public override void atContinue()
     {
         _audioSource.UnPause();
     }
-
+    /*
     public void StartSound()
     {
         //Debug.Log("StartSound: " + _audioClip.name);
         _audioSource.clip = _audioClip;
         _audioSource.PlayOneShot(_audioSource.clip);
     }
-
+    */
     public void playSound()
     {
         if (_audioSource.isPlaying)
@@ -100,6 +101,7 @@ public class SampleDialogScript : StateScript
         else
         {
             _animationController.SetFloat("_Intensity", 0);
+            _animationController.SetFloat("_Frequency", 0);
             changeThisStateToFinished();
         }
     }
@@ -127,6 +129,7 @@ public class SampleDialogScript : StateScript
             _meshRenderer.material.color = _color;
             //_animationController.SetBool("_Speaking", false);
             _animationController.SetFloat("_Intensity", 0.0f);
+            _animationController.SetFloat("_Frequency", 0.0f);
         }
         //Debug.Log("Comparación: [" + movingAverage(bandVol(fLow, fHigh)) + "] :: [" + rmsValue + "]");
     }

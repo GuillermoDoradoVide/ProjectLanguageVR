@@ -33,7 +33,7 @@ public class SampleMovementScript : StateScript {
 
     public override void atContinue()
     {
-        throw new NotImplementedException();
+        //
     }
 
     public void moveToNext()

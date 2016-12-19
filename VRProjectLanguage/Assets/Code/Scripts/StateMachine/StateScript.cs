@@ -20,8 +20,8 @@ public abstract class StateScript : MonoBehaviour {
         Actions[(int)StateMode.Finished] = IHaveFinished;
         Actions[(int)StateMode.Paused] = atPause;
         Actions[(int)StateMode.Continue] = readyActive;
-        EventManager.statePaused += doContinue;
-        EventManager.stateContinue += doPause;
+        EventManager.statePaused += doPause;
+        EventManager.stateContinue += doContinue;
     }
 
     public void doUpdate()
@@ -35,6 +35,7 @@ public abstract class StateScript : MonoBehaviour {
 
     public void doPause()
     {
+        Debug.Log("doPause");
         stateMode = StateMode.Paused;
     }
 
@@ -61,7 +62,7 @@ public abstract class StateScript : MonoBehaviour {
 
     public void OnDisable ()
     {
-        EventManager.statePaused -= doContinue;
-        EventManager.stateContinue -= doPause;
+        EventManager.statePaused -= doPause;
+        EventManager.stateContinue -= doContinue;
     }
 }

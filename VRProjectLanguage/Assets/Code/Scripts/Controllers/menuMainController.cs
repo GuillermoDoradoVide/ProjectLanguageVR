@@ -20,6 +20,7 @@ public class menuMainController : MonoBehaviour {
     public Camera playerCamera;
     private Transform playerCameraTransform;
     private float cameraAngle;
+    private float lastCameraAngle;
 
     private menuController hitMenu;
     private RaycastHit hit;
@@ -39,6 +40,7 @@ public class menuMainController : MonoBehaviour {
         doMenuAnimation[(int)AnimationActions.Hide] = hideAnimation;
 
         playerCameraTransform = playerCamera.GetComponent<Transform>();
+        lastCameraAngle = 0;
 
         hitMenu = null;
     }
@@ -92,18 +94,37 @@ public class menuMainController : MonoBehaviour {
 
     private bool checkMenuState()
     {
+        if ((lastCameraAngle > minAngle && lastCameraAngle < maxAngle) && (cameraAngle > maxAngle || cameraAngle < minAngle))
+        {
+            menuContinue();
+        }
+        else if ((lastCameraAngle < minAngle || lastCameraAngle > maxAngle) && (cameraAngle < maxAngle && cameraAngle > minAngle))
+        {
+            menuPause();
+        }
+        lastCameraAngle = cameraAngle;
         if (cameraAngle < maxAngle && cameraAngle > minAngle)
         {
             checkAnimation(AnimationActions.Show);
-            EventManager.Instance.EventPause();
             return true;
         }
         else
         {
             checkAnimation(AnimationActions.Hide);
-            
             return false;
         }
+    }
+
+    public void menuPause()
+    {
+        Debug.Log("Pausa");
+        EventManager.Instance.EventPause();
+    }
+
+    public void menuContinue()
+    {
+        Debug.Log("Continuar");
+        EventManager.Instance.EventContinue();
     }
 
     private void checkAnimation(AnimationActions animAction)
