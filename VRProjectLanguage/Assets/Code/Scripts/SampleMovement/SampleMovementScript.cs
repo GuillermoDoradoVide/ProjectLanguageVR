@@ -31,7 +31,7 @@ public class SampleMovementScript : StateScript {
         moveToNext();
     }
 
-    public override void atContinue()
+    public override void readyActiveState()
     {
         //
     }

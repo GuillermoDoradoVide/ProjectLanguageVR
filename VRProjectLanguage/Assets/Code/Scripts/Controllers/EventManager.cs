@@ -4,7 +4,7 @@ using System.Collections;
 public class EventManager : SingletonComponent<EventManager>
 {
     public delegate void MachineState();
-    public static MachineState nextMachineState;
+    public static event MachineState nextMachineState;
     public delegate void StatesEvent();
     public static event StatesEvent statePaused;
     public static event StatesEvent stateContinue;
@@ -22,13 +22,13 @@ public class EventManager : SingletonComponent<EventManager>
         if (statePaused != null) statePaused();
     }
 
-    public void nextState()
-    {
-        if (nextMachineState != null) nextMachineState();
-    }
-
     public void EventContinue () {
         if (stateContinue != null) stateContinue();
+    }
+
+    public void EventNextState()
+    {
+        if (nextMachineState != null) nextMachineState();
     }
 
 }

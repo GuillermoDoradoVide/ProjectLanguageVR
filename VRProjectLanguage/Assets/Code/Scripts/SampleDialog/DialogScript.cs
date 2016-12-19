@@ -1,39 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
-public class SampleDialogScript : StateScript
-{
-    //Material change atrib
-    public MeshRenderer _meshRenderer;
-    public Color _color;
-    public Color _alternativeColor;
-    //AudioControlers
-    public AudioSource _audioSource;
-    public AudioClip _audioClip;
+public class DialogScript : MonoBehaviour {
+    public AudioClip dialog;
+    public AudioSource audioSource;
+    public Animator animationController;
+    public AnimationState animationState;
     // speech controller atrib
-    float _volume = 40;
+    float volume = 40;
     int fLow = 200;
     int fHigh = 800;
     float[] freqData;
     int nSamples = 256;
     int fMax = 24000;
-    float _voiceMinimumVolumeCoutOff = 0.001f;
+    float voiceMinimumVolumeCoutOff = 0.001f;
     //average sound values
     int sizeFilter = 5;
     float[] filter;
     float filterSum;
     int posFilter = 0;
     int qSamples = 0;
-    //mouth controllers
-    public GameObject _mouth;
-    public GameObject _intensity;
-    public float _mouthIdlePosition_Y;
-    //Animation controller
-    public Animator _animationController;
-    public AnimationState _animationState;
-    public bool _finished = false;
-
     //new
     public int qSamples2 = 1024;        // array size
     public float refValue = 0.1f;    // RMS value for 0 dB
@@ -45,80 +31,65 @@ public class SampleDialogScript : StateScript
     // Use this for initialization
     private void Start()
     {
-        if (_audioClip != null)
+        if (dialog != null)
         {
-            //_color = _meshRenderer.material.color;
-            //_audioSource = GetComponent<AudioSource>();
-            //_animationController = GetComponent<Animator>();
             samples = new float[qSamples2];
             freqData = new float[nSamples];
-            //_mouthIdlePosition_Y = _mouth.transform.position.y;
         }
         else
         {
-            Debug.Log("No hay archivo de audio cargado en el estado");
+            Debug.Log("No hay archivo de audio cargado.");
         }
     }
 
-    // Update is called once per frame
-    public override void atUpdate()
+    public void initDialog()
     {
-        playSound();
+        audioSource.Play();
     }
 
-    public override void atInit()
+    public bool playUpdateDialog()
     {
-        _audioSource.clip = _audioClip;
-        _audioSource.Play();
-        //PlayOneShot(_audioSource.clip);
-    }
-
-    public override void atPause()
-    {
-        Debug.Log("pausa del audio");
-        _audioSource.Pause();
-        _animationController.SetFloat("_Frequency", 0);
-    }
-
-    public override void readyActiveState()
-    {
-        _audioSource.UnPause();
-    }
-    /*
-    public void StartSound()
-    {
-        //Debug.Log("StartSound: " + _audioClip.name);
-        _audioSource.clip = _audioClip;
-        _audioSource.PlayOneShot(_audioSource.clip);
-    }
-    */
-    public void playSound()
-    {
-        if (_audioSource.isPlaying)
+        if (audioSource.isPlaying)
         {
             speakAnimationController();
+            return true;
         }
         else
         {
-            _animationController.SetFloat("_Intensity", 0);
-            _animationController.SetFloat("_Frequency", 0);
-            changeThisStateToFinished();
+            animationController.SetFloat("_Frequency", 0);
+            return false;
         }
     }
 
-    public void speakAnimationController()
+    public void stopDialog()
+    {
+        Debug.Log("parar el dialogo.");
+        audioSource.Stop();
+        animationController.SetFloat("_Frequency", 0);
+    }
+
+    public void pauseDialog()
+    {
+        Debug.Log("pausar el dialogo");
+        audioSource.Pause();
+        animationController.SetFloat("_Frequency", 0);
+    }
+
+    public void continueDialog()
+    {
+        audioSource.UnPause();
+    }
+
+    private void speakAnimationController()
     {
         GetVolume();
-        _intensity.transform.localScale = new Vector3(_intensity.transform.localScale.x, /*volume2 * */rmsValue, _intensity.transform.localScale.z);
-
-        float _speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * _volume;
+        float speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * volume;
         //Debug.Log("Final: " + _speechVolumeResult);
-        _animationController.SetFloat("_Frequency", _speechVolumeResult);
+        animationController.SetFloat("_Frequency", speechVolumeResult);
         //_animationController.Play("Talk", -1, rmsValue * 2);
 
         //_animationState = _animationController.GetCurrentAnimatorStateInfo(0);
-        _animationController.SetFloat("_Intensity", rmsValue);
-        if (_speechVolumeResult > _voiceMinimumVolumeCoutOff)
+        if (speechVolumeResult > voiceMinimumVolumeCoutOff)
         {
             //_animationController.SetBool("_Speaking", true);
             //_meshRenderer.material.color = Color.blue;
@@ -126,20 +97,19 @@ public class SampleDialogScript : StateScript
         }
         else
         {
-           // _meshRenderer.material.color = _color;
+            // _meshRenderer.material.color = _color;
             //_animationController.SetBool("_Speaking", false);
-            _animationController.SetFloat("_Intensity", 0.0f);
-            _animationController.SetFloat("_Frequency", 0.0f);
+            animationController.SetFloat("_Frequency", 0.0f);
         }
         //Debug.Log("Comparación: [" + movingAverage(bandVol(fLow, fHigh)) + "] :: [" + rmsValue + "]");
     }
 
     //Method unityAnswers http://answers.unity3d.com/questions/139323/any-way-of-quotautomaticquot-lip-syncing.html
-    float bandVol(float fLow, float fHigh)
+    private float bandVol(float fLow, float fHigh)
     {
         fLow = Mathf.Clamp(fLow, 20, fMax); // limit low...
         fHigh = Mathf.Clamp(fHigh, fLow, fMax); // and high frequencies
-        _audioSource.GetSpectrumData(freqData, 0, FFTWindow.BlackmanHarris);
+        audioSource.GetSpectrumData(freqData, 0, FFTWindow.BlackmanHarris);
         int n1 = (int)Mathf.Floor(fLow * nSamples / fMax);
         int n2 = (int)Mathf.Floor(fHigh * nSamples / fMax);
         float sum = 0;
@@ -152,7 +122,7 @@ public class SampleDialogScript : StateScript
         return (sum / ((n2 - n1) + 1));
     }
 
-    float movingAverage(float sample)
+    private float movingAverage(float sample)
     {
         if (qSamples == 0) filter = new float[sizeFilter];
         filterSum += sample - filter[posFilter];
@@ -162,9 +132,9 @@ public class SampleDialogScript : StateScript
         return (filterSum / qSamples);
     }
 
-    void GetVolume()
+    private void GetVolume()
     {
-        _audioSource.GetOutputData(samples, 0);    // fill array with samples
+        audioSource.GetOutputData(samples, 0);    // fill array with samples
         float sum = 0;
         for (int i = 0; i < qSamples2; i++)
         {
@@ -176,10 +146,5 @@ public class SampleDialogScript : StateScript
         {
             dbValue = -160;        // clamp it to -160 dB min
         }
-    }
-    [ContextMenu("prueba de context menu")]
-    void pruebaDeContextMenu()
-    {
-        Debug.Log("Hola Guillermo, ¿Qué tal el context menu?");
     }
 }

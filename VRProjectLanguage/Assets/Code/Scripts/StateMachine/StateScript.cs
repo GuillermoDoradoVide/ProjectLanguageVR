@@ -8,20 +8,18 @@ public abstract class StateScript : MonoBehaviour {
     public Action[]Actions;
     public abstract void atUpdate();
     public abstract void atPause();
-    public abstract void atContinue();
+    public abstract void readyActiveState();
     public abstract void atInit();
 
-    void Awake ()
+    private void Awake ()
     {
         Actions = new Action[(int)StateMode.Count]; // init array of delegates
         // Set each action delegate
         stateMode = StateMode.Active;
         Actions[(int)StateMode.Active] = atUpdate;
-        Actions[(int)StateMode.Finished] = IHaveFinished;
+        Actions[(int)StateMode.Finished] = stateFinished;
         Actions[(int)StateMode.Paused] = atPause;
-        Actions[(int)StateMode.Continue] = readyActive;
-        EventManager.statePaused += doPause;
-        EventManager.stateContinue += doContinue;
+        Actions[(int)StateMode.Continue] = atContinue;
     }
 
     public void doUpdate()
@@ -35,7 +33,6 @@ public abstract class StateScript : MonoBehaviour {
 
     public void doPause()
     {
-        Debug.Log("doPause");
         stateMode = StateMode.Paused;
     }
 
@@ -44,25 +41,19 @@ public abstract class StateScript : MonoBehaviour {
         stateMode = StateMode.Continue;
     }
 
-    public void readyActive()
-    {
-        atContinue();
-        stateMode = StateMode.Active;
-    }
-
     public void changeThisStateToFinished()
     {
         stateMode = StateMode.Finished;
     }
 
-    public void IHaveFinished()
+    private void atContinue()
     {
-        EventManager.Instance.nextState(); 
+        readyActiveState();
+        stateMode = StateMode.Active;
     }
 
-    public void OnDisable ()
+    private void stateFinished()
     {
-        EventManager.statePaused -= doPause;
-        EventManager.stateContinue -= doContinue;
+        EventManager.Instance.EventNextState(); 
     }
 }

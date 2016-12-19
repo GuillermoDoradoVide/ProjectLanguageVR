@@ -3,54 +3,69 @@ using System.Collections;
 using System.Collections.Generic;
 [AddComponentMenu("StateMachine/StateMachine")]
 public class StateMachine : MonoBehaviour {
-    public Stack<StateScript> ActionsStack;
-    public StateScript[] listOfState;
-    public StateScript CurrentState;
+    //public stateMachineStateList stateList;
+    public List<StateScript> stateList;
+    public Stack<StateScript> stackStateList;
+    [SerializeField]
+    private StateScript currentState;
 
-   void Start ()
+   private void Start ()
     {
-        ActionsStack = new Stack<StateScript>();
-        foreach (StateScript state in listOfState)
+        initMachine();
+        stackStateList = new Stack<StateScript>();
+    foreach (StateScript state in stateList)
         {
-            addState(state);
+            stackStateList.Push(state);
         }
-        CurrentState = ActionsStack.Peek();
-        EventManager.nextMachineState = nextState;
+        currentState = stackStateList.Peek();
+        /*if (stateList && stateList.Length != 0)
+        {
+            currentState = stateList.getCurrentState();
+        }
+        else
+        {
+            Debug.Log("[StateMachine]: " + gameObject.name + " has an EMPTY/NULL StateList.");
+        }*/
     }
-    void Update () {
-        CurrentState.doUpdate();
+
+    private void  initMachine() {
+        EventManager.nextMachineState += nextState;
+        EventManager.statePaused += pauseState;
+        EventManager.stateContinue += continueState;
+    }
+
+    private void Update () {
+        if (currentState != null)
+        {
+            currentState.doUpdate();
+        }
 	}
 
     public void nextState()
     {
-        popState();
-        getCurrentState();
-    }
-
-    public void popState()
-    {
-        if (ActionsStack.Count != 0)
+        if (stackStateList.Count != 0)
         {
-            ActionsStack.Pop();
+            stackStateList.Pop();
         }
+        currentState = stackStateList.Peek();
+        //currentState = stateList.getNextState();
+        currentState.atInit();
     }
 
-    public void getCurrentState()
+    public void pauseState()
     {
-        if (ActionsStack.Count != 0)
-        {
-            CurrentState = ActionsStack.Peek();
-            CurrentState.atInit();
-        }  
+        currentState.doPause();
     }
 
-    public void addState(StateScript newState)
+    public void continueState()
     {
-        ActionsStack.Push(newState);
+        currentState.doContinue();
     }
 
-    public void clearStack()
+    private void OnDisable()
     {
-        ActionsStack.Clear();
+        EventManager.statePaused -= pauseState;
+        EventManager.stateContinue -= continueState;
+        EventManager.nextMachineState -= continueState;
     }
 }

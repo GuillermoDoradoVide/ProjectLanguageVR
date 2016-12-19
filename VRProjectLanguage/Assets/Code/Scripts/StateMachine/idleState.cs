@@ -24,7 +24,7 @@ public class idleState : StateScript {
         throw new NotImplementedException();
     }
 
-    public override void atContinue()
+    public override void readyActiveState()
     {
         throw new NotImplementedException();
     }
