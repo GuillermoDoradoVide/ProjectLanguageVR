@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[AddComponentMenu("Generic/ScriptableObjectSingleton")]
 public abstract class ScriptableObjectSingletonComponent<T> : ScriptableObject where T : ScriptableObjectSingletonComponent<T>
 {
     protected static T instance = null;
@@ -27,17 +27,5 @@ public abstract class ScriptableObjectSingletonComponent<T> : ScriptableObject w
             }
             return instance;
         }
-    }
-
-    protected void Awake()
-    {
-        doAtAwake();
-    }
-    /// <summary>
-    /// Customizable Templated method that will run on awake.
-    /// </summary>
-    protected virtual void doAtAwake()
-    {
-        Debug.Log("Virtual doAtAwake [Singleton:" + name + "]");
     }
 }

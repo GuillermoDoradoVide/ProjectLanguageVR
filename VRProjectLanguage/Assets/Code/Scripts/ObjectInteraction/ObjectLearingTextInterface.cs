@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+[AddComponentMenu("Interface/ObjectLearningTextInterface")]
 public class ObjectLearingTextInterface : MonoBehaviour {
 
     public Transform toolTipDisplayPosition;

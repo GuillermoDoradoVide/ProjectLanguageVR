@@ -43,7 +43,7 @@ public class SampleDialogScript : StateScript
     private float[] samples;        // audio sample
 
     // Use this for initialization
-    public override void doAtStart()
+    private void Start()
     {
         if (_audioClip != null)
         {
@@ -61,9 +61,27 @@ public class SampleDialogScript : StateScript
     }
 
     // Update is called once per frame
-    public override void doUpdate()
+    public override void atUpdate()
     {
         playSound();
+    }
+
+    public override void atInit()
+    {
+        _audioSource.clip = _audioClip;
+        _audioSource.PlayOneShot(_audioSource.clip);
+        //
+    }
+
+    public override void atPause()
+    {
+        Debug.Log("pausa del audio");
+        _audioSource.Pause();
+    }
+
+    public override void atContinue()
+    {
+        _audioSource.UnPause();
     }
 
     public void StartSound()

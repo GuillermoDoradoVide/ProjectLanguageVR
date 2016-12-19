@@ -7,7 +7,6 @@ public class PetCharacterController : MonoBehaviour {
     public GameObject _Pet;
 	// Use this for initialization
 	void Start () {
-        _PetStateMachine = StateMachine.Instance;
     }
 	
 	// Update is called once per frame

@@ -1,52 +1,67 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[AddComponentMenu("StateMachine/StateScript")]
 public abstract class StateScript : MonoBehaviour {
-    public bool isTriggerable { get; set; }
-    private enum StateActions { Active, Finished, Count };
-    private StateActions stateActions;
-    public delegate void _Action();
-    public _Action[] _Actions;
-    public abstract void doUpdate();
-    public abstract void doAtStart();
-    public StateMachine _OwnwerStateMachine;
+    private enum StateMode { Active, Finished, Paused, Continue, Count };
+    private StateMode stateMode;
+    public delegate void Action();
+    public Action[]Actions;
+    public abstract void atUpdate();
+    public abstract void atPause();
+    public abstract void atContinue();
+    public abstract void atInit();
 
     void Awake ()
     {
-        _Actions = new _Action[(int)StateActions.Count]; // init array of delegates
+        Actions = new Action[(int)StateMode.Count]; // init array of delegates
         // Set each action delegate
-        stateActions = StateActions.Active;
-        _Actions[(int)StateActions.Active] = doUpdate;
-        _Actions[(int)StateActions.Finished] = IHaveFinished;
+        stateMode = StateMode.Active;
+        Actions[(int)StateMode.Active] = atUpdate;
+        Actions[(int)StateMode.Finished] = IHaveFinished;
+        Actions[(int)StateMode.Paused] = atPause;
+        Actions[(int)StateMode.Continue] = readyActive;
+        EventManager.statePaused += doContinue;
+        EventManager.stateContinue += doPause;
     }
 
-     void Start()
-    {
-        init();
-        doAtStart();
-    }
-
-    public void doAtUpdate()
+    public void doUpdate()
     {
         //_Actions[(int)stateActions]?.Invoke(); alternativa que no me deja no se porque.
-        if (_Actions[(int)stateActions] != null)
+        if (Actions[(int)stateMode] != null)
         {
-            _Actions[(int)stateActions]();
+            Actions[(int)stateMode]();
         }
     }
 
-    void init()
+    public void doPause()
     {
-        isTriggerable = false;
+        stateMode = StateMode.Paused;
+    }
+
+    public void doContinue()
+    {
+        stateMode = StateMode.Continue;
+    }
+
+    public void readyActive()
+    {
+        atContinue();
+        stateMode = StateMode.Active;
     }
 
     public void changeThisStateToFinished()
     {
-        stateActions = StateActions.Finished;
+        stateMode = StateMode.Finished;
     }
 
     public void IHaveFinished()
     {
-        _OwnwerStateMachine.nextState();
+        EventManager.Instance.nextState(); 
+    }
+
+    public void OnDisable ()
+    {
+        EventManager.statePaused -= doContinue;
+        EventManager.stateContinue -= doPause;
     }
 }

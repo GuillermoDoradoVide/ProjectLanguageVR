@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[AddComponentMenu("Controllers/menuMainController")]
 public class menuMainController : MonoBehaviour {
 
     public GameObject menus;
     public Transform menusTransform;
     public bool animationIsPlaying = false;
+    public bool superiorMenuState = false;
 
     public float maxAngle;
     public float minAngle;
@@ -51,20 +52,29 @@ public class menuMainController : MonoBehaviour {
         input();
         calculateViewRotation();
         playerCameraTransform.eulerAngles = new Vector3(pitch * 2, yaw * 2, 0.0f);
-
-        if (checkMenuState())
+        if (!superiorMenuState)
+        {
+            if (!checkMenuState())
+            {
+                if (!animationIsPlaying) this.transform.eulerAngles = new Vector3(0.0f, yaw * 2, 0.0f);
+            }
+        }
+        else
         {
             calculateMenu();
-        }else
-        {
-            if (!animationIsPlaying) this.transform.eulerAngles = new Vector3(0.0f, yaw * 2, 0.0f);
         }
+
         if (animationIsPlaying) {
             if (doMenuAnimation[(int)animationActions] != null)
             {
                 doMenuAnimation[(int)animationActions]();
             }
         }
+    }
+
+    private void menuRotation ()
+    {
+        this.transform.eulerAngles = new Vector3(0.0f, yaw * 2, 0.0f);
     }
 
     private void input()
@@ -85,11 +95,13 @@ public class menuMainController : MonoBehaviour {
         if (cameraAngle < maxAngle && cameraAngle > minAngle)
         {
             checkAnimation(AnimationActions.Show);
+            EventManager.Instance.EventPause();
             return true;
         }
         else
         {
             checkAnimation(AnimationActions.Hide);
+            
             return false;
         }
     }

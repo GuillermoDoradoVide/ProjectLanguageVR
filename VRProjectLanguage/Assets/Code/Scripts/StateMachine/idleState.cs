@@ -5,12 +5,27 @@ using System;
 public class idleState : StateScript {
 
 
-    public override void doAtStart()
+  private void Start()
     {
-        //nothing
+
     }
-    public override void doUpdate()
+    public override void atUpdate()
     {
         //throw new NotImplementedException();
+    }
+
+    public override void atInit()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void atPause()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void atContinue()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[AddComponentMenu("Generic/Singleton")]
 public abstract class SingletonComponent<T> : MonoBehaviour where T : SingletonComponent<T>
 {
     protected static T instance = null;
@@ -26,21 +26,9 @@ public abstract class SingletonComponent<T> : MonoBehaviour where T : SingletonC
             }
             else
             {
-                Debug.Log("[Singleton] Using instance already created: " + instance.gameObject.name);
+                //Debug.Log("[Singleton] Using instance already created: " + instance.gameObject.name);
             }
             return instance;
         }
-    }
-
-    protected void Awake()
-    {
-        doAtAwake();
-    }
-    /// <summary>
-    /// Customizable Templated method that will run on awake.
-    /// </summary>
-    protected virtual void doAtAwake()
-    {
-        Debug.Log("Virtual doAtAwake [Singleton:" + name + "]");
     }
 }

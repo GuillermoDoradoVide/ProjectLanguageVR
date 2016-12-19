@@ -57,7 +57,6 @@ public class ToolTipCanvasScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("entra a hacerlo");
             checkAnimation(AnimationActions.Hide);
         }
         if (animationIsPlaying)

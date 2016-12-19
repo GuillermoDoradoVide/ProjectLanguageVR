@@ -14,14 +14,26 @@ public class SampleMovementScript : StateScript {
     public bool _finished = false;
 
     // Use this for initialization
-    public override void doAtStart()
+    private  void Start()
     {
         _gameObjectTransform = _gameObjectToMove.GetComponent<Transform>();
     }
 
+    public override void atInit()
+    {
+    }
+
+    public override void atPause()
+    {
+    }
     // Update is called once per frame
-   public override void doUpdate () {
+    public override void atUpdate () {
         moveToNext();
+    }
+
+    public override void atContinue()
+    {
+        throw new NotImplementedException();
     }
 
     public void moveToNext()
@@ -29,6 +41,7 @@ public class SampleMovementScript : StateScript {
         _gameObjectTransform.position = Vector3.MoveTowards(_gameObjectTransform.position, _speechPosition[_currentNextPosition].position, Time.deltaTime * _speed);
         if (_gameObjectTransform.position == _speechPosition[_currentNextPosition].position)
         {
+           
             _gameObjectTransform.rotation = _speechPosition[_currentNextPosition].rotation;
             if (_currentNextPosition < _speechPosition.Length - 1)
             {

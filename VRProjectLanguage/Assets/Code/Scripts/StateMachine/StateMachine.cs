@@ -1,28 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public class StateMachine : SingletonComponent<StateMachine> {
-    public Stack<StateScript> _ActionsStack;
-    public StateScript[] _listOfState;
-    public StateScript _CurrentState;
-
-    protected override void doAtAwake()
-    {
-    }
+[AddComponentMenu("StateMachine/StateMachine")]
+public class StateMachine : MonoBehaviour {
+    public Stack<StateScript> ActionsStack;
+    public StateScript[] listOfState;
+    public StateScript CurrentState;
 
    void Start ()
     {
-        _ActionsStack = new Stack<StateScript>();
-        foreach (StateScript _state in _listOfState)
+        ActionsStack = new Stack<StateScript>();
+        foreach (StateScript state in listOfState)
         {
-            _state._OwnwerStateMachine = this;
-            newState(_state);
+            addState(state);
         }
-        _CurrentState = _ActionsStack.Peek();
+        CurrentState = ActionsStack.Peek();
+        EventManager.nextMachineState = nextState;
     }
     void Update () {
-        _CurrentState.doAtUpdate();
+        CurrentState.doUpdate();
 	}
 
     public void nextState()
@@ -33,32 +29,28 @@ public class StateMachine : SingletonComponent<StateMachine> {
 
     public void popState()
     {
-        if (_ActionsStack.Count != 0)
+        if (ActionsStack.Count != 0)
         {
-            _ActionsStack.Pop();
+            ActionsStack.Pop();
         }
     }
 
     public void getCurrentState()
     {
-        if (_ActionsStack.Count != 0)
+        if (ActionsStack.Count != 0)
         {
-            _CurrentState = _ActionsStack.Peek();
-            if (_CurrentState.GetComponent<SampleDialogScript>())
-            {
-                _CurrentState.GetComponent<SampleDialogScript>().StartSound();
-            }
+            CurrentState = ActionsStack.Peek();
+            CurrentState.atInit();
         }  
     }
 
-    public void newState(StateScript _newState)
+    public void addState(StateScript newState)
     {
-        _newState._OwnwerStateMachine = this;
-        _ActionsStack.Push(_newState);
+        ActionsStack.Push(newState);
     }
 
     public void clearStack()
     {
-        _ActionsStack.Clear();
+        ActionsStack.Clear();
     }
 }

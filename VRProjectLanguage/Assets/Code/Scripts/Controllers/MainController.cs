@@ -5,7 +5,7 @@ public class MainController : SingletonComponent<MainController> {
 
     public SceneController sceneController;
 
-    protected override void doAtAwake()
+    private void Awake()
     {
         sceneController = SceneController.Instance;
     }

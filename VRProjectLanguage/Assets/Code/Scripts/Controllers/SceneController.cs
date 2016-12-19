@@ -52,7 +52,7 @@ public class SceneController : ScriptableObjectSingletonComponent<SceneControlle
         }
     }
 
-    protected override void doAtAwake()
+    private void Awake()
     {
         nextSceneName = "Sample_Tutorial";
         Debug.Log("[SceneManager] loading '" + nextSceneName + "' scene.");
@@ -96,7 +96,7 @@ public class SceneController : ScriptableObjectSingletonComponent<SceneControlle
 
     private void sceneStateReset()
     {
-        Debug.Log("Reset");
+        //Debug.Log("Reset");
         // run a gc pass
         System.GC.Collect();
         sceneState = SceneState.Preload;
@@ -104,14 +104,14 @@ public class SceneController : ScriptableObjectSingletonComponent<SceneControlle
 
     private void sceneStatePreload()
     {
-        Debug.Log("Preload");
+        //Debug.Log("Preload");
         sceneLoadTask = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
         sceneState = SceneState.Load;
     }
 
     private void sceneStateLoad()
     {
-        Debug.Log("Load");
+        //Debug.Log("Load");
         //done loading?
         if (sceneLoadTask.isDone == true)
         {
@@ -126,7 +126,7 @@ public class SceneController : ScriptableObjectSingletonComponent<SceneControlle
 
     private void sceneStateUnload()
     {
-        Debug.Log("Unload");
+        //Debug.Log("Unload");
         // cleaning up resources yet?
         if (resourceUnloadTask == null)
         {
@@ -145,14 +145,14 @@ public class SceneController : ScriptableObjectSingletonComponent<SceneControlle
 
     private void sceneStatePostload()
     {
-        Debug.Log("Postload");
+        //Debug.Log("Postload");
         currentSceneName = nextSceneName;
         sceneState = SceneState.Ready;
     }
 
     private void sceneStateReady()
     {
-        Debug.Log("Ready");
+        //Debug.Log("Ready");
         // run a gc pass 
         //if you have assets loaded in the scene
         // that are currently unnused but may be used later dont do this here
@@ -162,7 +162,7 @@ public class SceneController : ScriptableObjectSingletonComponent<SceneControlle
 
     private void sceneStateRun()
     {
-        Debug.Log("Run");
+        //Debug.Log("Run");
         if (currentSceneName != nextSceneName)
         {
             sceneState = SceneState.Reset;
