@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\Editor\PlayerPrefabManagerEditor.cs" />
      <Compile Include="Assets\Code\OVR\Editor\OVRBuild.cs" />
      <Compile Include="Assets\Code\OVR\Editor\OVRManifestPreprocessor.cs" />
      <Compile Include="Assets\Code\OVR\Editor\OVRMoonlightLoader.cs" />

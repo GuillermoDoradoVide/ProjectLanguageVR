@@ -1,0 +1,37 @@
+﻿using UnityEngine;
+using System.Collections;
+using System;
+
+public class SceneEventActivity : StateScript {
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+    public override void atInit()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void atPause()
+    {
+        throw new NotImplementedException();
+    }
+
+
+    public override void atUpdate()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void readyActiveState()
+    {
+        throw new NotImplementedException();
+    }
+}

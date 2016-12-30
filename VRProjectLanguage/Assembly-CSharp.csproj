@@ -85,7 +85,9 @@
      <Compile Include="Assets\Code\Scripts\InGameMenus\menuController.cs" />
      <Compile Include="Assets\Code\Scripts\Introduction_1.cs" />
      <Compile Include="Assets\Code\Scripts\ObjectInteraction\ObjectLearingTextInterface.cs" />
+     <Compile Include="Assets\Code\Scripts\Player\PlayerCreationPrefabManager.cs" />
      <Compile Include="Assets\Code\Scripts\Player\PlayerInteractions.cs" />
+     <Compile Include="Assets\Code\Scripts\Player\PlayerScriptable.cs" />
      <Compile Include="Assets\Code\Scripts\SampleDialog\DialogScript.cs" />
      <Compile Include="Assets\Code\Scripts\SampleDialog\SampleDialogScript.cs" />
      <Compile Include="Assets\Code\Scripts\SampleMovement\SampleMovementScript.cs" />
