@@ -51,6 +51,7 @@
      <Compile Include="Assets\Code\Level\SceneData.cs" />
      <Compile Include="Assets\Code\Level\SceneEventActivity.cs" />
      <Compile Include="Assets\Code\Managers\EventManager.cs" />
+     <Compile Include="Assets\Code\Managers\Events.cs" />
      <Compile Include="Assets\Code\Managers\GameManager.cs" />
      <Compile Include="Assets\Code\Managers\LevelManager.cs" />
      <Compile Include="Assets\Code\Managers\SceneController.cs" />

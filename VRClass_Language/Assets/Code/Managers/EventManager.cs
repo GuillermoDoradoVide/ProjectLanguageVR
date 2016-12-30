@@ -1,34 +1,62 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EventManager : SingletonComponent<EventManager>
 {
-    public delegate void MachineState();
-    public static event MachineState nextMachineState;
-    public delegate void StatesEvent();
-    public static event StatesEvent statePaused;
-    public static event StatesEvent stateContinue;
+    [SerializeField]
+    private Dictionary<Events.EventList, UnityEvent> eventDictionary;
 
     private void Awake()
     {
+        if(eventDictionary == null)
+        {
+            eventDictionary = new Dictionary<Events.EventList, UnityEvent>();
+        }
     }
 
     private void Start()
     {
+        initEvents();
     }
 
-    public void EventPause()
+    private void initEvents()
     {
-        if (statePaused != null) statePaused();
+
+    }
+    //Generic event EventManager
+    public static void startListening (Events.EventList eventName, UnityAction listener)
+    {
+        UnityEvent thisEvent = null;
+        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        {
+            thisEvent.AddListener(listener);
+        }
+        else
+        {
+            thisEvent = new UnityEvent();
+            thisEvent.AddListener(listener);
+            instance.eventDictionary.Add(eventName, thisEvent);
+        }
     }
 
-    public void EventContinue()
+    public static void stopListening (Events.EventList eventName, UnityAction listener)
     {
-        if (stateContinue != null) stateContinue();
+        if (instance == null) return;
+        UnityEvent thisEvent = null;
+        if(instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        {
+            thisEvent.RemoveListener(listener);
+        }
     }
 
-    public void EventNextState()
+    public static void triggerEvent(Events.EventList eventName)
     {
-        if (nextMachineState != null) nextMachineState();
+        UnityEvent thisEvent = null;
+        if(instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        {
+            thisEvent.Invoke();
+        }
     }
 }

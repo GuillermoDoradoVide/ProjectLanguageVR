@@ -19,9 +19,9 @@ public class StateManager : ScriptableObject {
     }
 
     private void  initMachine() {
-        EventManager.nextMachineState += nextState;
-        EventManager.statePaused += pauseState;
-        EventManager.stateContinue += continueState;
+        EventManager.startListening(Events.EventList.SV_nextState, nextState);
+        EventManager.startListening(Events.EventList.SV_pauseState, pauseState);
+        EventManager.startListening(Events.EventList.SV_continueState, continueState);
     }
 
     private void Update () {
@@ -54,8 +54,8 @@ public class StateManager : ScriptableObject {
 
     private void OnDisable()
     {
-        EventManager.statePaused -= pauseState;
-        EventManager.stateContinue -= continueState;
-        EventManager.nextMachineState -= continueState;
+        EventManager.stopListening(Events.EventList.SV_nextState, nextState);
+        EventManager.stopListening(Events.EventList.SV_pauseState, pauseState);
+        EventManager.stopListening(Events.EventList.SV_continueState, continueState);
     }
 }

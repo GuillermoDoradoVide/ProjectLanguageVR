@@ -54,6 +54,6 @@ public abstract class StateScript : MonoBehaviour {
 
     private void stateFinished()
     {
-        EventManager.Instance.EventNextState(); 
+        EventManager.triggerEvent(Events.EventList.SV_nextState);
     }
 }
