@@ -3,19 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 [AddComponentMenu("StateMachine/StateMachine")]
 public class StateManager : ScriptableObject {
-    public List<StateScript> stateList;
-    public Stack<StateScript> stackStateList;
+    private Stack<StateScript> stackStateList;
     private StateScript currentState;
 
-   private void Start ()
+   private void Awake ()
+    {
+        stackStateList = new Stack<StateScript>();  
+    }
+
+    private void Start ()
     {
         initMachine();
-        stackStateList = new Stack<StateScript>();
-        foreach (StateScript state in stateList)
-        {
-            stackStateList.Push(state);
-        }
-        currentState = stackStateList.Peek();
     }
 
     private void  initMachine() {
@@ -38,7 +36,6 @@ public class StateManager : ScriptableObject {
             stackStateList.Pop();
         }
         currentState = stackStateList.Peek();
-        //currentState = stateList.getNextState();
         currentState.atInit();
     }
 
@@ -57,5 +54,14 @@ public class StateManager : ScriptableObject {
         EventManager.stopListening(Events.EventList.SV_nextState, nextState);
         EventManager.stopListening(Events.EventList.SV_pauseState, pauseState);
         EventManager.stopListening(Events.EventList.SV_continueState, continueState);
+    }
+
+    public void getLevelStateList(List<StateScript> levelList)
+    {
+        foreach (StateScript state in levelList)
+        {
+            stackStateList.Push(state);
+        }
+        currentState = stackStateList.Peek();
     }
 }
