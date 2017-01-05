@@ -20,6 +20,7 @@ public class PlayerGazeInteraction : MonoBehaviour {
 	private void Update () {
         drawGaze();
         playerGaze();
+        playerGazeAngle();
 	}
 
     private void playerGaze()
@@ -38,5 +39,13 @@ public class PlayerGazeInteraction : MonoBehaviour {
     {
         Debug.DrawRay(playerPosition.position, playerPosition.forward, Color.red);
         Debug.DrawLine(playerPosition.position, playerPosition.forward, Color.green);
+    }
+
+    private void playerGazeAngle()
+    {
+        if (GvrController.Orientation.x < 80 && GvrController.Orientation.x > 10)
+        {
+            EventManager.triggerEvent(Events.EventList.MV_Show);
+        }
     }
 }
