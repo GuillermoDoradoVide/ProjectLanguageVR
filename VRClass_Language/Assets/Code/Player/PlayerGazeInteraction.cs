@@ -31,6 +31,7 @@ public class PlayerGazeInteraction : MonoBehaviour {
             if (ExecuteEvents.CanHandleEvent<IElement>(targetGazedObject))
             {
                 ExecuteEvents.Execute(targetGazedObject, null, (IElement element, BaseEventData data) => element.hoverElement());
+                // si se selecciona el objeto se manda el evento > EventManager.triggerEvent(Events.EventList.MV_Active);
             }
         }
     }
@@ -45,7 +46,7 @@ public class PlayerGazeInteraction : MonoBehaviour {
     {
         if (GvrController.Orientation.x < 80 && GvrController.Orientation.x > 10)
         {
-            EventManager.triggerEvent(Events.EventList.MV_Show);
+            EventManager.triggerEvent(Events.EventList.MV_Active);
         }
     }
 }

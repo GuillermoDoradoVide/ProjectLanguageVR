@@ -1,50 +1,65 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuMain : MonoBehaviour, IElement {
+public class MenuMain : MonoBehaviour {
 
-    public GameObject menus;
+    private GameObject menus;
+    private MenuAnimationController[] animationController;
+    public delegate void AnimationManager();
+    public static event AnimationManager animations;
+
+    private bool active = false;
+
+    private void Awake ()
+    {
+        animationController = menus.GetComponentsInChildren<MenuAnimationController>();
+        foreach (MenuAnimationController animController in animationController)
+        {
+            animations += animController.playAnimation;
+        }
+    }
+
+    private void OnDisable ()
+    {
+        foreach (MenuAnimationController animController in animationController)
+        {
+            animations -= animController.playAnimation;
+        }
+    }
+
 	// Use this for initialization
 	void Start () {
-        
     }
 
     private void onEnable()
     {
-        EventManager.startListening(Events.EventList.MV_Show, showMenu);
+        EventManager.startListening(Events.EventList.MV_Active, activeMenu);
     }
 
     private void onDisable()
     {
-        EventManager.stopListening(Events.EventList.MV_Show, hideMenu);
+        EventManager.stopListening(Events.EventList.MV_Active, disableMenu);
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
+	if(active)
+        {
+            animations();
+        }
 	}
 
-    public void hoverElement()
+    private void activeMenu()
     {
-        Debug.Log("(GameObject)" + name + "> is beeing looked at.");
+        if (!menus.activeSelf)
+        {
+            menus.SetActive(true);
+            active = true;
+        }
+        
     }
 
-    public void selectElement()
-    {
-
-    }
-
-    public void resetElement()
-    {
-
-    }
-
-    private void showMenu()
-    {
-        if (!menus.activeSelf) menus.SetActive(true);
-    }
-
-    private void hideMenu()
+    private void disableMenu()
     {
 
     }

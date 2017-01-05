@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuManager : MonoBehaviour {
-
+public class MenuController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
