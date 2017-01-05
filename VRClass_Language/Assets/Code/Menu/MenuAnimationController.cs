@@ -2,12 +2,20 @@
 using System.Collections;
 
 public class MenuAnimationController : MonoBehaviour {
-    private enum AnimationActions { Show, Hide, Idle, Count };
-    private AnimationActions animationActions;
+    public enum AnimationActions { Show, Hide, Idle, Count };
+    public AnimationActions animationActions;
     public delegate void DoMenuAnimations();
     public DoMenuAnimations[] doMenuAnimation;
     public DoMenuAnimations setShowAnimation, setHideAnimation, setIdleAnimation;
 
+    public DoMenuAnimations SetShowAnimation
+    {
+        set
+        {
+            setShowAnimation = value;
+        }
+    }
+    public bool animationIsPlaying = false;
     private void Awake()
     {
         doMenuAnimation = new DoMenuAnimations[(int)AnimationActions.Count];
@@ -24,9 +32,18 @@ public class MenuAnimationController : MonoBehaviour {
     void Start () {
 	
 	}
+
+    void Update()
+    {
+        if (animationIsPlaying)
+        {
+            playAnimation();
+        }
+    }
 	
 	public void playAnimation()
     {
+        
         if (doMenuAnimation[(int)animationActions] != null)
         {
             doMenuAnimation[(int)animationActions]();

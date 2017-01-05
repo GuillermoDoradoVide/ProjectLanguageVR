@@ -3,28 +3,16 @@ using System.Collections;
 
 public class MenuMain : MonoBehaviour {
 
-    private GameObject menus;
-    private MenuAnimationController[] animationController;
-    public delegate void AnimationManager();
-    public static event AnimationManager animations;
-
+    public GameObject menus;
+    public Script_MainMenu mainMenu;
     private bool active = false;
 
     private void Awake ()
     {
-        animationController = menus.GetComponentsInChildren<MenuAnimationController>();
-        foreach (MenuAnimationController animController in animationController)
-        {
-            animations += animController.playAnimation;
-        }
     }
 
     private void OnDisable ()
     {
-        foreach (MenuAnimationController animController in animationController)
-        {
-            animations -= animController.playAnimation;
-        }
     }
 
 	// Use this for initialization
@@ -38,14 +26,13 @@ public class MenuMain : MonoBehaviour {
 
     private void onDisable()
     {
-        EventManager.stopListening(Events.EventList.MV_Active, disableMenu);
+        EventManager.stopListening(Events.EventList.MV_Active, activeMenu);
     }
 	
 	// Update is called once per frame
 	void Update () {
 	if(active)
         {
-            animations();
         }
 	}
 
@@ -54,13 +41,15 @@ public class MenuMain : MonoBehaviour {
         if (!menus.activeSelf)
         {
             menus.SetActive(true);
-            active = true;
         }
-        
+        active = true;
+        EventManager.triggerEvent(Events.EventList.SV_pauseState);
     }
 
     private void disableMenu()
     {
-
+        active = false;
+        EventManager.triggerEvent(Events.EventList.SV_continueState);
+        //menus.SetActive(false);
     }
 }

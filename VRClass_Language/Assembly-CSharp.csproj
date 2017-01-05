@@ -61,6 +61,7 @@
      <Compile Include="Assets\Code\Menu\MenuAnimationController.cs" />
      <Compile Include="Assets\Code\Menu\MenuController.cs" />
      <Compile Include="Assets\Code\Menu\MenuMain.cs" />
+     <Compile Include="Assets\Code\Menu\Script_MainMenu.cs" />
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Scripts\GazeInputModule.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Scripts\GvrHead.cs" />
