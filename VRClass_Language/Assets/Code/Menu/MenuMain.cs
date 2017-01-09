@@ -18,11 +18,13 @@ public class MenuMain : MonoBehaviour {
     private void OnEnable()
     {
         EventManager.startListening(Events.EventList.MV_Active, activeMenu);
+        EventManager.startListening(Events.EventList.MV_Hide, disableMenu);
     }
 
     private void OnDisable()
     {
         EventManager.stopListening(Events.EventList.MV_Active, activeMenu);
+        EventManager.stopListening(Events.EventList.MV_Hide, disableMenu);
     }
 	
 	// Update is called once per frame

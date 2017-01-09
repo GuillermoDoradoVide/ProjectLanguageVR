@@ -8,6 +8,7 @@ public class Script_MainMenu : MonoBehaviour {
     {
         menuAnimationController = GetComponent<MenuAnimationController>();
         menuAnimationController.setShowAnimation = showAnimation;
+        menuAnimationController.setHideAnimation = hideAnimation;
     }
 
     private void OnEnable()
@@ -47,6 +48,7 @@ public class Script_MainMenu : MonoBehaviour {
         if (Vector3.Distance(gameObject.transform.position, Vector3.zero) < 7.0f)
         {
             menuAnimationController.animationIsPlaying = false;
+            closeThisMenu();
         }
         else
         {
@@ -57,6 +59,6 @@ public class Script_MainMenu : MonoBehaviour {
 
     private void closeThisMenu()
     {
-
+        EventManager.triggerEvent(Events.EventList.MV_Hide);
     }
 }
