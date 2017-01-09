@@ -4,9 +4,12 @@ using System;
 
 public class SceneEventActivity : StateScript {
 
+    public AudioClip firstDialog;
+    public AudioClip secondDialog;
+
 	// Use this for initialization
 	void Start () {
-	
+        EventManager.setNewDialogEvent(firstDialog);
 	}
 	
 	// Update is called once per frame
@@ -34,4 +37,5 @@ public class SceneEventActivity : StateScript {
     {
         throw new NotImplementedException();
     }
+
 }

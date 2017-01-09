@@ -9,6 +9,6 @@ public class Events  : ScriptableObject
     /// <para>MV = MenuEvent</para>
     /// </summary>
     public enum EventList {
-        SV_nextState, SV_pauseState, SV_continueState, MV_Show, MV_Hide, MV_Active, MV_Select,
+        SV_nextState, SV_pauseState, SV_continueState, MV_Show, MV_Hide, MV_Active, MV_Select, Pet_NewDialog, GM_Pause,
         Count };
 }

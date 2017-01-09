@@ -16,6 +16,7 @@ public class MenuAnimationController : MonoBehaviour {
         }
     }
     public bool animationIsPlaying = false;
+
     private void Awake()
     {
         doMenuAnimation = new DoMenuAnimations[(int)AnimationActions.Count];

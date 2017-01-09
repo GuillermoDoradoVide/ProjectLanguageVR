@@ -45,11 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\Dialog\DialogScript.cs" />
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
+     <Compile Include="Assets\Code\Level\SampleLevel\SceneEventActivity.cs" />
      <Compile Include="Assets\Code\Level\SceneData.cs" />
-     <Compile Include="Assets\Code\Level\SceneEventActivity.cs" />
      <Compile Include="Assets\Code\Managers\EventManager.cs" />
      <Compile Include="Assets\Code\Managers\Events.cs" />
      <Compile Include="Assets\Code\Managers\GameManager.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Code\Menu\MenuController.cs" />
      <Compile Include="Assets\Code\Menu\MenuMain.cs" />
      <Compile Include="Assets\Code\Menu\Script_MainMenu.cs" />
+     <Compile Include="Assets\Code\Player\PlayerControllerInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Scripts\GazeInputModule.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Scripts\GvrHead.cs" />

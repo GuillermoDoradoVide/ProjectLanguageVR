@@ -7,6 +7,8 @@ public class EventManager : SingletonComponent<EventManager>
 {
     [SerializeField]
     private Dictionary<Events.EventList, UnityEvent> eventDictionary;
+    public delegate void NewDialogEvent(AudioClip audioClip);
+    static NewDialogEvent newDialog;
 
     private void Awake()
     {
@@ -58,5 +60,20 @@ public class EventManager : SingletonComponent<EventManager>
         {
             thisEvent.Invoke();
         }
+    }
+
+    public static void addDialogListener(NewDialogEvent method)
+    {
+        newDialog += method;
+    }
+
+    public static void removeDialogListener(NewDialogEvent method)
+    {
+        newDialog -= method;
+    }
+
+    public static void setNewDialogEvent(AudioClip audioClip)
+    {
+        if (newDialog != null) newDialog(audioClip);
     }
 }

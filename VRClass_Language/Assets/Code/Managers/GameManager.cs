@@ -26,4 +26,19 @@ public class GameManager : SingletonComponent<GameManager>
         levelManager = LevelManager.Instance;
         eventManager = EventManager.Instance;
     }
+
+    private void OnEnable()
+    {
+        EventManager.startListening(Events.EventList.GM_Pause, pauseGame);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.stopListening(Events.EventList.GM_Pause, pauseGame);
+    }
+
+    private void pauseGame()
+    {
+        Debug.Log("Pausa del juego. Abierto el menu.");
+    }
 }
