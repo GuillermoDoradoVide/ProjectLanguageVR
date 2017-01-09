@@ -20,19 +20,18 @@ public class MenuAnimationController : MonoBehaviour {
     private void Awake()
     {
         doMenuAnimation = new DoMenuAnimations[(int)AnimationActions.Count];
-        setShowAnimation = null;
-        setHideAnimation = null;
-        setIdleAnimation = null;
+        //setShowAnimation = null;
+        //setHideAnimation = null;
+        //setIdleAnimation = null;
+    }
+    // Use this for initialization
+    void Start () {
         //active and set each delegate
-        animationActions = AnimationActions.Hide;
+        animationActions = AnimationActions.Show;
         doMenuAnimation[(int)AnimationActions.Show] = setShowAnimation;
         doMenuAnimation[(int)AnimationActions.Hide] = setHideAnimation;
         doMenuAnimation[(int)AnimationActions.Idle] = setIdleAnimation;
     }
-    // Use this for initialization
-    void Start () {
-	
-	}
 
     void Update()
     {

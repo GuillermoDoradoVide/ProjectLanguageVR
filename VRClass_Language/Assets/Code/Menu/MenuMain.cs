@@ -11,26 +11,27 @@ public class MenuMain : MonoBehaviour {
     {
     }
 
-    private void OnDisable ()
-    {
-    }
-
 	// Use this for initialization
 	void Start () {
     }
 
-    private void onEnable()
+    private void OnEnable()
     {
         EventManager.startListening(Events.EventList.MV_Active, activeMenu);
     }
 
-    private void onDisable()
+    private void OnDisable()
     {
         EventManager.stopListening(Events.EventList.MV_Active, activeMenu);
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(Input.anyKeyDown)
+        {
+            EventManager.triggerEvent(Events.EventList.MV_Active);
+        }
 	if(active)
         {
         }
@@ -49,7 +50,10 @@ public class MenuMain : MonoBehaviour {
     private void disableMenu()
     {
         active = false;
+        if (menus.activeSelf)
+        {
+            menus.SetActive(false);
+        }
         EventManager.triggerEvent(Events.EventList.SV_continueState);
-        //menus.SetActive(false);
     }
 }
