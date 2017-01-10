@@ -32,6 +32,7 @@ public class MenuMain : MonoBehaviour {
 
         if(Input.anyKeyDown)
         {
+            Debug.Log("tecla apretada");
             EventManager.triggerEvent(Events.EventList.MV_Active);
         }
 	if(active)

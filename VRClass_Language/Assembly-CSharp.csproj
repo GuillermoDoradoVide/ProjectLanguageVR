@@ -62,6 +62,9 @@
      <Compile Include="Assets\Code\Menu\MenuAnimationController.cs" />
      <Compile Include="Assets\Code\Menu\MenuController.cs" />
      <Compile Include="Assets\Code\Menu\MenuMain.cs" />
+     <Compile Include="Assets\Code\Menu\ScriptSubMenu.cs" />
+     <Compile Include="Assets\Code\Menu\ScriptSubMenuB.cs" />
+     <Compile Include="Assets\Code\Menu\ScriptSubMenuC.cs" />
      <Compile Include="Assets\Code\Menu\Script_MainMenu.cs" />
      <Compile Include="Assets\Code\Player\PlayerControllerInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />

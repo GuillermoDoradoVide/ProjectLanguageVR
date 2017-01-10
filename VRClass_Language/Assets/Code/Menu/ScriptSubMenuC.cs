@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Script_MainMenu : MonoBehaviour, IElement {
+public class ScriptSubMenuC : MonoBehaviour, IElement
+{
+
     public MenuAnimationController menuAnimationController;
     public float timer = 1.0f;
-    public GameObject[] subMenus;
 
     //IElement interface implementation
     //**********************************
     public void closeThisMenu() // deberia llamarse para desactivar el objeto principal del menu una vez el resto de 
                                 //elementos esten desactivados o reseteados
     {
-        EventManager.triggerEvent(Events.EventList.MV_Hide);
+        gameObject.SetActive(false);
     }
 
     public void hoverElement()
@@ -21,6 +22,8 @@ public class Script_MainMenu : MonoBehaviour, IElement {
 
     public void selectElement()
     {
+        Debug.Log("select this menu element " + gameObject.name);
+        EventManager.triggerEvent(Events.EventList.MV_SubMenuC_Active);
     }
 
     public void resetElement()
@@ -29,15 +32,12 @@ public class Script_MainMenu : MonoBehaviour, IElement {
         menuAnimationController.animationIsPlaying = true;
     }
     //**********************************************************************
+
     private void Awake()
     {
         menuAnimationController = GetComponent<MenuAnimationController>();
         menuAnimationController.setShowAnimation = showAnimation;
         menuAnimationController.setHideAnimation = hideAnimation;
-        foreach(GameObject gameObject in subMenus)
-        {
-            gameObject.SetActive(true);
-        }
     }
 
     private void OnEnable()
@@ -45,21 +45,30 @@ public class Script_MainMenu : MonoBehaviour, IElement {
         Debug.Log("se lanza el metodo OnEnable del objeto: " + this.gameObject.name);
         menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Show;
         menuAnimationController.animationIsPlaying = true;
+        EventManager.startListening(Events.EventList.MV_SubMenuC_Hide, closeThisMenu);
+        EventManager.startListening(Events.EventList.MV_SubMenuA_Active, resetElement);
+        EventManager.startListening(Events.EventList.MV_SubMenuB_Active, resetElement);
     }
 
     private void OnDisable()
     {
+        EventManager.stopListening(Events.EventList.MV_SubMenuC_Hide, closeThisMenu);
+        EventManager.stopListening(Events.EventList.MV_SubMenuA_Active, resetElement);
+        EventManager.stopListening(Events.EventList.MV_SubMenuB_Active, resetElement);
     }
 
     // Use this for initialization
-    void Start () {
-    }
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+
     }
 
-    private void showAnimation ()
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    private void showAnimation()
     {
         Debug.Log("(" + gameObject.name + ") show animation");
         if (timer < 0)
@@ -77,7 +86,6 @@ public class Script_MainMenu : MonoBehaviour, IElement {
     private void hideAnimation()
     {
         Debug.Log("(" + gameObject.name + ") close animation");
-        Debug.Log(Vector3.Distance(gameObject.transform.position, Vector3.zero));
         if (timer < 0)
         {
             menuAnimationController.animationIsPlaying = false;
