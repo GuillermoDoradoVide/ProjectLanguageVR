@@ -42,12 +42,9 @@ public class DialogScript : MonoBehaviour {
     // Use this for initialization
     private void Start()
     {
-        if (dialog != null)
-        {
-            samples = new float[qSamples2];
-            freqData = new float[nSamples];
-        }
-        else
+        samples = new float[qSamples2];
+        freqData = new float[nSamples];
+        if (dialog == null)
         {
             Debug.Log("No hay archivo de audio cargado.");
         }
@@ -55,6 +52,7 @@ public class DialogScript : MonoBehaviour {
 
     public void initDialog()
     {
+        audioSource.clip = dialog;
         audioSource.Play();
     }
 

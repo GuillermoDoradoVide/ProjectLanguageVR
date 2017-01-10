@@ -6,16 +6,24 @@ public class SceneEventActivity : StateScript {
 
     public AudioClip firstDialog;
     public AudioClip secondDialog;
+    public GameObject pet;
+    private DialogScript petDialogScript;
 
 	// Use this for initialization
 	void Start () {
         EventManager.setNewDialogEvent(firstDialog);
-	}
+        petDialogScript = pet.GetComponent<DialogScript>();
+        petDialogScript.initDialog();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if(!petDialogScript.playUpdateDialog())
+        {
+            EventManager.setNewDialogEvent(secondDialog);
+            petDialogScript.initDialog();
+        }
+    }
 
     public override void atInit()
     {
