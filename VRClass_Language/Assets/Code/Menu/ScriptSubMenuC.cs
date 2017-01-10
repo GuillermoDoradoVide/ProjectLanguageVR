@@ -45,14 +45,14 @@ public class ScriptSubMenuC : MonoBehaviour, IElement
         Debug.Log("se lanza el metodo OnEnable del objeto: " + this.gameObject.name);
         menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Show;
         menuAnimationController.animationIsPlaying = true;
-        EventManager.startListening(Events.EventList.MV_SubMenuC_Hide, closeThisMenu);
+        EventManager.startListening(Events.EventList.MV_SubMenuC_Hide, resetElement);
         EventManager.startListening(Events.EventList.MV_SubMenuA_Active, resetElement);
         EventManager.startListening(Events.EventList.MV_SubMenuB_Active, resetElement);
     }
 
     private void OnDisable()
     {
-        EventManager.stopListening(Events.EventList.MV_SubMenuC_Hide, closeThisMenu);
+        EventManager.stopListening(Events.EventList.MV_SubMenuC_Hide, resetElement);
         EventManager.stopListening(Events.EventList.MV_SubMenuA_Active, resetElement);
         EventManager.stopListening(Events.EventList.MV_SubMenuB_Active, resetElement);
     }

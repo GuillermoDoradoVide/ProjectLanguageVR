@@ -5,12 +5,15 @@ public class ScriptSubMenu : MonoBehaviour, IElement {
 
     public MenuAnimationController menuAnimationController;
     public float timer = 1.0f;
+    public GameObject exit3DText;
 
     //IElement interface implementation
     //**********************************
     public void closeThisMenu() // deberia llamarse para desactivar el objeto principal del menu una vez el resto de 
                                 //elementos esten desactivados o reseteados
     {
+        exit3DText.SetActive(false);
+        EventManager.triggerEvent(Events.EventList.MV_Active);
         gameObject.SetActive(false);
     }
 
@@ -23,6 +26,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement {
     {
         Debug.Log("select this menu element " + gameObject.name);
         EventManager.triggerEvent(Events.EventList.MV_SubMenuA_Active);
+        exit3DText.SetActive(true);
     }
 
     public void resetElement()
@@ -44,7 +48,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement {
         Debug.Log("se lanza el metodo OnEnable del objeto: " + this.gameObject.name);
         menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Show;
         menuAnimationController.animationIsPlaying = true;
-        EventManager.startListening(Events.EventList.MV_SubMenuA_Hide, closeThisMenu);
+        EventManager.startListening(Events.EventList.MV_SubMenuA_Hide, resetElement);
         EventManager.startListening(Events.EventList.MV_SubMenuB_Active, resetElement);
         EventManager.startListening(Events.EventList.MV_SubMenuC_Active, resetElement);
     }
@@ -52,7 +56,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement {
     private void OnDisable()
     {
         Debug.Log("se lanza el metodo OnDisable del objeto: " + this.gameObject.name);
-        EventManager.stopListening(Events.EventList.MV_SubMenuA_Hide, closeThisMenu);
+        EventManager.stopListening(Events.EventList.MV_SubMenuA_Hide, resetElement);
         EventManager.stopListening(Events.EventList.MV_SubMenuB_Active, resetElement);
         EventManager.stopListening(Events.EventList.MV_SubMenuC_Active, resetElement);
     }

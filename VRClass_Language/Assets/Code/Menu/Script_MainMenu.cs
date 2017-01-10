@@ -34,7 +34,15 @@ public class Script_MainMenu : MonoBehaviour, IElement {
         menuAnimationController = GetComponent<MenuAnimationController>();
         menuAnimationController.setShowAnimation = showAnimation;
         menuAnimationController.setHideAnimation = hideAnimation;
-        foreach(GameObject gameObject in subMenus)
+        EventManager.startListening(Events.EventList.MV_Active, activeSubMenus);
+        //activeSubMenus();
+    }
+
+    private void activeSubMenus()
+    {
+
+        Debug.Log("Se activa bien asi que deberia ir...");
+        foreach (GameObject gameObject in subMenus)
         {
             gameObject.SetActive(true);
         }
@@ -45,10 +53,12 @@ public class Script_MainMenu : MonoBehaviour, IElement {
         Debug.Log("se lanza el metodo OnEnable del objeto: " + this.gameObject.name);
         menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Show;
         menuAnimationController.animationIsPlaying = true;
+        EventManager.startListening(Events.EventList.MV_Active, activeSubMenus);
     }
 
     private void OnDisable()
     {
+        EventManager.stopListening(Events.EventList.MV_Active, activeSubMenus);
     }
 
     // Use this for initialization

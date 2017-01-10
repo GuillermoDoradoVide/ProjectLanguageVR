@@ -58,6 +58,7 @@
      <Compile Include="Assets\Code\Managers\SceneController.cs" />
      <Compile Include="Assets\Code\Managers\StateMachine\StateManager.cs" />
      <Compile Include="Assets\Code\Managers\StateMachine\StateScript.cs" />
+     <Compile Include="Assets\Code\Menu\ExitText.cs" />
      <Compile Include="Assets\Code\Menu\IElement.cs" />
      <Compile Include="Assets\Code\Menu\MenuAnimationController.cs" />
      <Compile Include="Assets\Code\Menu\MenuController.cs" />
