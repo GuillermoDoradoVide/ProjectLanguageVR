@@ -14,6 +14,7 @@ public class Events  : ScriptableObject
         MV_SubMenuA_Active, MV_SubMenuA_Hide, MV_SubMenuB_Active, MV_SubMenuB_Hide, MV_SubMenuC_Active, MV_SubMenuC_Hide,
         // sistema de eventos para gestionar los menus. Si se selecciona 1 se desactivan el resto.
         // opciones --> triggerEvent desactivar el resto.
+        ACHVV_TriggerUnlocked_Achievement,
         Pet_NewDialog,
         GM_Pause,
         Count };

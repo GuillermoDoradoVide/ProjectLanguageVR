@@ -67,6 +67,12 @@ public class Script_MainMenu : MonoBehaviour, IElement {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            EventManager.setNewUnlockedAchievementEvent("Sample");
+            EventManager.triggerEvent(Events.EventList.ACHVV_TriggerUnlocked_Achievement);
+        }
     }
 
     private void showAnimation ()

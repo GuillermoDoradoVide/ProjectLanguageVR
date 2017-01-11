@@ -67,6 +67,8 @@
      <Compile Include="Assets\Code\Menu\ScriptSubMenuB.cs" />
      <Compile Include="Assets\Code\Menu\ScriptSubMenuC.cs" />
      <Compile Include="Assets\Code\Menu\Script_MainMenu.cs" />
+     <Compile Include="Assets\Code\Player\Achievements\AchievementData.cs" />
+     <Compile Include="Assets\Code\Player\Achievements\AchievementManager.cs" />
      <Compile Include="Assets\Code\Player\PlayerControllerInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Scripts\GazeInputModule.cs" />
