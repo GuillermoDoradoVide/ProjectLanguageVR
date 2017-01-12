@@ -6,6 +6,7 @@ public class GameManager : SingletonComponent<GameManager>
     private SceneController sceneController;
     private LevelManager levelManager;
     private EventManager eventManager;
+    private SessionManager sessionManager;
 
     private void Awake()
     {

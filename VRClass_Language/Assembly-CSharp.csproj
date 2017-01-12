@@ -71,6 +71,7 @@
      <Compile Include="Assets\Code\Player\Achievements\AchievementManager.cs" />
      <Compile Include="Assets\Code\Player\PlayerControllerInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
+     <Compile Include="Assets\Code\Session\SessionManager.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Scripts\GazeInputModule.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Scripts\GvrHead.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Scripts\Internal\GvrCameraUtils.cs" />
