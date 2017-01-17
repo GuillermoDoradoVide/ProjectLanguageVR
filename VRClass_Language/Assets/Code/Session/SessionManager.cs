@@ -109,7 +109,7 @@ public class SessionManager : MonoBehaviour {
         }
     }
 
-    private bool checkUserProfileData()
+    private bool checkUserProfileData() // check password and user
     {
         return true;
     }

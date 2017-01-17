@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class EventManager : SingletonComponent<EventManager>
 {
     [SerializeField]
-    private Dictionary<Events.EventList, UnityEvent> eventDictionary;
+    public Dictionary<Events.EventList, UnityEvent> eventDictionary;
     public delegate void NewDialogEvent(AudioClip audioClip);
     static NewDialogEvent newDialog;
     public delegate void setAchievementUnlocked(string achievement);

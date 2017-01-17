@@ -20,7 +20,6 @@ public class PlayerControllerInteraction : MonoBehaviour {
             targetGazedObject = hit.transform.gameObject;
             if (ExecuteEvents.CanHandleEvent<IElement>(targetGazedObject))
             {
-                Debug.Log("SSSSSSSSSSSSSSSSSSSSSSS AAAAAAAAAAAAAAAAAAAAAAAAA" + targetGazedObject.name);
                 ExecuteEvents.Execute(targetGazedObject, null, (IElement element, BaseEventData data) => element.selectElement());
                 // si se selecciona el objeto se manda el evento > EventManager.triggerEvent(Events.EventList.MV_Active);
             }

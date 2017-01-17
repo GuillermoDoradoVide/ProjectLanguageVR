@@ -72,7 +72,6 @@ public class AchievementManager : MonoBehaviour {
             canvasAchievementPanel.transform.position = Vector3.Lerp(initPos.position, finalPos.position, lerpPercentage);
             yield return true;
         }
-        
         yield return new WaitForSeconds(2.0f);
         canvasAchievementPanel.transform.position = initPos.position;
         achievementCanvas.gameObject.SetActive(false);
