@@ -7,5 +7,4 @@ public interface IElement : IEventSystemHandler {
     void hoverElement();
     void selectElement();
     void resetElement();
-    void closeThisMenu();
 }

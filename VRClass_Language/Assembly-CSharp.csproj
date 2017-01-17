@@ -50,6 +50,7 @@
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\SceneEventActivity.cs" />
+     <Compile Include="Assets\Code\Level\SampleLevel\SceneEventSecond.cs" />
      <Compile Include="Assets\Code\Level\SceneData.cs" />
      <Compile Include="Assets\Code\Managers\EventManager.cs" />
      <Compile Include="Assets\Code\Managers\Events.cs" />
@@ -60,6 +61,7 @@
      <Compile Include="Assets\Code\Managers\StateMachine\StateScript.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ExitText.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IElement.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\IMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuAnimationController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuMain.cs" />

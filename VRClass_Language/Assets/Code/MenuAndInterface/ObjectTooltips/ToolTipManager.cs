@@ -5,9 +5,6 @@ public class ToolTipManager : MonoBehaviour, IElement
 {
     public Canvas toolTipCanvas;
     public ObjectToolTip objectToolTip;
-    public void closeThisMenu()
-    {
-    }
 
     public void hoverElement()
     {

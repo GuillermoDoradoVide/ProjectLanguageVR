@@ -16,6 +16,7 @@ public class Events  : ScriptableObject
         // opciones --> triggerEvent desactivar el resto.
         ACHVV_TriggerUnlocked_Achievement,
         Pet_NewDialog,
+        LEVELV_activity_Completed,
         GM_Pause,
         Count };
 }

@@ -8,35 +8,37 @@ public class StateManager : ScriptableObject {
 
    private void Awake ()
     {
-        stackStateList = new Stack<StateScript>();  
-    }
-
-    private void Start ()
-    {
+        stackStateList = new Stack<StateScript>();
         initMachine();
     }
 
-    private void  initMachine() {
+    public void  initMachine() {
         EventManager.startListening(Events.EventList.SV_nextState, nextState);
         EventManager.startListening(Events.EventList.SV_pauseState, pauseState);
         EventManager.startListening(Events.EventList.SV_continueState, continueState);
     }
 
-    private void Update () {
+    public void doUpdate () {
         if (currentState != null)
         {
+            Debug.Log("state " + currentState.name);
             currentState.doUpdate();
         }
-	}
+        Debug.Log("nada");
+    }
 
     public void nextState()
     {
         if (stackStateList.Count != 0)
         {
             stackStateList.Pop();
+            if (stackStateList.Count != 0)
+            {
+                currentState = stackStateList.Peek();
+                currentState.atInit();
+            }
         }
-        currentState = stackStateList.Peek();
-        currentState.atInit();
+        
     }
 
     public void pauseState()

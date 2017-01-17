@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Script_MainMenu : MonoBehaviour, IElement {
+public class Script_MainMenu : MonoBehaviour, IElement, IMenu {
     public MenuAnimationController menuAnimationController;
     public float timer = 1.0f;
     public GameObject[] subMenus;

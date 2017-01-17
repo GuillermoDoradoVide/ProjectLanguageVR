@@ -10,11 +10,12 @@ public class SceneData : MonoBehaviour {
         sceneEventActivity = null;
         sceneEventActivity = new List<StateScript>();
         eventList = null;
+        searchLevelStates();
+        createLevelEventList();
     }
 	// Use this for initialization
 	void Start () {
-        searchLevelStates();
-        createLevelEventList();
+
 	}
 	
 	// Update is called once per frame

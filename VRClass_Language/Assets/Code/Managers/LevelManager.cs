@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LevelManager : SingletonComponent<LevelManager>
 {
-    StateManager stateActivityManager;
+    private StateManager stateActivityManager;
     private LevelInfo levelInfo;
 
     private void Awake ()
@@ -29,11 +29,13 @@ public class LevelManager : SingletonComponent<LevelManager>
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        stateActivityManager.doUpdate();
+
+    }
 
     private void generateStateActivityManager()
     {
+        Debug.Log("crear stateManager");
         stateActivityManager = ScriptableObject.CreateInstance<StateManager>();
     }
 

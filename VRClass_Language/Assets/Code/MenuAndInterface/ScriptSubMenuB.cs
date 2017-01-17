@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScriptSubMenuB : MonoBehaviour, IElement
+public class ScriptSubMenuB : MonoBehaviour, IElement, IMenu
 {
 
     public MenuAnimationController menuAnimationController;

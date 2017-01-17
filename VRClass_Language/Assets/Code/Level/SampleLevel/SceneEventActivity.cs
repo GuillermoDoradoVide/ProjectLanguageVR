@@ -4,39 +4,45 @@ using System;
 
 public class SceneEventActivity : StateScript {
 
-    public AudioClip firstDialog;
-    public AudioClip secondDialog;
+    public AudioClip[] dialogs;
+    public int currentDialog;
+    //public AudioClip firstDialog;
+    //public AudioClip secondDialog;
     public GameObject pet;
     private DialogScript petDialogScript;
 
 	// Use this for initialization
 	void Start () {
-        EventManager.setNewDialogEvent(firstDialog);
         petDialogScript = pet.GetComponent<DialogScript>();
-        petDialogScript.initDialog();
     }
 	
 	// Update is called once per frame
-	void Update () {
+	public override void atUpdate() {
+        Debug.Log("1");
         if(!petDialogScript.playUpdateDialog())
         {
-            EventManager.setNewDialogEvent(secondDialog);
-            petDialogScript.initDialog();
+            if (currentDialog < dialogs.Length)
+            {
+                EventManager.setNewDialogEvent(dialogs[currentDialog]);
+                petDialogScript.initDialog();
+                currentDialog++;
+            }
+            else
+            {
+                changeThisStateToFinished();
+            }
         }
     }
 
     public override void atInit()
     {
-        throw new NotImplementedException();
+        currentDialog = 0;
+        EventManager.setNewDialogEvent(dialogs[currentDialog]);
+        currentDialog++;
+        petDialogScript.initDialog();
     }
 
     public override void atPause()
-    {
-        throw new NotImplementedException();
-    }
-
-
-    public override void atUpdate()
     {
         throw new NotImplementedException();
     }
