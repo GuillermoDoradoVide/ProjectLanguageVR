@@ -18,7 +18,6 @@ public class SceneEventActivity : StateScript {
 	
 	// Update is called once per frame
 	public override void atUpdate() {
-        Debug.Log("1");
         if(!petDialogScript.playUpdateDialog())
         {
             if (currentDialog < dialogs.Length)
@@ -29,7 +28,7 @@ public class SceneEventActivity : StateScript {
             }
             else
             {
-                changeThisStateToFinished();
+                doChangeThisStateToFinished();
             }
         }
     }
@@ -42,12 +41,17 @@ public class SceneEventActivity : StateScript {
         petDialogScript.initDialog();
     }
 
-    public override void atPause()
+    public override void atEnd()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
-    public override void readyActiveState()
+    public override void atPause()
+    {
+        //throw new NotImplementedException();
+    }
+
+    public override void atReadyActiveState()
     {
         throw new NotImplementedException();
     }

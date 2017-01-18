@@ -9,35 +9,33 @@ public class SceneEventSecond : StateScript
     public bool completed = false;
     void Start()
     {
-        EventManager.startListening(Events.EventList.LEVELV_activity_Completed, completeTask);
-    }
-
-    private void onDisable()
-    {
-        EventManager.stopListening(Events.EventList.LEVELV_activity_Completed, completeTask);
     }
 
     // Update is called once per frame
     public override void atUpdate()
     {
-        Debug.Log("2");
         if (completed)
         {
-            changeThisStateToFinished();
+            doChangeThisStateToFinished();
         }
     }
 
     public override void atInit()
     {
-        throw new NotImplementedException();
+        EventManager.startListening(Events.EventList.LEVELV_activity_Completed, completeTask);
+    }
+
+    public override void atEnd()
+    {
+        EventManager.stopListening(Events.EventList.LEVELV_activity_Completed, completeTask);
     }
 
     public override void atPause()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
-    public override void readyActiveState()
+    public override void atReadyActiveState()
     {
         throw new NotImplementedException();
     }

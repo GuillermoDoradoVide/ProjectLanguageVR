@@ -21,10 +21,8 @@ public class StateManager : ScriptableObject {
     public void doUpdate () {
         if (currentState != null)
         {
-            Debug.Log("state " + currentState.name);
             currentState.doUpdate();
         }
-        Debug.Log("nada");
     }
 
     public void nextState()
@@ -32,13 +30,13 @@ public class StateManager : ScriptableObject {
         if (stackStateList.Count != 0)
         {
             stackStateList.Pop();
+            currentState.atEnd();
             if (stackStateList.Count != 0)
             {
                 currentState = stackStateList.Peek();
                 currentState.atInit();
             }
         }
-        
     }
 
     public void pauseState()
@@ -49,6 +47,11 @@ public class StateManager : ScriptableObject {
     public void continueState()
     {
         currentState.doContinue();
+    }
+
+    public void endState()
+    {
+        currentState.atEnd();
     }
 
     private void OnDisable()

@@ -8,8 +8,9 @@ public abstract class StateScript : MonoBehaviour {
     public Action[]Actions;
     public abstract void atUpdate();
     public abstract void atPause();
-    public abstract void readyActiveState();
+    public abstract void atReadyActiveState();
     public abstract void atInit();
+    public abstract void atEnd();
 
     private void Awake ()
     {
@@ -17,7 +18,7 @@ public abstract class StateScript : MonoBehaviour {
         // Set each action delegate
         stateMode = StateMode.Active;
         Actions[(int)StateMode.Active] = atUpdate;
-        Actions[(int)StateMode.Finished] = stateFinished;
+        Actions[(int)StateMode.Finished] = atStateFinished;
         Actions[(int)StateMode.Paused] = atPause;
         Actions[(int)StateMode.Continue] = atContinue;
     }
@@ -41,18 +42,18 @@ public abstract class StateScript : MonoBehaviour {
         stateMode = StateMode.Continue;
     }
 
-    public void changeThisStateToFinished()
+    public void doChangeThisStateToFinished()
     {
         stateMode = StateMode.Finished;
     }
 
     private void atContinue()
     {
-        readyActiveState();
+        atReadyActiveState();
         stateMode = StateMode.Active;
     }
 
-    private void stateFinished()
+    private void atStateFinished()
     {
         Debug.Log("State " + gameObject.name +" finished.");
         EventManager.triggerEvent(Events.EventList.SV_nextState);
