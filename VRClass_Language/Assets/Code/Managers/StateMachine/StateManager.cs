@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [AddComponentMenu("StateMachine/StateMachine")]
 public class StateManager : ScriptableObject {
     private Stack<StateScript> stackStateList;
+    [SerializeField]
     private StateScript currentState;
 
    private void Awake ()

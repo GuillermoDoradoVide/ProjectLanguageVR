@@ -3,6 +3,7 @@ using System.Collections;
 
 public class LevelManager : SingletonComponent<LevelManager>
 {
+    [SerializeField]
     private StateManager stateActivityManager;
     private LevelInfo levelInfo;
 

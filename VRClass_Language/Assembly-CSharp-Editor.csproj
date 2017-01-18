@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Code\Editor\CustomEventList.cs" />
+     <Compile Include="Assets\Code\Editor\CustomLevelManager.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Editor\GvrAudioListenerEditor.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Editor\GvrAudioRoomEditor.cs" />
      <Compile Include="Assets\VRDaydreamPackage\GoogleVR\Editor\GvrAudioSoundfieldEditor.cs" />

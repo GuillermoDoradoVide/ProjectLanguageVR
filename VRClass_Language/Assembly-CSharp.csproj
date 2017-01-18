@@ -57,6 +57,7 @@
      <Compile Include="Assets\Code\Managers\GameManager.cs" />
      <Compile Include="Assets\Code\Managers\LevelManager.cs" />
      <Compile Include="Assets\Code\Managers\SceneController.cs" />
+     <Compile Include="Assets\Code\Managers\SoundManager.cs" />
      <Compile Include="Assets\Code\Managers\StateMachine\StateManager.cs" />
      <Compile Include="Assets\Code\Managers\StateMachine\StateScript.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ExitText.cs" />
