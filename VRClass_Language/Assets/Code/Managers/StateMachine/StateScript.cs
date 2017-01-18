@@ -56,6 +56,6 @@ public abstract class StateScript : MonoBehaviour {
     private void atStateFinished()
     {
         Debug.Log("State " + gameObject.name +" finished.");
-        EventManager.triggerEvent(Events.EventList.SV_nextState);
+        EventManager.triggerEvent(Events.EventList.STATE_Next);
     }
 }

@@ -22,12 +22,12 @@ public class SceneEventSecond : StateScript
 
     public override void atInit()
     {
-        EventManager.startListening(Events.EventList.LEVELV_activity_Completed, completeTask);
+        EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, completeTask);
     }
 
     public override void atEnd()
     {
-        EventManager.stopListening(Events.EventList.LEVELV_activity_Completed, completeTask);
+        EventManager.stopListening(Events.EventList.LEVEL_Activity_Completed, completeTask);
     }
 
     public override void atPause()

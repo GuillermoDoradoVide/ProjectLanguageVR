@@ -13,9 +13,9 @@ public class StateManager : ScriptableObject {
     }
 
     public void  initMachine() {
-        EventManager.startListening(Events.EventList.SV_nextState, nextState);
-        EventManager.startListening(Events.EventList.SV_pauseState, pauseState);
-        EventManager.startListening(Events.EventList.SV_continueState, continueState);
+        EventManager.startListening(Events.EventList.STATE_Next, nextState);
+        EventManager.startListening(Events.EventList.STATE_Pause, pauseState);
+        EventManager.startListening(Events.EventList.STATE_Continue, continueState);
     }
 
     public void doUpdate () {
@@ -56,9 +56,9 @@ public class StateManager : ScriptableObject {
 
     private void OnDisable()
     {
-        EventManager.stopListening(Events.EventList.SV_nextState, nextState);
-        EventManager.stopListening(Events.EventList.SV_pauseState, pauseState);
-        EventManager.stopListening(Events.EventList.SV_continueState, continueState);
+        EventManager.stopListening(Events.EventList.STATE_Next, nextState);
+        EventManager.stopListening(Events.EventList.STATE_Pause, pauseState);
+        EventManager.stopListening(Events.EventList.STATE_Continue, continueState);
     }
 
     public void getLevelStateList(List<StateScript> levelList)

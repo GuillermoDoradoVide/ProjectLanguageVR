@@ -11,15 +11,14 @@ public class GameManager : SingletonComponent<GameManager>
     private void Awake()
     {
         initManagers();
+        initEventTriggers();
     }
 
-    private void Start () {
-        initManagers();
+    private void OnDisable()
+    {
+        EventManager.stopListening(Events.EventList.GAMEMANAGER_Pause, pauseGame);
+        EventManager.stopListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
     }
-	
-	// Update is called once per frame
-	private void Update () {
-	}
 
     private void initManagers()
     {
@@ -28,18 +27,25 @@ public class GameManager : SingletonComponent<GameManager>
         eventManager = EventManager.Instance;
     }
 
-    private void OnEnable()
+    private void initEventTriggers()
     {
-        EventManager.startListening(Events.EventList.GM_Pause, pauseGame);
+        EventManager.startListening(Events.EventList.GAMEMANAGER_Pause, pauseGame);
+        EventManager.startListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
     }
-
-    private void OnDisable()
+    //*************************
+    private void Update()
     {
-        EventManager.stopListening(Events.EventList.GM_Pause, pauseGame);
     }
-
+    //*************************
     private void pauseGame()
     {
-        Debug.Log("Pausa del juego. Abierto el menu.");
+        EventManager.triggerEvent(Events.EventList.STATE_Pause);
+        Debug.Log("Pausa del juego. abriendo el menu.");
+    }
+
+    private void continueGame()
+    {
+        EventManager.triggerEvent(Events.EventList.STATE_Continue);
+        Debug.Log("Reanudar el juego.");
     }
 }

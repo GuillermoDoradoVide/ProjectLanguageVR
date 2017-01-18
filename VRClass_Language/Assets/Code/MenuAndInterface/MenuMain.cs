@@ -7,24 +7,10 @@ public class MenuMain : MonoBehaviour {
     public Script_MainMenu mainMenu;
     private bool active = false;
 
-    private void Awake ()
+    private void Awake()
     {
-    }
-
-	// Use this for initialization
-	void Start () {
-    }
-
-    private void OnEnable()
-    {
-        EventManager.startListening(Events.EventList.MV_Active, activeMenu);
-        EventManager.startListening(Events.EventList.MV_Hide, disableMenu);
-    }
-
-    private void OnDisable()
-    {
-        EventManager.stopListening(Events.EventList.MV_Active, activeMenu);
-        EventManager.stopListening(Events.EventList.MV_Hide, disableMenu);
+        EventManager.startListening(Events.EventList.MENU_Active, activeMenu);
+        EventManager.startListening(Events.EventList.MENU_Hide, disableMenu);
     }
 	
 	// Update is called once per frame
@@ -33,7 +19,7 @@ public class MenuMain : MonoBehaviour {
         if(Input.anyKeyDown)
         {
             Debug.Log("tecla apretada");
-            EventManager.triggerEvent(Events.EventList.MV_Active);
+            EventManager.triggerEvent(Events.EventList.MENU_Active);
         }
 	if(active)
         {
@@ -47,7 +33,7 @@ public class MenuMain : MonoBehaviour {
             menus.SetActive(true);
         }
         active = true;
-        EventManager.triggerEvent(Events.EventList.SV_pauseState);
+        EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Pause);
     }
 
     private void disableMenu()
@@ -57,6 +43,6 @@ public class MenuMain : MonoBehaviour {
         {
             menus.SetActive(false);
         }
-        EventManager.triggerEvent(Events.EventList.SV_continueState);
+        EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Continue);
     }
 }

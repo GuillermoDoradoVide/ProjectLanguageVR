@@ -26,7 +26,7 @@ public class AchievementManager : MonoBehaviour {
         achievementsList = new List<AchievementData>();
         achievementsList.Add(sample);
         EventManager.addAchievementListener(setAchievement);
-        EventManager.startListening(Events.EventList.ACHVV_TriggerUnlocked_Achievement, showAchievement);
+        EventManager.startListening(Events.EventList.ACHIEVEMENT_TriggerUnlocked_Achievement, showAchievement);
     }
 
     private void OnEnable()
@@ -36,7 +36,7 @@ public class AchievementManager : MonoBehaviour {
 
     private void OnDisable()
     {
-        EventManager.stopListening(Events.EventList.ACHVV_TriggerUnlocked_Achievement, showAchievement);
+        EventManager.stopListening(Events.EventList.ACHIEVEMENT_TriggerUnlocked_Achievement, showAchievement);
     }
 	// Use this for initialization
 	void Start () {
