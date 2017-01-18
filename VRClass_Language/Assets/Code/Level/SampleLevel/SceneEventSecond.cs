@@ -37,7 +37,7 @@ public class SceneEventSecond : StateScript
 
     public override void atReadyActiveState()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void completeTask()

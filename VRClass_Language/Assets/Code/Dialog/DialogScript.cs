@@ -29,17 +29,6 @@ public class DialogScript : MonoBehaviour {
     public float volume2 = 2;        // set how much the scale will vary
     private float[] samples;        // audio sample
 
-    private void OnEnable()
-    {
-        EventManager.addDialogListener(setNewAudioClip);
-    }
-
-    private void OnDisable()
-    {
-        EventManager.removeDialogListener(setNewAudioClip);
-    }
-
-    // Use this for initialization
     private void Start()
     {
         samples = new float[qSamples2];
@@ -50,10 +39,14 @@ public class DialogScript : MonoBehaviour {
         }
     }
 
-    public void initDialog()
+    private void OnEnable()
     {
-        audioSource.clip = dialog;
-        audioSource.Play();
+        EventManager.addDialogListener(setNewAudioClip);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.removeDialogListener(setNewAudioClip);
     }
 
     public bool playUpdateDialog()
@@ -68,6 +61,12 @@ public class DialogScript : MonoBehaviour {
             animationController.SetFloat("_Frequency", 0);
             return false;
         }
+    }
+
+    public void initDialog()
+    {
+        audioSource.clip = dialog;
+        audioSource.Play();
     }
 
     public void stopDialog()
@@ -87,6 +86,11 @@ public class DialogScript : MonoBehaviour {
     public void continueDialog()
     {
         audioSource.UnPause();
+    }
+
+    private void setNewAudioClip(AudioClip audioClip)
+    {
+        dialog = audioClip;
     }
 
     private void speakAnimationController()
@@ -145,8 +149,4 @@ public class DialogScript : MonoBehaviour {
         }
     }
 
-    private void setNewAudioClip(AudioClip audioClip)
-    {
-        dialog = audioClip;
-    }
 }

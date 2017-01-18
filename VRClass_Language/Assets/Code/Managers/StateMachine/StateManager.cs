@@ -12,10 +12,26 @@ public class StateManager : ScriptableObject {
         initMachine();
     }
 
+    private void OnDisable()
+    {
+        EventManager.stopListening(Events.EventList.STATE_Next, nextState);
+        EventManager.stopListening(Events.EventList.STATE_Pause, pauseState);
+        EventManager.stopListening(Events.EventList.STATE_Continue, continueState);
+    }
+
     public void  initMachine() {
         EventManager.startListening(Events.EventList.STATE_Next, nextState);
         EventManager.startListening(Events.EventList.STATE_Pause, pauseState);
         EventManager.startListening(Events.EventList.STATE_Continue, continueState);
+    }
+
+    public void getLevelStateList(List<StateScript> levelList)
+    {
+        foreach (StateScript state in levelList)
+        {
+            stackStateList.Push(state);
+        }
+        currentState = stackStateList.Peek();
     }
 
     public void doUpdate () {
@@ -54,19 +70,4 @@ public class StateManager : ScriptableObject {
         currentState.atEnd();
     }
 
-    private void OnDisable()
-    {
-        EventManager.stopListening(Events.EventList.STATE_Next, nextState);
-        EventManager.stopListening(Events.EventList.STATE_Pause, pauseState);
-        EventManager.stopListening(Events.EventList.STATE_Continue, continueState);
-    }
-
-    public void getLevelStateList(List<StateScript> levelList)
-    {
-        foreach (StateScript state in levelList)
-        {
-            stackStateList.Push(state);
-        }
-        currentState = stackStateList.Peek();
-    }
 }

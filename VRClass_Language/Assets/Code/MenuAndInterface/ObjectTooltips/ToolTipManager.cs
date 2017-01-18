@@ -22,13 +22,5 @@ public class ToolTipManager : MonoBehaviour, IElement
     public void resetElement()
     {
     }
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

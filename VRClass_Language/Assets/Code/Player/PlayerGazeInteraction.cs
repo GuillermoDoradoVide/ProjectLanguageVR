@@ -44,9 +44,9 @@ public class PlayerGazeInteraction : MonoBehaviour {
 
     private void playerGazeAngle()
     {
-        if (GvrController.Orientation.x < 80 && GvrController.Orientation.x > 10)
+       /* if (GvrController.Orientation.x < 80 && GvrController.Orientation.x > 10)
         {
             EventManager.triggerEvent(Events.EventList.MENU_Active);
-        }
+        }*/
     }
 }

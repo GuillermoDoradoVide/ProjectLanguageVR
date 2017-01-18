@@ -48,12 +48,12 @@ public class SceneEventActivity : StateScript {
 
     public override void atPause()
     {
-        //throw new NotImplementedException();
+        petDialogScript.pauseDialog();
     }
 
     public override void atReadyActiveState()
     {
-        throw new NotImplementedException();
+        petDialogScript.continueDialog();
     }
 
 }
