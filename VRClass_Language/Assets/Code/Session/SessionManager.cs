@@ -23,7 +23,7 @@ public class SessionManager : MonoBehaviour {
         public bool completedLevel1 = false;
         public bool completedLevel2 = false;
         public bool completedLevel3 = false;
-        List<AchievementData> achievementList = new List<AchievementData>();
+        List<AchievementKeysList> achievementList = new List<AchievementKeysList>();
     }
 	// Use this for initialization
 	void Start () {
@@ -35,23 +35,54 @@ public class SessionManager : MonoBehaviour {
 	
 	}
 
-    private void saveUserGameData()
+    private void createNewUser()
     {
         BinaryFormatter bf = new BinaryFormatter();
         UserGameData userData = new UserGameData();
+        UserProfile userProfile = new UserProfile();
         if (File.Exists(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA"))
         {
-            FileStream file = File.Open(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA", FileMode.Open);
-            bf.Serialize(file, userData);
-            file.Close();
+            // usuario ya existe
         }
-        else {
+        else
+        {
             FileStream file = File.Create(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA");
             userData.userID = usersIDCount;
+            bf.Serialize(file, userProfile);
             bf.Serialize(file, userData);
             file.Close();
         }
         userData = null;
+        userProfile = null;
+    }
+
+    private void loadUserProfileAndData(string name, string password)
+    {
+        if (checkUserProfileData(name))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + name, FileMode.Open);
+            UserProfile userData = (UserProfile)bf.Deserialize(file);
+            file.Close();
+            if (password.CompareTo(userData.userPassWord) == 0)
+            {
+                usersIDCount = userData.userID;
+                loadUserGameData();
+            }
+            else
+            {
+                //EventManager.triggerEvent(Events.EventList.USERV_WRONG_PASS);
+            }
+        }
+        else
+        {
+            //EventManager.triggerEvent(Events.EventList.USERV_WRONG_USER);
+        }
+    }
+
+    private bool checkUserProfileData(string name) // check password and user
+    {
+        return (File.Exists(Application.persistentDataPath + name)) ? true : false;
     }
 
     private void loadUserGameData()
@@ -63,14 +94,29 @@ public class SessionManager : MonoBehaviour {
             UserGameData userData = (UserGameData)bf.Deserialize(file);
             file.Close();
             usersIDCount = userData.userID;
-
         }
+    }
+
+    private void saveUserGameData()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        UserGameData userData = new UserGameData();
+        if (File.Exists(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA"))
+        {
+            FileStream file = File.Open(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA", FileMode.Open);
+            bf.Serialize(file, userData);
+            file.Close();
+        }
+        userData = null;
     }
 
     private void saveUserProfile()
     {
         BinaryFormatter bf = new BinaryFormatter();
         UserProfile userProfile = new UserProfile();
+        userProfile.userID = usersIDCount;
+        userProfile.userName = "Name";
+        userProfile.userPassWord = "PassWord";
         if (File.Exists(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA"))
         {
             FileStream file = File.Open(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA", FileMode.Open);
@@ -79,38 +125,8 @@ public class SessionManager : MonoBehaviour {
         }
         else
         {
-            FileStream file = File.Create(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA");
-            userProfile.userID = usersIDCount;
-            userProfile.userName = "Name";
-            userProfile.userPassWord = "PassWord";
-            bf.Serialize(file, userProfile);
-            file.Close();
+            //el usuario no existe (nombre equivocado)
         }
         userProfile = null;
-    }
-
-    private void loadUserProfileAndData(string name, string password)
-    {
-        if (checkUserProfileData())
-        {
-            if (File.Exists(Application.persistentDataPath + ""))
-            {
-                BinaryFormatter bf = new BinaryFormatter();
-                FileStream file = File.Open(Application.persistentDataPath + "", FileMode.Open);
-                UserGameData userData = (UserGameData)bf.Deserialize(file);
-                file.Close();
-                usersIDCount = userData.userID;
-                loadUserGameData();
-            }
-        }
-        else
-        {
-            //EventManager.triggerEvent(Events.EventList.USERV_WRONG_USER);
-        }
-    }
-
-    private bool checkUserProfileData() // check password and user
-    {
-        return true;
     }
 }
