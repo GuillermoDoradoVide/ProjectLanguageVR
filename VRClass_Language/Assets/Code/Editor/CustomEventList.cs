@@ -12,14 +12,12 @@ public class CustomEventList : Editor {
     {
         eventManager = target as EventManager;
         getTarget = new SerializedObject(eventManager);
-
     }
 
     private void OnEnable()
     {
         eventManager = target as EventManager;
-        getTarget = new SerializedObject(eventManager);
-        
+        getTarget = new SerializedObject(eventManager); 
     }
 
     public override void OnInspectorGUI()
@@ -28,6 +26,5 @@ public class CustomEventList : Editor {
         getTarget.Update();
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Event list");
-
     }
 }

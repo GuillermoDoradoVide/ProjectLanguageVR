@@ -17,16 +17,16 @@ public class AchievementManager : MonoBehaviour {
 
     public Transform initPos;
     public Transform finalPos;
-
-    public AchievementData sample;
-    public List<AchievementData> achievementsList;
+    public Dictionary<AchievementKeysList.AchievementList, AchievementData> achievementListDictionary;
 
     private void Awake()
     {
-        achievementsList = new List<AchievementData>();
-        achievementsList.Add(sample);
-        EventManager.addAchievementListener(setAchievement);
+        EventManager.addAchievementListener(unlockAchievement);
         EventManager.startListening(Events.EventList.ACHIEVEMENT_TriggerUnlocked_Achievement, showAchievement);
+        if (achievementListDictionary == null)
+        {
+            achievementListDictionary = new Dictionary<AchievementKeysList.AchievementList, AchievementData>();
+        }
     }
 
     private void OnEnable()
@@ -36,7 +36,7 @@ public class AchievementManager : MonoBehaviour {
 
     private void OnDisable()
     {
-        EventManager.stopListening(Events.EventList.ACHIEVEMENT_TriggerUnlocked_Achievement, showAchievement);
+        //EventManager.stopListening(Events.EventList.ACHIEVEMENT_TriggerUnlocked_Achievement, showAchievement);
     }
 	// Use this for initialization
 	void Start () {
@@ -48,13 +48,21 @@ public class AchievementManager : MonoBehaviour {
 	
 	}
 
-    private void setAchievement(string name)
+    private void unlockAchievement(AchievementKeysList.AchievementList name)
     {
         AchievementData unlockedAchievementData;
-        unlockedAchievementData = achievementsList.Find(x => x.achievementName == name);
-        achievementCanvasName.text = unlockedAchievementData.name;
-        achievementCanvasDescription.text = unlockedAchievementData.description;
-        achievementCanvasSprite.sprite = unlockedAchievementData.image;
+        achievementListDictionary.TryGetValue(name, out unlockedAchievementData);
+        if(unlockedAchievementData != null)
+        {
+            achievementCanvasName.text = unlockedAchievementData.name;
+            achievementCanvasDescription.text = unlockedAchievementData.description;
+            achievementCanvasSprite.sprite = unlockedAchievementData.image;
+            unlockedAchievementData.unlocked = true;
+        }
+        else
+        {
+            Debug.Log("Error at unlocking achievement...");
+        }
     }
 
     private void showAchievement()

@@ -20,3 +20,12 @@ public class Events  : ScriptableObject
         GAMEMANAGER_Pause, GAMEMANAGER_Continue,
         Count };
 }
+
+public class AchievementKeysList : ScriptableObject {
+    public enum AchievementList
+    {
+       LEVEL1_Table, LEVEL1_Chair, LEVEL1_Book, Sample,
+        Count
+    };
+
+}

@@ -9,7 +9,7 @@ public class EventManager : SingletonComponent<EventManager>
     public Dictionary<Events.EventList, UnityEvent> eventDictionary;
     public delegate void NewDialogEvent(AudioClip audioClip);
     static NewDialogEvent newDialog;
-    public delegate void setAchievementUnlocked(string achievement);
+    public delegate void setAchievementUnlocked(AchievementKeysList.AchievementList key);
     static setAchievementUnlocked achievementUnlocked;
 
     private void Awake()
@@ -93,7 +93,7 @@ public class EventManager : SingletonComponent<EventManager>
         achievementUnlocked -= method;
     }
 
-    public static void setNewUnlockedAchievementEvent(string achievement)
+    public static void unlockAchievementEvent(AchievementKeysList.AchievementList achievement)
     {
         if (achievementUnlocked != null) achievementUnlocked(achievement);
     }

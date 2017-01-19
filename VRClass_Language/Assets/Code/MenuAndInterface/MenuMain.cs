@@ -6,6 +6,7 @@ public class MenuMain : MonoBehaviour {
     public GameObject menus;
     public Script_MainMenu mainMenu;
     private bool active = false;
+    
 
     private void Awake()
     {
