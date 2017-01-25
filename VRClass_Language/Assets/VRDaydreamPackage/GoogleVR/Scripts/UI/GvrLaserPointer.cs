@@ -18,6 +18,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 /// Implementation of IGvrPointer for a laser pointer visual.
 /// This script should be attached to the controller object.
@@ -49,6 +50,7 @@ public class GvrLaserPointer : GvrBasePointer {
   public float maxReticleDistance = 2.5f;
 
   public GameObject reticle;
+  public GameObject actionGameObject;
 
   void Awake() {
     lineRenderer = gameObject.GetComponent<LineRenderer>();
@@ -62,6 +64,8 @@ public class GvrLaserPointer : GvrBasePointer {
         Vector3 clampedDifference = Vector3.ClampMagnitude(difference, maxReticleDistance);
         Vector3 clampedPosition = pointerIntersectionRay.origin + clampedDifference;
         reticle.transform.position = clampedPosition;
+                // rotation
+                checkObjectInteraction();
       } else {
         reticle.transform.localPosition = new Vector3(0, 0, maxReticleDistance);
       }
@@ -84,6 +88,25 @@ public class GvrLaserPointer : GvrBasePointer {
     lineRenderer.SetColors(Color.Lerp(Color.clear, laserColor, alpha), Color.clear);
   }
 
+    private void checkObjectInteraction()
+    {
+        Debug.Log("check");
+        if (actionGameObject)
+        {
+            Debug.Log("existe el objeto");
+            if (GvrController.IsTouching)
+            {
+                Debug.Log("estoy tocando");
+                if (ExecuteEvents.CanHandleEvent<IRotation>(actionGameObject))
+                {
+                    Debug.Log("paso la seguridad");
+                    ExecuteEvents.Execute(actionGameObject, null, (IRotation element, BaseEventData data) => element.rotateElement( new Vector2(GvrController.TouchPos.x - 0.5f, GvrController.TouchPos.y - 0.5f) ));
+                }
+            }
+           
+        }
+    }
+
   public override void OnInputModuleEnabled() {
     if (lineRenderer != null) {
       lineRenderer.enabled = true;
@@ -101,18 +124,20 @@ public class GvrLaserPointer : GvrBasePointer {
     pointerIntersection = intersectionPosition;
     pointerIntersectionRay = intersectionRay;
     isPointerIntersecting = true;
+    actionGameObject = targetObject;
   }
 
   public override void OnPointerHover(GameObject targetObject, Vector3 intersectionPosition,
-      Ray intersectionRay, bool isInteractive) {
-    pointerIntersection = intersectionPosition;
-    pointerIntersectionRay = intersectionRay;
+        Ray intersectionRay, bool isInteractive) {
+        pointerIntersection = intersectionPosition;
+        pointerIntersectionRay = intersectionRay;
   }
 
   public override void OnPointerExit(GameObject targetObject) {
     pointerIntersection = Vector3.zero;
     pointerIntersectionRay = new Ray();
     isPointerIntersecting = false;
+    actionGameObject = null;
   }
 
   public override void OnPointerClickDown() {
