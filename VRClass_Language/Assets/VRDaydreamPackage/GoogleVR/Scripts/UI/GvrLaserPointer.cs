@@ -64,12 +64,11 @@ public class GvrLaserPointer : GvrBasePointer {
         Vector3 clampedDifference = Vector3.ClampMagnitude(difference, maxReticleDistance);
         Vector3 clampedPosition = pointerIntersectionRay.origin + clampedDifference;
         reticle.transform.position = clampedPosition;
-                // rotation
-                checkObjectInteraction();
+        // rotation
+        checkObjectInteraction();
       } else {
         reticle.transform.localPosition = new Vector3(0, 0, maxReticleDistance);
       }
-
       float reticleDistanceFromCamera = (reticle.transform.position - Camera.main.transform.position).magnitude;
       float scale = RETICLE_SIZE * reticleDistanceFromCamera;
       reticle.transform.localScale = new Vector3(scale, scale, scale);
@@ -90,13 +89,10 @@ public class GvrLaserPointer : GvrBasePointer {
 
     private void checkObjectInteraction()
     {
-        Debug.Log("check");
         if (actionGameObject)
         {
-            Debug.Log("existe el objeto");
             if (GvrController.IsTouching)
             {
-                Debug.Log("estoy tocando");
                 if (ExecuteEvents.CanHandleEvent<IRotation>(actionGameObject))
                 {
                     Debug.Log("paso la seguridad");
