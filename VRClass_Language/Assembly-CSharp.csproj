@@ -63,6 +63,7 @@
      <Compile Include="Assets\Code\MenuAndInterface\ExitText.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IElement.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IMenu.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\IMove.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IRotation.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuAnimationController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuController.cs" />

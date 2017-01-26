@@ -95,11 +95,23 @@ public class GvrLaserPointer : GvrBasePointer {
             {
                 if (ExecuteEvents.CanHandleEvent<IRotation>(actionGameObject))
                 {
-                    Debug.Log("paso la seguridad");
                     ExecuteEvents.Execute(actionGameObject, null, (IRotation element, BaseEventData data) => element.rotateElement( new Vector2(GvrController.TouchPos.x - 0.5f, GvrController.TouchPos.y - 0.5f) ));
                 }
             }
-           
+            if (GvrController.AppButton)
+            {
+                if (ExecuteEvents.CanHandleEvent<IMove>(actionGameObject))
+                {
+                    ExecuteEvents.Execute(actionGameObject, null, (IMove element, BaseEventData data) => element.setMovementParentObject(reticle));
+                }
+            }
+            else
+            {
+                if (ExecuteEvents.CanHandleEvent<IMove>(actionGameObject))
+                {
+                    ExecuteEvents.Execute(actionGameObject, null, (IMove element, BaseEventData data) => element.clearMovementParentObject());
+                }
+            }
         }
     }
 
