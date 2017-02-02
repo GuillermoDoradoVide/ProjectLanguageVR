@@ -60,9 +60,12 @@
      <None Include="Assets\VRDaydreamPackage\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
      <None Include="Assets\VRDaydreamPackage\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
      <None Include="Assets\VRDaydreamPackage\Plugins\Android\proguard-gvr.txt" />
+     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
      <None Include="Assets\VRDaydreamPackage\GoogleVR\Shaders\GvrAdditiveOverlay.shader" />
+     <None Include="Assets\Textures and Sprites\SF UI\Background\LICENSE.txt" />
      <None Include="Assets\VRDaydreamPackage\GoogleVR\Shaders\GvrUnlitTransparentOverlay.shader" />
      <None Include="Assets\VRDaydreamPackage\GoogleVR\Shaders\GvrUnlitTransparentOverlayColor.shader" />
+     <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
      <None Include="Assets\VRDaydreamPackage\GoogleVR\Shaders\GvrUnlitTextureOverlay.shader" />
      <None Include="Assets\VRDaydreamPackage\Plugins\Android\AndroidManifest-Daydream.xml" />
      <None Include="Assets\VRDaydreamPackage\GoogleVR\Shaders\GvrReticleShader.shader" />
