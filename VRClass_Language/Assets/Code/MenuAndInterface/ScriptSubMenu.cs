@@ -5,7 +5,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
 {
     public MenuAnimationController menuAnimationController;
     public float timer = 1.0f;
-    public GameObject exit3DText;
+    public GameObject butonIcon;
 
     private void Awake()
     {
@@ -48,18 +48,19 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
 
     public void hoverElement()
     {
-
+        if (!menuAnimationController.animationIsPlaying)
+        {
+           hoverEffect();
+        }
     }
 
     public void selectElement()
     {
         EventManager.triggerEvent(Events.EventList.MV_SubMenuA_Active);
-        exit3DText.SetActive(true);
     }
 
     public void resetElement()
     {
-        exit3DText.SetActive(false);
         EventManager.triggerEvent(Events.EventList.MENU_Active);
         setHideAnimation();
     }
@@ -86,7 +87,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         }
         else
         {
-            gameObject.transform.Translate(0, 0.01f, 0);
+            butonIcon.transform.localPosition = Vector3.MoveTowards(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.0f), 0.005f );
             timer -= Time.deltaTime;
         }
     }
@@ -100,8 +101,26 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         }
         else
         {
-            gameObject.transform.Translate(0, -0.01f, 0);
+            butonIcon.transform.localPosition = Vector3.Lerp(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.03f), 0.005f);
             timer -= Time.deltaTime;
         }
+    }
+
+    private void selectAnimation()
+    {
+        if (timer < 0)
+        {
+            menuAnimationController.animationIsPlaying = false;
+            timer = 1.0f;
+        }
+        else
+        {
+            butonIcon.transform.localPosition = Vector3.Lerp(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.03f), 0.005f);
+            timer -= Time.deltaTime;
+        }
+    }
+
+    private void hoverEffect()
+    {
     }
 }
