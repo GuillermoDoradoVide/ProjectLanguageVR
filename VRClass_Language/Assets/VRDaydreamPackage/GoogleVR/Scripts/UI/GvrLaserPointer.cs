@@ -104,6 +104,10 @@ public class GvrLaserPointer : GvrBasePointer {
                 {
                     ExecuteEvents.Execute(actionGameObject, null, (IMove element, BaseEventData data) => element.setMovementParentObject(reticle));
                 }
+                if (ExecuteEvents.CanHandleEvent<IMenu>(actionGameObject))
+                {
+                    ExecuteEvents.Execute(actionGameObject, null, (IElement element, BaseEventData data) => element.selectElement());
+                }
             }
             else
             {
@@ -112,6 +116,11 @@ public class GvrLaserPointer : GvrBasePointer {
                     ExecuteEvents.Execute(actionGameObject, null, (IMove element, BaseEventData data) => element.clearMovementParentObject());
                 }
             }
+           /* if (ExecuteEvents.CanHandleEvent<IMenu>(actionGameObject))
+            {
+                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAA >>>>> IMenu");
+                ExecuteEvents.Execute(actionGameObject, null, (IElement element, BaseEventData data) => element.hoverElement());
+            }*/
         }
     }
 
