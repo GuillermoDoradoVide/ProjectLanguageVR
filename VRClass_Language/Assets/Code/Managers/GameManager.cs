@@ -13,6 +13,9 @@ public class GameManager : SingletonComponent<GameManager>
     {
         initManagers();
         initEventTriggers();
+		QualitySettings.antiAliasing = 4;
+		Application.targetFrameRate = 60;
+		QualitySettings.vSyncCount = 0;
     }
 
     private void OnDisable()
