@@ -4,7 +4,7 @@ using System.Collections;
 public class GameManager : SingletonComponent<GameManager>
 {
     private SceneController sceneController;
-   // private LevelManager levelManager;
+    private LevelManager levelManager;
     private EventManager eventManager;
     private SessionManager sessionManager;
     public SoundManager soundManager;
@@ -27,7 +27,7 @@ public class GameManager : SingletonComponent<GameManager>
     private void initManagers()
     {
         sceneController = SceneController.Instance;
-        //levelManager = LevelManager.Instance;
+        levelManager = LevelManager.Instance;
         eventManager = EventManager.Instance;
         soundManager = SoundManager.Instance;
     }
