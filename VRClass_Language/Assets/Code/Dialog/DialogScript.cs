@@ -58,7 +58,7 @@ public class DialogScript : MonoBehaviour {
         }
         else
         {
-            animationController.SetFloat("intensity", 0);
+            animationController.SetFloat("_Frequency", 0);
             return false;
         }
     }
@@ -73,14 +73,14 @@ public class DialogScript : MonoBehaviour {
     {
         Debug.Log("parar el dialogo.");
         audioSource.Stop();
-		animationController.SetFloat("intensity", 0);
+        animationController.SetFloat("_Frequency", 0);
     }
 
     public void pauseDialog()
     {
         Debug.Log("pausar el dialogo");
         audioSource.Pause();
-		animationController.SetFloat("intensity", 0);
+        animationController.SetFloat("_Frequency", 0);
     }
 
     public void continueDialog()
@@ -97,11 +97,11 @@ public class DialogScript : MonoBehaviour {
     {
         GetVolume();
         float speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * volume;
-		animationController.SetFloat("intensity", speechVolumeResult);
+        animationController.SetFloat("_Frequency", speechVolumeResult);
 
         if (speechVolumeResult < voiceMinimumVolumeCoutOff)
         {
-			animationController.SetFloat("intensity", 0.0f);
+            animationController.SetFloat("_Frequency", 0.0f);
         }
     }
 
