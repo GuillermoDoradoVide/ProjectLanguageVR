@@ -1,0 +1,824 @@
+fileFormatVersion: 2
+guid: f482bdb615c53784a9e37ad214ccebcf
+timeCreated: 1487066040
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: base
+    100002: base-base
+    100004: base-highpolyeyes
+    100006: base-male_elegantsuit01
+    100008: base-shoes01
+    100010: base-short02
+    100012: Head
+    100014: Hips
+    100016: //RootNode
+    100018: LeftArm
+    100020: LeftFingerBase
+    100022: LeftFoot
+    100024: LeftForeArm
+    100026: LeftHand
+    100028: LeftHandFinger1
+    100030: LeftLeg
+    100032: LeftShoulder
+    100034: LeftToeBase
+    100036: LeftUpLeg
+    100038: LHipJoint
+    100040: LowerBack
+    100042: LThumb
+    100044: Mouth
+    100046: Neck
+    100048: Neck1
+    100050: RHipJoint
+    100052: RightArm
+    100054: RightFingerBase
+    100056: RightFoot
+    100058: RightForeArm
+    100060: RightHand
+    100062: RightHandFinger1
+    100064: RightLeg
+    100066: RightShoulder
+    100068: RightToeBase
+    100070: RightUpLeg
+    100072: RThumb
+    100074: Spine
+    100076: Spine1
+    400000: base
+    400002: base-base
+    400004: base-highpolyeyes
+    400006: base-male_elegantsuit01
+    400008: base-shoes01
+    400010: base-short02
+    400012: Head
+    400014: Hips
+    400016: //RootNode
+    400018: LeftArm
+    400020: LeftFingerBase
+    400022: LeftFoot
+    400024: LeftForeArm
+    400026: LeftHand
+    400028: LeftHandFinger1
+    400030: LeftLeg
+    400032: LeftShoulder
+    400034: LeftToeBase
+    400036: LeftUpLeg
+    400038: LHipJoint
+    400040: LowerBack
+    400042: LThumb
+    400044: Mouth
+    400046: Neck
+    400048: Neck1
+    400050: RHipJoint
+    400052: RightArm
+    400054: RightFingerBase
+    400056: RightFoot
+    400058: RightForeArm
+    400060: RightHand
+    400062: RightHandFinger1
+    400064: RightLeg
+    400066: RightShoulder
+    400068: RightToeBase
+    400070: RightUpLeg
+    400072: RThumb
+    400074: Spine
+    400076: Spine1
+    4300000: base-male_elegantsuit01
+    4300002: base-shoes01
+    4300004: base-highpolyeyes
+    4300006: base-short02
+    4300008: base-base
+    7400000: Default Take
+    7400002: base102_03
+    7400004: base102_09
+    7400006: base102_11
+    7400008: base102_20
+    7400010: base102_27
+    7400012: base102_33
+    7400014: base107_08
+    7400016: base111_08
+    7400018: base111_28
+    7400020: base111_35
+    7400022: base113_21_001
+    7400024: base113_21_002
+    7400026: base134_06
+    7400028: base134_08
+    7400030: base134_10
+    7400032: base134_14
+    7400034: base136_13
+    7400036: base77_02
+    7400038: base77_08
+    7400040: base113_21
+    7400042: baseAction
+    7400044: baseidle
+    7400046: baseneutral_idle
+    7400048: basesittingUp
+    7400050: basetyping
+    7400052: basewalking
+    7400054: basetalk
+    9500000: //RootNode
+    13700000: base-base
+    13700002: base-highpolyeyes
+    13700004: base-male_elegantsuit01
+    13700006: base-shoes01
+    13700008: base-short02
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: baseidle
+      takeName: baseidle
+      firstFrame: -1
+      lastFrame: 262
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Hips
+        weight: 1
+      - path: base/Hips/LHipJoint
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: base/Hips/LowerBack
+        weight: 1
+      - path: base/Hips/LowerBack/Spine
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: base/Hips/RHipJoint
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: base-base
+        weight: 1
+      - path: base-highpolyeyes
+        weight: 1
+      - path: base-male_elegantsuit01
+        weight: 1
+      - path: base-shoes01
+        weight: 1
+      - path: base-short02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: baseneutral_idle
+      takeName: baseneutral_idle
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Hips
+        weight: 1
+      - path: base/Hips/LHipJoint
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: base/Hips/LowerBack
+        weight: 1
+      - path: base/Hips/LowerBack/Spine
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: base/Hips/RHipJoint
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: base-base
+        weight: 1
+      - path: base-highpolyeyes
+        weight: 1
+      - path: base-male_elegantsuit01
+        weight: 1
+      - path: base-shoes01
+        weight: 1
+      - path: base-short02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: basesittingUp
+      takeName: basesittingUp
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Hips
+        weight: 1
+      - path: base/Hips/LHipJoint
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: base/Hips/LowerBack
+        weight: 1
+      - path: base/Hips/LowerBack/Spine
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: base/Hips/RHipJoint
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: base-base
+        weight: 1
+      - path: base-highpolyeyes
+        weight: 1
+      - path: base-male_elegantsuit01
+        weight: 1
+      - path: base-shoes01
+        weight: 1
+      - path: base-short02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: basetyping
+      takeName: basetyping
+      firstFrame: 0
+      lastFrame: 248
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Hips
+        weight: 1
+      - path: base/Hips/LHipJoint
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: base/Hips/LowerBack
+        weight: 1
+      - path: base/Hips/LowerBack/Spine
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: base/Hips/RHipJoint
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: base-base
+        weight: 1
+      - path: base-highpolyeyes
+        weight: 1
+      - path: base-male_elegantsuit01
+        weight: 1
+      - path: base-shoes01
+        weight: 1
+      - path: base-short02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: basewalking
+      takeName: basewalking
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Hips
+        weight: 1
+      - path: base/Hips/LHipJoint
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: base/Hips/LowerBack
+        weight: 1
+      - path: base/Hips/LowerBack/Spine
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: base/Hips/RHipJoint
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: base-base
+        weight: 1
+      - path: base-highpolyeyes
+        weight: 1
+      - path: base-male_elegantsuit01
+        weight: 1
+      - path: base-shoes01
+        weight: 1
+      - path: base-short02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: basetalk
+      takeName: basewalking
+      firstFrame: 250
+      lastFrame: 269
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base
+        weight: 1
+      - path: base/Hips
+        weight: 1
+      - path: base/Hips/LHipJoint
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: base/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: base/Hips/LowerBack
+        weight: 1
+      - path: base/Hips/LowerBack/Spine
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: base/Hips/RHipJoint
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: base-base
+        weight: 1
+      - path: base-highpolyeyes
+        weight: 1
+      - path: base-male_elegantsuit01
+        weight: 1
+      - path: base-shoes01
+        weight: 1
+      - path: base-short02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
