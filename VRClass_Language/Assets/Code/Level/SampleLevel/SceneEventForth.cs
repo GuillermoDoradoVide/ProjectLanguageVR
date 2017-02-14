@@ -10,6 +10,7 @@ public class SceneEventForth : StateScript {
 	public Transform pointA;
 	public Transform pointB;
 	public Vector3 currentPoint;
+	public int counter = 0;
 	void Start()
 	{
 		petAnimator = pet.GetComponent<Animator> ();
@@ -21,14 +22,18 @@ public class SceneEventForth : StateScript {
 	{
 		if(!petAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Walking")) {
 			petAnimator.SetBool ("Walking", true);
-			pet.transform.RotateAround(pet.transform.position, new Vector3(0, 1, 0), -90);
+
+			pet.transform.LookAt(new Vector3(pointA.position.x, pet.transform.position.y , pointA.position.z ));
 		}
 		else {
+			currentPoint = new Vector3 (currentPoint.x,pet.transform.position.y, currentPoint.z);
 			pet.transform.position = Vector3.MoveTowards (pet.transform.position,currentPoint, Time.deltaTime );
-			if (pet.transform.position == pointA.position) {
+			if (Vector3.Distance (pet.transform.position, currentPoint) < 0.3f) {
 				currentPoint = pointB.position;
+				pet.transform.LookAt(new Vector3(currentPoint.x, pet.transform.position.y , currentPoint.z ));
+				counter++;
 			}
-			if (pet.transform.position == pointB.position) {
+			if (counter == 2) {
 				petAnimator.SetBool ("Walking", false);
 				completed = true;
 			}
