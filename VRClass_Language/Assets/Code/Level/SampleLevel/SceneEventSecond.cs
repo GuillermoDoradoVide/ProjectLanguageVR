@@ -10,7 +10,7 @@ public class SceneEventSecond : StateScript
     public bool completed = false;
     void Start()
     {
-		petAnimator = pet.GetComponent<Animator> ();
+		petAnimator = pet.GetComponentInChildren<Animator> ();
     }
 
     // Update is called once per frame

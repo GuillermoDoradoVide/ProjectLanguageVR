@@ -11,9 +11,10 @@ public class SceneEventForth : StateScript {
 	public Transform pointB;
 	public Vector3 currentPoint;
 	public int counter = 0;
+	private Vector3 petDirection;
 	void Start()
 	{
-		petAnimator = pet.GetComponent<Animator> ();
+		petAnimator = pet.GetComponentInChildren<Animator> ();
 		currentPoint = pointA.position;
 	}
 
@@ -22,15 +23,13 @@ public class SceneEventForth : StateScript {
 	{
 		if(!petAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Walking")) {
 			petAnimator.SetBool ("Walking", true);
-
-			pet.transform.LookAt(new Vector3(pointA.position.x, pet.transform.position.y , pointA.position.z ));
 		}
 		else {
-			currentPoint = new Vector3 (currentPoint.x,pet.transform.position.y, currentPoint.z);
-			pet.transform.position = Vector3.MoveTowards (pet.transform.position,currentPoint, Time.deltaTime );
-			if (Vector3.Distance (pet.transform.position, currentPoint) < 0.3f) {
+			petDirection = new Vector3 (currentPoint.x - pet.transform.position.x, 0, currentPoint.z - pet.transform.position.z);
+			pet.transform.rotation = Quaternion.Slerp (pet.transform.rotation, Quaternion.LookRotation(petDirection), 0.2f);
+			pet.transform.Translate (pet.transform.forward * Time.deltaTime * 1.3f);
+			if (Vector3.Distance (new Vector3(pet.transform.position.x, 0, pet.transform.position.z), new Vector3(currentPoint.x, 0, currentPoint.z)) < 0.3f) {
 				currentPoint = pointB.position;
-				pet.transform.LookAt(new Vector3(currentPoint.x, pet.transform.position.y , currentPoint.z ));
 				counter++;
 			}
 			if (counter == 2) {

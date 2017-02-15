@@ -98,6 +98,7 @@ public class DialogScript : MonoBehaviour {
         GetVolume();
         float speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * volume;
 		animationController.SetFloat("intensity", speechVolumeResult);
+		animationController.SetLayerWeight (1, speechVolumeResult);
 
         if (speechVolumeResult < voiceMinimumVolumeCoutOff)
         {

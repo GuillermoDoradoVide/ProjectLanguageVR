@@ -14,7 +14,7 @@ public class SceneEventThird : StateScript {
 	// Use this for initialization
 	void Start () {
 		petDialogScript = pet.GetComponent<DialogScript>();
-		petAnimator = pet.GetComponent<Animator>();
+		petAnimator = pet.GetComponentInChildren<Animator>();
 	}
 
 	// Update is called once per frame
