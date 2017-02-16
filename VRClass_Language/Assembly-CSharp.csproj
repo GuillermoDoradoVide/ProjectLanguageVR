@@ -260,6 +260,7 @@
      <Compile Include="Assets\MorgueRoom\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\MorgueRoom\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\MorgueRoom\Standard Assets\Utility\WaypointProgressTracker.cs" />
+     <Compile Include="Assets\characterTalking.cs" />
      <None Include="Assets\MorgueRoom\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\MorgueRoom\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\MorgueRoom\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
