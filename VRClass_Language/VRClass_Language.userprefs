@@ -1,20 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Dialog\DialogScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Characters\CharacterAnimationReference.cs">
     <Files>
       <File FileName="Assets\Code\Managers\GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Managers\LevelManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Level\LevelInfo.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Dialog\DialogScript.cs" Line="101" Column="62" />
-      <File FileName="Assets\Code\Level\SampleLevel\SceneEventSecond.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\SampleLevel\SceneEventActivity.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\SampleLevel\SceneEventSecond.cs" Line="9" Column="57" />
+      <File FileName="Assets\Code\Level\SampleLevel\SceneEventActivity.cs" Line="13" Column="57" />
       <File FileName="Assets\Code\Managers\EventManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\SampleLevel\SceneEventThird.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\SampleLevel\SceneEventForth.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\SampleLevel\SceneEventThird.cs" Line="12" Column="57" />
+      <File FileName="Assets\Code\Level\SampleLevel\SceneEventForth.cs" Line="24" Column="56" />
       <File FileName="Assets\Code\Player\PlayerControllerInteraction.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Player\PlayerGazeInteraction.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\IRotation.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\ObjectInspector.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Characters\CharacterAnimationReference.cs" Line="18" Column="36" />
+      <File FileName="Assets\Code\Characters\Dialog\DialogScript.cs" Line="103" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -10,12 +10,12 @@ public class SceneEventActivity : StateScript {
     //public AudioClip secondDialog;
     public GameObject pet;
     private DialogScript petDialogScript;
-	private Animator petAnimator;
+	private CharacterAnimationReference characterAnimation;
 
 	// Use this for initialization
 	void Start () {
         petDialogScript = pet.GetComponent<DialogScript>();
-		petAnimator = pet.GetComponentInChildren<Animator>();
+		characterAnimation = pet.GetComponent<CharacterAnimationReference> ();
     }
 	
 	// Update is called once per frame
@@ -30,7 +30,7 @@ public class SceneEventActivity : StateScript {
             }
             else
             {
-				petAnimator.SetBool ("GetUp", true);
+				characterAnimation.setAction ("GetUp");
                 doChangeThisStateToFinished();
             }
         }

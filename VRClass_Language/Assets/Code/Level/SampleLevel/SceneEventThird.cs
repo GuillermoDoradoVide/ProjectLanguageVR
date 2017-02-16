@@ -9,12 +9,12 @@ public class SceneEventThird : StateScript {
 	//public AudioClip secondDialog;
 	public GameObject pet;
 	private DialogScript petDialogScript;
-	private Animator petAnimator;
+	private CharacterAnimationReference characterAnimation;
 
 	// Use this for initialization
 	void Start () {
 		petDialogScript = pet.GetComponent<DialogScript>();
-		petAnimator = pet.GetComponentInChildren<Animator>();
+		characterAnimation = pet.GetComponentInChildren<CharacterAnimationReference>();
 	}
 
 	// Update is called once per frame

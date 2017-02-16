@@ -6,20 +6,20 @@ public class SceneEventSecond : StateScript
 {
     public GameObject pet;
     private DialogScript petDialogScript;    // Use this for initialization
-	private Animator petAnimator;
+	private CharacterAnimationReference characterAnimation;
     public bool completed = false;
     void Start()
     {
-		petAnimator = pet.GetComponentInChildren<Animator> ();
+		characterAnimation = pet.GetComponentInChildren<CharacterAnimationReference> ();
     }
 
     // Update is called once per frame
     public override void atUpdate()
     {
-		if(petAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.GetUp")) {
-			if(petAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime>=1) {
+		if(characterAnimation.characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.GetUp")) {
+			if(characterAnimation.characterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime>=1) {
 				EventManager.triggerEvent (Events.EventList.LEVEL_Activity_Completed);
-				petAnimator.SetBool ("GetUp", false);
+				characterAnimation.setAction ("GetUp",false);
 			}
 		}
         if (completed)

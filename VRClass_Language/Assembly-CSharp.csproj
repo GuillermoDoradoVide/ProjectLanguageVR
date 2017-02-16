@@ -45,7 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Code\Dialog\DialogScript.cs" />
+     <Compile Include="Assets\Code\Characters\CharacterAnimationReference.cs" />
+     <Compile Include="Assets\Code\Characters\Dialog\DialogScript.cs" />
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
