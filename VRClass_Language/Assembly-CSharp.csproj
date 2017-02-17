@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\AnimationSampleScene\CharacterWaypointMovement.cs" />
      <Compile Include="Assets\Code\Characters\CharacterAnimationReference.cs" />
      <Compile Include="Assets\Code\Characters\Dialog\DialogScript.cs" />
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
@@ -84,6 +85,7 @@
      <Compile Include="Assets\Code\Player\Achievements\AchievementManager.cs" />
      <Compile Include="Assets\Code\Player\PlayerControllerInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
+     <Compile Include="Assets\Code\Player\characterTalking.cs" />
      <Compile Include="Assets\Code\Session\SessionManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\Teleport.cs" />
@@ -260,7 +262,6 @@
      <Compile Include="Assets\MorgueRoom\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\MorgueRoom\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\MorgueRoom\Standard Assets\Utility\WaypointProgressTracker.cs" />
-     <Compile Include="Assets\characterTalking.cs" />
      <None Include="Assets\MorgueRoom\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\MorgueRoom\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\MorgueRoom\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f482bdb615c53784a9e37ad214ccebcf
-timeCreated: 1487066040
+timeCreated: 1487265314
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -44,6 +44,7 @@ ModelImporter:
     100072: RThumb
     100074: Spine
     100076: Spine1
+    100078: Jaw
     400000: base
     400002: base-base
     400004: base-highpolyeyes
@@ -83,6 +84,7 @@ ModelImporter:
     400072: RThumb
     400074: Spine
     400076: Spine1
+    400078: Jaw
     4300000: base-male_elegantsuit01
     4300002: base-shoes01
     4300004: base-highpolyeyes
@@ -117,6 +119,7 @@ ModelImporter:
     7400052: basewalking
     7400054: basetalk
     7400056: Talk
+    7400058: Talking
     9500000: //RootNode
     13700000: base-base
     13700002: base-highpolyeyes
@@ -134,16 +137,16 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Default Take' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Spine1' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'baseidle' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\nClip 'baseneutral_idle'
-      has import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
+    animationImportWarnings: "\nDefault bone length found in this file is different
+      form the one found in the source avatar:\n\t'Jaw' : position error = 7.636075
+      mm\n\nInbetween bone default rotation found in this file is different from the
+      one found in the source avatar:\n\t'Spine1' : rotation error = 4.837276 deg\n\nClip
+      'baseidle' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'baseneutral_idle' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'basesittingUp' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
@@ -152,9 +155,7 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'basewalking' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Mouth'
-      has translation animation that will be discarded.\n\t'Mouth' has scale animation
-      that will be discarded.\n"
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -231,7 +232,7 @@ ModelImporter:
         weight: 1
       - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
         weight: 1
-      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Jaw
         weight: 1
       - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
         weight: 1
@@ -258,15 +259,15 @@ ModelImporter:
       - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
         weight: 1
       - path: base-base
-        weight: 1
+        weight: 0
       - path: base-highpolyeyes
-        weight: 1
+        weight: 0
       - path: base-male_elegantsuit01
-        weight: 1
+        weight: 0
       - path: base-shoes01
-        weight: 1
+        weight: 0
       - path: base-short02
-        weight: 1
+        weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
@@ -389,7 +390,7 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
@@ -589,10 +590,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Talk
-      takeName: basewalking
-      firstFrame: 34
-      lastFrame: 35
+      name: Talking
+      takeName: Talking
+      firstFrame: 0
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -655,7 +656,7 @@ ModelImporter:
         weight: 1
       - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
         weight: 1
-      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Jaw
         weight: 1
       - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
         weight: 1
@@ -682,15 +683,15 @@ ModelImporter:
       - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
         weight: 1
       - path: base-base
-        weight: 1
+        weight: 0
       - path: base-highpolyeyes
-        weight: 1
+        weight: 0
       - path: base-male_elegantsuit01
-        weight: 1
+        weight: 0
       - path: base-shoes01
-        weight: 1
+        weight: 0
       - path: base-short02
-        weight: 1
+        weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
@@ -896,7 +897,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Mouth
+    - boneName: Jaw
       humanName: Jaw
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1015,23 +1016,18 @@ ModelImporter:
       transformModified: 1
     - name: LeftArm
       position: {x: -0.19202034, y: 0.00000007916242, z: 4.65661e-10}
-      rotation: {x: 0.11495167, y: 0.024068983, z: -0.14646952, w: 0.98221874}
+      rotation: {x: 0.11495166, y: 0.024068981, z: -0.14646952, w: 0.9822187}
       scale: {x: 0.9999997, y: 0.9999999, z: 0.99999994}
       transformModified: 1
     - name: LeftForeArm
       position: {x: -0.29126826, y: 0.00000008940697, z: 0.00000000372529}
-      rotation: {x: -0.005193924, y: 0.035014912, z: -0.0012907734, w: 0.9993724}
+      rotation: {x: -0.0051939255, y: 0.035014912, z: -0.0012907737, w: 0.9993724}
       scale: {x: 0.99999994, y: 1, z: 0.99999994}
       transformModified: 1
     - name: LeftHand
       position: {x: -0.3040073, y: -0.000000001862645, z: 0.000000029802322}
       rotation: {x: 0.08301961, y: 0.09458833, z: 0.08684544, w: 0.9882402}
       scale: {x: 1.0000001, y: 1.0000001, z: 1}
-      transformModified: 1
-    - name: LThumb
-      position: {x: -0.049599804, y: -0.0021536052, z: 0.024724595}
-      rotation: {x: 0.8209768, y: 0.48270193, z: -0.27611715, w: 0.1294422}
-      scale: {x: 1.0000002, y: 0.99999994, z: 1}
       transformModified: 1
     - name: LeftFingerBase
       position: {x: -0.040754203, y: 0.00012842938, z: 0.000085905194}
@@ -1042,6 +1038,11 @@ ModelImporter:
       position: {x: -0.08963408, y: 0.000000044703484, z: 0.000000022351742}
       rotation: {x: -0.0025361285, y: 0.12963423, z: 0.05176042, w: 0.9902068}
       scale: {x: 1, y: 0.99999976, z: 1}
+      transformModified: 1
+    - name: LThumb
+      position: {x: -0.049599804, y: -0.0021536052, z: 0.024724595}
+      rotation: {x: 0.8209768, y: 0.48270193, z: -0.27611715, w: 0.1294422}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1}
       transformModified: 1
     - name: Neck
       position: {x: -0.2593227, y: 0.000000001629815, z: 0.00025910977}
@@ -1059,10 +1060,10 @@ ModelImporter:
       rotation: {x: -0.000000018153258, y: -0.23646002, z: -0.000000003698925, w: 0.97164124}
       scale: {x: 1, y: 0.99999994, z: 1}
       transformModified: 1
-    - name: Mouth
-      position: {x: -0.006218615, y: 0.000000027939677, z: 0.153685}
-      rotation: {x: -0.000000016796625, y: -0.21015595, z: 0.0000000016287378, w: 0.9776679}
-      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Jaw
+      position: {x: -0.005, y: 0, z: 0.011}
+      rotation: {x: 0, y: 0.010471772, z: 0, w: 0.99994516}
+      scale: {x: 1.0000001, y: 1, z: 1}
       transformModified: 1
     - name: RightShoulder
       position: {x: -0.18367906, y: 0.029688982, z: 0.047673035}
@@ -1076,7 +1077,7 @@ ModelImporter:
       transformModified: 1
     - name: RightForeArm
       position: {x: -0.29125792, y: -0.00000001656008, z: -0.000000001388798}
-      rotation: {x: 0.004601871, y: 0.03512402, z: 0.003957192, w: 0.9993646}
+      rotation: {x: 0.0046018697, y: 0.03512402, z: 0.0039571906, w: 0.9993646}
       scale: {x: 1.0000001, y: 1, z: 1}
       transformModified: 1
     - name: RightHand
@@ -1084,20 +1085,20 @@ ModelImporter:
       rotation: {x: 0.008416965, y: 0.077885136, z: -0.069607385, w: 0.9944938}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: RThumb
-      position: {x: -0.049599823, y: 0.0021536562, z: 0.02472463}
-      rotation: {x: 0.8209792, y: -0.4827037, z: -0.27610928, w: -0.1294373}
-      scale: {x: 0.99999994, y: 1, z: 0.99999976}
-      transformModified: 1
     - name: RightFingerBase
       position: {x: -0.040754136, y: -0.00012842612, z: 0.00008594757}
-      rotation: {x: -0.7848964, y: -0.067267716, z: -0.007470445, w: 0.6159197}
+      rotation: {x: -0.7848963, y: -0.067267716, z: -0.0074704443, w: 0.6159197}
       scale: {x: 0.99999976, y: 0.99999976, z: 0.9999999}
       transformModified: 1
     - name: RightHandFinger1
       position: {x: -0.08963397, y: 0.000000014901161, z: 0.000000018626451}
       rotation: {x: 0.0025361348, y: 0.12963428, z: -0.051760472, w: 0.9902068}
       scale: {x: 1, y: 0.9999998, z: 0.99999994}
+      transformModified: 1
+    - name: RThumb
+      position: {x: -0.049599823, y: 0.0021536562, z: 0.02472463}
+      rotation: {x: 0.8209792, y: -0.4827037, z: -0.27610928, w: -0.1294373}
+      scale: {x: 0.99999994, y: 1, z: 0.99999976}
       transformModified: 1
     - name: RHipJoint
       position: {x: 0.00006731239, y: 0.00001591313, z: -0.000035012607}
