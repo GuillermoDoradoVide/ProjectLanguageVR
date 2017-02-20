@@ -58,7 +58,7 @@ public class DialogScript : MonoBehaviour {
         }
         else
         {
-			animationController.SetLayerWeight (1, 0);
+			animationController.SetLayerWeight (2, 0);
             return false;
         }
     }
@@ -73,14 +73,14 @@ public class DialogScript : MonoBehaviour {
     {
         Debug.Log("parar el dialogo.");
         audioSource.Stop();
-		animationController.SetLayerWeight (1, 0);
+		animationController.SetLayerWeight (2, 0);
     }
 
     public void pauseDialog()
     {
         Debug.Log("pausar el dialogo");
         audioSource.Pause();
-		animationController.SetLayerWeight (1, 0);
+		animationController.SetLayerWeight (2, 0);
     }
 
     public void continueDialog()
@@ -97,11 +97,11 @@ public class DialogScript : MonoBehaviour {
     {
         GetVolume();
         float speechVolumeResult = movingAverage(bandVol(fLow, fHigh)) * volume;
-		animationController.SetLayerWeight (1, speechVolumeResult * 2);
+		animationController.SetLayerWeight (2, speechVolumeResult * 2);
 
         if (speechVolumeResult < voiceMinimumVolumeCoutOff)
         {
-			animationController.SetLayerWeight (1, 0);
+			animationController.SetLayerWeight (2, 0);
         }
     }
 
