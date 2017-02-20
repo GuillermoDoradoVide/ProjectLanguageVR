@@ -17,6 +17,7 @@ public class AirportMeeting : StateScript {
 
 	// Update is called once per frame
 	public override void atUpdate() {
+		characterAnimation.setTalking ();
 		if(!guardDialogScript.playUpdateDialog())
 		{
 			if (currentDialog < dialogs.Length)

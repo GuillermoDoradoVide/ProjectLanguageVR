@@ -19,6 +19,7 @@ public class AirportQuestion: StateScript {
 	public override void atUpdate() {
 		if(!guardDialogScript.playUpdateDialog())
 		{
+			characterAnimation.setTalking ();
 			if (currentDialog < dialogs.Length)
 			{
 				EventManager.setNewDialogEvent(dialogs[currentDialog]);
@@ -27,6 +28,7 @@ public class AirportQuestion: StateScript {
 			}
 			else
 			{
+				characterAnimation.setTalking (false);
 				characterAnimation.setAction ("Pick");
 				doChangeThisStateToFinished();
 			}
