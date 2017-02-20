@@ -62,6 +62,7 @@ ModelImporter:
     100108: mixamorig_Spine1
     100110: mixamorig_Spine2
     100112: talking_1
+    100114: running
     400000: //RootNode
     400002: mixamorig_Head
     400004: mixamorig_HeadTop_End
@@ -119,6 +120,7 @@ ModelImporter:
     400108: mixamorig_Spine1
     400110: mixamorig_Spine2
     400112: talking_1
+    400114: running
   materials:
     importMaterials: 1
     materialName: 0
