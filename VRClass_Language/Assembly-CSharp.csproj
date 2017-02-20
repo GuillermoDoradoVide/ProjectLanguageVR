@@ -53,6 +53,11 @@
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Code\IdleAnimationCycleBehaviour.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\AirportAnswer.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\AirportEnd.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\AirportInit.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\AirportMeeting.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\AirportQuestion.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\SceneEventActivity.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\SceneEventForth.cs" />
