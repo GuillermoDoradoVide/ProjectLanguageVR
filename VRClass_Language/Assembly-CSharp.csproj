@@ -45,11 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\AnimationLayerManagment.cs" />
+     <Compile Include="Assets\Code\AnimationSampleScene\CharacterPivotMovement.cs" />
      <Compile Include="Assets\Code\AnimationSampleScene\CharacterWaypointMovement.cs" />
      <Compile Include="Assets\Code\Characters\CharacterAnimationReference.cs" />
      <Compile Include="Assets\Code\Characters\Dialog\DialogScript.cs" />
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
+     <Compile Include="Assets\Code\IdleAnimationCycleBehaviour.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\SceneEventActivity.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\SceneEventForth.cs" />
@@ -87,6 +90,7 @@
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\Code\Player\characterTalking.cs" />
      <Compile Include="Assets\Code\Session\SessionManager.cs" />
+     <Compile Include="Assets\Code\TalkingAnimationCycleBehaviour.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\Teleport.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\PermissionsDemo\PermissionsFlowManager.cs" />

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f482bdb615c53784a9e37ad214ccebcf
-timeCreated: 1487265314
+timeCreated: 1487325447
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -120,6 +120,7 @@ ModelImporter:
     7400054: basetalk
     7400056: Talk
     7400058: Talking
+    7400060: basewalking_a
     9500000: //RootNode
     13700000: base-base
     13700002: base-highpolyeyes
@@ -137,16 +138,18 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nDefault bone length found in this file is different
-      form the one found in the source avatar:\n\t'Jaw' : position error = 7.636075
-      mm\n\nInbetween bone default rotation found in this file is different from the
-      one found in the source avatar:\n\t'Spine1' : rotation error = 4.837276 deg\n\nClip
-      'baseidle' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'baseneutral_idle' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+    animationImportWarnings: "\nInbetween bone default rotation found in this file
+      is different from the one found in the source avatar:\n\t'Spine1' : rotation
+      error = 2.914237 deg\n\nClip 'Default Take' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Spine1' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n\nClip 'baseidle' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'baseneutral_idle'
+      has import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'basesittingUp' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
@@ -154,6 +157,9 @@ ModelImporter:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'basewalking' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'basewalking_a' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
@@ -484,8 +490,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: basewalking
-      takeName: basewalking
+      name: basewalking_a
+      takeName: basewalking_a
       firstFrame: 1
       lastFrame: 30
       wrapMode: 0
@@ -550,7 +556,7 @@ ModelImporter:
         weight: 1
       - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
         weight: 1
-      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Mouth
+      - path: base/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Jaw
         weight: 1
       - path: base/Hips/LowerBack/Spine/Spine1/RightShoulder
         weight: 1
@@ -577,15 +583,15 @@ ModelImporter:
       - path: base/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
         weight: 1
       - path: base-base
-        weight: 1
+        weight: 0
       - path: base-highpolyeyes
-        weight: 1
+        weight: 0
       - path: base-male_elegantsuit01
-        weight: 1
+        weight: 0
       - path: base-shoes01
-        weight: 1
+        weight: 0
       - path: base-short02
-        weight: 1
+        weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
@@ -966,164 +972,163 @@ ModelImporter:
       transformModified: 1
     - name: Hips
       position: {x: 0.0068989126, y: -0.0031294771, z: 0.98013884}
-      rotation: {x: 0.38229156, y: 0.40845796, z: -0.5406106, w: 0.62829566}
-      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+      rotation: {x: 0.41372302, y: 0.413723, z: -0.5734399, w: 0.57343996}
+      scale: {x: 1.0000043, y: 1.0000033, z: 1.0000032}
       transformModified: 1
     - name: LHipJoint
       position: {x: 0.00006736128, y: -0.000015924365, z: -0.000035027915}
-      rotation: {x: 0.53449965, y: 0.4733363, z: 0.50166166, w: 0.4884654}
-      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+      rotation: {x: 0.5344997, y: 0.47333625, z: 0.5016617, w: 0.4884654}
+      scale: {x: 0.9999998, y: 1.0000004, z: 1.0000027}
       transformModified: 1
     - name: LeftUpLeg
       position: {x: -0.1483894, y: 0.000000015599653, z: 0.00000003562309}
-      rotation: {x: 0.5442936, y: 0.515349, z: -0.38779527, w: 0.5364465}
-      scale: {x: 0.9999994, y: 0.99999946, z: 0.99999994}
+      rotation: {x: -0.5862921, y: -0.49638438, z: 0.48107037, w: -0.42241618}
+      scale: {x: 1.0000006, y: 1.000001, z: 1.0000038}
       transformModified: 1
     - name: LeftLeg
       position: {x: -0.4331697, y: 0.00000005029142, z: -0.000000001862645}
-      rotation: {x: 0.006753907, y: 0.17726812, z: 0.020102803, w: 0.9839341}
-      scale: {x: 1.0000001, y: 1, z: 1}
+      rotation: {x: -0.014675317, y: 0.08703693, z: 0.016114084, w: 0.9959666}
+      scale: {x: 1.0000018, y: 1.000002, z: 0.9999998}
       transformModified: 1
     - name: LeftFoot
       position: {x: -0.49998635, y: 0.00000007357448, z: -0.000000017258571}
-      rotation: {x: -0.07823472, y: -0.64610136, z: -0.025952332, w: 0.75878775}
-      scale: {x: 1, y: 1.0000001, z: 1}
+      rotation: {x: 0.027987804, y: 0.61134475, z: -0.03619245, w: -0.7900408}
+      scale: {x: 1.0000039, y: 1.0000036, z: 1.0000077}
       transformModified: 1
     - name: LeftToeBase
       position: {x: -0.17555377, y: 0.000000043481123, z: 0.000000002793968}
-      rotation: {x: 0.00029616154, y: -0.09770878, z: -0.031105906, w: 0.9947288}
-      scale: {x: 1, y: 1, z: 0.99999994}
+      rotation: {x: 0.00029604876, y: -0.09770892, z: -0.031105869, w: 0.9947288}
+      scale: {x: 1.0000018, y: 1.0000011, z: 1.000001}
       transformModified: 1
     - name: LowerBack
       position: {x: -0.119864084, y: 0.000000004423782, z: -0.00007483168}
-      rotation: {x: -0.012133314, y: 0.15947917, z: -0.02519027, w: 0.98680526}
-      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+      rotation: {x: 0.00000006525078, y: 0.15878902, z: -0.000000059604638, w: 0.98731256}
+      scale: {x: 1.0000018, y: 1.0000007, z: 1.000001}
       transformModified: 1
     - name: Spine
       position: {x: -0.17465894, y: 0.000000015366822, z: -0.000000010797521}
-      rotation: {x: -0.016141932, y: -0.09731103, z: -0.033095546, w: 0.99457264}
-      scale: {x: 1, y: 0.9999999, z: 1}
+      rotation: {x: 0.000000015409572, y: -0.11859842, z: 0.000000009890328, w: 0.9929423}
+      scale: {x: 1.0000002, y: 1.0000027, z: 0.99999964}
       transformModified: 1
     - name: Spine1
       position: {x: -0.15737891, y: 0.000000023283064, z: 0.0000000136788}
-      rotation: {x: -0.009053551, y: 0.30676678, z: -0.03559729, w: 0.95107573}
-      scale: {x: 1, y: 0.99999994, z: 1}
+      rotation: {x: -0.000000052608193, y: 0.286293, z: 0.0000000336724, w: 0.95814216}
+      scale: {x: 1.0000005, y: 0.99999857, z: 1.000002}
       transformModified: 1
     - name: LeftShoulder
       position: {x: -0.18373924, y: -0.02970283, z: 0.047789525}
-      rotation: {x: -0.14180864, y: -0.18133448, z: 0.82132035, w: 0.5219588}
-      scale: {x: 1, y: 1, z: 1}
+      rotation: {x: -0.15065676, y: -0.18774714, z: 0.7628766, w: 0.60006076}
+      scale: {x: 0.9999998, y: 0.99999666, z: 1.0000024}
       transformModified: 1
     - name: LeftArm
       position: {x: -0.19202034, y: 0.00000007916242, z: 4.65661e-10}
-      rotation: {x: 0.11495166, y: 0.024068981, z: -0.14646952, w: 0.9822187}
-      scale: {x: 0.9999997, y: 0.9999999, z: 0.99999994}
+      rotation: {x: 0.025357464, y: 0.04768796, z: -0.0846107, w: 0.9949492}
+      scale: {x: 1, y: 1.0000044, z: 1.0000027}
       transformModified: 1
     - name: LeftForeArm
       position: {x: -0.29126826, y: 0.00000008940697, z: 0.00000000372529}
-      rotation: {x: -0.0051939255, y: 0.035014912, z: -0.0012907737, w: 0.9993724}
-      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+      rotation: {x: -0.0149460165, y: 0.026304668, z: -0.020353584, w: 0.99933505}
+      scale: {x: 0.9999983, y: 1.0000011, z: 1.0000017}
       transformModified: 1
     - name: LeftHand
       position: {x: -0.3040073, y: -0.000000001862645, z: 0.000000029802322}
-      rotation: {x: 0.08301961, y: 0.09458833, z: 0.08684544, w: 0.9882402}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1}
-      transformModified: 1
-    - name: LeftFingerBase
-      position: {x: -0.040754203, y: 0.00012842938, z: 0.000085905194}
-      rotation: {x: 0.78397304, y: -0.0839711, z: 0.02544965, w: 0.6145628}
-      scale: {x: 1.0000001, y: 0.99999994, z: 1}
-      transformModified: 1
-    - name: LeftHandFinger1
-      position: {x: -0.08963408, y: 0.000000044703484, z: 0.000000022351742}
-      rotation: {x: -0.0025361285, y: 0.12963423, z: 0.05176042, w: 0.9902068}
-      scale: {x: 1, y: 0.99999976, z: 1}
+      rotation: {x: 0.029558817, y: 0.09554014, z: 0.024785044, w: 0.9946779}
+      scale: {x: 0.9999984, y: 1.0000017, z: 1.0000045}
       transformModified: 1
     - name: LThumb
       position: {x: -0.049599804, y: -0.0021536052, z: 0.024724595}
-      rotation: {x: 0.8209768, y: 0.48270193, z: -0.27611715, w: 0.1294422}
-      scale: {x: 1.0000002, y: 0.99999994, z: 1}
+      rotation: {x: 0.8209769, y: 0.48270157, z: -0.2761173, w: 0.12944226}
+      scale: {x: 0.9999955, y: 0.99999845, z: 1.0000057}
+      transformModified: 1
+    - name: LeftFingerBase
+      position: {x: -0.040754203, y: 0.00012842938, z: 0.000085905194}
+      rotation: {x: 0.78855574, y: -0.032734394, z: 0.033301804, w: 0.61318797}
+      scale: {x: 0.99999684, y: 1.0000015, z: 1.0000015}
+      transformModified: 1
+    - name: LeftHandFinger1
+      position: {x: -0.08963408, y: 0.000000044703484, z: 0.000000022351742}
+      rotation: {x: -0.0025361476, y: 0.12963435, z: 0.051760577, w: 0.9902067}
+      scale: {x: 1.0000051, y: 0.9999991, z: 1.0000019}
       transformModified: 1
     - name: Neck
       position: {x: -0.2593227, y: 0.000000001629815, z: 0.00025910977}
-      rotation: {x: 0.0008562225, y: 0.08454234, z: 0.020835029, w: 0.9962017}
-      scale: {x: 0.99999994, y: 1, z: 1}
+      rotation: {x: 0.000000021663404, y: 0.040898517, z: 0.0000000058320366, w: 0.99916327}
+      scale: {x: 1.0000017, y: 1.0000007, z: 1.0000006}
       transformModified: 1
     - name: Neck1
       position: {x: -0.06530539, y: 0.000000005355105, z: 0.000000041909516}
-      rotation: {x: -0.0000000037263606, y: 0.00028696988, z: 0.0000000037263606,
-        w: 1}
-      scale: {x: 1, y: 1, z: 1}
+      rotation: {x: 0.000000049428543, y: 0.00028697398, z: -0.000000044718572, w: 1}
+      scale: {x: 1, y: 1.0000019, z: 1}
       transformModified: 1
     - name: Head
       position: {x: -0.06539607, y: 0.000000026077032, z: -0.00000011501834}
-      rotation: {x: -0.000000018153258, y: -0.23646002, z: -0.000000003698925, w: 0.97164124}
-      scale: {x: 1, y: 0.99999994, z: 1}
+      rotation: {x: -0.0000000371039, y: -0.23646012, z: 0.00000010237384, w: 0.97164124}
+      scale: {x: 1.000002, y: 1.0000042, z: 1.0000074}
       transformModified: 1
     - name: Jaw
-      position: {x: -0.005, y: 0, z: 0.011}
-      rotation: {x: 0, y: 0.010471772, z: 0, w: 0.99994516}
-      scale: {x: 1.0000001, y: 1, z: 1}
+      position: {x: -0.001352773, y: 0.00000002142042, z: 0.0033369828}
+      rotation: {x: 0.0000010879202, y: 0.4960747, z: -0.0000006231522, w: 0.8682799}
+      scale: {x: 1.000008, y: 1.0000045, z: 1.0000055}
       transformModified: 1
     - name: RightShoulder
       position: {x: -0.18367906, y: 0.029688982, z: 0.047673035}
-      rotation: {x: 0.18123752, y: -0.13062659, z: -0.7595774, w: 0.61084527}
-      scale: {x: 1, y: 0.9999999, z: 1}
+      rotation: {x: -0.15067077, y: 0.18722607, z: 0.7629017, w: -0.600188}
+      scale: {x: 1.0000042, y: 0.99999774, z: 1.0000032}
       transformModified: 1
     - name: RightArm
       position: {x: -0.19202031, y: 0.00000013038516, z: -0.000000011175871}
-      rotation: {x: -0.12841046, y: 0.0018632028, z: 0.14513612, w: 0.9810417}
-      scale: {x: 0.99999976, y: 0.9999999, z: 0.99999994}
+      rotation: {x: -0.02501725, y: 0.04730931, z: 0.08462304, w: 0.9949748}
+      scale: {x: 1.0000025, y: 1.0000017, z: 1.0000005}
       transformModified: 1
     - name: RightForeArm
       position: {x: -0.29125792, y: -0.00000001656008, z: -0.000000001388798}
-      rotation: {x: 0.0046018697, y: 0.03512402, z: 0.0039571906, w: 0.9993646}
-      scale: {x: 1.0000001, y: 1, z: 1}
+      rotation: {x: 0.015051197, y: 0.026308268, z: 0.020355184, w: 0.9993333}
+      scale: {x: 1.0000076, y: 1.0000052, z: 1.000004}
       transformModified: 1
     - name: RightHand
       position: {x: -0.30400702, y: 0.000000029174316, z: 0.000000006111804}
-      rotation: {x: 0.008416965, y: 0.077885136, z: -0.069607385, w: 0.9944938}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: RightFingerBase
-      position: {x: -0.040754136, y: -0.00012842612, z: 0.00008594757}
-      rotation: {x: -0.7848963, y: -0.067267716, z: -0.0074704443, w: 0.6159197}
-      scale: {x: 0.99999976, y: 0.99999976, z: 0.9999999}
-      transformModified: 1
-    - name: RightHandFinger1
-      position: {x: -0.08963397, y: 0.000000014901161, z: 0.000000018626451}
-      rotation: {x: 0.0025361348, y: 0.12963428, z: -0.051760472, w: 0.9902068}
-      scale: {x: 1, y: 0.9999998, z: 0.99999994}
+      rotation: {x: -0.029613163, y: 0.09556258, z: -0.024813138, w: 0.99467343}
+      scale: {x: 1.0000039, y: 1.0000017, z: 0.99999887}
       transformModified: 1
     - name: RThumb
       position: {x: -0.049599823, y: 0.0021536562, z: 0.02472463}
-      rotation: {x: 0.8209792, y: -0.4827037, z: -0.27610928, w: -0.1294373}
-      scale: {x: 0.99999994, y: 1, z: 0.99999976}
+      rotation: {x: 0.82097924, y: -0.48270372, z: -0.2761094, w: -0.1294372}
+      scale: {x: 1.0000012, y: 1.0000081, z: 1.0000138}
+      transformModified: 1
+    - name: RightFingerBase
+      position: {x: -0.040754136, y: -0.00012842612, z: 0.00008594757}
+      rotation: {x: 0.78855425, y: 0.032763373, z: 0.033313815, w: -0.6131876}
+      scale: {x: 1.0000025, y: 0.9999947, z: 1.000002}
+      transformModified: 1
+    - name: RightHandFinger1
+      position: {x: -0.08963397, y: 0.000000014901161, z: 0.000000018626451}
+      rotation: {x: 0.0025359688, y: 0.12963413, z: -0.051760375, w: 0.9902068}
+      scale: {x: 0.99999726, y: 1.0000027, z: 1.0000031}
       transformModified: 1
     - name: RHipJoint
       position: {x: 0.00006731239, y: 0.00001591313, z: -0.000035012607}
-      rotation: {x: 0.5344995, y: -0.4733364, z: 0.50166166, w: -0.48846543}
-      scale: {x: 1, y: 1, z: 1.0000001}
+      rotation: {x: -0.5344996, y: 0.47333643, z: -0.50166166, w: 0.4884655}
+      scale: {x: 1.0000032, y: 0.99999887, z: 1.0000031}
       transformModified: 1
     - name: RightUpLeg
       position: {x: -0.14838943, y: -0.000000027939677, z: -0.000000053085387}
-      rotation: {x: -0.52901524, y: 0.59624016, z: 0.43588582, w: 0.4179044}
-      scale: {x: 0.9999996, y: 0.9999995, z: 1}
+      rotation: {x: -0.586292, y: 0.4963845, z: 0.48107037, w: 0.42241618}
+      scale: {x: 1.0000012, y: 1.0000015, z: 1.000003}
       transformModified: 1
     - name: RightLeg
       position: {x: -0.4331697, y: 0.000000040512532, z: -0.000000001862645}
-      rotation: {x: 0.06698529, y: 0.21691105, z: 0.0071468474, w: 0.9738642}
-      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+      rotation: {x: 0.01467536, y: 0.087036885, z: -0.016114082, w: 0.9959667}
+      scale: {x: 1.0000013, y: 0.9999999, z: 0.999999}
       transformModified: 1
     - name: RightFoot
       position: {x: -0.49998635, y: 0.000000034458935, z: -0.000000005587935}
-      rotation: {x: 0.023525776, y: -0.73169905, z: -0.04578684, w: 0.6796813}
-      scale: {x: 0.99999994, y: 1, z: 1}
+      rotation: {x: 0.027987707, y: -0.61134475, z: -0.036192473, w: 0.7900407}
+      scale: {x: 1.0000008, y: 1.0000014, z: 1.0000036}
       transformModified: 1
     - name: RightToeBase
       position: {x: -0.17555371, y: 0.000000014086254, z: 0.00000000372529}
-      rotation: {x: -0.0000930755, y: -0.10419883, z: 0.031106764, w: 0.99406993}
-      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+      rotation: {x: -0.00029606555, y: -0.09770872, z: 0.031105902, w: 0.9947288}
+      scale: {x: 1.0000043, y: 1.000003, z: 1.000004}
       transformModified: 1
     - name: base-base
       position: {x: -0, y: 0, z: 0}
