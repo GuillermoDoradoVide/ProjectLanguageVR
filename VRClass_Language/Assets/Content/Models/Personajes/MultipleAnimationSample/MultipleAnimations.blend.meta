@@ -104,6 +104,8 @@ ModelImporter:
     7400042: stanidle_examine
     7400044: stanrunning
     7400046: stanrunning_001
+    7400048: stanwalk_to_stop
+    7400050: stanwalking
     9500000: //RootNode
     13700000: standard_2-base
     13700002: standard_2-highpolyeyes
@@ -121,7 +123,7 @@ ModelImporter:
     animationImportErrors: 
     animationImportWarnings: "\nInbetween bone default rotation found in this file
       is different from the one found in the source avatar:\n\t'Spine1' : rotation
-      error = 3.179385 deg\n\t'Neck1' : rotation error = 11.515972 deg\n\nClip 'Default
+      error = 8.558131 deg\n\t'Neck1' : rotation error = 5.268234 deg\n\nClip 'Default
       Take' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Neck1'
@@ -171,6 +173,14 @@ ModelImporter:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'stantalking_B' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Neck1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'stanwalk_to_stop' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Neck1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'stanwalking' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Neck1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
@@ -1604,6 +1614,206 @@ ModelImporter:
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: standard_2
+        weight: 1
+      - path: standard_2/Hips
+        weight: 1
+      - path: standard_2/Hips/LHipJoint
+        weight: 1
+      - path: standard_2/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: standard_2/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: standard_2/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: standard_2/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: standard_2/Hips/LowerBack
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: standard_2/Hips/RHipJoint
+        weight: 1
+      - path: standard_2/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: standard_2/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: standard_2/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: standard_2/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: standard_2-base
+        weight: 0
+      - path: standard_2-highpolyeyes
+        weight: 0
+      - path: standard_2-male_casualsuit05
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: stanwalk_to_stop
+      takeName: stanwalk_to_stop
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: standard_2
+        weight: 1
+      - path: standard_2/Hips
+        weight: 1
+      - path: standard_2/Hips/LHipJoint
+        weight: 1
+      - path: standard_2/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: standard_2/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: standard_2/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: standard_2/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: standard_2/Hips/LowerBack
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: standard_2/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: standard_2/Hips/RHipJoint
+        weight: 1
+      - path: standard_2/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: standard_2/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: standard_2/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: standard_2/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: standard_2-base
+        weight: 0
+      - path: standard_2-highpolyeyes
+        weight: 0
+      - path: standard_2-male_casualsuit05
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: stanwalking
+      takeName: stanwalking
+      firstFrame: 0
+      lastFrame: 86
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
