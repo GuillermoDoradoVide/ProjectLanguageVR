@@ -18,7 +18,7 @@ public class CharacterWaypointMovement : MonoBehaviour {
 
 	private Vector3 characterTravelDirection;
 	private Quaternion movementQuaternionRotation;
-	private float diferenceWaypointToCharacter;
+	private Vector3 diferenceWaypointToCharacter;
 	private bool finished = false;
 
 	// Use this for initialization
@@ -27,11 +27,11 @@ public class CharacterWaypointMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	/*void Update () {
-		//moveCharacter ();
-		rotateCharacter ();
-		checkDestinyWaypoint ();
-	}*/
+//	void Update () {
+//		//moveCharacter ();
+//		rotateCharacter ();
+//		checkDestinyWaypoint ();
+//	}
 
 	public bool move() {
 		rotateCharacter ();
@@ -50,8 +50,10 @@ public class CharacterWaypointMovement : MonoBehaviour {
 	}
 
 	private void checkDestinyWaypoint() {
-		diferenceWaypointToCharacter = Mathf.Abs(character.position.sqrMagnitude - destinyPosition.sqrMagnitude);
-		if (diferenceWaypointToCharacter < minDistanceToPointError) {
+		diferenceWaypointToCharacter = character.position - destinyPosition;
+		diferenceWaypointToCharacter.y = 0;
+		Debug.Log (diferenceWaypointToCharacter.magnitude);
+		if (diferenceWaypointToCharacter.magnitude < minDistanceToPointError) {
 			changeCurrentToNextWaypoint ();
 		}
 	}
