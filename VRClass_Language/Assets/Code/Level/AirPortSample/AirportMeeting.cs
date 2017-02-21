@@ -28,6 +28,7 @@ public class AirportMeeting : StateScript {
 			}
 			else
 			{
+				characterAnimation.setTalking (false);
 				doChangeThisStateToFinished();
 			}
 		}

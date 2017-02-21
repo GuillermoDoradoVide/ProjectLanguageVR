@@ -8,29 +8,19 @@ public class AirportEnd : StateScript {
 	public bool completed = false;
 
 	private CharacterWaypointMovement characterMovement;
-	private CharacterPivotMovement characterPivot;
+
 	void Start()
 	{
 		characterAnimation = guard.GetComponentInChildren<CharacterAnimationReference> ();
 		characterMovement = GetComponent<CharacterWaypointMovement> ();
-		characterPivot = GetComponent<CharacterPivotMovement> ();
 	}
 
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		if(!characterAnimation.characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Walking")) {
-			if (!characterPivot.finished) {
-				characterPivot.rotateCharacter ();
-			}else {
-				characterAnimation.setWalking ();
-			}
-		}
-		else {
-			if(characterMovement.move ()) {
-				characterAnimation.setWalking (false);
-				completed = true;
-			}
+		if (characterMovement.move ()) {
+			characterAnimation.setWalking (false);
+			completed = true;
 		}
 		if (completed)
 		{

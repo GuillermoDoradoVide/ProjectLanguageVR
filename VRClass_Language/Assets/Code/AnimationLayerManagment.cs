@@ -20,7 +20,7 @@ public class AnimationLayerManagment : StateMachineBehaviour {
 		if (animator.GetBool(talkingID) && animator.GetLayerWeight(1) == 0) {
 			animator.SetLayerWeight (1, 1f);
 		}
-		if (!animator.GetBool(talkingID) && animator.GetLayerWeight(1) != 0) {
+		if (!animator.GetBool(talkingID) && animator.GetLayerWeight(1) != 0 && animator.GetCurrentAnimatorStateInfo(1).normalizedTime>=0.9f) {
 			animator.SetLayerWeight (1, 0);
 		}
 	}

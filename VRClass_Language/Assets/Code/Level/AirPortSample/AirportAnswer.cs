@@ -8,11 +8,13 @@ public class AirportAnswer : StateScript {
 	public GameObject guard;
 	private DialogScript guardDialogScript;
 	private CharacterAnimationReference characterAnimation;
+	private CharacterPivotMovement characterPivot;
 
 	// Use this for initialization
 	void Start () {
 		guardDialogScript = guard.GetComponent<DialogScript>();
 		characterAnimation = guard.GetComponent<CharacterAnimationReference> ();
+		characterPivot = GetComponent<CharacterPivotMovement> ();
 	}
 
 	// Update is called once per frame
@@ -24,11 +26,16 @@ public class AirportAnswer : StateScript {
 				EventManager.setNewDialogEvent(dialogs[currentDialog]);
 				guardDialogScript.initDialog();
 				currentDialog++;
-			}
-			else
+			} else
 			{
-				characterAnimation.setAction ("Ask");
-				doChangeThisStateToFinished();
+				if (characterAnimation.characterAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Idle.Idle0")) {
+					if (!characterPivot.finished) {
+						characterPivot.rotateCharacter ();
+					} else {
+						characterAnimation.setWalking ();
+						doChangeThisStateToFinished();
+					}
+				}
 			}
 		}
 	}

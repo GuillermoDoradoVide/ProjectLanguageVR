@@ -52,7 +52,6 @@ public class CharacterWaypointMovement : MonoBehaviour {
 	private void checkDestinyWaypoint() {
 		diferenceWaypointToCharacter = character.position - destinyPosition;
 		diferenceWaypointToCharacter.y = 0;
-		Debug.Log (diferenceWaypointToCharacter.magnitude);
 		if (diferenceWaypointToCharacter.magnitude < minDistanceToPointError) {
 			changeCurrentToNextWaypoint ();
 		}
