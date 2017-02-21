@@ -35,5 +35,6 @@ public class SceneData : MonoBehaviour {
             Debug.Log("Añadida la fase: " + state.name);
             sceneEventActivity.Add(state);
         }
+		sceneEventActivity.Reverse ();
     }
 }

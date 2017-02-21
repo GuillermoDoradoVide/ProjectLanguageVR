@@ -45,25 +45,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Code\AnimationLayerManagment.cs" />
+     <Compile Include="Assets\Code\AnimationSampleScene\AnimationLayerManagment.cs" />
      <Compile Include="Assets\Code\AnimationSampleScene\CharacterPivotMovement.cs" />
      <Compile Include="Assets\Code\AnimationSampleScene\CharacterWaypointMovement.cs" />
+     <Compile Include="Assets\Code\AnimationSampleScene\IdleAnimationCycleBehaviour.cs" />
+     <Compile Include="Assets\Code\AnimationSampleScene\TalkingAnimationCycleBehaviour.cs" />
      <Compile Include="Assets\Code\Characters\CharacterAnimationReference.cs" />
      <Compile Include="Assets\Code\Characters\Dialog\DialogScript.cs" />
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
-     <Compile Include="Assets\Code\IdleAnimationCycleBehaviour.cs" />
-     <Compile Include="Assets\Code\Level\AirPortSample\AirportAnswer.cs" />
-     <Compile Include="Assets\Code\Level\AirPortSample\AirportEnd.cs" />
-     <Compile Include="Assets\Code\Level\AirPortSample\AirportInit.cs" />
-     <Compile Include="Assets\Code\Level\AirPortSample\AirportMeeting.cs" />
-     <Compile Include="Assets\Code\Level\AirPortSample\AirportQuestion.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\Background_Conversation_A.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\MainHistory\AirportAnswer.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\MainHistory\AirportEnd.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\MainHistory\AirportInit.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\MainHistory\AirportMeeting.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\MainHistory\AirportQuestion.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
-     <Compile Include="Assets\Code\Level\SampleLevel\SceneEventActivity.cs" />
-     <Compile Include="Assets\Code\Level\SampleLevel\SceneEventForth.cs" />
-     <Compile Include="Assets\Code\Level\SampleLevel\SceneEventSecond.cs" />
-     <Compile Include="Assets\Code\Level\SampleLevel\SceneEventThird.cs" />
+     <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventActivity.cs" />
+     <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventForth.cs" />
+     <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventSecond.cs" />
+     <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventThird.cs" />
      <Compile Include="Assets\Code\Level\SceneData.cs" />
      <Compile Include="Assets\Code\Managers\EventManager.cs" />
      <Compile Include="Assets\Code\Managers\Events.cs" />
@@ -96,7 +97,6 @@
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\Code\Player\characterTalking.cs" />
      <Compile Include="Assets\Code\Session\SessionManager.cs" />
-     <Compile Include="Assets\Code\TalkingAnimationCycleBehaviour.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\Teleport.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\PermissionsDemo\PermissionsFlowManager.cs" />
