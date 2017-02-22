@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Content/Scenes/Boss_Oficce.unity
+- path: Assets/Content/Scenes/SampleAirport.unity
   isLoaded: 1
   isActive: 1

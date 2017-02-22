@@ -1,18 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Level\AirPortSample\AirportMeeting.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Level\SceneData.cs">
     <Files>
-      <File FileName="Assets\Code\Characters\CharacterAnimationReference.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Characters\Dialog\DialogScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\AirportMeeting.cs" Line="22" Column="4" />
-      <File FileName="Assets\Code\Level\AirPortSample\AirportInit.cs" Line="30" Column="35" />
-      <File FileName="Assets\Code\Level\AirPortSample\AirportQuestion.cs" Line="31" Column="43" />
-      <File FileName="Assets\Code\Level\AirPortSample\AirportAnswer.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\AirportEnd.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\AnimationLayerManagment.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\AnimationSampleScene\CharacterWaypointMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\AnimationSampleScene\CharacterWaypointMovement.cs" Line="41" Column="2" />
       <File FileName="Assets\Code\AnimationSampleScene\CharacterPivotMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Managers\EventManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\Background_Conversation_A.cs" Line="21" Column="71" />
+      <File FileName="Assets\Code\Managers\StateMachine\StateManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Managers\StateMachine\StateScript.cs" Line="58" Column="1" />
+      <File FileName="Assets\Code\Level\SceneData.cs" Line="11" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
