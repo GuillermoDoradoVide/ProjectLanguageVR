@@ -44,6 +44,7 @@ public abstract class StateScript : MonoBehaviour {
 
     public void doChangeThisStateToFinished()
     {
+		Debug.Log ("doChangeThisStateToFinished: " + name);
         stateMode = StateMode.Finished;
     }
 

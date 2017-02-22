@@ -33,6 +33,7 @@ public class StateManager : ScriptableObject {
             stackStateList.Push(state);
         }
         currentState = stackStateList.Peek();
+		currentState.atInit();
     }
 
     public void doUpdate () {
