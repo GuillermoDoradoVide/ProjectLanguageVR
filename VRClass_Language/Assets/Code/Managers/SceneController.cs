@@ -168,5 +168,4 @@ public class SceneController : SingletonComponent<SceneController>
             sceneState = SceneState.Reset;
         }
     }
-
 }

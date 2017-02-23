@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Inicio : StateScript {
+public class Fase_2_pregunta : StateScript {
 
 	public FadeEffect fadeEffect;
+	public GameObject options;
 	void Start()
 	{
 	}
@@ -12,16 +13,18 @@ public class Inicio : StateScript {
 	public override void atUpdate()
 	{
 		if (fadeEffect.fadeIn()) {
-			doChangeThisStateToFinished ();
+			options.SetActive (true);
 		}
 	}
 
 	public override void atInit()
 	{
+		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 	}
 
 	public override void atEnd()
 	{
+		EventManager.stopListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 	}
 
 	public override void atPause()

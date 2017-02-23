@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Inicio : StateScript {
+public class Fase_1_Esperar : StateScript {
 
-	public FadeEffect fadeEffect;
+	public characterManager characterManager;
+
 	void Start()
 	{
 	}
@@ -11,17 +12,18 @@ public class Inicio : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		if (fadeEffect.fadeIn()) {
-			doChangeThisStateToFinished ();
-		}
+		characterManager.move = true;
+		Invoke ("doChangeThisStateToFinished", 2);
 	}
-
+		
 	public override void atInit()
 	{
+		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 	}
 
 	public override void atEnd()
 	{
+		EventManager.stopListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 	}
 
 	public override void atPause()
