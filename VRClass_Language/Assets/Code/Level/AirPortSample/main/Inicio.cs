@@ -14,6 +14,7 @@ public class Inicio : StateScript {
 	public override void atInit()
 	{
 		EventManager.triggerEvent (Events.EventList.PLAYER_FadeIn);
+		SoundManager.Instance.playRandomMusicSong ();
 		doChangeThisStateToFinished ();
 	}
 

@@ -24,6 +24,7 @@ public class Fase_1_Acercarse : StateScript {
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
+		teleportLocation.gameObject.SetActive (true);
 	}
 
 	public override void atEnd()
