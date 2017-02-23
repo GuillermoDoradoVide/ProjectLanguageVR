@@ -4,13 +4,10 @@ using System.Collections;
 public class Script_MainMenu : MonoBehaviour, IElement, IMenu {
     public MenuAnimationController menuAnimationController;
     public float timer = 1.0f;
-    public GameObject[] subMenus;
 
     private void Awake()
     {
         menuAnimationController = GetComponent<MenuAnimationController>();
-        EventManager.startListening(Events.EventList.MENU_Active, activeSubMenus);
-        EventManager.startListening(Events.EventList.MENU_Hide, closeSubMenus);
         menuAnimationController.setShowAnimation = showAnimation;
         menuAnimationController.setHideAnimation = hideAnimation;
     }
@@ -67,49 +64,13 @@ public class Script_MainMenu : MonoBehaviour, IElement, IMenu {
         menuAnimationController.animationIsPlaying = true;
     }
 
-    private void activeSubMenus()
-    {
-        foreach (GameObject gameObject in subMenus)
-        {
-            gameObject.SetActive(true);
-        }
-    }
-
-    private void closeSubMenus()
-    {
-        foreach (GameObject gameObject in subMenus)
-        {
-            gameObject.GetComponent<IMenu>().closeThisMenu();
-        }
-        resetElement();
-    }
-
     private void showAnimation ()
     {
-        if (timer < 0)
-        {
-            menuAnimationController.animationIsPlaying = false;
-            timer = 1.0f;
-        }
-        else
-        {
-            gameObject.transform.Translate(0, 0.01f, 0);
-            timer -= Time.deltaTime;
-        }
+		menuAnimationController.animationIsPlaying = false;
     }
 
     private void hideAnimation()
     {
-        if (timer < 0)
-        {
-            menuAnimationController.animationIsPlaying = false;
-            timer = 1.0f;
-            closeThisMenu();
-        }
-        else
-        {
-            gameObject.transform.Translate(0, -0.01f, 0);
-            timer -= Time.deltaTime;
-        }
+		menuAnimationController.animationIsPlaying = false;
     }
 }

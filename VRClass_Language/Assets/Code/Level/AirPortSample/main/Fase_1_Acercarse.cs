@@ -4,7 +4,6 @@ using System.Collections;
 public class Fase_1_Acercarse : StateScript {
 	public Transform player;
 	public Transform teleportLocation;
-	public bool start = false;
 
 	void Start()
 	{
@@ -15,8 +14,6 @@ public class Fase_1_Acercarse : StateScript {
 	{
 		if (GvrController.AppButtonDown) {
 			EventManager.teleportPlayerToPosition (teleportLocation);
-		}
-		if (start) {
 			doChangeThisStateToFinished ();
 		}
 	}

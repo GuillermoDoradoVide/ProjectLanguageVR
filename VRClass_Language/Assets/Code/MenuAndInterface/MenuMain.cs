@@ -5,41 +5,39 @@ public class MenuMain : MonoBehaviour {
 
     public GameObject menus;
     public Script_MainMenu mainMenu;
-    private bool active = false;
-    
+	public bool isMenuActive = false;
 
     private void Awake()
     {
-        EventManager.startListening(Events.EventList.MENU_Active, activeMenu);
-        EventManager.startListening(Events.EventList.MENU_Hide, disableMenu);
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-        if(Input.anyKeyDown)
-        {
-            Debug.Log("tecla apretada");
-            EventManager.triggerEvent(Events.EventList.MENU_Active);
-        }
-	if(active)
-        {
-        }
 	}
 
-    private void activeMenu()
+	public void enableMenu() {
+		isMenuActive = !isMenuActive;
+		if (isMenuActive) {
+			showMenu ();
+		}
+		else {
+			hideMenu ();
+		}	
+	}
+
+    private void showMenu()
     {
+		EventManager.triggerEvent(Events.EventList.MENU_Active);
         if (!menus.activeSelf)
         {
             menus.SetActive(true);
         }
-        active = true;
         EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Pause);
     }
 
-    private void disableMenu()
+    private void hideMenu()
     {
-        active = false;
+		EventManager.triggerEvent(Events.EventList.MENU_Hide);
         if (menus.activeSelf)
         {
             menus.SetActive(false);

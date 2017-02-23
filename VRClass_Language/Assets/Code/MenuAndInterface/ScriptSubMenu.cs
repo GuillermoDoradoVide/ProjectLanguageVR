@@ -4,7 +4,8 @@ using System.Collections;
 public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
 {
     public MenuAnimationController menuAnimationController;
-    public float timer = 1.0f;
+	public float timer = 2.0f;
+	public float speed = 2.0f;
     public GameObject butonIcon;
 
     private void Awake()
@@ -12,6 +13,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         menuAnimationController = GetComponent<MenuAnimationController>();
         menuAnimationController.setShowAnimation = showAnimation;
         menuAnimationController.setHideAnimation = hideAnimation;
+		menuAnimationController.setSelectAnimation = selectAnimation;
     }
 
     private void OnEnable()
@@ -57,6 +59,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
     public void selectElement()
     {
         EventManager.triggerEvent(Events.EventList.MV_SubMenuA_Active);
+		setSelectAnimation ();
     }
 
     public void resetElement()
@@ -72,6 +75,12 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         menuAnimationController.animationIsPlaying = true;
     }
 
+	private void setSelectAnimation()
+	{
+		menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Select;
+		menuAnimationController.animationIsPlaying = true;
+	}
+
     private void setHideAnimation()
     {
         menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Hide;
@@ -83,11 +92,11 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         if (timer < 0)
         {
             menuAnimationController.animationIsPlaying = false;
-            timer = 1.0f;
+            timer = 2.0f;
         }
         else
         {
-            butonIcon.transform.localPosition = Vector3.MoveTowards(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.0f), 0.005f );
+			butonIcon.transform.localPosition = Vector3.MoveTowards(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.0f), Time.deltaTime * speed);
             timer -= Time.deltaTime;
         }
     }
@@ -97,11 +106,11 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         if (timer < 0)
         {
             menuAnimationController.animationIsPlaying = false;
-            timer = 1.0f;
+            timer = 2.0f;
         }
         else
         {
-            butonIcon.transform.localPosition = Vector3.Lerp(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.03f), 0.005f);
+			butonIcon.transform.localPosition = Vector3.Lerp(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.03f), Time.deltaTime * speed);
             timer -= Time.deltaTime;
         }
     }
@@ -111,11 +120,11 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         if (timer < 0)
         {
             menuAnimationController.animationIsPlaying = false;
-            timer = 1.0f;
+            timer = 2.0f;
         }
         else
         {
-            butonIcon.transform.localPosition = Vector3.Lerp(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.03f), 0.005f);
+			butonIcon.transform.localPosition = Vector3.Lerp(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.03f), Time.deltaTime * speed);
             timer -= Time.deltaTime;
         }
     }
