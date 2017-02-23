@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class Fase_2_pregunta : StateScript {
-
-	public FadeEffect fadeEffect;
 	public GameObject options;
 	void Start()
 	{
@@ -12,9 +10,8 @@ public class Fase_2_pregunta : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		if (fadeEffect.fadeIn()) {
-			options.SetActive (true);
-		}
+		options.SetActive (true);
+		doChangeThisStateToFinished ();
 	}
 
 	public override void atInit()

@@ -8,6 +8,7 @@ public class GameManager : SingletonComponent<GameManager>
     private EventManager eventManager;
     private SessionManager sessionManager;
     public SoundManager soundManager;
+	public EffectManager effectManager;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class GameManager : SingletonComponent<GameManager>
         levelManager = LevelManager.Instance;
         eventManager = EventManager.Instance;
         soundManager = SoundManager.Instance;
+		effectManager = EffectManager.Instance;
     }
 
     private void initEventTriggers()

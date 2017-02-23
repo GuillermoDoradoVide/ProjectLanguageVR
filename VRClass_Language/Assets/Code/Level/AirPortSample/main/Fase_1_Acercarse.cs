@@ -4,7 +4,6 @@ using System.Collections;
 public class Fase_1_Acercarse : StateScript {
 	public Transform player;
 	public Transform teleportLocation;
-	public FadeEffect fadeEffect;
 	public bool start = false;
 
 	void Start()
@@ -15,13 +14,10 @@ public class Fase_1_Acercarse : StateScript {
 	public override void atUpdate()
 	{
 		if (GvrController.AppButtonDown) {
-			start = true;
+			EventManager.teleportPlayerToPosition (teleportLocation);
 		}
 		if (start) {
-			if (fadeEffect.fadeOut()) {
-				player.position = teleportLocation.position;
-				doChangeThisStateToFinished ();
-			}
+			doChangeThisStateToFinished ();
 		}
 	}
 

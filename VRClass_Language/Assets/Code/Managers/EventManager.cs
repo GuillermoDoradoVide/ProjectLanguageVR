@@ -11,6 +11,8 @@ public class EventManager : SingletonComponent<EventManager>
     static NewDialogEvent newDialog;
     public delegate void setAchievementUnlocked(AchievementKeysList.AchievementList key);
     static setAchievementUnlocked achievementUnlocked;
+	public delegate void TeleportPlayer(Transform position);
+	static TeleportPlayer teleportPlayer;
 
     private void Awake()
     {
@@ -97,4 +99,21 @@ public class EventManager : SingletonComponent<EventManager>
     {
         if (achievementUnlocked != null) achievementUnlocked(achievement);
     }
+
+	//teleport
+	public static void addTeleportListener(TeleportPlayer method)
+	{
+		teleportPlayer += method;
+	}
+
+	public static void removeTeleportListener(TeleportPlayer method)
+	{
+		teleportPlayer -= method;
+	}
+
+	public static void teleportPlayerToPosition(Transform position)
+	{
+		if (teleportPlayer != null) teleportPlayer(position);
+	}
+
 }

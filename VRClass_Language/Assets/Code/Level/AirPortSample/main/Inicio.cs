@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class Inicio : StateScript {
-
-	public FadeEffect fadeEffect;
 	void Start()
 	{
 	}
@@ -11,13 +9,12 @@ public class Inicio : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		if (fadeEffect.fadeIn()) {
-			doChangeThisStateToFinished ();
-		}
 	}
 
 	public override void atInit()
 	{
+		EventManager.triggerEvent (Events.EventList.PLAYER_FadeIn);
+		doChangeThisStateToFinished ();
 	}
 
 	public override void atEnd()
