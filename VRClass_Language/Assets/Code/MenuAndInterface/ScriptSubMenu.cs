@@ -19,18 +19,12 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
     private void OnEnable()
     {
         Debug.Log("Se activa el objeto: [" + gameObject.name + "]");
-        EventManager.startListening(Events.EventList.MV_SubMenuA_Hide, resetElement);
-        EventManager.startListening(Events.EventList.MV_SubMenuB_Active, resetElement);
-        EventManager.startListening(Events.EventList.MV_SubMenuC_Active, resetElement);
         setShowAnimation();
     }
 
     private void OnDisable()
     {
         Debug.Log("Se DESactiva el objeto: [" + gameObject.name + "]");
-        EventManager.stopListening(Events.EventList.MV_SubMenuA_Hide, resetElement);
-        EventManager.stopListening(Events.EventList.MV_SubMenuB_Active, resetElement);
-        EventManager.stopListening(Events.EventList.MV_SubMenuC_Active, resetElement);
     }
 
     void Start()
@@ -58,14 +52,15 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
 
     public void selectElement()
     {
-        EventManager.triggerEvent(Events.EventList.MV_SubMenuA_Active);
+		EventManager.triggerEvent(Events.EventList.MV_Hide_Active);
+		EventManager.startListening(Events.EventList.MV_Hide_Active, resetElement);
 		setSelectAnimation ();
     }
 
     public void resetElement()
     {
-        EventManager.triggerEvent(Events.EventList.MENU_Active);
-        setHideAnimation();
+		EventManager.stopListening(Events.EventList.MV_Hide_Active, resetElement);
+		setShowAnimation();
     }
     //**********************************************************************
 
@@ -96,7 +91,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         }
         else
         {
-			butonIcon.transform.localPosition = Vector3.MoveTowards(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.0f), Time.deltaTime * speed);
+			butonIcon.transform.localPosition = Vector3.Lerp(butonIcon.transform.localPosition, new Vector3(butonIcon.transform.localPosition.x, butonIcon.transform.localPosition.y, 0.0f), Time.deltaTime * speed);
             timer -= Time.deltaTime;
         }
     }
