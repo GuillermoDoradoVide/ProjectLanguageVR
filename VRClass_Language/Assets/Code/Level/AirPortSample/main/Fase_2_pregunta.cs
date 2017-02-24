@@ -10,13 +10,12 @@ public class Fase_2_pregunta : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		options.SetActive (true);
-		doChangeThisStateToFinished ();
 	}
 
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
+		options.SetActive (true);
 	}
 
 	public override void atEnd()

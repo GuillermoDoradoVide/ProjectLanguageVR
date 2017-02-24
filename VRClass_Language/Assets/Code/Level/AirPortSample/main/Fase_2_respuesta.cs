@@ -10,7 +10,6 @@ public class Fase_2_respuesta : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		Debug.Log ("next");
 	}
 
 	public override void atInit()
