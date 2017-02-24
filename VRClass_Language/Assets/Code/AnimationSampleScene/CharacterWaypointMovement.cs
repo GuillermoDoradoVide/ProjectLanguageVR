@@ -34,7 +34,7 @@ public class CharacterWaypointMovement : MonoBehaviour {
 //	}
 
 	public bool move() {
-		moveCharacter ();
+		//moveCharacter ();
 		rotateCharacter ();
 		checkDestinyWaypoint ();
 		return finished;

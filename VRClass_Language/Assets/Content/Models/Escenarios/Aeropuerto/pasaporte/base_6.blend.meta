@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: b4202b6502c50a5459f3bdb7c9f5a4e1
+timeCreated: 1487933742
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Audifono
+    100002: barandilla_mastil_003
+    100004: barandilla_mastil_012
+    100006: barandilla_mastil_013
+    100008: //RootNode
+    100010: Cabina
+    100012: Camara_lateral
+    100014: Camara_superior
+    100016: Cartel_barandilla
+    100018: Cartel_Indicador
+    100020: Cartel_Indicador_004
+    100022: cartel_paso
+    100024: ground
+    100026: Puerta_cabina
+    100028: Seguridad_puerta
+    100030: Soporte_camara_superior
+    100032: techo_alto
+    100034: techo_bajo
+    400000: Audifono
+    400002: barandilla_mastil_003
+    400004: barandilla_mastil_012
+    400006: barandilla_mastil_013
+    400008: //RootNode
+    400010: Cabina
+    400012: Camara_lateral
+    400014: Camara_superior
+    400016: Cartel_barandilla
+    400018: Cartel_Indicador
+    400020: Cartel_Indicador_004
+    400022: cartel_paso
+    400024: ground
+    400026: Puerta_cabina
+    400028: Seguridad_puerta
+    400030: Soporte_camara_superior
+    400032: techo_alto
+    400034: techo_bajo
+    2300000: Audifono
+    2300002: barandilla_mastil_003
+    2300004: barandilla_mastil_012
+    2300006: barandilla_mastil_013
+    2300008: Cabina
+    2300010: Camara_lateral
+    2300012: Camara_superior
+    2300014: Cartel_barandilla
+    2300016: Cartel_Indicador
+    2300018: Cartel_Indicador_004
+    2300020: cartel_paso
+    2300022: ground
+    2300024: Puerta_cabina
+    2300026: Seguridad_puerta
+    2300028: Soporte_camara_superior
+    2300030: techo_alto
+    2300032: techo_bajo
+    3300000: Audifono
+    3300002: barandilla_mastil_003
+    3300004: barandilla_mastil_012
+    3300006: barandilla_mastil_013
+    3300008: Cabina
+    3300010: Camara_lateral
+    3300012: Camara_superior
+    3300014: Cartel_barandilla
+    3300016: Cartel_Indicador
+    3300018: Cartel_Indicador_004
+    3300020: cartel_paso
+    3300022: ground
+    3300024: Puerta_cabina
+    3300026: Seguridad_puerta
+    3300028: Soporte_camara_superior
+    3300030: techo_alto
+    3300032: techo_bajo
+    4300000: Cartel_Indicador_004
+    4300002: cartel_paso
+    4300004: barandilla_mastil_013
+    4300006: barandilla_mastil_012
+    4300008: barandilla_mastil_003
+    4300010: techo_bajo
+    4300012: techo_alto
+    4300014: Cartel_barandilla
+    4300016: Camara_lateral
+    4300018: Soporte_camara_superior
+    4300020: Camara_superior
+    4300022: Cartel_Indicador
+    4300024: Audifono
+    4300026: Seguridad_puerta
+    4300028: Puerta_cabina
+    4300030: Cabina
+    4300032: ground
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

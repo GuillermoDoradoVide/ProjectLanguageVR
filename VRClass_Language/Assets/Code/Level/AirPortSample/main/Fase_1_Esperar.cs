@@ -13,7 +13,10 @@ public class Fase_1_Esperar : StateScript {
 	public override void atUpdate()
 	{
 		characterManager.move = true;
-		Invoke ("doChangeThisStateToFinished", 2);
+		if (characterManager.pivot.finished) {
+			characterManager.animator.SetBool ("Walking", true);
+			Invoke ("doChangeThisStateToFinished", 2);
+		}
 	}
 		
 	public override void atInit()

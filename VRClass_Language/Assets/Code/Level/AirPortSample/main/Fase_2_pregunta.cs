@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Fase_2_pregunta : StateScript {
 	public GameObject options;
+	public Animator animator;
 	void Start()
 	{
 	}
@@ -10,6 +11,10 @@ public class Fase_2_pregunta : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
+	}
+
+	public void givePassPort() {
+		animator.SetTrigger ("Pick");
 	}
 
 	public override void atInit()
