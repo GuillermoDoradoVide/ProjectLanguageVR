@@ -96,7 +96,7 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 
 	private void hideAnimation()
 	{
-		if (timer < 0)
+		if (timer < 1)
 		{
 			menuAnimationController.animationIsPlaying = false;
 			timer = 2.0f;

@@ -28,6 +28,7 @@ public class Fase_2_pregunta : StateScript {
 				currentDialog++;
 			}
 			else {
+				characterAnimation.setTalking (false);
 				if(!options.activeInHierarchy) {
 					options.SetActive (true);
 				}
@@ -43,6 +44,7 @@ public class Fase_2_pregunta : StateScript {
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
+		characterAnimation.setTalking (true);
 	}
 
 	public override void atEnd()

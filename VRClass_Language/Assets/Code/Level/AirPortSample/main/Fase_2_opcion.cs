@@ -30,7 +30,7 @@ public class Fase_2_opcion : StateScript {
 				currentDialog++;
 			}
 			else {
-				
+				characterAnimation.setTalking (false);
 			}
 		}
 		if (secondary) {
@@ -51,6 +51,7 @@ public class Fase_2_opcion : StateScript {
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
+		characterAnimation.setTalking ();
 		Invoke ("showOptions", 5);
 	}
 
