@@ -23,7 +23,13 @@ public class BeaconIdle : MonoBehaviour {
 		rotate = value;
 	}
 
+	public void teleportPlayerToBeacon() {
+		EventManager.teleportPlayerToPosition (transform);
+	}
+
 	private void idleBeacon() {
 		transform.RotateAround (transform.position, rotateAxis, speed);
 	}
+
+
 }

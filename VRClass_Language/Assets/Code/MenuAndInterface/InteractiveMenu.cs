@@ -78,7 +78,6 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 	{
 		menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Hide;
 		menuAnimationController.animationIsPlaying = true;
-		Invoke ("closeThisMenu", 2);
 	}
 
 	private void showAnimation()
@@ -101,6 +100,7 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 		{
 			menuAnimationController.animationIsPlaying = false;
 			timer = 2.0f;
+			closeThisMenu ();
 		}
 		else
 		{
@@ -128,7 +128,6 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 	}
 
 	private void selected() {
-		EventManager.triggerEvent (Events.EventList.LEVEL_Activity_Completed);
 		setHideAnimation ();
 	}
 }

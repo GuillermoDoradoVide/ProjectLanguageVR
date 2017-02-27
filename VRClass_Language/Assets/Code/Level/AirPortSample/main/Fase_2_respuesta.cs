@@ -5,16 +5,19 @@ public class Fase_2_respuesta : StateScript {
 
 	void Start()
 	{
+		
 	}
 
 	// Update is called once per frame
 	public override void atUpdate()
 	{
+		
 	}
 
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
+		Invoke ("doChangeThisStateToFinished", 5);
 	}
 
 	public override void atEnd()

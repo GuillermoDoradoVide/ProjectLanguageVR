@@ -12,9 +12,8 @@ public class Fase_1_Acercarse : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		if (GvrController.AppButtonDown) {
-			EventManager.teleportPlayerToPosition (teleportLocation);
-			doChangeThisStateToFinished ();
+		if (Vector3.Distance(player.position, teleportLocation.position) < 1) {
+			Invoke ("doChangeThisStateToFinished",3);
 		}
 	}
 
