@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 89d32ab5714448348be3e12716ac92f5
+timeCreated: 1488185991
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Ala_derecha
+    100004: Ala_izquierda
+    100006: Audifono
+    100008: barandilla_entreCasetas
+    100010: barandilla_larga
+    100012: barandilla_separador
+    100014: Cabina
+    100016: Cabina.001
+    100018: Camara_lateral
+    100020: Camara_superior
+    100022: Camera
+    100024: Cartel_barandilla
+    100026: Cartel_Indicador
+    100028: cartel_paso
+    100030: cartel_paso.001
+    100032: cartel_paso.002
+    100034: cartelI_indicador_central
+    100036: cartelI_indicador_central.001
+    100038: ground.001
+    100040: Puerta_cabina
+    100042: Seguridad_puerta
+    100044: Soporte_camara_superior
+    100046: Sun
+    100048: techo_bajo_1
+    100050: techo_bajo_1.001
+    100052: techo_bajo_2
+    100054: techo_bajo_2.001
+    100056: techo_superior
+    100058: protector_latearal
+    400000: //RootNode
+    400002: Ala_derecha
+    400004: Ala_izquierda
+    400006: Audifono
+    400008: barandilla_entreCasetas
+    400010: barandilla_larga
+    400012: barandilla_separador
+    400014: Cabina
+    400016: Cabina.001
+    400018: Camara_lateral
+    400020: Camara_superior
+    400022: Camera
+    400024: Cartel_barandilla
+    400026: Cartel_Indicador
+    400028: cartel_paso
+    400030: cartel_paso.001
+    400032: cartel_paso.002
+    400034: cartelI_indicador_central
+    400036: cartelI_indicador_central.001
+    400038: ground.001
+    400040: Puerta_cabina
+    400042: Seguridad_puerta
+    400044: Soporte_camara_superior
+    400046: Sun
+    400048: techo_bajo_1
+    400050: techo_bajo_1.001
+    400052: techo_bajo_2
+    400054: techo_bajo_2.001
+    400056: techo_superior
+    400058: protector_latearal
+    2300000: Ala_derecha
+    2300002: Ala_izquierda
+    2300004: Audifono
+    2300006: barandilla_entreCasetas
+    2300008: barandilla_larga
+    2300010: barandilla_separador
+    2300012: Cabina
+    2300014: Cabina.001
+    2300016: Camara_lateral
+    2300018: Camara_superior
+    2300020: Cartel_barandilla
+    2300022: Cartel_Indicador
+    2300024: cartel_paso
+    2300026: cartel_paso.001
+    2300028: cartel_paso.002
+    2300030: cartelI_indicador_central
+    2300032: cartelI_indicador_central.001
+    2300034: ground.001
+    2300036: Puerta_cabina
+    2300038: Seguridad_puerta
+    2300040: Soporte_camara_superior
+    2300042: techo_bajo_1
+    2300044: techo_bajo_1.001
+    2300046: techo_bajo_2
+    2300048: techo_bajo_2.001
+    2300050: techo_superior
+    2300052: protector_latearal
+    3300000: Ala_derecha
+    3300002: Ala_izquierda
+    3300004: Audifono
+    3300006: barandilla_entreCasetas
+    3300008: barandilla_larga
+    3300010: barandilla_separador
+    3300012: Cabina
+    3300014: Cabina.001
+    3300016: Camara_lateral
+    3300018: Camara_superior
+    3300020: Cartel_barandilla
+    3300022: Cartel_Indicador
+    3300024: cartel_paso
+    3300026: cartel_paso.001
+    3300028: cartel_paso.002
+    3300030: cartelI_indicador_central
+    3300032: cartelI_indicador_central.001
+    3300034: ground.001
+    3300036: Puerta_cabina
+    3300038: Seguridad_puerta
+    3300040: Soporte_camara_superior
+    3300042: techo_bajo_1
+    3300044: techo_bajo_1.001
+    3300046: techo_bajo_2
+    3300048: techo_bajo_2.001
+    3300050: techo_superior
+    3300052: protector_latearal
+    4300000: Cabina.001
+    4300002: techo_bajo_2.001
+    4300004: techo_bajo_1.001
+    4300006: cartelI_indicador_central.001
+    4300008: cartel_paso.002
+    4300010: cartel_paso.001
+    4300012: techo_bajo_1
+    4300014: Ala_izquierda
+    4300016: ground.001
+    4300018: cartelI_indicador_central
+    4300020: cartel_paso
+    4300022: barandilla_separador
+    4300024: barandilla_larga
+    4300026: barandilla_entreCasetas
+    4300028: techo_bajo_2
+    4300030: techo_superior
+    4300032: Cartel_barandilla
+    4300034: Camara_lateral
+    4300036: Soporte_camara_superior
+    4300038: Camara_superior
+    4300040: Cartel_Indicador
+    4300042: Audifono
+    4300044: Seguridad_puerta
+    4300046: Puerta_cabina
+    4300048: Cabina
+    4300050: Ala_derecha
+    4300052: protector_latearal
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
