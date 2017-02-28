@@ -3,48 +3,34 @@ using System.Collections;
 
 public class Fase_2_pregunta : StateScript {
 	public GameObject options;
-	public Animator animator;
+	public CharacterManager characterManager;
 	public AudioClip[] dialogs;
-	public int currentDialog;
-	public GameObject pet;
-	private DialogScript petDialogScript;
-	private CharacterAnimationReference characterAnimation;
 
 	void Start()
 	{
-		petDialogScript = pet.GetComponent<DialogScript>();
-		characterAnimation = pet.GetComponent<CharacterAnimationReference> ();
 	}
 
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		if(!petDialogScript.playUpdateDialog())
-		{
-			if (currentDialog < dialogs.Length)
-			{
-				EventManager.setNewDialogEvent(dialogs[currentDialog]);
-				petDialogScript.initDialog();
-				currentDialog++;
-			}
-			else {
-				characterAnimation.setTalking (false);
-				if(!options.activeInHierarchy) {
-					options.SetActive (true);
-				}
+		characterManager.doUpdate ();
+		if(!characterManager.talk ()) {
+			if(!characterManager.animationReference.getTalking()) {
+				options.SetActive (true);
 			}
 		}
 	}
 
 	public void givePassPort() {
-		animator.SetTrigger ("Pick");
-		Invoke ("doChangeThisStateToFinished", 6);
+		characterManager.characterAnimator.SetTrigger ("Pick");
+		Invoke ("doChangeThisStateToFinished", 9);
 	}
 
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-		characterAnimation.setTalking (true);
+		//characterManager.animationReference.setTalking ();
+		characterManager.setDialogs (dialogs);
 	}
 
 	public override void atEnd()

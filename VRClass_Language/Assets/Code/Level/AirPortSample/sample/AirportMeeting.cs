@@ -22,7 +22,7 @@ public class AirportMeeting : StateScript {
 		{
 			if (currentDialog < dialogs.Length)
 			{
-				EventManager.setNewDialogEvent(dialogs[currentDialog]);
+				//EventManager.setNewDialogEvent(dialogs[currentDialog]);
 				guardDialogScript.initDialog();
 				currentDialog++;
 			}
@@ -37,7 +37,7 @@ public class AirportMeeting : StateScript {
 	public override void atInit()
 	{
 		currentDialog = 0;
-		EventManager.setNewDialogEvent(dialogs[currentDialog]);
+		//EventManager.setNewDialogEvent(dialogs[currentDialog]);
 		currentDialog++;
 		guardDialogScript.initDialog();
 	}

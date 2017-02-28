@@ -17,7 +17,7 @@ public class AirportQuestion: StateScript {
 
 	IEnumerator waitForPlayer() {
 		yield return new WaitForSeconds (5);
-		characterAnimation.setAction ("Pick");
+		//characterAnimation.setAction ("Pick");
 		yield return new WaitForSeconds (1);
 		doChangeThisStateToFinished();
 	}

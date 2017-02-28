@@ -7,8 +7,6 @@ public class EventManager : SingletonComponent<EventManager>
 {
     [SerializeField]
     public Dictionary<Events.EventList, UnityEvent> eventDictionary;
-    public delegate void NewDialogEvent(AudioClip audioClip);
-    static NewDialogEvent newDialog;
     public delegate void setAchievementUnlocked(AchievementKeysList.AchievementList key);
     static setAchievementUnlocked achievementUnlocked;
 	public delegate void TeleportPlayer(Transform position);
@@ -69,20 +67,6 @@ public class EventManager : SingletonComponent<EventManager>
         }
     }
 
-    public static void addDialogListener(NewDialogEvent method)
-    {
-        newDialog += method;
-    }
-
-    public static void removeDialogListener(NewDialogEvent method)
-    {
-        newDialog -= method;
-    }
-
-    public static void setNewDialogEvent(AudioClip audioClip)
-    {
-        if (newDialog != null) newDialog(audioClip);
-    }
 
     //achievements
     public static void addAchievementListener(setAchievementUnlocked method)

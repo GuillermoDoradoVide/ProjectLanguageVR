@@ -16,12 +16,6 @@ public class CharacterAnimationReference : MonoBehaviour {
 		idleID = Animator.StringToHash("Idle");
 		talkingID = Animator.StringToHash("Talking");
 		speedID = Animator.StringToHash("Speed");
-			
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	public void setWalking(bool walking = true, float speed = 1f) {
@@ -29,11 +23,15 @@ public class CharacterAnimationReference : MonoBehaviour {
 		characterAnimator.SetFloat (speedID, speed);
 	}
 
+	public bool getWalking() {
+		return characterAnimator.GetBool (walkingID);
+	}
+
 	public void setTalking(bool talking = true, int animationType = 0) {
 		characterAnimator.SetBool (talkingID, talking);
 	}
 
-	public void setAction(string actionName, bool action = true) {
-		characterAnimator.SetBool(actionName, action);
+	public bool getTalking() {
+		return characterAnimator.GetBool (talkingID);
 	}
 }

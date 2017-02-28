@@ -16,6 +16,10 @@ public class SceneController : SingletonComponent<SceneController>
     private List<string> scenes;
     private int numScenes;
 
+	public void loadScene(string name) {
+		SceneManager.LoadScene (name);
+	}
+
     public static void SwitchScene(string nextSceneName)
     {
         if (instance != null)

@@ -7,31 +7,18 @@ public class Fase_2_opcion : StateScript {
 	public bool secondary;
 
 	public AudioClip[] dialogs;
-	public int currentDialog;
-	public GameObject pet;
-	private DialogScript petDialogScript;
-	private CharacterAnimationReference characterAnimation;
+	public CharacterManager characterManager;
 
 	void Start()
 	{
-		petDialogScript = pet.GetComponent<DialogScript>();
-		characterAnimation = pet.GetComponent<CharacterAnimationReference> ();
 	}
 
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		if(!petDialogScript.playUpdateDialog())
-		{
-			if (currentDialog < dialogs.Length)
-			{
-				EventManager.setNewDialogEvent(dialogs[currentDialog]);
-				petDialogScript.initDialog();
-				currentDialog++;
-			}
-			else {
-				characterAnimation.setTalking (false);
-			}
+		characterManager.doUpdate ();
+		if(!characterManager.talk ()) {
+			characterManager.animationReference.setTalking (false);
 		}
 		if (secondary) {
 			Invoke ("doChangeThisStateToFinished", 3);
@@ -51,8 +38,9 @@ public class Fase_2_opcion : StateScript {
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-		characterAnimation.setTalking ();
-		Invoke ("showOptions", 5);
+		characterManager.animationReference.setTalking ();
+		characterManager.setDialogs (dialogs);
+		Invoke ("showOptions", 7);
 	}
 
 	public override void atEnd()

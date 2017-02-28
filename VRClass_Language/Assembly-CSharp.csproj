@@ -51,8 +51,9 @@
      <Compile Include="Assets\Code\AnimationSampleScene\IdleAnimationCycleBehaviour.cs" />
      <Compile Include="Assets\Code\AnimationSampleScene\TalkingAnimationCycleBehaviour.cs" />
      <Compile Include="Assets\Code\Characters\CharacterAnimationReference.cs" />
+     <Compile Include="Assets\Code\Characters\CharacterManager.cs" />
+     <Compile Include="Assets\Code\Characters\CharacterMovement.cs" />
      <Compile Include="Assets\Code\Characters\Dialog\DialogScript.cs" />
-     <Compile Include="Assets\Code\Characters\characterManager.cs" />
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\Background_Conversation_A.cs" />

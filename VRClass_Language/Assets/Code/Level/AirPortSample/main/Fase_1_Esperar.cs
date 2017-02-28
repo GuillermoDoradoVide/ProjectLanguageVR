@@ -3,27 +3,31 @@ using System.Collections;
 
 public class Fase_1_Esperar : StateScript {
 
-	public characterManager characterManager;
+	public CharacterManager characterManager;
+	public CharacterManager.CharacterState[] steps;
 
 	void Start()
 	{
-		characterManager.animator.SetBool ("Talking", true);
+		characterManager.animationReference.setTalking ();
+		characterManager.setCharacterNextStates (steps);
 	}
 
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		if (!characterManager.animator.GetBool("Talking")) {
-			characterManager.move = true;
-			if (characterManager.pivot.finished) {
-				characterManager.animator.SetBool ("Walking", true);
+		characterManager.doUpdate ();
+		if (!characterManager.animationReference.getTalking()) {
 				Invoke ("doChangeThisStateToFinished", 2);
-			}
+				Invoke ("disableCharacter",4);
 		}
 	}
 
 	public void setTalkingFalse() {
-		characterManager.animator.SetBool ("Talking", false);
+		characterManager.animationReference.setTalking (false);
+	}
+
+	private void disableCharacter() {
+		characterManager.gameObject.SetActive (false);
 	}
 		
 	public override void atInit()

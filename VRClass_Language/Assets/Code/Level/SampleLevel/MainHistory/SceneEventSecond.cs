@@ -19,7 +19,7 @@ public class SceneEventSecond : StateScript
 		if(characterAnimation.characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.GetUp")) {
 			if(characterAnimation.characterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime>=1) {
 				EventManager.triggerEvent (Events.EventList.LEVEL_Activity_Completed);
-				characterAnimation.setAction ("GetUp",false);
+				//characterAnimation.setAction ("GetUp",false);
 			}
 		}
         if (completed)

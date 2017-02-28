@@ -24,13 +24,13 @@ public class SceneEventActivity : StateScript {
         {
             if (currentDialog < dialogs.Length)
             {
-                EventManager.setNewDialogEvent(dialogs[currentDialog]);
+                //EventManager.setNewDialogEvent(dialogs[currentDialog]);
                 petDialogScript.initDialog();
                 currentDialog++;
             }
             else
             {
-				characterAnimation.setAction ("GetUp");
+				//characterAnimation.setAction ("GetUp");
                 doChangeThisStateToFinished();
             }
         }
@@ -39,7 +39,7 @@ public class SceneEventActivity : StateScript {
     public override void atInit()
     {
         currentDialog = 0;
-        EventManager.setNewDialogEvent(dialogs[currentDialog]);
+        //EventManager.setNewDialogEvent(dialogs[currentDialog]);
         currentDialog++;
         petDialogScript.initDialog();
     }

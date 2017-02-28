@@ -96,11 +96,10 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 
 	private void hideAnimation()
 	{
-		if (timer < 1)
+		if (timer < 2)
 		{
 			menuAnimationController.animationIsPlaying = false;
 			timer = 2.0f;
-			closeThisMenu ();
 		}
 		else
 		{
@@ -129,5 +128,6 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 
 	private void selected() {
 		setHideAnimation ();
+		closeThisMenu ();
 	}
 }

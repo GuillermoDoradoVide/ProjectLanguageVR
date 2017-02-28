@@ -6,7 +6,6 @@ public class DialogScript : MonoBehaviour {
     public AudioClip dialog;
     public AudioSource audioSource;
     public Animator animationController;
-    public AnimationState animationState;
     // speech controller atrib
     float volume = 40;
     int fLow = 200;
@@ -41,12 +40,10 @@ public class DialogScript : MonoBehaviour {
 
     private void OnEnable()
     {
-        EventManager.addDialogListener(setNewAudioClip);
     }
 
     private void OnDisable()
     {
-        EventManager.removeDialogListener(setNewAudioClip);
     }
 
     public bool playUpdateDialog()
@@ -59,6 +56,7 @@ public class DialogScript : MonoBehaviour {
         else
         {
 			animationController.SetLayerWeight (2, 0);
+			animationController.SetBool ("Talking", false);
             return false;
         }
     }
@@ -67,6 +65,7 @@ public class DialogScript : MonoBehaviour {
     {
         audioSource.clip = dialog;
         audioSource.Play();
+		animationController.SetBool ("Talking", true);
     }
 
     public void stopDialog()
@@ -88,7 +87,7 @@ public class DialogScript : MonoBehaviour {
         audioSource.UnPause();
     }
 
-    private void setNewAudioClip(AudioClip audioClip)
+    public void setNewAudioClip(AudioClip audioClip)
     {
         dialog = audioClip;
     }

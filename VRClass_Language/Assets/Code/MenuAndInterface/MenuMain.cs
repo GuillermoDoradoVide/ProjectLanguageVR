@@ -32,7 +32,7 @@ public class MenuMain : MonoBehaviour {
         {
             menus.SetActive(true);
         }
-        EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Pause);
+        //EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Pause);
     }
 
     private void hideMenu()

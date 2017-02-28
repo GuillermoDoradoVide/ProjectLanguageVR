@@ -23,7 +23,7 @@ public class SceneEventThird : StateScript {
 		{
 			if (currentDialog < dialogs.Length)
 			{
-				EventManager.setNewDialogEvent(dialogs[currentDialog]);
+				//EventManager.setNewDialogEvent(dialogs[currentDialog]);
 				petDialogScript.initDialog();
 				currentDialog++;
 			}
@@ -37,7 +37,7 @@ public class SceneEventThird : StateScript {
 	public override void atInit()
 	{
 		currentDialog = 0;
-		EventManager.setNewDialogEvent(dialogs[currentDialog]);
+		//EventManager.setNewDialogEvent(dialogs[currentDialog]);
 		currentDialog++;
 		petDialogScript.initDialog();
 	}

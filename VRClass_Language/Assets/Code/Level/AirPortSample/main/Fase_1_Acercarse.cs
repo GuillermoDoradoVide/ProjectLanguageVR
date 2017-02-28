@@ -14,6 +14,7 @@ public class Fase_1_Acercarse : StateScript {
 	{
 		if (Vector3.Distance(player.position, teleportLocation.position) < 1) {
 			Invoke ("doChangeThisStateToFinished",3);
+			teleportLocation.gameObject.SetActive (false);
 		}
 	}
 
