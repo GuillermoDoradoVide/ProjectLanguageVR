@@ -14,9 +14,10 @@ public class CharacterManager : MonoBehaviour {
 	public enum CharacterState { Idle, Move, Turn, Action, StandBy, Count };
 	public CharacterState stateMode;
 	public CharacterState nextStateMode;
+	public delegate void CharacterDisplacement();
+	public CharacterDisplacement[]Movements;
 	public delegate void CharacterAction();
-	public CharacterAction[]Actions;
-
+	public CharacterAction Actions;
 	public CharacterState[] StatesSteps;
 
 	private bool talking = false;
@@ -25,51 +26,78 @@ public class CharacterManager : MonoBehaviour {
 	void Start () {
 		dialogScript = GetComponent<DialogScript>();
 		characterAnimator = GetComponent<Animator>();
-		Actions = new CharacterAction[(int)CharacterState.Count]; // init array of delegates
+		Movements = new CharacterDisplacement[(int)CharacterState.Count]; // init array of delegates
 		// Set each action delegate
 		stateMode = CharacterState.StandBy;
 		nextStateMode = CharacterState.StandBy;
-		Actions[(int)CharacterState.Idle] = idle;
-		Actions[(int)CharacterState.Move] = moveCharacter;
-		Actions [(int)CharacterState.Turn] = rotateCharacterTowards;
-		Actions[(int)CharacterState.Action] = moveCharacter;
-		Actions[(int)CharacterState.StandBy] = standBy;
+		Movements[(int)CharacterState.Idle] = idle;
+		Movements[(int)CharacterState.Move] = moveCharacter;
+		Movements [(int)CharacterState.Turn] = rotateCharacterTowards;
+		Movements[(int)CharacterState.StandBy] = standBy;
 	}
 
 	protected void OnDestroy()
 	{
 		if (Actions != null)
 		{
+			Actions -= talk;
+			Actions = null;
+		}
+		if (Movements != null)
+		{
 			for (int x = 0; x < (int)CharacterState.Count; x++)
 			{
-				Actions[x] = null;
+				Movements[x] = null;
 			}
-			Actions = null;
+			Movements = null;
 		}
 	}
 
 	public void doUpdate()
 	{
-		//Debug.Log (gameObject + ".doUpdate()");
-		//_Actions[(int)stateActions]?.Invoke(); alternativa que no me deja no se porque.
-		if (Actions[(int)stateMode] != null)
+		if (Movements[(int)stateMode] != null)
 		{
-			checkStateTransition ();
-			Actions[(int)stateMode]();
+			checkState();
+			Movements[(int)stateMode]();
+		}
+		if (Actions != null) {
+			Actions ();
 		}
 	}
 
-	private void checkStateTransition() {
+	private void checkState() {
 		if(nextStateMode == CharacterState.StandBy) {
 			nextState ();
 		}
 		if (stateMode != nextStateMode) {
-			stateMode = nextStateMode;
+			stateTransition ();
 		}
 	}
 
-	private void standBy() {}
-	private void idle() {}
+	private void stateTransition() {
+		stateMode = nextStateMode;
+		checkTransition ();
+
+	}
+
+	private void checkTransition() {
+		switch(stateMode) {
+		case CharacterState.Move : {
+				animationReference.setWalking (true);
+				break;
+			} 
+		}
+	}
+		
+	private void nextState() {
+		if (StatesSteps.Length > currentStep) {
+			nextStateMode = StatesSteps[currentStep];
+			currentStep++;
+		}
+		else {
+			nextStateMode = CharacterState.Idle;
+		}
+	}
 
 	public void setCharacterState(CharacterState newState) {
 		nextStateMode = newState;
@@ -78,21 +106,13 @@ public class CharacterManager : MonoBehaviour {
 	public void setCharacterNextStates(CharacterState[] newStatesSteps) {
 		StatesSteps = newStatesSteps;
 		currentStep = 0;
+		nextStateMode = StatesSteps[currentStep];
 	}
 
-	private void nextState() {
-		if (StatesSteps.Length > currentStep) {
-			nextStateMode = StatesSteps[currentStep];
-			currentStep++;
-
-		}
-		else {
-			nextStateMode = CharacterState.Idle;
-		}
-	}
+	private void standBy() {}
+	private void idle() {}
 
 	private void moveCharacter() {
-		animationReference.setWalking (true);
 		if(characterMovement.move ()) {
 			nextStateMode = CharacterState.StandBy;
 			animationReference.setWalking (false);
@@ -105,7 +125,7 @@ public class CharacterManager : MonoBehaviour {
 		}
 	}
 
-	public bool talk()  {
+	private void talk()  {
 		if(!dialogScript.playUpdateDialog())
 		{
 			if (currentDialog < dialogs.Length)
@@ -115,10 +135,10 @@ public class CharacterManager : MonoBehaviour {
 				currentDialog++;
 			}
 			else {
-				return false;
+				talking = false;
+				Actions -= talk;
 			}
 		}
-		return true;
 	}
 
 	public void setDialogs(AudioClip[] audios) {
@@ -128,5 +148,14 @@ public class CharacterManager : MonoBehaviour {
 
 	public bool isTalking() {
 		return talking;
+	}
+
+	public void setTalking() {
+		talking = true;
+		Actions += talk;
+	}
+
+	public void triggerAction () {
+		
 	}
 }

@@ -17,9 +17,6 @@ public class Fase_2_opcion : StateScript {
 	public override void atUpdate()
 	{
 		characterManager.doUpdate ();
-		if(!characterManager.talk ()) {
-			characterManager.animationReference.setTalking (false);
-		}
 		if (secondary) {
 			Invoke ("doChangeThisStateToFinished", 3);
 		}
@@ -27,7 +24,6 @@ public class Fase_2_opcion : StateScript {
 	public void answer() {
 		secondary = true;
 	}
-
 
 	private void showOptions() {
 		foreach(GameObject menuOption in options) {
@@ -38,8 +34,8 @@ public class Fase_2_opcion : StateScript {
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-		characterManager.animationReference.setTalking ();
 		characterManager.setDialogs (dialogs);
+		characterManager.setTalking ();
 		Invoke ("showOptions", 7);
 	}
 

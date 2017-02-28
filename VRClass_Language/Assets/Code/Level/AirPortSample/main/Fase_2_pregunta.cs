@@ -6,6 +6,9 @@ public class Fase_2_pregunta : StateScript {
 	public CharacterManager characterManager;
 	public AudioClip[] dialogs;
 
+	private delegate void Steps();
+	private Steps Step;
+
 	void Start()
 	{
 	}
@@ -14,11 +17,7 @@ public class Fase_2_pregunta : StateScript {
 	public override void atUpdate()
 	{
 		characterManager.doUpdate ();
-		if(!characterManager.talk ()) {
-			if(!characterManager.animationReference.getTalking()) {
-				options.SetActive (true);
-			}
-		}
+		Step ();
 	}
 
 	public void givePassPort() {
@@ -26,11 +25,23 @@ public class Fase_2_pregunta : StateScript {
 		Invoke ("doChangeThisStateToFinished", 9);
 	}
 
+	private void first() {
+		if(!characterManager.animationReference.getTalking()) {
+			options.SetActive (true);
+			Step = second;
+		}
+	}
+
+	private void second () {
+		
+	}
+
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-		//characterManager.animationReference.setTalking ();
 		characterManager.setDialogs (dialogs);
+		characterManager.setTalking ();
+		Step = first;
 	}
 
 	public override void atEnd()
