@@ -1,26 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ToolTipManager : MonoBehaviour, IElement
+public class ToolTipManager : MonoBehaviour
 {
     public Canvas toolTipCanvas;
-    public ObjectToolTip objectToolTip;
+	public ToolTipPanel toolTipPanel;
 
-    public void hoverElement()
-    {
-        if (!toolTipCanvas.gameObject.activeSelf)
-        {
-            toolTipCanvas.gameObject.SetActive(true);
-        }
-        objectToolTip.disableTooltip = false;
-    }
+	public void addInfoToPanel() {
+		setInfoIntoToolTip ();
+		toolTipPanel.setShowPanel ();
 
-    public void selectElement()
-    {
-    }
+	}
 
-    public void resetElement()
-    {
-    }
+	private void setInfoIntoToolTip() {
+		
+	}
+
+	public void clearInfo () {
+		clearInfoOfToolTip ();
+		toolTipPanel.setHidePanel ();
+	}
+
+	private void clearInfoOfToolTip() {
+		
+	}
 
 }

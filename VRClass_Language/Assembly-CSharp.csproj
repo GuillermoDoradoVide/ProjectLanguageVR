@@ -101,6 +101,7 @@
      <Compile Include="Assets\Code\MenuAndInterface\ObjectInspector.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTip.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipPanel.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenuB.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenuC.cs" />
