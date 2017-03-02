@@ -4,11 +4,12 @@ using UnityEngine.UI;
 
 public class ObjectToolTip : MonoBehaviour {
 	public ToolTipManager TTmanager;
+	public ObjectToolTipData data;
 
 	void Start () {
 	}
 
 	public void sendInfo() {
-		TTmanager.addInfoToPanel ();
+		TTmanager.addInfoToPanel (data);
 	}       
 }

@@ -1,11 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Characters\CharacterManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs">
     <Files>
       <File FileName="Assets\Code\Managers\SoundManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Characters\CharacterManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Characters\CharacterMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Characters\CharacterAnimationReference.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Esperar.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTip.cs" Line="13" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs" Line="28" Column="28" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipPanel.cs" Line="55" Column="6" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipData.cs" Line="3" Column="61" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipDataList.cs" Line="4" Column="62" />
+      <File FileName="Assets\Code\Editor\ToolTipObjectListCustomEditor.cs" Line="19" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\MenuMobileSubMenuIzq.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
