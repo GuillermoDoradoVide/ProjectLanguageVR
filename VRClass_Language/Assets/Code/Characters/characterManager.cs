@@ -76,11 +76,11 @@ public class CharacterManager : MonoBehaviour {
 
 	private void stateTransition() {
 		stateMode = nextStateMode;
-		checkTransition ();
+		checkAnimation ();
 
 	}
 
-	private void checkTransition() {
+	private void checkAnimation() {
 		switch(stateMode) {
 		case CharacterState.Move : {
 				animationReference.setWalking (true);
