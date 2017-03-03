@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ToolTipPanel : MonoBehaviour {
 	
 	public MenuAnimationController menuAnimationController;
 	public CanvasGroup toolTipCanvasGroup;
 	private RectTransform canvasRectTransform;
+
+	public Text name;
 	public float timer = 1.0f;
 	public float transitionSpeed;
 
@@ -17,6 +20,10 @@ public class ToolTipPanel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void updatePanelInfo(ObjectToolTipData toolTipObject) {
+		name.text = toolTipObject.objectName;
 	}
 
 	public void setShowPanel() {

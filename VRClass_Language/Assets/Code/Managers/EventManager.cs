@@ -67,7 +67,6 @@ public class EventManager : SingletonComponent<EventManager>
         }
     }
 
-
     //achievements
     public static void addAchievementListener(setAchievementUnlocked method)
     {

@@ -5,9 +5,9 @@ public class ToolTipManager : MonoBehaviour
 {
     public Canvas toolTipCanvas;
 	public ToolTipPanel toolTipPanel;
+	public ObjectToolTip toolTipObject;
 	public ObjectToolTipData toolTipData;
-
-	public GameObject actionMenu;
+	public ObjectActionMenu actionMenu;
 	public Transform viewPosition;
 	public  enum SCALE_ACTION
 	{
@@ -25,24 +25,33 @@ public class ToolTipManager : MonoBehaviour
 	public float slerpTransitionRange;
 	public float slerpScaleRange;
 
-	public void addInfoToPanel(ObjectToolTipData data) {
-		toolTipData = data;
+	private void Awake() {}
+
+	public void getObjectInfo(ObjectToolTip newObjectTooltip) {
+		toolTipObject = newObjectTooltip;
+		toolTipData = toolTipObject.data;
 		setInfoIntoToolTip ();
-		viewMode ();
 	}
 
-	private void setInfoIntoToolTip() {
-		
+	public void setInfoIntoToolTip() {
+		if(toolTipData != null) {
+			toolTipPanel.updatePanelInfo (toolTipData);
+		}
 	}
 
 	public void viewMode() {
 		if(toolTipData != null) {
+			toolTipObject.disableTriggers ();
+			toolTipPanel.setHidePanel ();
 			StartCoroutine (smoothTranslation(toolTipData.position, viewPosition.position));
-			Debug.Log ("size: > " + toolTipData.gameObjectTransform.GetComponent<Renderer> ().bounds.extents.sqrMagnitude);
-			if (toolTipData.gameObjectTransform.GetComponent<Renderer>().bounds.extents.sqrMagnitude > 0.5f) {
-				smoothScale (SCALE_ACTION.SCALE_DOWN);
+			calculateViewSize ();
+			actionMenu.activeAtrasMenu ();
+			if(toolTipData.canBePicked) {
+				actionMenu.activePickMenu ();
 			}
-			actionMenu.SetActive (true);
+			if(toolTipData.canBeSelected) {
+				actionMenu.activeSelectMenu ();
+			}
 		}
 	}
 
@@ -50,9 +59,12 @@ public class ToolTipManager : MonoBehaviour
 		if(toolTipData != null) {
 			StartCoroutine (smoothTranslation(viewPosition.position, toolTipData.position));
 			toolTipData.gameObjectTransform.rotation = toolTipData.rotation;
-			smoothScale (SCALE_ACTION.SCALE_ORIGIN);
+			scaleType = SCALE_ACTION.SCALE_ORIGIN;
+			smoothScale ();
 			toolTipData.gameObjectTransform.parent = null;
-			actionMenu.SetActive (false);
+			toolTipObject.enableTriggers ();
+			actionMenu.disableMenus ();
+
 		}
 	}
 
@@ -62,6 +74,17 @@ public class ToolTipManager : MonoBehaviour
 
 	private void clearInfoOfToolTip() {
 		toolTipData = null;
+	}
+
+	private void calculateViewSize() {
+		Debug.Log ("size: > " + toolTipData.gameObjectTransform.GetComponent<Renderer> ().bounds.extents.sqrMagnitude);
+		if (toolTipData.gameObjectTransform.GetComponent<Renderer>().bounds.extents.sqrMagnitude > 0.6f) {
+			scaleType = SCALE_ACTION.SCALE_DOWN;
+		}
+		else if (toolTipData.gameObjectTransform.GetComponent<Renderer>().bounds.extents.sqrMagnitude < 0.4f) {
+			scaleType = SCALE_ACTION.SCALE_UP;
+		}
+		smoothScale ();
 	}
 
 	private IEnumerator smoothTranslation(Vector3 initPos, Vector3 finalPos) {
@@ -76,24 +99,23 @@ public class ToolTipManager : MonoBehaviour
 		}
 	}
 
-	private void smoothScale(SCALE_ACTION scale_action) {
-
-		switch(scale_action) {
-			case SCALE_ACTION.SCALE_UP : {
+	private void smoothScale() {
+		switch(scaleType) {
+		case SCALE_ACTION.SCALE_UP : {
 				initScale = scaleOrigin;
 				finalScale = scaleUp;
-					break;
-				}
-			case SCALE_ACTION.SCALE_DOWN : {
+				break;
+			}
+		case SCALE_ACTION.SCALE_DOWN : {
 				initScale = scaleOrigin;
 				finalScale = scaleDown;
-					break;
-				}
-			case SCALE_ACTION.SCALE_ORIGIN : {
+				break;
+			}
+		case SCALE_ACTION.SCALE_ORIGIN : {
 				initScale = toolTipData.gameObjectTransform.localScale;
 				finalScale = scaleOrigin;
-					break;
-				}
+				break;
+			}
 		}
 		StartCoroutine (calculateScale());
 	}
@@ -108,7 +130,6 @@ public class ToolTipManager : MonoBehaviour
 				slerpTransitionRange = 1;
 			yield return null;
 		}
-		
 	}
 
 }

@@ -1,19 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\MenuAndInterface\MenuMobileSubMenuIzq.cs">
     <Files>
-      <File FileName="Assets\Code\Managers\SoundManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Characters\CharacterManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Characters\CharacterMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Characters\CharacterAnimationReference.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Esperar.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTip.cs" Line="13" Column="1" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs" Line="28" Column="28" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipPanel.cs" Line="55" Column="6" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipData.cs" Line="3" Column="61" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipDataList.cs" Line="4" Column="62" />
-      <File FileName="Assets\Code\Editor\ToolTipObjectListCustomEditor.cs" Line="19" Column="1" />
-      <File FileName="Assets\Code\MenuAndInterface\MenuMobileSubMenuIzq.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\MenuMobileSubMenuIzq.cs" Line="86" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTip.cs" Line="21" Column="32" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipPanel.cs" Line="26" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipData.cs" Line="13" Column="26" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs" Line="48" Column="34" />
+      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectActionMenu.cs" Line="17" Column="3" />
+      <File FileName="Assets\Code\Managers\EventManager.cs" Line="68" Column="6" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Instrucciones.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\Script_MainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\ScriptSubMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Player\Achievements\AchievementManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
