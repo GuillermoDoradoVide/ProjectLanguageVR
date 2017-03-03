@@ -7,12 +7,12 @@ public class ObjectToolTipDataList : ScriptableObject {
 	public List<ObjectToolTipData> objectDataList;
 
 	public void addObject () {
-		ObjectToolTipData newObjectToolTipData = ScriptableObject.CreateInstance<ObjectToolTipData> ();
+/*		ObjectToolTipData newObjectToolTipData = ScriptableObject.CreateInstance<ObjectToolTipData> ();
 		newObjectToolTipData.objectName ="object";
-		objectDataList.Add (newObjectToolTipData);
+		objectDataList.Add (newObjectToolTipData);*/
 	}
 
 	public void deleteItem(int index) {
-		objectDataList.RemoveAt (index);
+		//objectDataList.RemoveAt (index);
 	}
 }

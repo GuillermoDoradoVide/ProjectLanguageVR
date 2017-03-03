@@ -99,6 +99,7 @@
      <Compile Include="Assets\Code\MenuAndInterface\MenuMain.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuMobileSubMenuIzq.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectInspector.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\DisplayerManager.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTip.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipData.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipDataList.cs" />
