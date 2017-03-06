@@ -8,6 +8,7 @@ public class Inventario : MonoBehaviour {
 
 	public void addItem(Item newItem) {
 		items.Add (newItem);
+		EventManager.triggerEvent (Events.EventList.PLAYER_PickObject);
 	}
 
 	public void removeItem(Item itemToRemove) {
@@ -16,5 +17,12 @@ public class Inventario : MonoBehaviour {
 
 	public void clearInventory() {
 		items.Clear ();
+	}
+
+	private void Awake() {
+	}
+
+	private void OnDisable() {
+		
 	}
 }

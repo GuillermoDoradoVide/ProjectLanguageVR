@@ -16,7 +16,7 @@ public class Events  : ScriptableObject
         // opciones --> triggerEvent desactivar el resto.
         ACHIEVEMENT_TriggerUnlocked_Achievement,
         PET_NewDialog,
-		PLAYER_FadeIn, PLAYER_FadeOut, PLAYER_Teleport,
+		PLAYER_FadeIn, PLAYER_FadeOut, PLAYER_Teleport, PLAYER_PickObject,
         LEVEL_Activity_Completed,
         GAMEMANAGER_Pause, GAMEMANAGER_Continue,
         Count };

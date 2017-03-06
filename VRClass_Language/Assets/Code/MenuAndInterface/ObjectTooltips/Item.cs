@@ -6,12 +6,14 @@ public class Item : ScriptableObject {
 	public List<ItemAttribute> attributes = new List<ItemAttribute>();
 	public ItemInteractions getItemInteractions() {
 		return (ItemInteractions)attributes.Find (attribute => attribute.GetType() == typeof(ItemInteractions));
-		
+	}
+
+	public ItemData getItemData() {
+		return (ItemData)attributes.Find (attribute => attribute.GetType() == typeof(ItemData));
 	}
 
 	public Mesh getItemModel() {
-		ItemModel aux = (ItemModel)attributes.Find (attribute => attribute.GetType () == typeof(ItemModel));
-		return aux.mesh;
+		return ((ItemModel)attributes.Find (attribute => attribute.GetType () == typeof(ItemModel))).mesh;
 	}
 
 	public void setItemModel(Mesh mesh, MeshRenderer renderer) {
