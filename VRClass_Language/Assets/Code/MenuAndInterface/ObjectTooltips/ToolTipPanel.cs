@@ -23,7 +23,7 @@ public class ToolTipPanel : MonoBehaviour {
 	}
 
 	public void updatePanelInfo(ObjectToolTipData toolTipObject) {
-		name.text = toolTipObject.objectName;
+//		name.text = toolTipObject.objectName;
 	}
 
 	public void setShowPanel() {

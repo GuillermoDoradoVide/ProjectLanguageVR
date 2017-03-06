@@ -9,6 +9,9 @@ public class ToolTipManager : MonoBehaviour
 	public ObjectToolTipData toolTipData;
 	public ObjectActionMenu actionMenu;
 	public Transform viewPosition;
+	public Vector3 originPos;
+	public Quaternion originQuat;
+	public Inventario inventario;
 	public  enum SCALE_ACTION
 	{
 		SCALE_UP, SCALE_DOWN, SCALE_ORIGIN
@@ -43,28 +46,36 @@ public class ToolTipManager : MonoBehaviour
 		if(toolTipData != null) {
 			toolTipObject.disableTriggers ();
 			toolTipPanel.setHidePanel ();
-			StartCoroutine (smoothTranslation(toolTipData.position, viewPosition.position));
+			originPos = toolTipData.transform.position;
+			originQuat = toolTipData.transform.rotation;
+			StartCoroutine (smoothTranslation(originPos, viewPosition.position));
 			calculateViewSize ();
 			actionMenu.activeAtrasMenu ();
-			if(toolTipData.canBePicked) {
-				actionMenu.activePickMenu ();
+			if(toolTipData.itemData.getItemInteractions()!=null) {
+				if(toolTipData.itemData.getItemInteractions().canBePicked) {
+					actionMenu.activePickMenu ();
+				}
+				if(toolTipData.itemData.getItemInteractions().canBeSelected) {
+					actionMenu.activeSelectMenu ();
+				}
 			}
-			if(toolTipData.canBeSelected) {
-				actionMenu.activeSelectMenu ();
-			}
+		}
+	}
+
+	public void pickObject() {
+		if(toolTipData != null) {
+			inventario.addItem (toolTipData.itemData);
 		}
 	}
 
 	public void clearViewMode() {
 		if(toolTipData != null) {
-			StartCoroutine (smoothTranslation(viewPosition.position, toolTipData.position));
-			toolTipData.gameObjectTransform.rotation = toolTipData.rotation;
+			StartCoroutine (smoothTranslation(viewPosition.position, originPos));
+			toolTipData.transform.rotation = originQuat;
 			scaleType = SCALE_ACTION.SCALE_ORIGIN;
 			smoothScale ();
-			toolTipData.gameObjectTransform.parent = null;
 			toolTipObject.enableTriggers ();
 			actionMenu.disableMenus ();
-
 		}
 	}
 
@@ -77,11 +88,11 @@ public class ToolTipManager : MonoBehaviour
 	}
 
 	private void calculateViewSize() {
-		Debug.Log ("size: > " + toolTipData.gameObjectTransform.GetComponent<Renderer> ().bounds.extents.sqrMagnitude);
-		if (toolTipData.gameObjectTransform.GetComponent<Renderer>().bounds.extents.sqrMagnitude > 0.6f) {
+		Debug.Log ("size: > " + toolTipData.gameObject.GetComponent<Renderer> ().bounds.extents.sqrMagnitude);
+		if (toolTipData.gameObject.GetComponent<Renderer>().bounds.extents.sqrMagnitude > 0.6f) {
 			scaleType = SCALE_ACTION.SCALE_DOWN;
 		}
-		else if (toolTipData.gameObjectTransform.GetComponent<Renderer>().bounds.extents.sqrMagnitude < 0.4f) {
+		else if (toolTipData.gameObject.GetComponent<Renderer>().bounds.extents.sqrMagnitude < 0.4f) {
 			scaleType = SCALE_ACTION.SCALE_UP;
 		}
 		smoothScale ();
@@ -89,9 +100,9 @@ public class ToolTipManager : MonoBehaviour
 
 	private IEnumerator smoothTranslation(Vector3 initPos, Vector3 finalPos) {
 		slerpTransitionRange = 0;
-		while (toolTipData.gameObjectTransform.position != finalPos) {
+		while (toolTipData.transform.position != finalPos) {
 			Debug.Log ("Calculando...position");
-			toolTipData.gameObjectTransform.position = Vector3.Slerp (initPos, finalPos,  slerpTransitionRange);
+			toolTipData.transform.position = Vector3.Slerp (initPos, finalPos,  slerpTransitionRange);
 			slerpTransitionRange += Time.deltaTime * translationSpeed;
 			if (slerpTransitionRange > 1)
 				slerpTransitionRange = 1;
@@ -112,7 +123,7 @@ public class ToolTipManager : MonoBehaviour
 				break;
 			}
 		case SCALE_ACTION.SCALE_ORIGIN : {
-				initScale = toolTipData.gameObjectTransform.localScale;
+				initScale = toolTipData.transform.localScale;
 				finalScale = scaleOrigin;
 				break;
 			}
@@ -122,9 +133,9 @@ public class ToolTipManager : MonoBehaviour
 
 	private IEnumerator calculateScale()  {
 		slerpScaleRange = 0;
-		while (toolTipData.gameObjectTransform.localScale != finalScale) {
+		while (toolTipData.transform.localScale != finalScale) {
 			Debug.Log ("calculando scale...");
-			toolTipData.gameObjectTransform.localScale = Vector3.Lerp (initScale, finalScale, slerpScaleRange);
+			toolTipData.transform.localScale = Vector3.Lerp (initScale, finalScale, slerpScaleRange);
 			slerpScaleRange += Time.deltaTime * translationSpeed;
 			if (slerpTransitionRange > 1)
 				slerpTransitionRange = 1;
