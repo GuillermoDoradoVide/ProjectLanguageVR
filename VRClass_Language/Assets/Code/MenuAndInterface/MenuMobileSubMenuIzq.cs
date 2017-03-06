@@ -9,6 +9,9 @@ public class MenuMobileSubMenuIzq : MonoBehaviour, IElement, IMenu
 	public Transform transform;
 	public Transform pivotPoint;
 	public GameObject menu;
+	public GameObject mobile;
+	public Vector3 onPosition;
+	public Vector3 origin;
 
 	private void Awake()
 	{
@@ -16,6 +19,8 @@ public class MenuMobileSubMenuIzq : MonoBehaviour, IElement, IMenu
 		menuAnimationController.setShowAnimation = showAnimation;
 		menuAnimationController.setHideAnimation = hideAnimation;
 		menuAnimationController.setSelectAnimation = selectAnimation;
+		origin = mobile.transform.localPosition;
+		onPosition = new Vector3 (onPosition.x - 0.1f, onPosition.y, onPosition.z);
 	}
 
 	private void OnEnable()
@@ -73,48 +78,47 @@ public class MenuMobileSubMenuIzq : MonoBehaviour, IElement, IMenu
 	{
 		menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Show;
 		menuAnimationController.animationIsPlaying = true;
+		timer = 0;
 	}
 
 	private void setSelectAnimation()
 	{
 		menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Select;
 		menuAnimationController.animationIsPlaying = true;
+		timer = 0;
 	}
 
 	private void setHideAnimation()
 	{
 		menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Hide;
 		menuAnimationController.animationIsPlaying = true;
+		timer = 0;
 	}
 
 	private void showAnimation()
 	{
-		if (timer < 0)
-		{
+		if (timer > 1) {
+			timer = 1;
 			menuAnimationController.animationIsPlaying = false;
-			transform.localScale = Vector3.one;
-			timer = 2.0f;
 		}
-		else
-		{
-			transform.localScale = (Vector3.Lerp (transform.localScale, Vector3.one, Time.deltaTime * speed));
-			timer -= Time.deltaTime;
-		}
+		mobile.transform.localPosition = Vector3.Slerp (origin, onPosition , timer * 1.2f);
+		transform.localScale = (Vector3.Lerp (transform.localScale, Vector3.one, timer * 0.8f));
+		timer += Time.deltaTime * speed;
 	}
 
 	private void hideAnimation()
 	{
-		if (timer < 0)
-		{
+		if (timer > 1) {
+			timer = 1;
 			menuAnimationController.animationIsPlaying = false;
-			transform.localScale = Vector3.zero;
-			timer = 2.0f;
-			closeThisMenu ();
 		}
-		else
-		{
-			transform.localScale = (Vector3.Lerp (transform.localScale, Vector3.zero, Time.deltaTime * speed));
-			timer -= Time.deltaTime;
+		else {
+			timer += Time.deltaTime * speed;
+		}
+		transform.localScale = (Vector3.Lerp (transform.localScale, Vector3.zero, timer * 0.8f));
+		mobile.transform.localPosition = Vector3.Slerp (onPosition, origin , timer * 1.2f);
+		if(timer == 1) {
+			closeThisMenu ();
 		}
 	}
 
