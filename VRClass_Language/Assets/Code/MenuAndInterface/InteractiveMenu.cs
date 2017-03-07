@@ -122,7 +122,7 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 		}
 	}
 
-	private void hoverEffect()
+	public void hoverEffect()
 	{
 	}
 

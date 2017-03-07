@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 
 public interface IElement : IEventSystemHandler {
-
+	void hoverEffect();
     void hoverElement();
     void selectElement();
     void resetElement();

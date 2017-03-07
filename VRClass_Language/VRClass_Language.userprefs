@@ -1,22 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\MenuAndInterface\ObjectTooltips\InventarioItemList.cs">
-    <Files>
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs" Line="92" Column="92" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipPanel.cs" Line="10" Column="2" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\Item.cs" Line="11" Column="29" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ItemAttribute.cs" Line="7" Column="24" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ItemData.cs" Line="14" Column="2" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ItemModel.cs" Line="11" Column="86" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ItemInteractions.cs" Line="13" Column="8" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ItemTransform.cs" Line="11" Column="92" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ScriptableObjectUtility.cs" Line="6" Column="2" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\Inventario.cs" Line="11" Column="64" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\InventarioItemList.cs" Line="51" Column="64" />
-      <File FileName="Assets\Code\Managers\Events.cs" Line="19" Column="68" />
-      <File FileName="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipData.cs" Line="8" Column="57" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -124,7 +124,7 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         }
     }
 
-    private void hoverEffect()
+	public void hoverEffect()
     {
     }
 }

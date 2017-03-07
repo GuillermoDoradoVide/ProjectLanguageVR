@@ -12,7 +12,7 @@ public class Script_MainMenu : MonoBehaviour, IElement, IMenu {
         menuAnimationController.setHideAnimation = hideAnimation;
     }
 
-    private void Start(){}
+	public void hoverEffect(){}
 
     private void OnEnable()
     {

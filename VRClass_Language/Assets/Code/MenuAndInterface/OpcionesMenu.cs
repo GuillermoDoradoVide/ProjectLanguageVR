@@ -21,20 +21,11 @@ public class OpcionesMenu : MonoBehaviour, IElement, IMenu
 	private void OnEnable()
 	{
 		Debug.Log("Se activa el objeto: [" + gameObject.name + "]");
-		//setShowAnimation();
 	}
 
 	private void OnDisable()
 	{
 		Debug.Log("Se DESactiva el objeto: [" + gameObject.name + "]");
-	}
-
-	void Start()
-	{
-	}
-
-	void Update()
-	{
 	}
 
 	//IElement interface implementation
@@ -119,7 +110,7 @@ public class OpcionesMenu : MonoBehaviour, IElement, IMenu
 	{
 	}
 
-	private void hoverEffect()
+	public void hoverEffect()
 	{
 	}
 }

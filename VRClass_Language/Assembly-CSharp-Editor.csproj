@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Code\Editor\ItemAsset.cs" />
      <Compile Include="Assets\Code\Editor\ItemEditor.cs" />
+     <Compile Include="Assets\Code\Editor\ScriptableObjectUtility.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Editor\DemoInputManagerEditor.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\ScrollingUIDemo\Editor\PagedScrollbarEditor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\Audio\GvrAudioListenerEditor.cs" />

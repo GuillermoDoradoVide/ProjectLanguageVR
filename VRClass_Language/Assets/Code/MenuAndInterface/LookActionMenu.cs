@@ -114,7 +114,7 @@ public class LookActionMenu : MonoBehaviour, IElement, IMenu {
 	{
 	}
 
-	private void hoverEffect()
+	public void hoverEffect()
 	{
 	}
 }

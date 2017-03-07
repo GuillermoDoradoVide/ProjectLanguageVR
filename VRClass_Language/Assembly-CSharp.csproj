@@ -45,11 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Code\AnimationSampleScene\AnimationLayerManagment.cs" />
-     <Compile Include="Assets\Code\AnimationSampleScene\CharacterPivotMovement.cs" />
-     <Compile Include="Assets\Code\AnimationSampleScene\CharacterWaypointMovement.cs" />
-     <Compile Include="Assets\Code\AnimationSampleScene\IdleAnimationCycleBehaviour.cs" />
-     <Compile Include="Assets\Code\AnimationSampleScene\TalkingAnimationCycleBehaviour.cs" />
+     <Compile Include="Assets\Code\Characters\AnimationSampleControllers\CharacterPivotMovement.cs" />
+     <Compile Include="Assets\Code\Characters\AnimationSampleControllers\CharacterWaypointMovement.cs" />
+     <Compile Include="Assets\Code\Characters\AnimatorLayerScripts\AnimationLayerManagment.cs" />
+     <Compile Include="Assets\Code\Characters\AnimatorLayerScripts\IdleAnimationCycleBehaviour.cs" />
+     <Compile Include="Assets\Code\Characters\AnimatorLayerScripts\TalkingAnimationCycleBehaviour.cs" />
      <Compile Include="Assets\Code\Characters\CharacterAnimationReference.cs" />
      <Compile Include="Assets\Code\Characters\CharacterManager.cs" />
      <Compile Include="Assets\Code\Characters\CharacterMovement.cs" />
@@ -87,7 +87,6 @@
      <Compile Include="Assets\Code\Managers\StateMachine\StateManager.cs" />
      <Compile Include="Assets\Code\Managers\StateMachine\StateScript.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\BeaconIdle.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ExitText.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\FadeEffect.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IElement.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IMenu.cs" />
@@ -100,20 +99,19 @@
      <Compile Include="Assets\Code\MenuAndInterface\MenuMain.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuMobileSubMenuIzq.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectInspector.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\Inventario.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\InventarioItemList.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\Item.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ItemAttribute.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ItemData.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ItemInteractions.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ItemModel.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ItemTransform.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectActionMenu.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTip.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ObjectToolTipData.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ScriptableObjectUtility.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs" />
-     <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipPanel.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\Inventario.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\InventarioItemList.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ObjectActionMenu.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ObjectToolTip.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ObjectToolTipData.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\Item.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttribute.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemData.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemInteractions.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemModel.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemTransform.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ToolTipManager.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ToolTipPanel.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\OpcionesMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenuB.cs" />
@@ -125,8 +123,7 @@
      <Compile Include="Assets\Code\Player\PlayerControllerInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerTeleport.cs" />
-     <Compile Include="Assets\Code\Player\characterTalking.cs" />
-     <Compile Include="Assets\Code\Session\SessionManager.cs" />
+     <Compile Include="Assets\Code\Player\Session\SessionManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\Teleport.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\PermissionsDemo\PermissionsFlowManager.cs" />

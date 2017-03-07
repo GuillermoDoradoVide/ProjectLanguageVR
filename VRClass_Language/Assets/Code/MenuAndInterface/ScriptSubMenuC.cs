@@ -57,16 +57,7 @@ public class ScriptSubMenuC : MonoBehaviour, IElement, IMenu
         EventManager.stopListening(Events.EventList.MV_SubMenuB_Active, resetElement);
     }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+	public void hoverEffect(){}
 
     private void showAnimation()
     {

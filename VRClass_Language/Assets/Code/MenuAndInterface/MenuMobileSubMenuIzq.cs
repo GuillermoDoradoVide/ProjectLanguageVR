@@ -126,7 +126,7 @@ public class MenuMobileSubMenuIzq : MonoBehaviour, IElement, IMenu
 	{
 	}
 
-	private void hoverEffect()
+	public void hoverEffect()
 	{
 	}
 }
