@@ -101,8 +101,7 @@ public class ToolTipManager : MonoBehaviour
 	private IEnumerator smoothTranslation(Vector3 initPos, Vector3 finalPos) {
 		slerpTransitionRange = 0;
 		while (toolTipData.transform.position != finalPos) {
-			Debug.Log ("Calculando...position");
-			toolTipData.transform.position = Vector3.Slerp (initPos, finalPos,  slerpTransitionRange);
+			toolTipData.transform.position = Vector3.Lerp (initPos, finalPos,  slerpTransitionRange);
 			slerpTransitionRange += Time.deltaTime * translationSpeed;
 			if (slerpTransitionRange > 1)
 				slerpTransitionRange = 1;
@@ -134,7 +133,6 @@ public class ToolTipManager : MonoBehaviour
 	private IEnumerator calculateScale()  {
 		slerpScaleRange = 0;
 		while (toolTipData.transform.localScale != finalScale) {
-			Debug.Log ("calculando scale...");
 			toolTipData.transform.localScale = Vector3.Lerp (initScale, finalScale, slerpScaleRange);
 			slerpScaleRange += Time.deltaTime * translationSpeed;
 			if (slerpTransitionRange > 1)

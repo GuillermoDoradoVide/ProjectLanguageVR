@@ -94,6 +94,7 @@
      <Compile Include="Assets\Code\MenuAndInterface\IMove.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IRotation.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\InteractiveMenu.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\LookActionMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuAnimationController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuMain.cs" />
@@ -113,6 +114,7 @@
      <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ScriptableObjectUtility.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipManager.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectTooltips\ToolTipPanel.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\OpcionesMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenuB.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenuC.cs" />

@@ -23,7 +23,8 @@ public class ToolTipPanel : MonoBehaviour {
 	}
 
 	public void updatePanelInfo(ObjectToolTipData toolTipObject) {
-//		name.text = toolTipObject.objectName;
+		name.text = toolTipObject.itemData.getItemData().name;
+		toolTipCanvasGroup.transform.position = new Vector3 (toolTipObject.gameObject.transform.position.x , toolTipObject.gameObject.GetComponent<MeshRenderer>().bounds.max.y + 0.5f, toolTipObject.gameObject.transform.position.z);
 	}
 
 	public void setShowPanel() {

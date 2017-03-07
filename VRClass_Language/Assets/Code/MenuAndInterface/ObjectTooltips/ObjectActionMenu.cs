@@ -13,17 +13,17 @@ public class ObjectActionMenu : MonoBehaviour {
 
 	public void activeAtrasMenu() {
 		atrasMenu.SetActive (true);
-		atrasMenu.GetComponent<IElement> ().selectElement();
+		//atrasMenu.GetComponent<IElement> ().selectElement();
 	}
 	
 	public void activeSelectMenu() {
 		selectMenu.SetActive (true);
-		selectMenu.GetComponent<IElement> ().selectElement();
+		//selectMenu.GetComponent<IElement> ().selectElement();
 	}
 
 	public void activePickMenu() {
 		pickMenu.SetActive (true);
-		pickMenu.GetComponent<IElement> ().selectElement();
+		//pickMenu.GetComponent<IElement> ().selectElement();
 	}
 
 	public void disableMenus() {

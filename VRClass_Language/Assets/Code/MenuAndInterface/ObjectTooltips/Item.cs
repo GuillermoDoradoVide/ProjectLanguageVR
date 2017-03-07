@@ -12,8 +12,12 @@ public class Item : ScriptableObject {
 		return (ItemData)attributes.Find (attribute => attribute.GetType() == typeof(ItemData));
 	}
 
-	public Mesh getItemModel() {
+	public Mesh getItemMesh() {
 		return ((ItemModel)attributes.Find (attribute => attribute.GetType () == typeof(ItemModel))).mesh;
+	}
+
+	public MeshRenderer getItemMeshRenderer() {
+		return ((ItemModel)attributes.Find (attribute => attribute.GetType () == typeof(ItemModel))).renderer;
 	}
 
 	public void setItemModel(Mesh mesh, MeshRenderer renderer) {
