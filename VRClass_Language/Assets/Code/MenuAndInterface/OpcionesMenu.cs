@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OpcionesMenu : MonoBehaviour, IElement, IMenu
+public class OpcionesMenu : MonoBehaviour
 {
 	public MenuAnimationController menuAnimationController;
+	public MenuController menuController;
 	public float timer;
 	public float speed;
 	public Transform transform;
@@ -15,7 +16,12 @@ public class OpcionesMenu : MonoBehaviour, IElement, IMenu
 		menuAnimationController = GetComponent<MenuAnimationController>();
 		menuAnimationController.setShowAnimation = showAnimation;
 		menuAnimationController.setHideAnimation = hideAnimation;
-		menuAnimationController.setSelectAnimation = selectAnimation;
+		menuController = GetComponent<MenuController> ();
+		menuController.DOONselectElement = selectElement;
+		menuController.DOONhideElement = hideElement;
+		menuController.DOONhoverElement = hoverElement;
+		menuController.DOONresetElement = resetElement;
+		menuController.DOONcloseElement = closeThisMenu;
 	}
 
 	private void OnEnable()
@@ -55,6 +61,10 @@ public class OpcionesMenu : MonoBehaviour, IElement, IMenu
 
 	}
 
+	public void hideElement() {
+
+	}
+
 	public void resetElement()
 	{
 	}
@@ -63,13 +73,6 @@ public class OpcionesMenu : MonoBehaviour, IElement, IMenu
 	private void setShowAnimation()
 	{
 		menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Show;
-		menuAnimationController.animationIsPlaying = true;
-		timer = 0;
-	}
-
-	private void setSelectAnimation()
-	{
-		menuAnimationController.animationActions = MenuAnimationController.AnimationActions.Select;
 		menuAnimationController.animationIsPlaying = true;
 		timer = 0;
 	}
@@ -104,10 +107,6 @@ public class OpcionesMenu : MonoBehaviour, IElement, IMenu
 		if(timer == 1) {
 			closeThisMenu ();
 		}
-	}
-
-	private void selectAnimation()
-	{
 	}
 
 	public void hoverEffect()

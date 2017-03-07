@@ -26,7 +26,6 @@ public class MenuMobileSubMenuIzq : MonoBehaviour, IElement, IMenu
 	private void OnEnable()
 	{
 		Debug.Log("Se activa el objeto: [" + gameObject.name + "]");
-		//setShowAnimation();
 	}
 
 	private void OnDisable()
@@ -42,11 +41,18 @@ public class MenuMobileSubMenuIzq : MonoBehaviour, IElement, IMenu
 	{
 	}
 
-	//IElement interface implementation
-	//**********************************
-	public void closeThisMenu()
+	public void closeMenu()
 	{
-		menu.SetActive(false);
+		gameObject.SetActive(false);
+	}
+
+	public void hideMenu (){
+	}
+	public void selectMenu (){
+	}
+	public void hoverMenu(){
+	}
+	public void resetMenu(){
 	}
 
 	public void hoverElement()
@@ -118,7 +124,7 @@ public class MenuMobileSubMenuIzq : MonoBehaviour, IElement, IMenu
 		transform.localScale = (Vector3.Lerp (transform.localScale, Vector3.zero, timer * 0.8f));
 		mobile.transform.localPosition = Vector3.Slerp (onPosition, origin , timer * 1.2f);
 		if(timer == 1) {
-			closeThisMenu ();
+			closeMenu ();
 		}
 	}
 

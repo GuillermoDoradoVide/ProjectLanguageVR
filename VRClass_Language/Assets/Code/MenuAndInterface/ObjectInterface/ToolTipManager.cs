@@ -74,7 +74,6 @@ public class ToolTipManager : MonoBehaviour
 			toolTipData.transform.rotation = originQuat;
 			scaleType = SCALE_ACTION.SCALE_ORIGIN;
 			smoothScale ();
-			toolTipObject.enableTriggers ();
 			actionMenu.disableMenus ();
 		}
 	}
@@ -138,6 +137,9 @@ public class ToolTipManager : MonoBehaviour
 			if (slerpTransitionRange > 1)
 				slerpTransitionRange = 1;
 			yield return null;
+		}
+		if(scaleType == SCALE_ACTION.SCALE_ORIGIN) {
+			toolTipObject.enableTriggers ();
 		}
 	}
 

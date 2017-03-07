@@ -37,9 +37,18 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 
 	//IElement interface implementation
 	//**********************************
-	public void closeThisMenu()
+	public void closeMenu()
 	{
 		gameObject.SetActive(false);
+	}
+		
+	public void hideMenu (){
+	}
+	public void selectMenu (){
+	}
+	public void hoverMenu(){
+	}
+	public void resetMenu(){
 	}
 
 	public void hoverElement()
@@ -128,6 +137,6 @@ public class InteractiveMenu : MonoBehaviour, IElement, IMenu
 
 	private void selected() {
 		setHideAnimation ();
-		closeThisMenu ();
+		closeMenu ();
 	}
 }

@@ -31,12 +31,19 @@ public class Script_MainMenu : MonoBehaviour, IElement, IMenu {
         }
     }
 
-    //I interface implementation
-    //**********************************
-    public void closeThisMenu()
-    {
-        gameObject.SetActive(false);
-    }
+	public void closeMenu()
+	{
+		gameObject.SetActive(false);
+	}
+
+	public void hideMenu (){
+	}
+	public void selectMenu (){
+	}
+	public void hoverMenu(){
+	}
+	public void resetMenu(){
+	}
 
     public void hoverElement()
     {

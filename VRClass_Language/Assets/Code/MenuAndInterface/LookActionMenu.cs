@@ -26,19 +26,18 @@ public class LookActionMenu : MonoBehaviour, IElement, IMenu {
 		Debug.Log("Se DESactiva el objeto: [" + gameObject.name + "]");
 	}
 
-	void Start()
-	{
-	}
-
-	void Update()
-	{
-	}
-
-	//IElement interface implementation
-	//**********************************
-	public void closeThisMenu()
+	public void closeMenu()
 	{
 		gameObject.SetActive(false);
+	}
+
+	public void hideMenu (){
+	}
+	public void selectMenu (){
+	}
+	public void hoverMenu(){
+	}
+	public void resetMenu(){
 	}
 
 	public void hoverElement()
@@ -106,7 +105,7 @@ public class LookActionMenu : MonoBehaviour, IElement, IMenu {
 			timer += Time.deltaTime * speed;
 		}
 		if(timer == 1) {
-			closeThisMenu ();
+			closeMenu ();
 		}
 	}
 

@@ -27,20 +27,19 @@ public class ScriptSubMenu : MonoBehaviour, IElement, IMenu
         Debug.Log("Se DESactiva el objeto: [" + gameObject.name + "]");
     }
 
-    void Start()
-    {
-    }
+	public void closeMenu()
+	{
+		gameObject.SetActive(false);
+	}
 
-    void Update()
-    {
-    }
-
-    //IElement interface implementation
-    //**********************************
-    public void closeThisMenu()
-    {
-        gameObject.SetActive(false);
-    }
+	public void hideMenu (){
+	}
+	public void selectMenu (){
+	}
+	public void hoverMenu(){
+	}
+	public void resetMenu(){
+	}
 
     public void hoverElement()
     {

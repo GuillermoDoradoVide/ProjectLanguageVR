@@ -7,14 +7,19 @@ public class ScriptSubMenuC : MonoBehaviour, IElement, IMenu
     public MenuAnimationController menuAnimationController;
     public float timer = 1.0f;
 
-    //IElement interface implementation
-    //**********************************
-    public void closeThisMenu() // deberia llamarse para desactivar el objeto principal del menu una vez el resto de 
-                                //elementos esten desactivados o reseteados
-    {
-        gameObject.SetActive(false);
-    }
+	public void closeMenu()
+	{
+		gameObject.SetActive(false);
+	}
 
+	public void hideMenu (){
+	}
+	public void selectMenu (){
+	}
+	public void hoverMenu(){
+	}
+	public void resetMenu(){
+	}
     public void hoverElement()
     {
 
@@ -81,7 +86,7 @@ public class ScriptSubMenuC : MonoBehaviour, IElement, IMenu
         {
             menuAnimationController.animationIsPlaying = false;
             timer = 1.0f;
-            closeThisMenu();
+            closeMenu();
         }
         else
         {

@@ -4,6 +4,10 @@ using UnityEngine.EventSystems;
 
 public interface IMenu : IEventSystemHandler
 {
-    void closeThisMenu();
+	void closeMenu ();
+	void selectMenu ();
+	void hoverMenu();
+	void resetMenu();
+
 }
 

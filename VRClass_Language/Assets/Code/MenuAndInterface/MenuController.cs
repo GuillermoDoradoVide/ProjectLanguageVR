@@ -1,15 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuController : MonoBehaviour {
+public class MenuController : MonoBehaviour, IMenu {
 
-	// Use this for initialization
-	void Start () {
-	
+	public delegate void DoMenuFunctions();
+	public DoMenuFunctions DOONselectElement, DOONhideElement, DOONresetElement, DOONhoverElement, DOONcloseElement;
+
+	public void selectMenu() {
+		if (DOONselectElement != null)
+			DOONselectElement ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void hideMenu() {
+		if (DOONhideElement != null)
+			DOONhideElement ();
+	}
+
+	public void resetMenu() {
+		if (DOONresetElement != null)
+			DOONresetElement ();
+	}
+
+	public void hoverMenu() {
+		if (DOONhoverElement != null)
+			DOONhoverElement ();
+	}
+
+	public void closeMenu() {
+		if (DOONcloseElement != null)
+			DOONcloseElement ();
 	}
 }
