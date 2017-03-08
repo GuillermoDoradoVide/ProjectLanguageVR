@@ -75,6 +75,7 @@
      <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventForth.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventSecond.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventThird.cs" />
+     <Compile Include="Assets\Code\Level\SampleLevel\TestScript.cs" />
      <Compile Include="Assets\Code\Level\SceneData.cs" />
      <Compile Include="Assets\Code\Managers\EffectManager.cs" />
      <Compile Include="Assets\Code\Managers\EventManager.cs" />

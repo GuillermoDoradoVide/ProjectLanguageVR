@@ -2,8 +2,8 @@
 using System.Collections;
 [AddComponentMenu("StateMachine/StateScript")]
 public abstract class StateScript : MonoBehaviour {
-    private enum StateMode { Active, Finished, Paused, Continue, Count };
-    private StateMode stateMode;
+    public enum StateMode { Active, Finished, Paused, Continue, Count };
+    public StateMode stateMode;
     public delegate void Action();
     public Action[]Actions;
     public abstract void atUpdate();
