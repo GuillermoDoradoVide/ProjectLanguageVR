@@ -92,6 +92,9 @@
      <Compile Include="Assets\Code\MenuAndInterface\IMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IMove.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IRotation.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\IconAnimations.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\panelAlphaController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\InteractiveMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\LookActionMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuAnimationController.cs" />
