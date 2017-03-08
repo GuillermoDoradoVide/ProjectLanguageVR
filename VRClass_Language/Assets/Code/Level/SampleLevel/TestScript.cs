@@ -22,8 +22,8 @@ public class TestScript : StateScript {
 	}
 
 	private void showInteractionMenu() {
-		interaction.addDialogTriggerAction ("No estoy seguro...", dialogOptionB);
-		interaction.addDialogTriggerAction ("*Dar pasaporte.", dialogOptionA);
+		interaction.addDialogTriggerAction (0,"No estoy seguro...", dialogOptionB);
+		interaction.addDialogTriggerAction (1,"*Dar pasaporte.", dialogOptionA);
 		Step = waitPlayerAnswer;
 	}
 

@@ -25,6 +25,7 @@ public class panelAlphaController : MonoBehaviour {
 
 	private IEnumerator showAnimation()
 	{
+		
 		while(canvasGroup.alpha < 1) {
 			if (!isShowing)
 				yield break;

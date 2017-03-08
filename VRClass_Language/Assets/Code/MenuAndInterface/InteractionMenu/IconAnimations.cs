@@ -8,15 +8,66 @@ public class IconAnimations : MonoBehaviour {
 	public Vector3 scaleOrigin = new Vector3(1f, 1f, 1f);
 	public Vector3 initPos;
 	public Vector3 finalPos;
-	public Transform activePos;
-	public Transform restPos;
 	public float scaleSpeed;
 	public float slerpScaleRange;
 	public float translationSpeed;
 	public float slerpTranslationRange;
+	public float hoverOverUIAmmount;
+	public CanvasGroup canvasGroup;
+	public float transitionSpeed;
+	public bool isShowing = false;
 
 	private void Awake () {
 		iconRectTransform = GetComponent<RectTransform> ();
+		canvasGroup = GetComponent<CanvasGroup> ();
+	}
+
+	private void OnEnable()
+	{
+		showPanel ();
+		Debug.Log("Se activa el objeto: [" + gameObject.name + "]");
+	}
+
+	private void OnDisable()
+	{
+		Debug.Log("Se DESactiva el objeto: [" + gameObject.name + "]");
+	}
+
+	private void Onclick() {
+		hidePanel ();
+	}
+
+	public void showPanel() {
+		isShowing = true;
+		StartCoroutine(showAnimation ());
+	}
+
+	public void hidePanel() {
+		isShowing = false;
+		StartCoroutine(hideAnimation ());
+	}
+
+	private IEnumerator showAnimation()
+	{
+		while(canvasGroup.alpha < 1) {
+			if (!isShowing)
+				yield break;
+			canvasGroup.alpha += Time.deltaTime * transitionSpeed;
+			yield return null;
+		}
+		canvasGroup.alpha = 1;
+	}
+
+	private IEnumerator hideAnimation()
+	{
+		while(canvasGroup.alpha > 0) {
+			if (isShowing)
+				yield break;
+			canvasGroup.alpha -= Time.deltaTime * transitionSpeed;
+			yield return null;
+		}
+		canvasGroup.alpha = 0;
+		gameObject.SetActive (false);
 	}
 
 	public void scaleIcon(float factor) {
@@ -44,11 +95,11 @@ public class IconAnimations : MonoBehaviour {
 
 	public void translateIcon(bool activePosition) {
 		if (activePosition) {
-			finalPos = activePos.localPosition;
-			initPos = restPos.localPosition;
+			initPos = iconRectTransform.localPosition;
+			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z + hoverOverUIAmmount);
 		}else {
-			finalPos = restPos.localPosition;
-			initPos = activePos.localPosition;
+			initPos = iconRectTransform.localPosition;
+			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z - hoverOverUIAmmount);
 		}
 		StartCoroutine (smoothTranslation());
 	}

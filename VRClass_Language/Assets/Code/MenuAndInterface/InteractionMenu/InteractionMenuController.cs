@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 
 public class InteractionMenuController : MonoBehaviour {
 
-	public Text dialog;
-	public Image iconImage;
-	public Button dialogButton;
+	public GameObject[] dialogGameObject;
+	public Button[] dialogButton;
+	public Text[] dialog;
+	public Image[] iconImage;
 
 	public Sprite dialogIcon;
 	public Sprite objectsIcon;
@@ -28,17 +30,25 @@ public class InteractionMenuController : MonoBehaviour {
 		return interactionMenu;
 	}
 
-	//show dialog event action
-	public void addDialogTriggerAction(string boxDialog, UnityAction dialogTriggerEvent) {
-		interactionMenuObject.SetActive (true);
-		dialogButton.onClick.RemoveAllListeners();
-		dialogButton.onClick.AddListener (dialogTriggerEvent);
-		dialogButton.onClick.AddListener (closeInteractionMenu);
-		dialog.text = boxDialog;
-		iconImage.sprite = dialogIcon;
+	private void Awake() {
+		for (int x = 0; x < dialogGameObject.Length - 1; x ++) {
+			dialogButton[x] = dialogGameObject [x].GetComponentInChildren<Button> ();
+			dialog[x] = dialogGameObject [x].GetComponentInChildren<Text> ();
+			iconImage [x] = dialogGameObject [x].GetComponentInChildren<Image> ();
+		}
 	}
 
-	private void closeInteractionMenu() {
+	//show dialog event action
+	public void addDialogTriggerAction(int optionNumber, string boxDialog, UnityAction dialogTriggerEvent) {
+		interactionMenuObject.SetActive (true);
+		dialogGameObject [optionNumber].SetActive (true);
+		dialogButton[optionNumber].onClick.RemoveAllListeners();
+		dialogButton [optionNumber].onClick.AddListener(dialogTriggerEvent);
+		dialog[optionNumber].text = boxDialog;
+		//iconImage[optionNumber].sprite = dialogIcon;
+	}
+
+	public void closeInteractionMenu() {
 		interactionMenuObject.SetActive (false);
 	}
 }

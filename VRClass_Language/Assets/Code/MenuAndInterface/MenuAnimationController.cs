@@ -12,9 +12,6 @@ public class MenuAnimationController : MonoBehaviour {
     private void Awake()
     {
         doMenuAnimation = new DoMenuAnimations[(int)AnimationActions.Count];
-        //setShowAnimation = null;
-        //setHideAnimation = null;
-        //setIdleAnimation = null;
     }
     // Use this for initialization
     void Start () {
