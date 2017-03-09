@@ -31,7 +31,7 @@ public class InteractionMenuController : MonoBehaviour {
 	}
 
 	private void Awake() {
-		for (int x = 0; x < dialogGameObject.Length - 1; x ++) {
+		for (int x = 0; x < dialogGameObject.Length; x ++) {
 			dialogButton[x] = dialogGameObject [x].GetComponentInChildren<Button> ();
 			dialog[x] = dialogGameObject [x].GetComponentInChildren<Text> ();
 			iconImage [x] = dialogGameObject [x].GetComponentInChildren<Image> ();
@@ -39,13 +39,26 @@ public class InteractionMenuController : MonoBehaviour {
 	}
 
 	//show dialog event action
-	public void addDialogTriggerAction(int optionNumber, string boxDialog, UnityAction dialogTriggerEvent) {
+	public void addDialogTriggerAction(int optionNumber, string boxDialog, UnityAction dialogTriggerEvent, int imageType = 0) {
 		interactionMenuObject.SetActive (true);
 		dialogGameObject [optionNumber].SetActive (true);
 		dialogButton[optionNumber].onClick.RemoveAllListeners();
 		dialogButton [optionNumber].onClick.AddListener(dialogTriggerEvent);
 		dialog[optionNumber].text = boxDialog;
-		//iconImage[optionNumber].sprite = dialogIcon;
+		switch(imageType) {
+		case 0 : {
+				iconImage[optionNumber].sprite = dialogIcon;
+				break;
+			}
+		case 1 : {
+				iconImage[optionNumber].sprite = objectsIcon;
+				break;
+			}
+		case 2 : {
+				iconImage[optionNumber].sprite = interactionIcon;
+				break;
+			}
+		}
 	}
 
 	public void closeInteractionMenu() {

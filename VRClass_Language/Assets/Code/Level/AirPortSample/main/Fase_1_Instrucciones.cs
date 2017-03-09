@@ -11,6 +11,8 @@ public class Fase_1_Instrucciones : StateScript
 	private Steps Step;
 	public AudioClip introduction;
 	public AudioClip introduction2;
+	public AudioClip repeat;
+	public AudioClip repeat2;
 	public AudioClip introduction3;
 	public AudioClip incomingCall;
 	public AudioClip staticOn;
@@ -23,6 +25,7 @@ public class Fase_1_Instrucciones : StateScript
 
 	private bool yes = false;
 	private bool no = false;
+	public bool repeated = false;
 
 	void Start ()
 	{
@@ -42,7 +45,6 @@ public class Fase_1_Instrucciones : StateScript
 	}
 
 	private void standBy() {
-		
 	}
 
 	private void contactWithBriefing() {
@@ -84,9 +86,18 @@ public class Fase_1_Instrucciones : StateScript
 				yes = false;
 			}
 			else if (no) {
-				playerSource.clip = introduction2;
-				playerSource.Play ();
-				no = false;
+				if(!repeated){
+					playerSource.clip = repeat;
+					playerSource.Play ();
+					no = false;
+					repeated = true;
+				}
+				else {
+					playerSource.clip = repeat2;
+					playerSource.Play ();
+					Step = goodLuck;
+					yes = false;
+				}
 			}
 		}	
 	}

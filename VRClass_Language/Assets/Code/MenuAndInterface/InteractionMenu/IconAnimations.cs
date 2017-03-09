@@ -35,8 +35,12 @@ public class IconAnimations : MonoBehaviour {
 		Debug.Log("Se DESactiva el objeto: [" + gameObject.name + "]");
 	}
 
-	private void Onclick() {
-		hidePanel ();
+	public void Onclick() {
+		selectPanel ();
+	}
+
+	private void selectPanel() {
+		Invoke ("hidePanel", 1);
 	}
 
 	public void showPanel() {
@@ -45,8 +49,14 @@ public class IconAnimations : MonoBehaviour {
 	}
 
 	public void hidePanel() {
-		isShowing = false;
-		StartCoroutine(hideAnimation ());
+		if(gameObject.activeSelf) {
+			isShowing = false;
+			StartCoroutine(hideAnimation ());
+		}
+	}
+
+	private void deactiveMenu () {
+		gameObject.SetActive (false);
 	}
 
 	private IEnumerator showAnimation()
@@ -69,7 +79,8 @@ public class IconAnimations : MonoBehaviour {
 			yield return null;
 		}
 		canvasGroup.alpha = 0;
-		gameObject.SetActive (false);
+		yield return new WaitForSeconds (1.2f);
+		deactiveMenu ();
 	}
 
 	public void scaleIcon(float factor) {

@@ -23,7 +23,8 @@ public class TestScript : StateScript {
 
 	private void showInteractionMenu() {
 		interaction.addDialogTriggerAction (0,"No estoy seguro...", dialogOptionB);
-		interaction.addDialogTriggerAction (1,"*Dar pasaporte.", dialogOptionA);
+		interaction.addDialogTriggerAction (1,"*Dar pasaporte.", dialogOptionA, 1);
+		interaction.addDialogTriggerAction (2,"Puede ser, no estoy seguro.", dialogOptionA, 2);
 		Step = waitPlayerAnswer;
 	}
 
