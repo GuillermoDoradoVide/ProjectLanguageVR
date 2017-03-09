@@ -19,6 +19,7 @@ public class Fase_1_Instrucciones : StateScript
 	private Vector3[] angles;
 	private int index;
 	private Vector3 centerAngle;
+	public float headMovementMagnitude;
 
 	private bool yes = false;
 	private bool no = false;
@@ -46,6 +47,8 @@ public class Fase_1_Instrucciones : StateScript
 
 	private void contactWithBriefing() {
 		SoundManager.Instance.playSingleSFXSound (incomingCall);
+		instructions.gameObject.SetActive (true);
+		GetComponent<panelAlphaController> ().showPanel ();
 		Step = makeContact;
 	}
 
@@ -92,6 +95,7 @@ public class Fase_1_Instrucciones : StateScript
 	{
 		if (!playerSource.isPlaying) {
 			SoundManager.Instance.playSingleSFXSound (staticOn);
+			GetComponent<panelAlphaController> ().hidePanel ();
 			doChangeThisStateToFinished ();
 		}	
 	}
@@ -110,14 +114,14 @@ public class Fase_1_Instrucciones : StateScript
 	{
 		bool right = false, left = false, up = false, down = false;
 		for (int x = 0; x < 80; x++) {
-			if (angles [x].x < centerAngle.x - 20.0f && !up) {
+			if (angles [x].x < centerAngle.x - 10.0f * headMovementMagnitude && !up) {
 				up = true;
-			} else if (angles [x].x > centerAngle.x + 20.0f && !down) {
+			} else if (angles [x].x > centerAngle.x + 10.0f * headMovementMagnitude && !down) {
 				down = true;
 			}	
-			if (angles [x].y < centerAngle.y - 20.0f && !left) {
+			if (angles [x].y < centerAngle.y - 10.0f * headMovementMagnitude && !left) {
 				left = true;
-			} else if (angles [x].y > centerAngle.y + 20.0f && !right) {
+			} else if (angles [x].y > centerAngle.y + 10.0f * headMovementMagnitude && !right) {
 				right = true;
 			}
 

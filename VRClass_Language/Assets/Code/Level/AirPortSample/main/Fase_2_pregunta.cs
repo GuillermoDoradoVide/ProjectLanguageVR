@@ -5,6 +5,7 @@ public class Fase_2_pregunta : StateScript {
 	public GameObject options;
 	public CharacterManager characterManager;
 	public AudioClip[] dialogs;
+	public AudioClip[] dialogs2;
 
 	private delegate void Steps();
 	private Steps Step;
@@ -22,7 +23,14 @@ public class Fase_2_pregunta : StateScript {
 
 	public void givePassPort() {
 		characterManager.characterAnimator.SetTrigger ("Pick");
-		Invoke ("doChangeThisStateToFinished", 9);
+		Invoke ("askName", 3);
+	}
+
+	public void askName() {
+		characterManager.setDialogs (dialogs2);
+		characterManager.setTalking ();
+		Step = third;
+
 	}
 
 	private void first() {
@@ -34,6 +42,12 @@ public class Fase_2_pregunta : StateScript {
 
 	private void second () {
 		
+	}
+
+	private void third() {
+		if(!characterManager.animationReference.getTalking()) {
+			doChangeThisStateToFinished ();
+		}
 	}
 
 	public override void atInit()
