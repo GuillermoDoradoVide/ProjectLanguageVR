@@ -20,10 +20,12 @@ public class IconAnimations : MonoBehaviour {
 	private void Awake () {
 		iconRectTransform = GetComponent<RectTransform> ();
 		canvasGroup = GetComponent<CanvasGroup> ();
+		initPos = iconRectTransform.localPosition;
 	}
 
 	private void OnEnable()
 	{
+		initPos = iconRectTransform.localPosition;
 		showPanel ();
 		Debug.Log("Se activa el objeto: [" + gameObject.name + "]");
 	}
@@ -95,10 +97,8 @@ public class IconAnimations : MonoBehaviour {
 
 	public void translateIcon(bool activePosition) {
 		if (activePosition) {
-			initPos = iconRectTransform.localPosition;
 			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z + hoverOverUIAmmount);
 		}else {
-			initPos = iconRectTransform.localPosition;
 			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z - hoverOverUIAmmount);
 		}
 		StartCoroutine (smoothTranslation());

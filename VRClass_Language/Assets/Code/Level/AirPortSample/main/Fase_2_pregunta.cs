@@ -6,6 +6,10 @@ public class Fase_2_pregunta : StateScript {
 	public CharacterManager characterManager;
 	public AudioClip[] dialogs;
 	public AudioClip[] dialogs2;
+	public AudioClip[] dialogs3;
+	public AudioClip[] dialogs4;
+	public AudioClip[] dialogs5;
+	public AudioClip[] dialogs6;
 
 	private delegate void Steps();
 	private Steps Step;
@@ -20,6 +24,30 @@ public class Fase_2_pregunta : StateScript {
 		characterManager.doUpdate ();
 		Step ();
 	}
+		
+	public void repeatQuestion() {
+		characterManager.setDialogs (dialogs3);
+		characterManager.setTalking ();
+		//Step = first;
+	}
+
+	public void tellAboutBarcelona() {
+		characterManager.setDialogs (dialogs4);
+		characterManager.setTalking ();
+		//Step = first;
+	}
+
+	public void giveBoardingPass() {
+		characterManager.setDialogs (dialogs5);
+		characterManager.setTalking ();
+		//Step = first;
+	}
+
+	public void hightFive() {
+		characterManager.setDialogs (dialogs6);
+		characterManager.setTalking ();
+		//Step = first;
+	}
 
 	public void givePassPort() {
 		characterManager.characterAnimator.SetTrigger ("Pick");
@@ -30,7 +58,6 @@ public class Fase_2_pregunta : StateScript {
 		characterManager.setDialogs (dialogs2);
 		characterManager.setTalking ();
 		Step = third;
-
 	}
 
 	private void first() {

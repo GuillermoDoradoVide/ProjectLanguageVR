@@ -1,17 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Characters\CharacterAnimationReference.cs">
     <Files>
       <File FileName="Assets\Code\MenuAndInterface\InteractionMenu\IconAnimations.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs" Line="43" Column="42" />
-      <File FileName="Assets\Code\Level\SampleLevel\TestScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\SampleLevel\TestScript.cs" Line="44" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Instrucciones.cs" Line="124" Column="75" />
       <File FileName="Assets\Code\MenuAndInterface\MenuAnimationController.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\OpcionesMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\ObjectInterface\ObjectActionMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\LookActionMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\ObjectInterface\ToolTipManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\ObjectInterface\ObjectToolTip.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\MenuAndInterface\InteractionMenu\ButtonAction.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Esperar.cs" Line="40" Column="42" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Acercarse.cs" Line="20" Column="61" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_pregunta.cs" Line="27" Column="25" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_opcion.cs" Line="28" Column="26" />
+      <File FileName="Assets\Code\MenuAndInterface\BeaconIdle.cs" Line="45" Column="13" />
+      <File FileName="Assets\Code\Characters\CharacterMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Characters\CharacterAnimationReference.cs" Line="24" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

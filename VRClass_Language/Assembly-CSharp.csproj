@@ -61,6 +61,7 @@
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_1_Esperar.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_1_Instrucciones.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_2_opcion.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_2_opcion_dos.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_2_pregunta.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_2_respuesta.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fin.cs" />
