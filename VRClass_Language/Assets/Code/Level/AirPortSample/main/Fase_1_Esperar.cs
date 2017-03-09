@@ -5,6 +5,8 @@ public class Fase_1_Esperar : StateScript {
 
 	public CharacterManager characterManager;
 	public CharacterManager.CharacterState[] stepsA;
+	public CharacterManager characterManagerOfficer;
+	public AudioClip[] nextPlease;
 
 	private delegate void Steps();
 	private Steps Step;
@@ -18,6 +20,7 @@ public class Fase_1_Esperar : StateScript {
 	public override void atUpdate()
 	{
 		characterManager.doUpdate ();
+		characterManagerOfficer.doUpdate ();
 		Step ();
 	}
 
@@ -27,19 +30,24 @@ public class Fase_1_Esperar : StateScript {
 
 	private void disableCharacter() {
 		characterManager.gameObject.SetActive (false);
+		doChangeThisStateToFinished ();
 	}
 
 	private void first() {
 		if (!characterManager.animationReference.getTalking()) {
-			Invoke ("doChangeThisStateToFinished", 2);
-			Invoke ("disableCharacter", 4);
+			Invoke ("disableCharacter", 5);
+			Step = second;
+			characterManagerOfficer.setTalking ();
 		}
 	}
+
+	private void second() {}
 
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 		Invoke ("setTalkingFalse", 4);
+		characterManagerOfficer.setDialogs (nextPlease);
 		characterManager.setCharacterNextStates (stepsA);
 		Step = first;
 	}

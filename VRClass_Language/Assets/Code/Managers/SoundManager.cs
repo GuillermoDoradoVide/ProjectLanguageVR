@@ -24,6 +24,10 @@ public class SoundManager : SingletonComponent<SoundManager> {
         sfxSource.Play();
     }
 
+	public bool getSfxSoundFinished() {
+		return sfxSource.isPlaying;
+	}
+
     public void playRandomSFXSound(params AudioClip[] clips)
     {
         int randomIndex = Random.Range(0, clips.Length);

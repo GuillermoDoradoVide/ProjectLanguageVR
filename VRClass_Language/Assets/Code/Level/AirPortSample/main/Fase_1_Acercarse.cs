@@ -4,6 +4,7 @@ using System.Collections;
 public class Fase_1_Acercarse : StateScript {
 	public Transform player;
 	public Transform teleportLocation;
+	public CharacterManager characterManagerOfficer;
 
 	void Start()
 	{
@@ -12,9 +13,11 @@ public class Fase_1_Acercarse : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
+		characterManagerOfficer.doUpdate ();
 		if (Vector3.Distance(player.position, teleportLocation.position) < 1) {
 			Invoke ("doChangeThisStateToFinished",3);
 			teleportLocation.gameObject.SetActive (false);
+			characterManagerOfficer.dialogScript.audioSource.Stop ();
 		}
 	}
 
