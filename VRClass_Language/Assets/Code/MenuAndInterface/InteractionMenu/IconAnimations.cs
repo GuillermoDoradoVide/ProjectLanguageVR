@@ -107,12 +107,12 @@ public class IconAnimations : MonoBehaviour {
 	}
 
 	public void translateIcon(bool activePosition) {
-		if (activePosition) {
-			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z + hoverOverUIAmmount);
-		}else {
-			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z - hoverOverUIAmmount);
-		}
-		StartCoroutine (smoothTranslation());
+//		if (activePosition) {
+//			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z + hoverOverUIAmmount);
+//		}else {
+//			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z - hoverOverUIAmmount);
+//		}
+//		StartCoroutine (smoothTranslation());
 	}
 
 	private IEnumerator smoothTranslation() {
@@ -120,8 +120,10 @@ public class IconAnimations : MonoBehaviour {
 		while (iconRectTransform.localPosition != finalPos) {
 			iconRectTransform.localPosition = Vector3.Lerp (initPos, finalPos,  slerpTranslationRange);
 			slerpTranslationRange += Time.deltaTime * translationSpeed;
-			if (slerpTranslationRange > 1)
+			if (slerpTranslationRange > 1) {
 				slerpTranslationRange = 1;
+				iconRectTransform.localPosition = Vector3.Lerp (initPos, finalPos,  slerpTranslationRange);
+			}
 			yield return null;
 		}
 	}

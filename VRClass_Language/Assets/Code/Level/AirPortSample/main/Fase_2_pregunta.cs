@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 
 public class Fase_2_pregunta : StateScript {
+	public InteractionMenuController menuController;
+	public Transform menuPosition;
 	public GameObject options;
 	public CharacterManager characterManager;
 	public AudioClip[] dialogs;
@@ -10,6 +13,12 @@ public class Fase_2_pregunta : StateScript {
 	public AudioClip[] dialogs4;
 	public AudioClip[] dialogs5;
 	public AudioClip[] dialogs6;
+
+	public UnityAction firstAction;
+	public UnityAction secondAction;
+	public UnityAction thirdAction;
+	public UnityAction forthAction;
+	public UnityAction fifthAction;
 
 	private delegate void Steps();
 	private Steps Step;
@@ -25,31 +34,31 @@ public class Fase_2_pregunta : StateScript {
 		Step ();
 	}
 		
-	public void repeatQuestion() {
+	public void OptionrepeatQuestion() {
 		characterManager.setDialogs (dialogs3);
 		characterManager.setTalking ();
-		//Step = first;
+		Step = first;
 	}
 
-	public void tellAboutBarcelona() {
+	public void OptiontellAboutBarcelona() {
 		characterManager.setDialogs (dialogs4);
 		characterManager.setTalking ();
-		//Step = first;
+		Step = first;
 	}
 
-	public void giveBoardingPass() {
+	public void OptiongiveBoardingPass() {
 		characterManager.setDialogs (dialogs5);
 		characterManager.setTalking ();
-		//Step = first;
+		Step = first;
 	}
 
-	public void hightFive() {
+	public void OptionhightFive() {
 		characterManager.setDialogs (dialogs6);
 		characterManager.setTalking ();
-		//Step = first;
+		Step = first;
 	}
 
-	public void givePassPort() {
+	public void OptiongivePassPort() {
 		characterManager.characterAnimator.SetTrigger ("Pick");
 		Invoke ("askName", 3);
 	}
@@ -60,9 +69,17 @@ public class Fase_2_pregunta : StateScript {
 		Step = third;
 	}
 
+	private void showMenuGivePassPort() {
+		menuController.addDialogTriggerAction (0,"Say, 'Could you repeat the question?'",firstAction);
+		menuController.addDialogTriggerAction (1,"Say, 'I was on vacation in Barcelona.'",secondAction);
+		menuController.addDialogTriggerAction (2,"Hand the officer your passport.",thirdAction);
+		menuController.addDialogTriggerAction (3,"Hand the officer your boarding pass.",forthAction);
+		menuController.addDialogTriggerAction (4,"High-five the officer.",fifthAction);
+	}
+
 	private void first() {
 		if(!characterManager.animationReference.getTalking()) {
-			options.SetActive (true);
+			showMenuGivePassPort ();
 			Step = second;
 		}
 	}
@@ -82,6 +99,12 @@ public class Fase_2_pregunta : StateScript {
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 		characterManager.setDialogs (dialogs);
 		characterManager.setTalking ();
+		menuController.transform.position = menuPosition.position;
+		firstAction = new UnityAction (OptionrepeatQuestion);
+		secondAction = new UnityAction (OptiontellAboutBarcelona);
+		thirdAction = new UnityAction (OptiongivePassPort);
+		forthAction = new UnityAction (OptiongiveBoardingPass);
+		fifthAction = new UnityAction (OptionhightFive);
 		Step = first;
 	}
 
