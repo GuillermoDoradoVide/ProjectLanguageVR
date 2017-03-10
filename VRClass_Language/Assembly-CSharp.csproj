@@ -57,6 +57,10 @@
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\Background_Conversation_A.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\main\Fase3_pregunta4.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_1.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_2.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_3.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_1_Acercarse.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_1_Esperar.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_1_Instrucciones.cs" />
@@ -65,6 +69,7 @@
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_2_pregunta.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase_2_respuesta.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fin.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\main\Final_Seccion.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Inicio.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\sample\AirportAnswer.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\sample\AirportEnd.cs" />

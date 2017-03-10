@@ -4,7 +4,6 @@ using System.Collections;
 
 public class Fase_2_opcion : StateScript {
 	public InteractionMenuController menuController;
-	public GameObject option;
 	public bool secondary;
 
 	public AudioClip[] dialogsA;
@@ -43,8 +42,7 @@ public class Fase_2_opcion : StateScript {
 	public void OptionSayName() {
 		characterManager.setDialogs (dialogsB);
 		characterManager.setTalking ();
-		Step = second;
-		Step = first;
+		Step = final;
 	}
 
 	public void OptionSaySpecialAgent() {
@@ -82,7 +80,7 @@ public class Fase_2_opcion : StateScript {
 
 	private void characterWaitsForPlayer() {}
 
-	private void second() {
+	private void final() {
 		if(!characterManager.animationReference.getTalking()) {
 			doChangeThisStateToFinished ();
 		}
@@ -102,7 +100,6 @@ public class Fase_2_opcion : StateScript {
 	public override void atEnd()
 	{
 		EventManager.stopListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-		option.SetActive (false);
 	}
 
 	public override void atPause()

@@ -21,6 +21,9 @@ public class CharacterManager : MonoBehaviour {
 	public CharacterState[] StatesSteps;
 
 	private bool talking = false;
+	public float counterWaitTalk;
+	public float timerWaitTalk;
+	public int maxRangeRandom;
 
 	// Use this for initialization
 	void Start () {
@@ -77,7 +80,6 @@ public class CharacterManager : MonoBehaviour {
 	private void stateTransition() {
 		stateMode = nextStateMode;
 		checkAnimation ();
-
 	}
 
 	private void checkAnimation() {
@@ -141,6 +143,29 @@ public class CharacterManager : MonoBehaviour {
 		}
 	}
 
+	public void waitForPlayerTalk() {
+		if(!dialogScript.playUpdateDialog())
+		{
+			counterWaitTalk += Time.deltaTime;
+			if(counterWaitTalk >= timerWaitTalk) {
+				timerWaitTalk += Random.Range (-maxRangeRandom, maxRangeRandom);
+				if( timerWaitTalk < 0) {
+					timerWaitTalk = 0;
+				}
+				counterWaitTalk = 0;
+				if (currentDialog < dialogs.Length)
+				{
+					dialogScript.setNewAudioClip (dialogs[Random.Range(0, dialogs.Length)]);
+					dialogScript.initDialog();
+				}
+				else {
+					talking = false;
+					Actions -= waitForPlayerTalk;
+				}
+			}
+		}
+	}
+
 	public void setDialogs(AudioClip[] audios) {
 		dialogs = audios;
 		currentDialog = 0;
@@ -153,6 +178,15 @@ public class CharacterManager : MonoBehaviour {
 	public void setTalking() {
 		talking = true;
 		Actions += talk;
+	}
+
+	public void setWaitTalking(float timer, int maxRange) {
+		talking = true;
+		timerWaitTalk = timer;
+		maxRangeRandom = maxRange;
+		dialogScript.setNewAudioClip (dialogs[currentDialog]);
+		dialogScript.initDialog();
+		Actions += waitForPlayerTalk;
 	}
 
 	public void triggerAction () {
