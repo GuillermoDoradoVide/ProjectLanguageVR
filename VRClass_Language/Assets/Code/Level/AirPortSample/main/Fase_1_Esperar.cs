@@ -35,7 +35,7 @@ public class Fase_1_Esperar : StateScript {
 
 	private void first() {
 		if (!characterManager.animationReference.getTalking()) {
-			Invoke ("disableCharacter", 5);
+			Invoke ("disableCharacter", 3);
 			Step = second;
 			characterManagerOfficer.setTalking ();
 		}

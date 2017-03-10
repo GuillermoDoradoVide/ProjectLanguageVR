@@ -99,7 +99,7 @@ public class Fase_2_pregunta : StateScript {
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 		characterManager.setDialogs (dialogs);
 		characterManager.setTalking ();
-		menuController.transform.position = menuPosition.position;
+		menuController.movePanelTo (menuPosition);
 		firstAction = new UnityAction (OptionrepeatQuestion);
 		secondAction = new UnityAction (OptiontellAboutBarcelona);
 		thirdAction = new UnityAction (OptiongivePassPort);

@@ -11,7 +11,7 @@ public class InteractionMenuController : MonoBehaviour {
 	public Button[] dialogButton;
 	public Text[] dialog;
 	public Image[] iconImage;
-
+	public Transform player;
 	public Sprite dialogIcon;
 	public Sprite objectsIcon;
 	public Sprite interactionIcon;
@@ -63,5 +63,11 @@ public class InteractionMenuController : MonoBehaviour {
 
 	public void closeInteractionMenu() {
 		interactionMenuObject.SetActive (false);
+	}
+
+	public void movePanelTo(Transform newPosition) {
+		transform.position = newPosition.position;
+		transform.LookAt (player.position);
+		transform.RotateAround (transform.position, Vector3.up, 180);
 	}
 }

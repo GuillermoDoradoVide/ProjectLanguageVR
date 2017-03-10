@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class IconAnimations : MonoBehaviour {
@@ -16,16 +17,17 @@ public class IconAnimations : MonoBehaviour {
 	public CanvasGroup canvasGroup;
 	public float transitionSpeed;
 	public bool isShowing = false;
+	public EventTrigger eventTrigger;
 
 	private void Awake () {
-		iconRectTransform = GetComponent<RectTransform> ();
+		//iconRectTransform = GetComponent<RectTransform> ();
 		canvasGroup = GetComponent<CanvasGroup> ();
 		initPos = iconRectTransform.localPosition;
 	}
 
 	private void OnEnable()
 	{
-		initPos = iconRectTransform.localPosition;
+		//initPos = iconRectTransform.localPosition;
 		showPanel ();
 		Debug.Log("Se activa el objeto: [" + gameObject.name + "]");
 	}
@@ -50,6 +52,7 @@ public class IconAnimations : MonoBehaviour {
 
 	public void hidePanel() {
 		if(gameObject.activeSelf) {
+			eventTrigger.enabled = false;
 			isShowing = false;
 			StartCoroutine(hideAnimation ());
 		}
@@ -80,6 +83,8 @@ public class IconAnimations : MonoBehaviour {
 		}
 		canvasGroup.alpha = 0;
 		yield return new WaitForSeconds (1.2f);
+		iconRectTransform.localPosition = initPos;
+		eventTrigger.enabled = true;
 		deactiveMenu ();
 	}
 
@@ -107,12 +112,12 @@ public class IconAnimations : MonoBehaviour {
 	}
 
 	public void translateIcon(bool activePosition) {
-//		if (activePosition) {
-//			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z + hoverOverUIAmmount);
-//		}else {
-//			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z - hoverOverUIAmmount);
-//		}
-//		StartCoroutine (smoothTranslation());
+		if (activePosition) {
+			finalPos = new Vector3 (initPos.x, initPos.y, initPos.z + hoverOverUIAmmount);
+		}else {
+			finalPos = initPos;
+		}
+		StartCoroutine (smoothTranslation());
 	}
 
 	private IEnumerator smoothTranslation() {
