@@ -67,7 +67,7 @@ public class InteractionMenuController : MonoBehaviour {
 
 	public void movePanelTo(Transform newPosition) {
 		transform.position = newPosition.position;
-//		transform.LookAt (player.position);
-//		transform.RotateAround (transform.position, Vector3.up, 180);
+		/*transform.LookAt (player.position);
+		transform.RotateAround (transform.position, Vector3.up, 180);*/
 	}
 }

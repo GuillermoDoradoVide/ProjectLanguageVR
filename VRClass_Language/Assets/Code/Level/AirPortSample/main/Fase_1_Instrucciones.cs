@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Fase_1_Instrucciones : StateScript
 {
-
+	public InteractionMenuController menuController;
 	public Canvas instructions;
 
 	private delegate void Steps ();
-
 	private Steps Step;
+
 	public AudioClip introduction;
 	public AudioClip introduction2;
 	public AudioClip repeat;
@@ -62,49 +62,55 @@ public class Fase_1_Instrucciones : StateScript
 		}
 	}
 
+	private void showMenuUnderstand() {
+		menuController.addDialogTriggerAction (0,"You understand.Nod.",understand);
+		if(!repeated) {
+			menuController.addDialogTriggerAction (1,"You want her to repeat. Shake your head.",notUnderstand);
+		}
+		else {
+			menuController.addDialogTriggerAction (1,"You want her to repeat it another time. Shake your head again.",notUnderstand2);
+		}
+
+	}
+
 	private void firstIntroduction ()
 	{
 		if (!playerSource.isPlaying) {
-			playerSource.clip = introduction2;
-			playerSource.Play ();
-			Step = playerIdentity;
-			headGestureRecognition ();
-			if(yes) {
-				playerSource.clip = introduction2;
-				playerSource.Play ();
-				Step = playerIdentity;
-				yes = false;
-			}
+			menuController.addDialogTriggerAction (0,"You understand.Nod.",continueBriefing);
+			Step = standBy;
 		}	
+	}
+
+	private void continueBriefing() {
+		playerSource.clip = introduction2;
+		playerSource.Play ();
+		Step = playerIdentity;
+	}
+
+	private void understand() {
+		playerSource.clip = introduction3;
+		playerSource.Play ();
+		Step = goodLuck;
+	}
+
+	private void notUnderstand() {
+		playerSource.clip = repeat;
+		repeated = true;
+		playerSource.Play ();
+		Step = playerIdentity;
+	}
+
+	private void notUnderstand2() {
+		playerSource.clip = repeat2;
+		playerSource.Play ();
+		Step = goodLuck;
 	}
 
 	private void playerIdentity ()
 	{
 		if (!playerSource.isPlaying) {
-			playerSource.clip = introduction3;
-			playerSource.Play ();
-			Step = goodLuck;
-			headGestureRecognition ();
-			if(yes) {
-				playerSource.clip = introduction3;
-				playerSource.Play ();
-				Step = goodLuck;
-				yes = false;
-			}
-			else if (no) {
-				if(!repeated){
-					playerSource.clip = repeat;
-					playerSource.Play ();
-					no = false;
-					repeated = true;
-				}
-				else {
-					playerSource.clip = repeat2;
-					playerSource.Play ();
-					Step = goodLuck;
-					yes = false;
-				}
-			}
+			showMenuUnderstand ();
+			Step = standBy;
 		}	
 	}
 
