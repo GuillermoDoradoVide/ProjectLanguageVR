@@ -63,8 +63,10 @@ public class Fase3_pregunta_3 : StateScript {
 	}
 
 	private void first() {
-		showPlayerAdessMenuOptions ();
-		Step = characterWaitsForPlayer;
+		if (!characterManager.animationReference.getTalking ()) {
+			showPlayerAdessMenuOptions ();
+			Step = characterWaitsForPlayer;
+		}
 	}
 
 	private void final() {

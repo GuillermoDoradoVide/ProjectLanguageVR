@@ -180,6 +180,14 @@ public class CharacterManager : MonoBehaviour {
 		Actions += talk;
 	}
 
+	public void stopTalking() {
+		if(Actions != null) {
+			Actions -= talk;
+			Actions -= waitForPlayerTalk;
+			dialogScript.audioSource.Stop ();
+		}
+	}
+
 	public void setWaitTalking(float timer, int maxRange) {
 		talking = true;
 		timerWaitTalk = timer;

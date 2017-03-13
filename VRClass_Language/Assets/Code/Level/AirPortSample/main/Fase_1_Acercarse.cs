@@ -16,8 +16,11 @@ public class Fase_1_Acercarse : StateScript {
 		characterManagerOfficer.doUpdate ();
 		if (Vector3.Distance(player.position, teleportLocation.position) < 1) {
 			characterManagerOfficer.animationReference.setTalking (false);
-			Invoke ("doChangeThisStateToFinished",1);
+			characterManagerOfficer.stopTalking ();
 			teleportLocation.gameObject.SetActive (false);
+			if(!characterManagerOfficer.animationReference.getTalking()) {
+				doChangeThisStateToFinished ();
+			}
 		}
 	}
 

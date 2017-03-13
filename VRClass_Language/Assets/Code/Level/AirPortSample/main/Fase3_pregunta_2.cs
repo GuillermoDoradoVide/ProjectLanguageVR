@@ -70,7 +70,9 @@ public class Fase3_pregunta_2 : StateScript {
 	}
 
 	private void final() {
-		doChangeThisStateToFinished ();
+		if (!characterManager.animationReference.getTalking ()) {
+			doChangeThisStateToFinished ();
+		}
 	}
 
 	private void showPlayerAdessMenuOptions() {

@@ -65,6 +65,9 @@ public class Fase_1_Instrucciones : StateScript
 	private void firstIntroduction ()
 	{
 		if (!playerSource.isPlaying) {
+			playerSource.clip = introduction2;
+			playerSource.Play ();
+			Step = playerIdentity;
 			headGestureRecognition ();
 			if(yes) {
 				playerSource.clip = introduction2;
@@ -78,6 +81,9 @@ public class Fase_1_Instrucciones : StateScript
 	private void playerIdentity ()
 	{
 		if (!playerSource.isPlaying) {
+			playerSource.clip = introduction3;
+			playerSource.Play ();
+			Step = goodLuck;
 			headGestureRecognition ();
 			if(yes) {
 				playerSource.clip = introduction3;
