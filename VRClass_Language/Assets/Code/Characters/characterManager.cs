@@ -22,6 +22,7 @@ public class CharacterManager : MonoBehaviour {
 
 	private bool talking = false;
 	public float counterWaitTalk;
+	public float timer;
 	public float timerWaitTalk;
 	public int maxRangeRandom;
 
@@ -148,6 +149,7 @@ public class CharacterManager : MonoBehaviour {
 		{
 			counterWaitTalk += Time.deltaTime;
 			if(counterWaitTalk >= timerWaitTalk) {
+				timerWaitTalk = timer;
 				timerWaitTalk += Random.Range (-maxRangeRandom, maxRangeRandom);
 				if( timerWaitTalk < 0) {
 					timerWaitTalk = 0;
@@ -188,8 +190,9 @@ public class CharacterManager : MonoBehaviour {
 		}
 	}
 
-	public void setWaitTalking(float timer, int maxRange) {
+	public void setWaitTalking(float time, int maxRange) {
 		talking = true;
+		timer = time;
 		timerWaitTalk = timer;
 		maxRangeRandom = maxRange;
 		dialogScript.setNewAudioClip (dialogs[currentDialog]);

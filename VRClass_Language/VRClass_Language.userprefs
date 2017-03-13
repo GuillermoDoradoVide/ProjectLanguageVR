@@ -1,21 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Characters\CharacterManager.cs">
     <Files>
-      <File FileName="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs" Line="61" Column="6" />
-      <File FileName="Assets\Code\Level\SampleLevel\TestScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs" Line="74" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\InteractionMenu\IconAnimations.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Managers\SoundManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Acercarse.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_pregunta.cs" Line="99" Column="45" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_opcion.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Acercarse.cs" Line="24" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_pregunta.cs" Line="77" Column="3" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_opcion.cs" Line="6" Column="2" />
       <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_opcion_dos.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_1.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_2.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_3.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_1.cs" Line="73" Column="58" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_2.cs" Line="66" Column="58" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_3.cs" Line="69" Column="4" />
       <File FileName="Assets\Code\Level\AirPortSample\main\Fase3_pregunta4.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Level\AirPortSample\main\Final_Seccion.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Instrucciones.cs" Line="71" Column="4" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Instrucciones.cs" Line="67" Column="15" />
+      <File FileName="Assets\Code\Characters\CharacterManager.cs" Line="152" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
