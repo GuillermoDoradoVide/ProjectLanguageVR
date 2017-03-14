@@ -119,6 +119,9 @@ ModelImporter:
     7400004: female_character_a|fematalking_A
     7400006: female_character_a|fematalking_B
     7400008: female_character_a|fematalkingC
+    7400010: female_character_a|femawalking_a
+    7400012: female_character_a|femawalk_to_stop
+    7400014: female_character_a|femawalking
     9500000: //RootNode
     13700000: female_character_a-base
     13700002: female_character_a-female_elegantsuit01
@@ -136,29 +139,47 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'female_character_a|female_character_a|female_character_a|femahead_gesture|female_c'
+    animationImportWarnings: "\nClip 'female_character_a|femahead_gesture' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Neck1' is
+      inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'female_character_a|femaidle_1' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Spine1' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\nClip 'female_character_a|fematalking_A' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'female_character_a|fematalking_B'
       has import animation warnings that might lower retargeting quality:\nNote: Activate
       translation DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'Neck1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'female_character_a|female_character_a|female_character_a|femaidle_1|female_charact'
-      has import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'female_character_a|female_character_a|female_character_a|fematalking_A|female_char'
-      has import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'female_character_a|female_character_a|female_character_a|fematalking_B|female_char'
+      'female_character_a|fematalking_B.001' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'Spine1' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'Neck1' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\nClip 'female_character_a|fematalkingC'
       has import animation warnings that might lower retargeting quality:\nNote: Activate
       translation DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'Neck1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'female_character_a|female_character_a|female_character_a|fematalkingC|female_chara'
+      'female_character_a|fematalkinOneHandSimple' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Spine1' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n\nClip 'female_character_a|femawalk_to_stop'
       has import animation warnings that might lower retargeting quality:\nNote: Activate
       translation DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'Neck1'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'female_character_a|femawalking' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Spine1' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'Neck1' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\nClip 'female_character_a|femawalking_a'
+      has import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'Spine1' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -171,8 +192,8 @@ ModelImporter:
     - serializedVersion: 16
       name: female_character_a|femahead_gesture
       takeName: female_character_a|femahead_gesture
-      firstFrame: 0
-      lastFrame: 249
+      firstFrame: 1
+      lastFrame: 85
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,8 +202,8 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -289,7 +310,7 @@ ModelImporter:
     - serializedVersion: 16
       name: female_character_a|femaidle_1
       takeName: female_character_a|femaidle_1
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 249
       wrapMode: 0
       orientationOffsetY: 0
@@ -297,10 +318,10 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -407,8 +428,8 @@ ModelImporter:
     - serializedVersion: 16
       name: female_character_a|fematalking_A
       takeName: female_character_a|fematalking_A
-      firstFrame: 0
-      lastFrame: 249
+      firstFrame: 1
+      lastFrame: 155
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -418,7 +439,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -525,8 +546,8 @@ ModelImporter:
     - serializedVersion: 16
       name: female_character_a|fematalking_B
       takeName: female_character_a|fematalking_B
-      firstFrame: 0
-      lastFrame: 249
+      firstFrame: 1
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -536,7 +557,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -643,7 +664,7 @@ ModelImporter:
     - serializedVersion: 16
       name: female_character_a|fematalkingC
       takeName: female_character_a|fematalkingC
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 249
       wrapMode: 0
       orientationOffsetY: 0
@@ -653,7 +674,361 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: female_character_a
+        weight: 1
+      - path: female_character_a/Hips
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToeBase_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1/LeftHandFinger1_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb/LThumb_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head/Head_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1/RightHandFinger1_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb/RThumb_end
+        weight: 0
+      - path: female_character_a/Hips/RHipJoint
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToeBase_end
+        weight: 0
+      - path: female_character_a-base
+        weight: 0
+      - path: female_character_a-female_elegantsuit01
+        weight: 0
+      - path: female_character_a-highpolyeyes
+        weight: 0
+      - path: female_character_a-ponytail01
+        weight: 0
+      - path: female_character_a-shoes03
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: female_character_a|femawalking_a
+      takeName: female_character_a|femawalking_a
+      firstFrame: 1
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: female_character_a
+        weight: 1
+      - path: female_character_a/Hips
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToeBase_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1/LeftHandFinger1_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb/LThumb_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head/Head_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1/RightHandFinger1_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb/RThumb_end
+        weight: 0
+      - path: female_character_a/Hips/RHipJoint
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToeBase_end
+        weight: 0
+      - path: female_character_a-base
+        weight: 0
+      - path: female_character_a-female_elegantsuit01
+        weight: 0
+      - path: female_character_a-highpolyeyes
+        weight: 0
+      - path: female_character_a-ponytail01
+        weight: 0
+      - path: female_character_a-shoes03
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: female_character_a|femawalk_to_stop
+      takeName: female_character_a|femawalk_to_stop
+      firstFrame: 1
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: female_character_a
+        weight: 1
+      - path: female_character_a/Hips
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToeBase_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1/LeftHandFinger1_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb/LThumb_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head/Head_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1/RightHandFinger1_end
+        weight: 0
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
+        weight: 1
+      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb/RThumb_end
+        weight: 0
+      - path: female_character_a/Hips/RHipJoint
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToeBase_end
+        weight: 0
+      - path: female_character_a-base
+        weight: 0
+      - path: female_character_a-female_elegantsuit01
+        weight: 0
+      - path: female_character_a-highpolyeyes
+        weight: 0
+      - path: female_character_a-ponytail01
+        weight: 0
+      - path: female_character_a-shoes03
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: female_character_a|femawalking
+      takeName: female_character_a|femawalking
+      firstFrame: 1
+      lastFrame: 88
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0

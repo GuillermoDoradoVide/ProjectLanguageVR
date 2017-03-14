@@ -177,7 +177,7 @@ ModelImporter:
     - serializedVersion: 16
       name: male_character_a|maleheadnod
       takeName: male_character_a|maleheadnod
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 249
       wrapMode: 0
       orientationOffsetY: 0
@@ -295,7 +295,7 @@ ModelImporter:
     - serializedVersion: 16
       name: male_character_a|maletalking_B
       takeName: male_character_a|maletalking_B
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 249
       wrapMode: 0
       orientationOffsetY: 0
@@ -413,7 +413,7 @@ ModelImporter:
     - serializedVersion: 16
       name: male_character_a|maletalkingC
       takeName: male_character_a|maletalkingC
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 249
       wrapMode: 0
       orientationOffsetY: 0
@@ -531,7 +531,7 @@ ModelImporter:
     - serializedVersion: 16
       name: male_character_a|maletalkingE
       takeName: male_character_a|maletalkingE
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 249
       wrapMode: 0
       orientationOffsetY: 0
