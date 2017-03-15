@@ -71,8 +71,8 @@ public class Fase_2_pregunta : StateScript {
 	private void showMenuGivePassPort() {
 		menuController.addDialogTriggerAction (0,"Say, 'Could you repeat the question?'",firstAction);
 		menuController.addDialogTriggerAction (1,"Say, 'I was on vacation in Barcelona.'",secondAction);
-		menuController.addDialogTriggerAction (2,"Hand the officer your passport.",thirdAction, 1);
-		menuController.addDialogTriggerAction (3,"Hand the officer your boarding pass.",forthAction, 1);
+		menuController.addDialogTriggerAction (2,"Hand the officer your passport.",thirdAction);
+		menuController.addDialogTriggerAction (3,"Hand the officer your boarding pass.",forthAction);
 		menuController.addDialogTriggerAction (4,"High-five the officer.",fifthAction);
 	}
 

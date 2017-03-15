@@ -79,8 +79,8 @@ public class Fase3_pregunta_1  : StateScript {
 		menuController.addDialogTriggerAction (0,"Say, 'I'm not sure I understand.'",firstAction);
 		menuController.addDialogTriggerAction (1,"Say, 'I just tod you! I came from Barcelona!'",secondAction);
 		menuController.addDialogTriggerAction (2,"Say, 'I live in Miami.'",thirdAction);
-		menuController.addDialogTriggerAction (3,"Give the officer your boarding pass.",forthAction, 1);
-		menuController.addDialogTriggerAction (4,"Give the officer your Spanish driver's license.",fifthAction, 1);
+		menuController.addDialogTriggerAction (3,"Give the officer your boarding pass.",forthAction);
+		menuController.addDialogTriggerAction (4,"Give the officer your Spanish driver's license.",fifthAction);
 	}
 
 	private void characterWaitsForPlayer() {}
