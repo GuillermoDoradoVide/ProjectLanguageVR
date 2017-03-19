@@ -36,6 +36,7 @@ ModelImporter:
     100056: techo_superior
     100058: protector_latearal
     100060: cartel_paso.003
+    100062: Rope
     400000: //RootNode
     400002: Ala_derecha
     400004: Ala_izquierda
@@ -67,6 +68,7 @@ ModelImporter:
     400056: techo_superior
     400058: protector_latearal
     400060: cartel_paso.003
+    400062: Rope
     2300000: Ala_derecha
     2300002: Ala_izquierda
     2300004: Audifono
@@ -95,6 +97,7 @@ ModelImporter:
     2300050: techo_superior
     2300052: protector_latearal
     2300054: cartel_paso.003
+    2300056: Rope
     3300000: Ala_derecha
     3300002: Ala_izquierda
     3300004: Audifono
@@ -123,6 +126,7 @@ ModelImporter:
     3300050: techo_superior
     3300052: protector_latearal
     3300054: cartel_paso.003
+    3300056: Rope
     4300000: Cabina.001
     4300002: techo_bajo_2.001
     4300004: techo_bajo_1.001
@@ -151,6 +155,7 @@ ModelImporter:
     4300050: Ala_derecha
     4300052: protector_latearal
     4300054: cartel_paso.003
+    4300056: Rope
   materials:
     importMaterials: 1
     materialName: 0
