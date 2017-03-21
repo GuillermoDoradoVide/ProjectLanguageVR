@@ -16,8 +16,11 @@ public class SceneController : SingletonComponent<SceneController>
     private List<string> scenes;
     private int numScenes;
 
-	public void loadScene(string name) {
-		SceneManager.LoadScene (name);
+	public void resetScene() {
+		if (instance != null)
+		{
+			sceneState = SceneState.Reset;
+		}
 	}
 
     public static void SwitchScene(string nextSceneName)
@@ -58,7 +61,8 @@ public class SceneController : SingletonComponent<SceneController>
 
     private void Awake()
     {
-        //nextSceneName = "mainScene";
+		currentSceneName = SceneManager.GetActiveScene().name;
+		nextSceneName = currentSceneName;
         Debug.Log("[SceneManager] loading '" + nextSceneName + "' scene.");
         sceneState = SceneState.Run; // first process
         sceneStateUpdates = new SceneStateUpdate[(int)SceneState.Count];
@@ -109,7 +113,7 @@ public class SceneController : SingletonComponent<SceneController>
     private void sceneStatePreload()
     {
         //Debug.Log("Preload");
-        sceneLoadTask = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
+		sceneLoadTask = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Single);
         sceneState = SceneState.Load;
     }
 

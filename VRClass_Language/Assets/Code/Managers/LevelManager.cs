@@ -55,8 +55,6 @@ public class LevelManager : SingletonComponent<LevelManager>
 	}
 
 	private void reloadScene() {
-		SceneController.Instance.loadScene ("Aeropuerto_Pasaportes");
-		//SceneController.Instance.resetScene ();
-		//SceneController.SwitchScene("Aeropuerto_Pasaportes");
+		SceneController.Instance.resetScene ();
 	}
 }

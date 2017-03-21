@@ -5,7 +5,6 @@ public class CharacterAnimationReference : MonoBehaviour {
 
 	public Animator characterAnimator;
 	private static int walkingID;
-	private static int idleID;
 	private static int talkingID;
 	private static int speedID;
 
@@ -15,7 +14,6 @@ public class CharacterAnimationReference : MonoBehaviour {
 	void Start () {
 		characterAnimator = GetComponent<Animator> ();
 		walkingID = Animator.StringToHash("Walking");
-		idleID = Animator.StringToHash("Idle");
 		talkingID = Animator.StringToHash("Talking");
 		speedID = Animator.StringToHash("Speed");
 		currentAnimation = walkingID;

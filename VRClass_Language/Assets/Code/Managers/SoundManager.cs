@@ -53,7 +53,7 @@ public class SoundManager : SingletonComponent<SoundManager> {
 
     public void setNewMusicBox(params AudioClip[] songs)
     {
-		Debug.Log ("set");
+		Debug.Log ("setLevelMusic");
         musicBox = songs;
         musicSource.clip = songs[0];
     }
