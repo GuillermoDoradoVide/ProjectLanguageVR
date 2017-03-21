@@ -9,6 +9,7 @@ public class LevelManager : SingletonComponent<LevelManager>
 
     private void Awake ()
     {
+		stateActivityManager = null;
         if (stateActivityManager == null)
         {
             generateStateActivityManager();

@@ -14,8 +14,7 @@ public class asa : MonoBehaviour {
 	
 	}
 
-	public void laod() {
-		Debug.Log ("ss");
+	public void resetScene() {
 		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 	}
 }

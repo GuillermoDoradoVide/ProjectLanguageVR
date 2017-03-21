@@ -7,7 +7,7 @@ public class OpcionesMenu : MonoBehaviour
 	public MenuController menuController;
 	public float timer;
 	public float speed;
-	public Transform transform;
+	public Transform t;
 	public Transform pivotPoint;
 	public GameObject menu;
 

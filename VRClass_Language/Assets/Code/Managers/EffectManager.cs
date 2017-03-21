@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EffectManager : SingletonComponent<EffectManager> {
+public class EffectManager : MonoBehaviour {
 
 	public FadeEffect fade;
 

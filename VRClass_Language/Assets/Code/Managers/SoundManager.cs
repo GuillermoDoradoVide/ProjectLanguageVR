@@ -15,7 +15,10 @@ public class SoundManager : SingletonComponent<SoundManager> {
 
     private void Awake()
     {
-
+		if (sfxSource == null)
+			sfxSource = GetComponent<AudioSource> ();
+		if (musicSource == null)
+			musicSource = GetComponents<AudioSource>()[1];
     }
 
     public void playSingleSFXSound(AudioClip clip)

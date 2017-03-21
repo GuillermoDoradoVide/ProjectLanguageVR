@@ -14,24 +14,13 @@ public class EventManager : SingletonComponent<EventManager>
 
     private void Awake()
     {
-        if(eventDictionary == null)
-        {
-            eventDictionary = new Dictionary<Events.EventList, UnityEvent>();
-        }
+       eventDictionary = new Dictionary<Events.EventList, UnityEvent>();
     }
 
     private void Start()
     {
         initEvents();
     }
-
-	private void OnDisable() {
-		eventDictionary.Clear ();
-	}
-
-	private void OnDestroy() {
-		eventDictionary.Clear ();
-	}
 
     private void initEvents()
     {

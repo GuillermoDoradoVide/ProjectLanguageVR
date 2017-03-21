@@ -21,7 +21,6 @@ public class Fase_2_pregunta : StateScript {
 
 	private delegate void Steps();
 	private Steps Step;
-
 	void Start()
 	{
 	}

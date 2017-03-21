@@ -4,7 +4,6 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-
 public class InteractionMenuController : MonoBehaviour {
 
 	public GameObject[] dialogGameObject;
@@ -47,6 +46,7 @@ public class InteractionMenuController : MonoBehaviour {
 	}
 
 	public void movePanelTo(Transform newPosition) {
+		if(newPosition != null)
 		transform.position = newPosition.position;
 		/*transform.LookAt (player.position);
 		transform.RotateAround (transform.position, Vector3.up, 180);*/

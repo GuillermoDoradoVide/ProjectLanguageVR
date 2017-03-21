@@ -7,11 +7,16 @@ public class StateManager : ScriptableObject {
     [SerializeField]
     private StateScript currentState;
 
-   private void Awake ()
-    {
-        stackStateList = new Stack<StateScript>();
-        initMachine();
-    }
+	private void Awake ()
+	{
+		if(stackStateList != null) {
+			stackStateList.Clear ();
+		}
+		stackStateList = null;
+		currentState = null;
+		stackStateList = new Stack<StateScript>();
+		initMachine();
+	}
 
     private void OnDisable()
     {

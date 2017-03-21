@@ -6,7 +6,7 @@ public class MenuMobileSubMenuIzq : MonoBehaviour, IElement, IMenu
 	public MenuAnimationController menuAnimationController;
 	public float timer;
 	public float speed;
-	public Transform transform;
+	public Transform t;
 	public Transform pivotPoint;
 	public GameObject menu;
 	public GameObject mobile;

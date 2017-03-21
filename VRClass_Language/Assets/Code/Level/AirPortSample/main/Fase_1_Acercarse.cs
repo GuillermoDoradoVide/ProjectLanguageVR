@@ -6,8 +6,10 @@ public class Fase_1_Acercarse : StateScript {
 	public Transform teleportLocation;
 	public CharacterManager characterManagerOfficer;
 
-	void Start()
+	private void Start()
 	{
+		teleportLocation = GameObject.Find ("Beacon").GetComponent<Transform> ();
+		teleportLocation.gameObject.SetActive (false);
 	}
 
 	// Update is called once per frame
