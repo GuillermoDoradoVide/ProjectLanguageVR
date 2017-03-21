@@ -25,6 +25,12 @@ public class GameManager : SingletonComponent<GameManager>
         EventManager.stopListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
     }
 
+	private void OnDestroy()
+	{
+		EventManager.stopListening(Events.EventList.GAMEMANAGER_Pause, pauseGame);
+		EventManager.stopListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
+	}
+
     private void initManagers()
     {
         sceneController = SceneController.Instance;

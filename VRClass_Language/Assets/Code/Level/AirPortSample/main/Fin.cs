@@ -13,8 +13,7 @@ public class Fin : StateScript {
 
 	public override void atInit()
 	{
-		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
-		SceneController.Instance.loadScene ("Aeropuerto_Pasaportes");
+		LevelManager.Instance.restartLevel ();
 	}
 
 	public override void atEnd()

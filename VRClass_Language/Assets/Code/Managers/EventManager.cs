@@ -25,6 +25,14 @@ public class EventManager : SingletonComponent<EventManager>
         initEvents();
     }
 
+	private void OnDisable() {
+		eventDictionary.Clear ();
+	}
+
+	private void OnDestroy() {
+		eventDictionary.Clear ();
+	}
+
     private void initEvents()
     {
 

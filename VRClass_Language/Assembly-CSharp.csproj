@@ -135,6 +135,7 @@
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerTeleport.cs" />
      <Compile Include="Assets\Code\Player\Session\SessionManager.cs" />
+     <Compile Include="Assets\Code\asa.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\Teleport.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\PermissionsDemo\PermissionsFlowManager.cs" />

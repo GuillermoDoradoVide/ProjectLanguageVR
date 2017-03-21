@@ -31,7 +31,6 @@ public class LevelManager : SingletonComponent<LevelManager>
 	// Update is called once per frame
 	void Update () {
         stateActivityManager.doUpdate();
-
     }
 
     private void generateStateActivityManager()
@@ -44,4 +43,16 @@ public class LevelManager : SingletonComponent<LevelManager>
     {
         levelInfo = GameObject.Find("LevelInfo").GetComponent<LevelInfo>();
     }
+
+	public void restartLevel() {
+		Debug.Log ("miau");
+		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
+		Invoke ("reloadScene", 2);
+	}
+
+	public void reloadScene() {
+		SceneController.Instance.loadScene ("Aeropuerto_Pasaportes");
+		//SceneController.Instance.resetScene ();
+		//SceneController.SwitchScene("Aeropuerto_Pasaportes");
+	}
 }

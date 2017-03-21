@@ -20,6 +20,13 @@ public class StateManager : ScriptableObject {
         EventManager.stopListening(Events.EventList.STATE_Continue, continueState);
     }
 
+	private void OnDestroy()
+	{
+		EventManager.stopListening(Events.EventList.STATE_Next, nextState);
+		EventManager.stopListening(Events.EventList.STATE_Pause, pauseState);
+		EventManager.stopListening(Events.EventList.STATE_Continue, continueState);
+	}
+
     public void  initMachine() {
         EventManager.startListening(Events.EventList.STATE_Next, nextState);
         EventManager.startListening(Events.EventList.STATE_Pause, pauseState);
@@ -71,5 +78,4 @@ public class StateManager : ScriptableObject {
     {
         currentState.atEnd();
     }
-
 }

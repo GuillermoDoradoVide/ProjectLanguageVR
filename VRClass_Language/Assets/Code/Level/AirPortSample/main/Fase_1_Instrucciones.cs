@@ -70,7 +70,6 @@ public class Fase_1_Instrucciones : StateScript
 		else {
 			menuController.addDialogTriggerAction (1,"You want her to repeat it another time. Shake your head again.",notUnderstand2);
 		}
-
 	}
 
 	private void firstIntroduction ()
@@ -164,12 +163,20 @@ public class Fase_1_Instrucciones : StateScript
 		centerAngle = GvrViewer.Instance.HeadPose.Orientation.eulerAngles;
 	}
 
+	private void showStartMissionMenu() {
+		menuController.addDialogTriggerAction (0,"START MISSION!",startMission);
+	}
+
+	private void startMission() {
+		Invoke("contactWithBriefing", 2);
+		playerSource.clip = introduction;
+	}
+
 	public override void atInit ()
 	{
 		Step = standBy;
-		Invoke("contactWithBriefing", 2);
+		showStartMissionMenu ();
 		EventManager.startListening (Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-		playerSource.clip = introduction;
 	}
 
 	public override void atEnd ()
