@@ -186,11 +186,11 @@ public class Fase_1_Instrucciones : StateScript
 
 	public override void atPause ()
 	{
-		//throw new NotImplementedException();
+		playerSource.Pause ();
 	}
 
 	public override void atReadyActiveState ()
 	{
-		//throw new NotImplementedException();
+		playerSource.UnPause ();
 	}
 }

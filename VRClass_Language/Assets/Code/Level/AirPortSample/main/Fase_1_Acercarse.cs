@@ -39,11 +39,11 @@ public class Fase_1_Acercarse : StateScript {
 
 	public override void atPause()
 	{
-		//throw new NotImplementedException();
+		characterManagerOfficer.dialogScript.audioSource.Pause ();
 	}
 
 	public override void atReadyActiveState()
 	{
-		//throw new NotImplementedException();
+		characterManagerOfficer.dialogScript.audioSource.UnPause ();
 	}
 }

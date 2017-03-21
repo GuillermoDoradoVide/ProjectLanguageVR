@@ -60,11 +60,11 @@ public class Final_Seccion : StateScript {
 
 	public override void atPause()
 	{
-		//throw new NotImplementedException();
+		playerSource.Pause ();
 	}
 
 	public override void atReadyActiveState()
 	{
-		//throw new NotImplementedException();
+		playerSource.UnPause ();
 	}
 }

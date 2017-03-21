@@ -104,11 +104,11 @@ public class Fase_2_opcion : StateScript {
 
 	public override void atPause()
 	{
-		//throw new NotImplementedException();
+		characterManager.dialogScript.audioSource.Pause ();
 	}
 
 	public override void atReadyActiveState()
 	{
-		//throw new NotImplementedException();
+		characterManager.dialogScript.audioSource.UnPause ();
 	}
 }
