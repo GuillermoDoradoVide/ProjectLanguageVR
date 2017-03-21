@@ -15,10 +15,12 @@ public class SoundManager : SingletonComponent<SoundManager> {
 
     private void Awake()
     {
-		if (sfxSource == null)
-			sfxSource = GetComponent<AudioSource> ();
-		if (musicSource == null)
-			musicSource = GetComponents<AudioSource>()[1];
+		if (sfxSource == null) {
+			sfxSource = gameObject.AddComponent<AudioSource> () as AudioSource;
+		}
+		if (musicSource == null) {
+			musicSource = gameObject.AddComponent<AudioSource> () as AudioSource;
+		}
     }
 
     public void playSingleSFXSound(AudioClip clip)
@@ -51,6 +53,7 @@ public class SoundManager : SingletonComponent<SoundManager> {
 
     public void setNewMusicBox(params AudioClip[] songs)
     {
+		Debug.Log ("set");
         musicBox = songs;
         musicSource.clip = songs[0];
     }

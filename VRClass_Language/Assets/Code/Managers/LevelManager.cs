@@ -5,7 +5,7 @@ public class LevelManager : SingletonComponent<LevelManager>
 {
     [SerializeField]
     private StateManager stateActivityManager;
-    private LevelInfo levelInfo;
+    public LevelInfo levelInfo;
 
     private void Awake ()
     {
@@ -17,17 +17,21 @@ public class LevelManager : SingletonComponent<LevelManager>
         levelInfo = null;
     }
 	// Use this for initialization
-	void Start () {
-        getLevelData();
-        if(levelInfo)
-        {
-            stateActivityManager.getLevelStateList(levelInfo.SceneData.sceneEventActivity);
-        }
-        else
-        {
-            Debug.Log(" Fallo al recoger la informacion del nivel.");
-        }
+	private void Start () {
     }
+
+	public void calculateLevelData () {
+		getLevelData();
+		if(levelInfo)
+		{
+			stateActivityManager.getLevelStateList(levelInfo.SceneData.sceneEventActivity);
+		}
+		else
+		{
+			Debug.Log(" Fallo al recoger la informacion del nivel.");
+		}
+		SoundManager.Instance.setNewMusicBox (levelInfo.musicAndSounds.musics);
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,12 +50,11 @@ public class LevelManager : SingletonComponent<LevelManager>
     }
 
 	public void restartLevel() {
-		Debug.Log ("miau");
 		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
 		Invoke ("reloadScene", 2);
 	}
 
-	public void reloadScene() {
+	private void reloadScene() {
 		SceneController.Instance.loadScene ("Aeropuerto_Pasaportes");
 		//SceneController.Instance.resetScene ();
 		//SceneController.SwitchScene("Aeropuerto_Pasaportes");

@@ -26,7 +26,7 @@ public abstract class SingletonComponent<T> : MonoBehaviour where T : SingletonC
             }
             else
             {
-                //Debug.Log("[Singleton] Using instance already created: " + instance.gameObject.name);
+//                Debug.Log("[Singleton] Using instance already created: " + instance.gameObject.name);
             }
             return instance;
         }

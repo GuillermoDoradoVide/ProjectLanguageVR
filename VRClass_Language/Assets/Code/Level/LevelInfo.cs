@@ -6,6 +6,7 @@ public class LevelInfo : MonoBehaviour {
 
     public string levelName;
     private SceneData sceneData;
+	public LevelMusicAndSounds musicAndSounds;
     public SceneData SceneData
     {
         get {

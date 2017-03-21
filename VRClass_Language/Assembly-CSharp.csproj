@@ -57,6 +57,7 @@
      <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
      <Compile Include="Assets\Code\GenericComponents\SingletonComponent.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\Background_Conversation_A.cs" />
+     <Compile Include="Assets\Code\Level\AirPortSample\LevelMusicAndSounds.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase3_pregunta4.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_1.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\main\Fase3_pregunta_2.cs" />
@@ -77,6 +78,7 @@
      <Compile Include="Assets\Code\Level\AirPortSample\sample\AirportMeeting.cs" />
      <Compile Include="Assets\Code\Level\AirPortSample\sample\AirportQuestion.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
+     <Compile Include="Assets\Code\Level\ResetLevel.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventActivity.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventForth.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventSecond.cs" />
@@ -135,7 +137,7 @@
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerTeleport.cs" />
      <Compile Include="Assets\Code\Player\Session\SessionManager.cs" />
-     <Compile Include="Assets\Code\asa.cs" />
+     <Compile Include="Assets\Code\initGame.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\Teleport.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\PermissionsDemo\PermissionsFlowManager.cs" />
