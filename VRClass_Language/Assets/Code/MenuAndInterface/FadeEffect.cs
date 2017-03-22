@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class FadeEffect : MonoBehaviour {
 
-	private float fadeSpeed = 1.5f;
-	private float new_alpha_color;
+	public float fadeSpeed;
+	private float new_alpha_color = 1;
 	public Image fadeImage;
 	public Color currentFadeColor;
 	public Color originColor;
@@ -13,17 +13,18 @@ public class FadeEffect : MonoBehaviour {
 	{
 		FIn, FOut
 	};
-	private fadeType type;
+	public fadeType type;
 
 	private void Awake() {
 		fadeImage = GetComponentInChildren<Image> ();
 		currentFadeColor = fadeImage.color;
 		originColor = currentFadeColor;
+		fadeImage.rectTransform.sizeDelta = new Vector2(Screen.width + 25, Screen.height + 25);
 	}
 
 	// Use this for initialization
 	private void Start () {
-		fadeImage.rectTransform.sizeDelta = new Vector2(Screen.width + 25, Screen.height + 25);
+		
 	}
 
 	private void Update() {
@@ -44,25 +45,26 @@ public class FadeEffect : MonoBehaviour {
 	}
 
 	public void setFadeIn() {
-		type = FadeEffect.fadeType.FIn;
 		new_alpha_color = 1;
+		type = FadeEffect.fadeType.FIn;
 	}
 
 	public void setFadeOut() {
-		type = FadeEffect.fadeType.FOut;
 		new_alpha_color = 0;
+		type = FadeEffect.fadeType.FOut;
 	}
 
 	private void fadeIn() {
-		new_alpha_color -= fadeSpeed * Time.deltaTime;
 		if (new_alpha_color < 0) {
-			
+			currentFadeColor.a = 0;
+			fadeImage.color = currentFadeColor;
 			gameObject.SetActive (false);
 		}
 		else {
 			currentFadeColor.a = new_alpha_color;
 			fadeImage.color = currentFadeColor;
 		}
+		new_alpha_color -= fadeSpeed * Time.deltaTime;
 	}
 
 	private void fadeOut () {

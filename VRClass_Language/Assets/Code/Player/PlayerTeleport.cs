@@ -25,7 +25,7 @@ public class PlayerTeleport : MonoBehaviour {
 	private void teleport(Transform positionToTeleport) {
 		teleportPosition = positionToTeleport;
 		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
-		Invoke ("teleportPlayer", 1);
+		Invoke ("teleportPlayer", 1.2f);
 	}
 
 	private void teleportPlayer() {
