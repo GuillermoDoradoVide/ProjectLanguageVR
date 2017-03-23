@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: ef1279cdd36353340bdd4d8637750952
+timeCreated: 1490271099
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Data_shelves_1
+    100002: Data_shelves_1_MeshPart0
+    100004: Data_shelves_1_MeshPart1
+    100006: Data_shelves_2
+    100008: Data_shelves_2_MeshPart0
+    100010: Data_shelves_2_MeshPart1
+    100012: //RootNode
+    100014: Lobby_Power_Computer
+    100016: Lobby_Roonm
+    100018: Data_shelves_1.001
+    100020: Data_shelves_1.002
+    100022: Data_shelves_1.003
+    100024: Data_shelves_2.001
+    100026: Data_shelves_2.002
+    100028: Data_shelves_2.003
+    400000: Data_shelves_1
+    400002: Data_shelves_1_MeshPart0
+    400004: Data_shelves_1_MeshPart1
+    400006: Data_shelves_2
+    400008: Data_shelves_2_MeshPart0
+    400010: Data_shelves_2_MeshPart1
+    400012: //RootNode
+    400014: Lobby_Power_Computer
+    400016: Lobby_Roonm
+    400018: Data_shelves_1.001
+    400020: Data_shelves_1.002
+    400022: Data_shelves_1.003
+    400024: Data_shelves_2.001
+    400026: Data_shelves_2.002
+    400028: Data_shelves_2.003
+    2300000: Data_shelves_1_MeshPart0
+    2300002: Data_shelves_1_MeshPart1
+    2300004: Data_shelves_2_MeshPart0
+    2300006: Data_shelves_2_MeshPart1
+    2300008: Lobby_Power_Computer
+    2300010: Lobby_Roonm
+    2300012: Data_shelves_1
+    2300014: Data_shelves_1.001
+    2300016: Data_shelves_1.002
+    2300018: Data_shelves_1.003
+    2300020: Data_shelves_2
+    2300022: Data_shelves_2.001
+    2300024: Data_shelves_2.002
+    2300026: Data_shelves_2.003
+    3300000: Data_shelves_1_MeshPart0
+    3300002: Data_shelves_1_MeshPart1
+    3300004: Data_shelves_2_MeshPart0
+    3300006: Data_shelves_2_MeshPart1
+    3300008: Lobby_Power_Computer
+    3300010: Lobby_Roonm
+    3300012: Data_shelves_1
+    3300014: Data_shelves_1.001
+    3300016: Data_shelves_1.002
+    3300018: Data_shelves_1.003
+    3300020: Data_shelves_2
+    3300022: Data_shelves_2.001
+    3300024: Data_shelves_2.002
+    3300026: Data_shelves_2.003
+    4300000: Lobby_Power_Computer
+    4300002: Data_shelves_1_MeshPart0
+    4300004: Data_shelves_1_MeshPart1
+    4300006: Data_shelves_2_MeshPart0
+    4300008: Data_shelves_2_MeshPart1
+    4300010: Lobby_Roonm
+    4300012: Data_shelves_1.003
+    4300014: Data_shelves_1.002
+    4300016: Data_shelves_1.001
+    4300018: Data_shelves_2.003
+    4300020: Data_shelves_2.002
+    4300022: Data_shelves_2.001
+    4300024: Data_shelves_1
+    4300026: Data_shelves_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
