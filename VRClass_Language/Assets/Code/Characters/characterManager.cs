@@ -25,6 +25,9 @@ public class CharacterManager : MonoBehaviour {
 	public float timer;
 	public float timerWaitTalk;
 	public int maxRangeRandom;
+	[Header("Sounds")]
+	public AudioClip stepsSound;
+	public AudioSource sound;
 
 	// Use this for initialization
 	void Start () {
@@ -202,5 +205,10 @@ public class CharacterManager : MonoBehaviour {
 
 	public void triggerAction () {
 		
+	}
+
+	public void stepSound() {
+		sound.pitch = Random.Range (0.9f, 1.2f);
+		sound.PlayOneShot (stepsSound);
 	}
 }
