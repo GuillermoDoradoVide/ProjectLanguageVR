@@ -23,22 +23,24 @@ public class Final_Seccion : StateScript {
 		Step ();
 	}
 
-	private void contactWithBriefing() {
-		SoundManager.Instance.playSingleSFXSound (incomingCall);
+	private IEnumerator contactWithBriefing() {
+		yield return new WaitForSeconds (1);
+		SoundManager.playSFX (incomingCall);
+		Debug.Log ("CONTACT");
+		yield return  new WaitForSeconds (incomingCall.length);
+		Debug.Log ("END");
 		Step = makeContact;
 	}
 
 	private void makeContact() {
-		if(!SoundManager.Instance.getSfxSoundFinished()) {
-			SoundManager.Instance.playSingleSFXSound (staticOn);
+			SoundManager.playSFX (staticOn);
 			playerSource.Play ();
 			Step = final;
-		}
 	}
 
 	private void final() {
 		if (!playerSource.isPlaying) {
-			SoundManager.Instance.playSingleSFXSound (staticOn);
+			SoundManager.playSFX (staticOn);
 			doChangeThisStateToFinished ();
 		}	
 	}
@@ -48,7 +50,7 @@ public class Final_Seccion : StateScript {
 	public override void atInit()
 	{
 		Step = characterWaitsForPlayer;
-		Invoke("contactWithBriefing", 2);
+		StartCoroutine (contactWithBriefing());
 		EventManager.startListening (Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 		playerSource.clip = congratulations;
 	}

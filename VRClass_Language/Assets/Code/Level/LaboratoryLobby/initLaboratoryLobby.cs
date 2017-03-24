@@ -20,7 +20,7 @@ public class initLaboratoryLobby : StateScript {
 
 	public override void atEnd()
 	{
-		SoundManager.Instance.playRandomMusicSong ();
+		SoundManager.playRandomMusic ();
 	}
 
 	public override void atPause()

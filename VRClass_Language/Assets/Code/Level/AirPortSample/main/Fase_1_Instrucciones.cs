@@ -47,19 +47,22 @@ public class Fase_1_Instrucciones : StateScript
 	private void standBy() {
 	}
 
-	private void contactWithBriefing() {
-		SoundManager.Instance.playSingleSFXSound (incomingCall);
+	private IEnumerator contactWithBriefing() {
+		yield return new WaitForSeconds (2);
+		SoundManager.playSFX (incomingCall);
 		instructions.gameObject.SetActive (true);
 		GetComponent<panelAlphaController> ().showPanel ();
+		Debug.Log ("CONTACT");
+		yield return  new WaitForSeconds (incomingCall.length);
+		Debug.Log ("END");
 		Step = makeContact;
 	}
 
+
 	private void makeContact() {
-		if(!SoundManager.Instance.getSfxSoundFinished()) {
-			SoundManager.Instance.playSingleSFXSound (staticOn);
+			SoundManager.playSFX (staticOn);
 			playerSource.Play ();
 			Step = firstIntroduction;
-		}
 	}
 
 	private void showMenuUnderstand() {
@@ -116,7 +119,7 @@ public class Fase_1_Instrucciones : StateScript
 	private void goodLuck ()
 	{
 		if (!playerSource.isPlaying) {
-			SoundManager.Instance.playSingleSFXSound (staticOn);
+			SoundManager.playSFX (staticOn);
 			GetComponent<panelAlphaController> ().hidePanel ();
 			doChangeThisStateToFinished ();
 		}	
@@ -168,7 +171,8 @@ public class Fase_1_Instrucciones : StateScript
 	}
 
 	private void startMission() {
-		Invoke("contactWithBriefing", 2);
+		Debug.Log ("start mission");
+		StartCoroutine (contactWithBriefing());
 		playerSource.clip = introduction;
 	}
 

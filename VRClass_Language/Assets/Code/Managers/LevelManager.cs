@@ -30,7 +30,7 @@ public class LevelManager : SingletonComponent<LevelManager>
 		{
 			Debug.Log(" Fallo al recoger la informacion del nivel.");
 		}
-		SoundManager.Instance.setNewMusicBox (levelInfo.musicAndSounds.musics);
+		SoundManager.setMusicBox (levelInfo.musicAndSounds.musics);
 	}
 	
 	// Update is called once per frame

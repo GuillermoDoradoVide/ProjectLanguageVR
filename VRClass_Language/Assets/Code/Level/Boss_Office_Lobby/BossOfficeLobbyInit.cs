@@ -20,7 +20,7 @@ public class BossOfficeLobbyInit : StateScript {
 
 	public override void atEnd()
 	{
-		SoundManager.Instance.playRandomMusicSong ();
+		SoundManager.playRandomMusic ();
 	}
 
 	public override void atPause()
