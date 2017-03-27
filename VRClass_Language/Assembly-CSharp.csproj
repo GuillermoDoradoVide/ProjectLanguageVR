@@ -137,6 +137,7 @@
      <Compile Include="Assets\Code\MenuAndInterface\hoverScript.cs" />
      <Compile Include="Assets\Code\Player\Achievements\AchievementData.cs" />
      <Compile Include="Assets\Code\Player\Achievements\AchievementManager.cs" />
+     <Compile Include="Assets\Code\Player\PlayerController.cs" />
      <Compile Include="Assets\Code\Player\PlayerControllerInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerGazeInteraction.cs" />
      <Compile Include="Assets\Code\Player\PlayerTeleport.cs" />

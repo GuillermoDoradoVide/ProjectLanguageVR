@@ -28,6 +28,7 @@ public class CharacterManager : MonoBehaviour {
 	[Header("Sounds")]
 	public AudioClip stepsSound;
 	public AudioSource sound;
+	public bool isPaused = false;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +42,12 @@ public class CharacterManager : MonoBehaviour {
 		Movements[(int)CharacterState.Move] = moveCharacter;
 		Movements [(int)CharacterState.Turn] = rotateCharacterTowards;
 		Movements[(int)CharacterState.StandBy] = standBy;
+		EventManager.startListening (Events.EventList.GAMEMANAGER_Pause, pauseCharacter);
+
+	}
+
+	private void pauseCharacter() {
+		stateMode = CharacterState.Idle;
 	}
 
 	protected void OnDestroy()
@@ -62,14 +69,13 @@ public class CharacterManager : MonoBehaviour {
 
 	public void doUpdate()
 	{
-		if (Movements[(int)stateMode] != null)
-		{
-			checkState();
-			Movements[(int)stateMode]();
-		}
-		if (Actions != null) {
-			Actions ();
-		}
+			if (Movements [(int)stateMode] != null) {
+				checkState ();
+				Movements [(int)stateMode] ();
+			}
+			if (Actions != null) {
+				Actions ();
+			}
 	}
 
 	private void checkState() {
@@ -203,12 +209,12 @@ public class CharacterManager : MonoBehaviour {
 		Actions += waitForPlayerTalk;
 	}
 
-	public void triggerAction () {
-		
+	public void setWaypoints (Transform[] waypoints) {
+		characterMovement.setNewWaypoints (waypoints);
 	}
 
 	public void stepSound() {
-		sound.pitch = Random.Range (0.9f, 1.2f);
+		sound.pitch = Random.Range (0.85f, 1.2f);
 		sound.PlayOneShot (stepsSound);
 	}
 }

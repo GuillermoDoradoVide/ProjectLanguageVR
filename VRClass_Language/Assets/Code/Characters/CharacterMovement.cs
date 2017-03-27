@@ -81,4 +81,9 @@ public class CharacterMovement : MonoBehaviour {
 			return false;
 		}
 	}
+		
+	public void setNewWaypoints(Transform[] newWaypoints) {
+		waypoints = newWaypoints;
+		checkWaypoints ();
+	}
 }

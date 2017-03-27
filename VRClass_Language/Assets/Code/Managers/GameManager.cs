@@ -9,6 +9,17 @@ public class GameManager : SingletonComponent<GameManager>
     private SessionManager sessionManager;
     public SoundManager soundManager;
 
+	[Header("Pause Setting")]
+	public float pauseTriggerTimer = 1f;
+	public float currentPauseTimer;
+	public bool isPaused = false;
+	public LevelMusicAndSounds managerSounds;
+	public GameObject pauseCanvas;
+//	public enum PauseState {PAUSED, UNPAUSED, Count};
+//	public PauseState pauseState;
+//	public delegate void GamePaused ();
+//	public GamePaused[] PauseActionState;
+
     private void Awake()
     {
         initManagers();
@@ -16,6 +27,13 @@ public class GameManager : SingletonComponent<GameManager>
 		QualitySettings.antiAliasing = 4;
 		Application.targetFrameRate = 60;
 		QualitySettings.vSyncCount = 0;
+		pauseCanvas = GameObject.Find ("PauseCanvas");
+		pauseCanvas.SetActive (false);
+//		PauseActionState = new GamePaused[(int)PauseState.Count]; // init array of delegates
+//		// Set each action delegate
+//		pauseState = PauseState.UNPAUSED;
+//		PauseActionState[(int)PauseState.PAUSED] = triggerPause;
+//		PauseActionState[(int)PauseState.UNPAUSED] = triggerUnPause;
     }
 
     private void OnDisable()
@@ -46,8 +64,49 @@ public class GameManager : SingletonComponent<GameManager>
     //*************************
     private void Update()
     {
+		if (GvrController.AppButton) {
+			checkPause ();
+		}
+		else {
+			currentPauseTimer = 0;
+		}
     }
     //*************************
+
+	private void checkPause ()
+	{
+		if (currentPauseTimer >= pauseTriggerTimer) {
+			currentPauseTimer = 0;
+			isPaused = !isPaused;
+			if(isPaused) {
+//				pauseState = PauseState.PAUSED;
+				triggerPause();
+			}
+			else {
+//				pauseState = PauseState.UNPAUSED;
+				triggerUnPause();
+			}
+//			PauseActionState ();
+		}
+		currentPauseTimer += Time.deltaTime;
+	}
+
+	private void triggerPause() {
+		isPaused = true;
+		pauseCanvas.SetActive (true);
+		SoundManager.playMusic(managerSounds.musics[0], true);
+		SoundManager.playSFX (managerSounds.sounds[0]);
+		pauseGame ();
+	}
+
+	private void triggerUnPause() {
+		isPaused = false;
+		pauseCanvas.SetActive (false);
+		SoundManager.playMusic (LevelManager.Instance.levelInfo.musicAndSounds.musics[0], true);
+		SoundManager.playSFX (managerSounds.sounds[0]);
+		continueGame ();
+	}
+
     private void pauseGame()
     {
         EventManager.triggerEvent(Events.EventList.STATE_Pause);

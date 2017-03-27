@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 90a8a41b073f73f479cf4a62b7c4cee0
-timeCreated: 1483099491
+timeCreated: 1490606314
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - levelManager: {instanceID: 0}
+  - soundManager: {instanceID: 0}
+  - managerSounds: {fileID: 11400000, guid: 5e245a9896ed0824b93803c21563fbd7, type: 2}
+  - pauseCanvas: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

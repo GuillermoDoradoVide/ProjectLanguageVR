@@ -41,10 +41,9 @@ public class SoundManager : SingletonComponent<SoundManager> {
 	}
 
 	private void fadeMusicOut(float fadeDuration) {
-		float delay = 0;
 		float toVolume = 0;
 		if(musicSource.clip != null) {
-			StartCoroutine (fadeMusic (toVolume, delay, fadeDuration));
+			StartCoroutine (fadeMusic (toVolume, fadeDuration));
 		}
 		else {
 			Debug.LogError ("Error: Could not fade Music out as Music AudioSource has no currently playing clip.");
@@ -52,30 +51,38 @@ public class SoundManager : SingletonComponent<SoundManager> {
 	}
 
 	private void fadeMusicIn(AudioClip newMusic, float delay, float  fadeDuration) {
+		StartCoroutine (fadeIn(newMusic, delay, fadeDuration));
+	}
+
+	private IEnumerator fadeIn(AudioClip newMusic, float delay, float  fadeDuration) {
+		yield return new WaitForSeconds (delay);
 		musicSource.clip = newMusic;
 		musicSource.Play ();
 		float toVolume = getMusicVolume ();
-		StartCoroutine (fadeMusic (toVolume, delay, fadeDuration));
+		StartCoroutine (fadeMusic (toVolume, fadeDuration));
 	}
 
-	private IEnumerator fadeMusic(float fadeToVolume, float delay, float duration) {
-		yield return new WaitForSeconds (delay);
+	private IEnumerator fadeMusic(float fadeToVolume, float duration) {
 		float elapsed = 0;
-		while (duration > 0) {
-			float t = (elapsed / duration);
-			float volume = Mathf.Lerp (0f, fadeToVolume * currentVolumenNormalized_Music, t);
+		float t;
+		float volume;
+		float currentVolume = musicSource.volume;
+		while (duration >= elapsed) {
+			t = (elapsed / duration);
+			volume = Mathf.Lerp (currentVolume, fadeToVolume * currentVolumenNormalized_Music, t);
 			musicSource.volume = volume;
 			elapsed += Time.deltaTime;
 			yield return 0;
 		}
+		musicSource.volume = fadeToVolume * currentVolumenNormalized_Music;
 	}
 
 	public static void playMusic (AudioClip music, bool fade, float fadeDuration = 1f) {
 		SoundManager manager = Instance;
 		if(fade) {
 			if(manager.musicSource.isPlaying) {
-				manager.fadeMusicOut (fadeDuration/2);
-				manager.fadeMusicIn (music, fadeDuration/2, fadeDuration/2);
+				manager.fadeMusicOut (fadeDuration/2f);
+				manager.fadeMusicIn (music, fadeDuration/2f, fadeDuration/2f);
 			}
 			else {
 				float delay = 0f;
