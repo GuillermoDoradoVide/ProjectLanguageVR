@@ -35,7 +35,6 @@ public class CharacterMovement : MonoBehaviour {
 	}
 
 	public bool move() {
-		//moveCharacter ();
 		rotateCharacter ();
 		checkDestinyWaypoint ();
 		return finished;
@@ -47,9 +46,9 @@ public class CharacterMovement : MonoBehaviour {
 		character.rotation = Quaternion.Slerp (character.rotation, movementQuaternionRotation, Time.deltaTime * maxRotationDistance);
 	}
 
-	private void moveCharacter() {
-		character.position = Vector3.MoveTowards (character.position, destinyWaypoint, Time.deltaTime * maxRotationDistance);
-	}
+//	private void moveCharacter() {
+//		character.position = Vector3.MoveTowards (character.position, destinyWaypoint, Time.deltaTime * maxRotationDistance);
+//	}
 
 	private void checkDestinyWaypoint() {
 		diferenceWaypointToCharacter = character.position - destinyWaypoint;

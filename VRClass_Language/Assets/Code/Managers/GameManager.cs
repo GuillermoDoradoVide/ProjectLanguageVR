@@ -96,7 +96,7 @@ public class GameManager : SingletonComponent<GameManager>
 		pauseCanvas.SetActive (true);
 		SoundManager.playMusic(managerSounds.musics[0], true);
 		SoundManager.playSFX (managerSounds.sounds[0]);
-		pauseGame ();
+		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Pause);
 	}
 
 	private void triggerUnPause() {
@@ -104,7 +104,7 @@ public class GameManager : SingletonComponent<GameManager>
 		pauseCanvas.SetActive (false);
 		SoundManager.playMusic (LevelManager.Instance.levelInfo.musicAndSounds.musics[0], true);
 		SoundManager.playSFX (managerSounds.sounds[0]);
-		continueGame ();
+		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Continue);
 	}
 
     private void pauseGame()

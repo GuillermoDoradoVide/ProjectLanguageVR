@@ -35,4 +35,16 @@ public class CharacterAnimationReference : MonoBehaviour {
 	public bool getTalking() {
 		return characterAnimator.GetBool (talkingID);
 	}
+
+	public void setAction(string action) {
+		characterAnimator.SetBool (action, true);
+	}
+
+	public void stopAction(string action) {
+		characterAnimator.SetBool (action, false);
+	}
+
+	public void getAction(string action) {
+		characterAnimator.GetBool (action);
+	}
 }
