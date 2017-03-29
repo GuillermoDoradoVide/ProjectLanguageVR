@@ -122,6 +122,18 @@ ModelImporter:
     100228: tierra_maceta
     100230: Cube
     100232: Plane.002
+    100234: Plane.003
+    100236: Plane.004
+    100238: Plane.005
+    100240: Plane.006
+    100242: Plane.007
+    100244: Plane.008
+    100246: Plane.009
+    100248: Plane.010
+    100250: Plane.011
+    100252: Plane.012
+    100254: Plane.013
+    100256: Plane.014
     400000: aire
     400002: aire_puerta
     400004: almohadilla_silla
@@ -239,6 +251,18 @@ ModelImporter:
     400228: tierra_maceta
     400230: Cube
     400232: Plane.002
+    400234: Plane.003
+    400236: Plane.004
+    400238: Plane.005
+    400240: Plane.006
+    400242: Plane.007
+    400244: Plane.008
+    400246: Plane.009
+    400248: Plane.010
+    400250: Plane.011
+    400252: Plane.012
+    400254: Plane.013
+    400256: Plane.014
     2300000: aire
     2300002: aire_puerta
     2300004: almohadilla_silla
@@ -353,6 +377,18 @@ ModelImporter:
     2300222: tierra_maceta
     2300224: Cube
     2300226: Plane.002
+    2300228: Plane.003
+    2300230: Plane.004
+    2300232: Plane.005
+    2300234: Plane.006
+    2300236: Plane.007
+    2300238: Plane.008
+    2300240: Plane.009
+    2300242: Plane.010
+    2300244: Plane.011
+    2300246: Plane.012
+    2300248: Plane.013
+    2300250: Plane.014
     3300000: aire
     3300002: aire_puerta
     3300004: almohadilla_silla
@@ -467,6 +503,18 @@ ModelImporter:
     3300222: tierra_maceta
     3300224: Cube
     3300226: Plane.002
+    3300228: Plane.003
+    3300230: Plane.004
+    3300232: Plane.005
+    3300234: Plane.006
+    3300236: Plane.007
+    3300238: Plane.008
+    3300240: Plane.009
+    3300242: Plane.010
+    3300244: Plane.011
+    3300246: Plane.012
+    3300248: Plane.013
+    3300250: Plane.014
     4300000: reposabrazos_izquierdo
     4300002: reposabrazos_derecho
     4300004: Patas_silla_2
@@ -581,6 +629,18 @@ ModelImporter:
     4300222: soporte_Libros.001
     4300224: Plane.002
     4300226: Cube
+    4300228: Plane.014
+    4300230: Plane.013
+    4300232: Plane.012
+    4300234: Plane.011
+    4300236: Plane.010
+    4300238: Plane.009
+    4300240: Plane.008
+    4300242: Plane.007
+    4300244: Plane.006
+    4300246: Plane.005
+    4300248: Plane.004
+    4300250: Plane.003
   materials:
     importMaterials: 1
     materialName: 0
