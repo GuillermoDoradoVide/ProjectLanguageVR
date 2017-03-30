@@ -79,6 +79,8 @@
      <Compile Include="Assets\Code\Level\AirPortSample\sample\AirportQuestion.cs" />
      <Compile Include="Assets\Code\Level\Boss_Office_Lobby\BossOfficeLobby.cs" />
      <Compile Include="Assets\Code\Level\Boss_Office_Lobby\BossOfficeLobbyInit.cs" />
+     <Compile Include="Assets\Code\Level\CitizenShipExam\FirstIteration.cs" />
+     <Compile Include="Assets\Code\Level\CitizenShipExam\initCitizenShip.cs" />
      <Compile Include="Assets\Code\Level\LaboratoryLobby\LaboratoryLobby.cs" />
      <Compile Include="Assets\Code\Level\LaboratoryLobby\initLaboratoryLobby.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
