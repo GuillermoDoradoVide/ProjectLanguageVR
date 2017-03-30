@@ -55,6 +55,7 @@ public class LaboratoryLobby : StateScript {
 	private void second() {
 		if (!characterManager.animationReference.getWalking()) {
 			characterManager.setDialogs (firstAudio);
+			characterManager.setTalking ();
 			Step = third;
 		}
 	}

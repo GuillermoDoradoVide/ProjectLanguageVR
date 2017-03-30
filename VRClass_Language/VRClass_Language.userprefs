@@ -1,22 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Characters\AnimatorLayerScripts\IdleAnimationCycleBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Level\LaboratoryLobby\LaboratoryLobby.cs">
     <Files>
       <File FileName="Assets\Code\Managers\GameManager.cs" Line="31" Column="1" />
       <File FileName="Assets\Code\Managers\SoundManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Level\AirPortSample\LevelMusicAndSounds.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Level\Boss_Office_Lobby\BossOfficeLobbyInit.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\LaboratoryLobby\initLaboratoryLobby.cs" Line="36" Column="1" />
+      <File FileName="Assets\Code\Level\LaboratoryLobby\initLaboratoryLobby.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Acercarse.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Esperar.cs" Line="12" Column="21" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_pregunta.cs" Line="16" Column="1" />
-      <File FileName="Assets\Code\Level\CitizenShipExam\initCitizenShip.cs" Line="36" Column="1" />
-      <File FileName="Assets\Code\Level\CitizenShipExam\FirstIteration.cs" Line="23" Column="11" />
-      <File FileName="Assets\Code\Level\AirPortSample\Background_Conversation_A.cs" Line="25" Column="1" />
-      <File FileName="Assets\Code\Characters\CharacterMovement.cs" Line="30" Column="1" />
-      <File FileName="Assets\Code\Characters\AnimatorLayerScripts\TalkingAnimationCycleBehaviour.cs" Line="20" Column="20" />
-      <File FileName="Assets\Code\Characters\CharacterManager.cs" Line="252" Column="1" />
-      <File FileName="Assets\Code\Characters\AnimatorLayerScripts\IdleAnimationCycleBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Esperar.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_2_pregunta.cs" Line="66" Column="34" />
+      <File FileName="Assets\Code\Level\CitizenShipExam\initCitizenShip.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\CitizenShipExam\FirstIteration.cs" Line="6" Column="1" />
+      <File FileName="Assets\Code\Characters\CharacterMovement.cs" Line="27" Column="4" />
+      <File FileName="Assets\Code\Characters\CharacterManager.cs" Line="74" Column="27" />
+      <File FileName="Assets\Code\Level\LaboratoryLobby\LaboratoryLobby.cs" Line="58" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
