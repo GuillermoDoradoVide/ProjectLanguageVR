@@ -22,7 +22,9 @@ public class CharacterMovement : MonoBehaviour {
 	private bool finished = false;
 
 	private void Start () {
-		checkWaypoints ();
+		if (waypoints.Length != 0) {
+			checkWaypoints ();
+		}
 	}
 
 	private void checkWaypoints() {

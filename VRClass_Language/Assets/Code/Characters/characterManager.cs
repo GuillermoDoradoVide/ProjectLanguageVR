@@ -71,6 +71,10 @@ public class CharacterManager : MonoBehaviour
 //		isPaused = false;
 //	}
 
+	public bool isStandBy() {
+		return (stateMode == CharacterState.StandBy) ? true : false;
+	}
+
 	protected void OnDestroy ()
 	{
 		if (Actions != null) {
