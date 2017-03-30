@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5eb33674749ffa54f9cccc575f2f9fb7
-timeCreated: 1489745374
+timeCreated: 1490869163
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -81,20 +81,6 @@ ModelImporter:
     100146: Moustaches
     100148: Shoes
     100150: Tops
-    100152: Armature
-    100154: mixamorig:HeadTop_End_end
-    100156: mixamorig:LeftHandIndex4_end
-    100158: mixamorig:LeftHandMiddle4_end
-    100160: mixamorig:LeftHandPinky4_end
-    100162: mixamorig:LeftHandRing4_end
-    100164: mixamorig:LeftHandThumb4_end
-    100166: mixamorig:LeftToe_End_end
-    100168: mixamorig:RightHandIndex4_end
-    100170: mixamorig:RightHandMiddle4_end
-    100172: mixamorig:RightHandPinky4_end
-    100174: mixamorig:RightHandRing4_end
-    100176: mixamorig:RightHandThumb4_end
-    100178: mixamorig:RightToe_End_end
     400000: Beards
     400002: Body
     400004: Bottoms
@@ -171,20 +157,6 @@ ModelImporter:
     400146: Moustaches
     400148: Shoes
     400150: Tops
-    400152: Armature
-    400154: mixamorig:HeadTop_End_end
-    400156: mixamorig:LeftHandIndex4_end
-    400158: mixamorig:LeftHandMiddle4_end
-    400160: mixamorig:LeftHandPinky4_end
-    400162: mixamorig:LeftHandRing4_end
-    400164: mixamorig:LeftHandThumb4_end
-    400166: mixamorig:LeftToe_End_end
-    400168: mixamorig:RightHandIndex4_end
-    400170: mixamorig:RightHandMiddle4_end
-    400172: mixamorig:RightHandPinky4_end
-    400174: mixamorig:RightHandRing4_end
-    400176: mixamorig:RightHandThumb4_end
-    400178: mixamorig:RightToe_End_end
     4300000: Tops
     4300002: Bottoms
     4300004: Moustaches
@@ -196,11 +168,6 @@ ModelImporter:
     4300016: default
     4300018: Eyes
     7400000: mixamo.com
-    7400002: Armature|Armabored
-    7400004: Armature|Armalook_around
-    7400006: Armature|Armature|mixamo.com|Layer0
-    7400008: Armature|Armature|mixamo.com|Layer0.001
-    7400010: Armature|Armature|mixamo.com|Layer0.002
     9500000: //RootNode
     13700000: Beards
     13700002: Body
@@ -222,13 +189,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: '
-
-      Imported file ''decimated_40_AranCop'' conversion failed: Transform ''Hips''
-      for human bone ''Hips'' not found
-
-
-'
+    animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -1063,8 +1024,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
     hasTranslationDoF: 0
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 71c52beead7609548b2583fbf169c722,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 3
   humanoidOversampling: 1
   additionalBone: 0

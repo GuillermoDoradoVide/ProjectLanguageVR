@@ -16,8 +16,8 @@ public class TalkingAnimationCycleBehaviour : StateMachineBehaviour {
 	// OnStateExit is called before OnStateExit is called on any state inside this state machine
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		int randomNumber = Random.Range (0, 6);
-		if(randomNumber == 4 || randomNumber == 5) {
-			randomNumber = 0;
+		if(randomNumber == 5 ) {
+			randomNumber = 4;
 		}
 		animator.SetInteger("TalkingType", randomNumber);
 
