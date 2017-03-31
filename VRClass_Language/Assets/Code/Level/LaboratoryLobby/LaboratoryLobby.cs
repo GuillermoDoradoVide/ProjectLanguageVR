@@ -9,6 +9,7 @@ public class LaboratoryLobby : StateScript {
 	public Transform[] rotateTo;
 	public AudioClip[] firstAudio;
 
+	public RotateHologram _hologram;
 
 	private delegate void Steps();
 	private Steps Step;
@@ -60,7 +61,7 @@ public class LaboratoryLobby : StateScript {
 		}
 	}
 	private void third() {
-		
+		_hologram.rotateHologram ();
 	}
 
 	public override void atInit()
