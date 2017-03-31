@@ -108,13 +108,13 @@ ModelImporter:
     7400010: Look_Around
     7400012: Look_Down
     7400014: Idle_Neutral
-    7400016: Sight
+    7400016: Action_Sight
     7400018: TalkingA
     7400020: TalkingB
     7400022: TalkingB2
     7400024: TalkingC
-    7400026: Talking_OneHand
-    7400028: Walkking_ToStop
+    7400026: Talking_SideHand
+    7400028: Walking_ToStop
     7400030: Walking_Start
     7400032: Walking_Cycle
     9500000: //RootNode
@@ -1159,7 +1159,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Sight
+      name: Action_Sight
       takeName: female_character_a|femasight
       firstFrame: 1
       lastFrame: 250
@@ -1513,243 +1513,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TalkingC
-      takeName: female_character_a|fematalkingC
-      firstFrame: 1
-      lastFrame: 249
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: female_character_a
-        weight: 1
-      - path: female_character_a/Hips
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToeBase_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1/LeftHandFinger1_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb/LThumb_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head/Head_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1/RightHandFinger1_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb/RThumb_end
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToeBase_end
-        weight: 1
-      - path: female_character_a-base
-        weight: 1
-      - path: female_character_a-female_elegantsuit01
-        weight: 1
-      - path: female_character_a-highpolyeyes
-        weight: 1
-      - path: female_character_a-ponytail01
-        weight: 1
-      - path: female_character_a-shoes03
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Talking_OneHand
-      takeName: female_character_a|fematalkinOneHandSimple
-      firstFrame: 0
-      lastFrame: 249
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: female_character_a
-        weight: 1
-      - path: female_character_a/Hips
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
-        weight: 1
-      - path: female_character_a/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToeBase_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandFinger1/LeftHandFinger1_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb/LThumb_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head/Head_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandFinger1/RightHandFinger1_end
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb
-        weight: 1
-      - path: female_character_a/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb/RThumb_end
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase
-        weight: 1
-      - path: female_character_a/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToeBase_end
-        weight: 1
-      - path: female_character_a-base
-        weight: 1
-      - path: female_character_a-female_elegantsuit01
-        weight: 1
-      - path: female_character_a-highpolyeyes
-        weight: 1
-      - path: female_character_a-ponytail01
-        weight: 1
-      - path: female_character_a-shoes03
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Walkking_ToStop
+      name: Walking_ToStop
       takeName: female_character_a|femawalk_to_stop
       firstFrame: 1
       lastFrame: 85
