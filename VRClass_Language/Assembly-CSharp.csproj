@@ -102,6 +102,7 @@
      <Compile Include="Assets\Code\Managers\SoundManager.cs" />
      <Compile Include="Assets\Code\Managers\StateMachine\StateManager.cs" />
      <Compile Include="Assets\Code\Managers\StateMachine\StateScript.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\ActiveChildren.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\BeaconIdle.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\FadeEffect.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IElement.cs" />

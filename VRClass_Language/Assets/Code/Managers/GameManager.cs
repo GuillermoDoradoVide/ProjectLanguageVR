@@ -27,7 +27,7 @@ public class GameManager : SingletonComponent<GameManager>
 		QualitySettings.antiAliasing = 4;
 		Application.targetFrameRate = 60;
 		QualitySettings.vSyncCount = 0;
-		menuCanvas = GameObject.Find ("MenuCanvas");
+		menuCanvas = GameObject.Find ("[MENU]");
 		menuCanvas.SetActive (false);
 //		PauseActionState = new GamePaused[(int)PauseState.Count]; // init array of delegates
 //		// Set each action delegate
