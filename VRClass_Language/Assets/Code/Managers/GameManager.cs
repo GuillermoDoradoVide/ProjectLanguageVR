@@ -14,7 +14,7 @@ public class GameManager : SingletonComponent<GameManager>
 	public float currentPauseTimer;
 	public bool isPaused = false;
 	public LevelMusicAndSounds managerSounds;
-	public GameObject pauseCanvas;
+	public GameObject menuCanvas;
 //	public enum PauseState {PAUSED, UNPAUSED, Count};
 //	public PauseState pauseState;
 //	public delegate void GamePaused ();
@@ -27,8 +27,8 @@ public class GameManager : SingletonComponent<GameManager>
 		QualitySettings.antiAliasing = 4;
 		Application.targetFrameRate = 60;
 		QualitySettings.vSyncCount = 0;
-		pauseCanvas = GameObject.Find ("PauseCanvas");
-		pauseCanvas.SetActive (false);
+		menuCanvas = GameObject.Find ("MenuCanvas");
+		menuCanvas.SetActive (false);
 //		PauseActionState = new GamePaused[(int)PauseState.Count]; // init array of delegates
 //		// Set each action delegate
 //		pauseState = PauseState.UNPAUSED;
@@ -93,7 +93,7 @@ public class GameManager : SingletonComponent<GameManager>
 
 	private void triggerPause() {
 		isPaused = true;
-		pauseCanvas.SetActive (true);
+		menuCanvas.SetActive (true);
 		SoundManager.playMusic(managerSounds.musics[0], true);
 		SoundManager.playSFX (managerSounds.sounds[0]);
 		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Pause);
@@ -101,7 +101,7 @@ public class GameManager : SingletonComponent<GameManager>
 
 	private void triggerUnPause() {
 		isPaused = false;
-		pauseCanvas.SetActive (false);
+		menuCanvas.SetActive (false);
 		SoundManager.playMusic (LevelManager.Instance.levelInfo.musicAndSounds.musics[0], true);
 		SoundManager.playSFX (managerSounds.sounds[0]);
 		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Continue);
