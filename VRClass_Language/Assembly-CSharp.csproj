@@ -117,6 +117,7 @@
      <Compile Include="Assets\Code\MenuAndInterface\LookActionMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuAnimationController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuController.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\MenuInteraction.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuMain.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuMobileSubMenuIzq.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\ObjectInspector.cs" />

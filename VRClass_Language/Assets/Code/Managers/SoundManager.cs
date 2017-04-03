@@ -204,7 +204,7 @@ public class SoundManager : SingletonComponent<SoundManager> {
 	}
 
 	public static void setMusicVolume (float newVolume) {
-		currentVolumenNormalized_SFX = newVolume;
+		currentVolumenNormalized_Music = newVolume;
 		adjustSoundImmediate();
 	}
 
