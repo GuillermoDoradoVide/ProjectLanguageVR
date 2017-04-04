@@ -6,19 +6,20 @@ public class hoverScript : MonoBehaviour {
 
     public Color original;
     public Color hover;
+	public Image image;
 
     private void Awake()
     {
-
+		image = GetComponent<Image> ();
     }
 
     public void Onhover()
     {
-        GetComponent<Image>().color = hover;
+		image.color = hover;
     }
 
     public void exitHover()
     {
-        GetComponent<Image>().color = original;
+		image.color = original;
     }
 }
