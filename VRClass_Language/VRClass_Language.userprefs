@@ -20,7 +20,7 @@
       <File FileName="Assets\Code\MenuAndInterface\MenuInteraction.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Level\BackToLobby.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\SpeechRecon.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Instrucciones.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\Level\AirPortSample\main\Fase_1_Instrucciones.cs" Line="14" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

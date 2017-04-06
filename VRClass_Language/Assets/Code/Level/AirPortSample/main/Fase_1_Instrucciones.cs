@@ -20,8 +20,10 @@ public class Fase_1_Instrucciones : StateScript
 
 	private Vector3[] angles;
 	private int index;
+	public int angleDetectorTime;
 	private Vector3 centerAngle;
 	public float headMovementMagnitude;
+	public float headMagnitude;
 
 	private bool yes = false;
 	private bool no = false;
@@ -78,8 +80,15 @@ public class Fase_1_Instrucciones : StateScript
 	private void firstIntroduction ()
 	{
 		if (!playerSource.isPlaying) {
-			menuController.addDialogTriggerAction (0,"You understand.Nod.",continueBriefing);
-			Step = standBy;
+//			menuController.addDialogTriggerAction (0,"You understand.Nod.",continueBriefing);
+//			Step = standBy;
+			headGestureRecognition ();
+			if(yes) {
+				playerSource.clip = introduction2;
+				playerSource.Play ();
+				Step = playerIdentity;
+				yes = false;
+			}
 		}	
 	}
 
@@ -111,8 +120,29 @@ public class Fase_1_Instrucciones : StateScript
 	private void playerIdentity ()
 	{
 		if (!playerSource.isPlaying) {
-			showMenuUnderstand ();
-			Step = standBy;
+//			showMenuUnderstand ();
+//			Step = standBy;
+			headGestureRecognition ();
+			if(yes) {
+				playerSource.clip = introduction3;
+				playerSource.Play ();
+				Step = goodLuck;
+				yes = false;
+			}
+			else if (no) {
+				if(!repeated){
+					playerSource.clip = repeat;
+					playerSource.Play ();
+					no = false;
+					repeated = true;
+				}
+				else {
+					playerSource.clip = repeat2;
+					playerSource.Play ();
+					Step = goodLuck;
+					yes = false;
+				}
+			}
 		}	
 	}
 
@@ -127,9 +157,10 @@ public class Fase_1_Instrucciones : StateScript
 
 	private void headGestureRecognition ()
 	{
+		initHeadGesture ();
 		angles [index] = GvrViewer.Instance.HeadPose.Orientation.eulerAngles;
 		index++;
-		if (index >= 80) {
+		if (index >= angleDetectorTime) {
 			checkHeadGesture ();
 			resetGesture ();
 		}
@@ -138,15 +169,16 @@ public class Fase_1_Instrucciones : StateScript
 	private void checkHeadGesture ()
 	{
 		bool right = false, left = false, up = false, down = false;
-		for (int x = 0; x < 80; x++) {
-			if (angles [x].x < centerAngle.x - 10.0f * headMovementMagnitude && !up) {
-				up = true;
-			} else if (angles [x].x > centerAngle.x + 10.0f * headMovementMagnitude && !down) {
+		for (int x = 0; x < angleDetectorTime; x++) {
+			if (angles [x].x > (centerAngle.x + (headMovementMagnitude * headMagnitude)) && !down) {
 				down = true;
-			}	
-			if (angles [x].y < centerAngle.y - 10.0f * headMovementMagnitude && !left) {
+			} else if ((angles [x].x < (centerAngle.x + (headMovementMagnitude * headMagnitude)/2)) && !up) {
+				up = true;
+			}
+
+			if (angles [x].y < centerAngle.y - (headMovementMagnitude * headMagnitude) && !left) {
 				left = true;
-			} else if (angles [x].y > centerAngle.y + 10.0f * headMovementMagnitude && !right) {
+			} else if (angles [x].y > centerAngle.y + (headMovementMagnitude * headMagnitude) && !right) {
 				right = true;
 			}
 
@@ -160,8 +192,14 @@ public class Fase_1_Instrucciones : StateScript
 		}
 	}
 
+	private void initHeadGesture() {
+		if (index == 0) {
+			resetGesture ();
+		}
+	}
+
 	private void resetGesture() {
-		angles = new Vector3[80];
+		angles = new Vector3[angleDetectorTime];
 		index = 0;
 		centerAngle = GvrViewer.Instance.HeadPose.Orientation.eulerAngles;
 	}
@@ -174,12 +212,15 @@ public class Fase_1_Instrucciones : StateScript
 		Debug.Log ("start mission");
 		StartCoroutine (contactWithBriefing());
 		playerSource.clip = introduction;
+		// temporal
+		Step = standBy;
 	}
 
 	public override void atInit ()
 	{
-		Step = standBy;
-		showStartMissionMenu ();
+		Step = startMission;
+//		Step = standBy;
+//		showStartMissionMenu ();
 		EventManager.startListening (Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 	}
 
