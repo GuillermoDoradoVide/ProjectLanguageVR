@@ -19,8 +19,8 @@ public class Fase_1_Esperar : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		characterManager.doUpdate ();
-		characterManagerOfficer.doUpdate ();
+//		characterManager.doUpdate ();
+//		characterManagerOfficer.doUpdate ();
 		Step ();
 	}
 
@@ -47,6 +47,8 @@ public class Fase_1_Esperar : StateScript {
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 		Invoke ("setTalkingFalse", 4);
+		characterManagerOfficer.isActive = true;
+		characterManager.isActive = true;
 		characterManagerOfficer.setDialogs (nextPlease);
 		characterManager.setCharacterNextStates (stepsA);
 		Step = first;
@@ -59,11 +61,11 @@ public class Fase_1_Esperar : StateScript {
 
 	public override void atPause()
 	{
-		characterManagerOfficer.dialogScript.audioSource.Pause ();
+//		characterManagerOfficer.dialogScript.audioSource.Pause ();
 	}
 
 	public override void atReadyActiveState()
 	{
-		characterManagerOfficer.dialogScript.audioSource.UnPause ();
+//		characterManagerOfficer.dialogScript.audioSource.UnPause ();
 	}
 }

@@ -10,37 +10,25 @@ public class GameManager : SingletonComponent<GameManager>
     public SoundManager soundManager;
 
 	[Header("Pause Setting")]
-	public float pauseTriggerTimer = 3.0f;
+	public float pauseTriggerTimer = 2.0f;
 	public float currentPauseTimer;
 	public bool isPaused = false;
 	public LevelMusicAndSounds managerSounds;
-
-//	public enum PauseState {PAUSED, UNPAUSED, Count};
-//	public PauseState pauseState;
-//	public delegate void GamePaused ();
-//	public GamePaused[] PauseActionState;
 
     private void Awake()
     {
         initManagers();
         initEventTriggers();
-
-//		PauseActionState = new GamePaused[(int)PauseState.Count]; // init array of delegates
-//		// Set each action delegate
-//		pauseState = PauseState.UNPAUSED;
-//		PauseActionState[(int)PauseState.PAUSED] = triggerPause;
-//		PauseActionState[(int)PauseState.UNPAUSED] = triggerUnPause;
     }
 
 	private void Start() {
-		
 		QualitySettings.antiAliasing = 4;
 		Application.targetFrameRate = 60;
 		QualitySettings.vSyncCount = 0;
 	}
 
-	public void resetGameMStats() {
-		isPaused = false;
+	public static void resetGameManager() {
+		GameManager.instance.isPaused = false;
 	}
 
     private void OnDisable()
@@ -71,7 +59,7 @@ public class GameManager : SingletonComponent<GameManager>
     //*************************
     private void Update()
     {
-		if (GvrController.ClickButton) {
+		if (GvrController.AppButton) {
 			checkPause ();
 		}
 		else {
@@ -86,14 +74,11 @@ public class GameManager : SingletonComponent<GameManager>
 			currentPauseTimer = 0;
 			isPaused = !isPaused;
 			if(isPaused) {
-//				pauseState = PauseState.PAUSED;
 				triggerPause();
 			}
 			else {
-//				pauseState = PauseState.UNPAUSED;
 				triggerUnPause();
 			}
-//			PauseActionState ();
 		}
 		currentPauseTimer += Time.deltaTime;
 	}

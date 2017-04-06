@@ -29,7 +29,7 @@ public class Fase_2_opcion : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		characterManager.doUpdate ();
+		//characterManager.doUpdate ();
 		Step ();
 	}
 
@@ -104,11 +104,11 @@ public class Fase_2_opcion : StateScript {
 
 	public override void atPause()
 	{
-		characterManager.dialogScript.audioSource.Pause ();
+//		characterManager.dialogScript.audioSource.Pause ();
 	}
 
 	public override void atReadyActiveState()
 	{
-		characterManager.dialogScript.audioSource.UnPause ();
+//		characterManager.dialogScript.audioSource.UnPause ();
 	}
 }

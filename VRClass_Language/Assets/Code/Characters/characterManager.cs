@@ -3,14 +3,16 @@ using System.Collections;
 
 public class CharacterManager : MonoBehaviour
 {
-
+	[Header("References")]
 	public CharacterMovement characterMovement;
 	public CharacterAnimationReference animationReference;
 	public Animator characterAnimator;
 	public DialogScript dialogScript;
 	public AudioClip[] dialogs;
+	[Header("AudioClipsInfo")]
 	public int currentDialog;
 	public int currentStep = 0;
+
 
 	public enum CharacterState
 	{
@@ -21,7 +23,7 @@ public class CharacterManager : MonoBehaviour
 		StandBy,
 		Count}
 	;
-
+	[Header("Character States")]
 	public CharacterState stateMode;
 	public CharacterState nextStateMode;
 
@@ -35,6 +37,7 @@ public class CharacterManager : MonoBehaviour
 	public CharacterState[] StatesSteps;
 //	public bool isPaused = false;
 	private bool talking = false;
+	public bool isActive = false;
 	public float counterWaitTalk;
 	public float timer;
 	public float timerWaitTalk;
@@ -44,7 +47,7 @@ public class CharacterManager : MonoBehaviour
 	public AudioSource sound;
 
 	// Use this for initialization
-	void Start ()
+	private void Start ()
 	{
 		dialogScript = GetComponent<DialogScript> ();
 		characterAnimator = GetComponent<Animator> ();
@@ -56,20 +59,14 @@ public class CharacterManager : MonoBehaviour
 		Movements [(int)CharacterState.Move] = move;
 		Movements [(int)CharacterState.Turn] = rotateCharacterTowards;
 		Movements [(int)CharacterState.StandBy] = standBy;
-//		EventManager.startListening (Events.EventList.GAMEMANAGER_Pause, pauseCharacter);
-//		EventManager.startListening (Events.EventList.GAMEMANAGER_Continue, continueCharacter);
+		EventManager.startListening (Events.EventList.STATE_Pause, pauseThisCharacterManager);
+		EventManager.startListening (Events.EventList.STATE_Continue, continueThisCharacterManager);
 	}
 
-//	private void pauseCharacter ()
-//	{
-//		animationReference.setWalking (false);
-//		isPaused = true;
-//	}
-//
-//	private void continueCharacter ()
-//	{
-//		isPaused = false;
-//	}
+	private void OnDisable() {
+		EventManager.stopListening (Events.EventList.STATE_Pause, pauseThisCharacterManager);
+		EventManager.stopListening (Events.EventList.STATE_Continue, continueThisCharacterManager);
+	}
 
 	public bool isStandBy() {
 		return (stateMode == CharacterState.StandBy) ? true : false;
@@ -107,25 +104,20 @@ public class CharacterManager : MonoBehaviour
 	}
 
 	private void Update() {
-		checkState ();
-		if (Movements [(int)stateMode] != null) {
-			Movements [(int)stateMode] ();
-		}
-		if (Actions != null) {
-			Actions ();
+		if (isActive) {
+			checkState ();
+			if (Movements [(int)stateMode] != null) {
+				Movements [(int)stateMode] ();
+			}
+			if (Actions != null) {
+				Actions ();
+			}
 		}
 	}
 
-	public void doUpdate ()
-	{
-//		checkState ();
-//		if (Movements [(int)stateMode] != null) {
-//			Movements [(int)stateMode] ();
-//		}
-//		if (Actions != null) {
-//			Actions ();
-//		}
-	}
+//	public void doUpdate ()
+//	{
+//	}
 
 	private void checkState ()
 	{
@@ -255,5 +247,20 @@ public class CharacterManager : MonoBehaviour
 	{
 		sound.pitch = Random.Range (0.85f, 1.2f);
 		sound.PlayOneShot (stepsSound);
+	}
+
+	private void pauseThisCharacterManager() {
+		//dialogScript.audioSource.Pause ();
+		if(dialogScript != null) {
+			dialogScript.pauseDialog();
+		}
+		animationReference.setWalking (false);
+	}
+
+	private void continueThisCharacterManager() {
+		//dialogScript.audioSource.UnPause ();
+		if (dialogScript != null) {
+			dialogScript.continueDialog ();
+		}
 	}
 }

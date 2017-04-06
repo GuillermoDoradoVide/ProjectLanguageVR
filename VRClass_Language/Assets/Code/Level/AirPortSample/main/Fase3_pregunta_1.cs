@@ -28,7 +28,7 @@ public class Fase3_pregunta_1  : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		characterManager.doUpdate ();
+		//characterManager.doUpdate ();
 		Step ();
 	}
 

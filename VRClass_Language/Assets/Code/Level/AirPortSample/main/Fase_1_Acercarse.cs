@@ -15,7 +15,6 @@ public class Fase_1_Acercarse : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		characterManagerOfficer.doUpdate ();
 		if (Vector3.Distance(player.position, teleportLocation.position) < 1) {
 			characterManagerOfficer.animationReference.setTalking (false);
 			characterManagerOfficer.stopTalking ();
@@ -39,11 +38,11 @@ public class Fase_1_Acercarse : StateScript {
 
 	public override void atPause()
 	{
-		characterManagerOfficer.dialogScript.audioSource.Pause ();
+//		characterManagerOfficer.dialogScript.audioSource.Pause ();
 	}
 
 	public override void atReadyActiveState()
 	{
-		characterManagerOfficer.dialogScript.audioSource.UnPause ();
+//		characterManagerOfficer.dialogScript.audioSource.UnPause ();
 	}
 }

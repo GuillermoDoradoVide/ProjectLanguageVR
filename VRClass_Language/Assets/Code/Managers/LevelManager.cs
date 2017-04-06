@@ -56,14 +56,14 @@ public class LevelManager : SingletonComponent<LevelManager>
 
 	public void backToLobby() {
 		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
-		Invoke ("loadLobby", 2);
+		Invoke ("loadLobbyScene", 2);
 	}
 
 	private void reloadScene() {
 		SceneController.Instance.resetScene ();
 	}
 
-	private void loadLobby() {
+	private void loadLobbyScene() {
 		SceneController.SwitchScene ("Boss_Oficce");
 	}
 }
