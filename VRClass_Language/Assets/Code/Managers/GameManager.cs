@@ -10,7 +10,7 @@ public class GameManager : SingletonComponent<GameManager>
     public SoundManager soundManager;
 
 	[Header("Pause Setting")]
-	public float pauseTriggerTimer = 1f;
+	public float pauseTriggerTimer = 3.0f;
 	public float currentPauseTimer;
 	public bool isPaused = false;
 	public LevelMusicAndSounds managerSounds;
@@ -71,7 +71,7 @@ public class GameManager : SingletonComponent<GameManager>
     //*************************
     private void Update()
     {
-		if (GvrController.AppButton) {
+		if (GvrController.ClickButton) {
 			checkPause ();
 		}
 		else {
