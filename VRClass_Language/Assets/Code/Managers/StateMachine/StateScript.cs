@@ -6,7 +6,7 @@ public abstract class StateScript : MonoBehaviour {
     public StateMode stateMode;
 	public delegate void StateSteps ();
 	/// <summary>
-	/// Static delegate method.
+	/// empty delegate method.
 	/// </summary>
 	public StateSteps CurrentStep;
     public delegate void Action();
