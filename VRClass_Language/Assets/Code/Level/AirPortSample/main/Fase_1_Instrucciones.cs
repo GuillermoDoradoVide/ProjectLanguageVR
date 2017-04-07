@@ -29,15 +29,23 @@ public class Fase_1_Instrucciones : StateScript
 	private bool no = false;
 	public bool repeated = false;
 
-	void Start ()
+	private void Start ()
 	{
 		resetGesture ();
+	}
+
+	private void OnDisable() {
+		if (CurrentStep != null)
+		{
+			CurrentStep = null;
+		}
 	}
 
 	// Update is called once per frame
 	public override void atUpdate ()
 	{
-		Step ();
+		CurrentStep ();
+//		Step ();
 	}
 
 	private void completeFase ()
@@ -57,14 +65,14 @@ public class Fase_1_Instrucciones : StateScript
 		Debug.Log ("CONTACT");
 		yield return  new WaitForSeconds (incomingCall.length);
 		Debug.Log ("END");
-		Step = makeContact;
+		CurrentStep = makeContact;
 	}
 
 
 	private void makeContact() {
 			SoundManager.playSFX (staticOn);
 			playerSource.Play ();
-			Step = firstIntroduction;
+		CurrentStep = firstIntroduction;
 	}
 
 	private void showMenuUnderstand() {
@@ -81,12 +89,12 @@ public class Fase_1_Instrucciones : StateScript
 	{
 		if (!playerSource.isPlaying) {
 //			menuController.addDialogTriggerAction (0,"You understand.Nod.",continueBriefing);
-//			Step = standBy;
+			//			CurrentStep = standBy;
 			headGestureRecognition ();
 			if(yes) {
 				playerSource.clip = introduction2;
 				playerSource.Play ();
-				Step = playerIdentity;
+				CurrentStep = playerIdentity;
 				yes = false;
 			}
 		}	
@@ -95,38 +103,38 @@ public class Fase_1_Instrucciones : StateScript
 	private void continueBriefing() {
 		playerSource.clip = introduction2;
 		playerSource.Play ();
-		Step = playerIdentity;
+		CurrentStep = playerIdentity;
 	}
 
 	private void understand() {
 		playerSource.clip = introduction3;
 		playerSource.Play ();
-		Step = goodLuck;
+		CurrentStep = goodLuck;
 	}
 
 	private void notUnderstand() {
 		playerSource.clip = repeat;
 		repeated = true;
 		playerSource.Play ();
-		Step = playerIdentity;
+		CurrentStep = playerIdentity;
 	}
 
 	private void notUnderstand2() {
 		playerSource.clip = repeat2;
 		playerSource.Play ();
-		Step = goodLuck;
+		CurrentStep = goodLuck;
 	}
 
 	private void playerIdentity ()
 	{
 		if (!playerSource.isPlaying) {
 //			showMenuUnderstand ();
-//			Step = standBy;
+			//			CurrentStep = standBy;
 			headGestureRecognition ();
 			if(yes) {
 				playerSource.clip = introduction3;
 				playerSource.Play ();
-				Step = goodLuck;
+				CurrentStep = goodLuck;
 				yes = false;
 			}
 			else if (no) {
@@ -139,7 +147,7 @@ public class Fase_1_Instrucciones : StateScript
 				else {
 					playerSource.clip = repeat2;
 					playerSource.Play ();
-					Step = goodLuck;
+					CurrentStep = goodLuck;
 					yes = false;
 				}
 			}
@@ -213,13 +221,13 @@ public class Fase_1_Instrucciones : StateScript
 		StartCoroutine (contactWithBriefing());
 		playerSource.clip = introduction;
 		// temporal
-		Step = standBy;
+		CurrentStep = standBy;
 	}
 
 	public override void atInit ()
 	{
-		Step = startMission;
-//		Step = standBy;
+		CurrentStep = startMission;
+		//		CurrentStep = standBy;
 //		showStartMissionMenu ();
 		EventManager.startListening (Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 	}

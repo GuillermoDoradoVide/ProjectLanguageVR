@@ -61,6 +61,7 @@ public class StateManager : ScriptableObject {
         {
             stackStateList.Pop();
             currentState.atEnd();
+			currentState.enabled = false;
             if (stackStateList.Count != 0)
             {
                 currentState = stackStateList.Peek();
