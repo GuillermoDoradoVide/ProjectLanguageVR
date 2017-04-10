@@ -37,9 +37,9 @@ public class Fase_2_pregunta : StateScript {
 	}
 
 	public void OptiontellAboutBarcelona() {
-		Debugger.printLog ("barcelona");
 		characterManager.setDialogs (dialogs4);
 		characterManager.setTalking ();
+		Debugger.printLog (characterManager.animationReference.getTalking ());
 		CurrentStep = first;
 	}
 
@@ -67,7 +67,6 @@ public class Fase_2_pregunta : StateScript {
 	}
 
 	private void showMenuGivePassPort() {
-		Debugger.printLog ("show");
 		menuController.addDialogTriggerAction (0,"Say, 'Could you repeat the question?'",firstAction);
 		menuController.addDialogTriggerAction (1,"Say, 'I was on vacation in Barcelona.'",secondAction);
 		menuController.addDialogTriggerAction (2,"Hand the officer your passport.",thirdAction);
@@ -75,8 +74,7 @@ public class Fase_2_pregunta : StateScript {
 		menuController.addDialogTriggerAction (4,"High-five the officer.",fifthAction);
 	}
 
-	public void first() {
-		Debugger.printLog ("first");
+	private void first() {
 		if(!characterManager.animationReference.getTalking()) {
 			showMenuGivePassPort ();
 			CurrentStep = characterWaitsForPlayer;
@@ -89,7 +87,8 @@ public class Fase_2_pregunta : StateScript {
 		}
 	}
 
-	private void characterWaitsForPlayer() {}
+	private void characterWaitsForPlayer() {
+	}
 
 	public override void atInit()
 	{
