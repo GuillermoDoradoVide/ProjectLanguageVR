@@ -19,7 +19,7 @@ public class InteractionMenuController : MonoBehaviour {
 		if(!interactionMenu) {
 			interactionMenu = FindObjectOfType (typeof(InteractionMenuController)) as InteractionMenuController;
 			if(!interactionMenu) {
-				Debug.LogError("There is not an active InteractionMenuController GameObject in the scene");
+				Debugger.printErrorLog("There is not an active InteractionMenuController GameObject in the scene");
 			}
 		}
 		return interactionMenu;
