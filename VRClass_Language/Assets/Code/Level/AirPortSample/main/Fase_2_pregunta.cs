@@ -39,7 +39,6 @@ public class Fase_2_pregunta : StateScript {
 	public void OptiontellAboutBarcelona() {
 		characterManager.setDialogs (dialogs4);
 		characterManager.setTalking ();
-		Debugger.printLog (characterManager.animationReference.getTalking ());
 		CurrentStep = first;
 	}
 
