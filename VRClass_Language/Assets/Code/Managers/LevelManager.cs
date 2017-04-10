@@ -28,7 +28,7 @@ public class LevelManager : SingletonComponent<LevelManager>
 		}
 		else
 		{
-			Debug.Log(" Fallo al recoger la informacion del nivel.");
+			Debugger.printLog(" Fallo al recoger la informacion del nivel.");
 		}
 		SoundManager.setMusicBox (levelInfo.musicAndSounds.musics);
 	}
@@ -40,7 +40,7 @@ public class LevelManager : SingletonComponent<LevelManager>
 
     private void generateStateActivityManager()
     {
-        Debug.Log("crear stateManager");
+		Debugger.printLog("crear stateManager");
         stateActivityManager = ScriptableObject.CreateInstance<StateManager>();
     }
 

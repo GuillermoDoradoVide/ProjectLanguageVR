@@ -34,7 +34,7 @@ public class DialogScript : MonoBehaviour {
         freqData = new float[nSamples];
         if (dialog == null)
         {
-            Debug.Log("No hay archivo de audio cargado.");
+			Debugger.printLog("No hay archivo de audio cargado.");
         }
     }
 
@@ -70,14 +70,14 @@ public class DialogScript : MonoBehaviour {
 
     public void stopDialog()
     {
-        Debug.Log("parar el dialogo.");
+		Debugger.printLog("parar el dialogo.");
         audioSource.Stop();
 		animationController.SetLayerWeight (2, 0);
     }
 
     public void pauseDialog()
     {
-        Debug.Log("pausar el dialogo");
+		Debugger.printLog("pausar el dialogo");
         audioSource.Pause();
 		animationController.SetLayerWeight (2, 0);
     }

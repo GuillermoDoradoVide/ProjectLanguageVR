@@ -40,7 +40,7 @@ public class EventManager : SingletonComponent<EventManager>
             thisEvent.AddListener(listener);
             instance.eventDictionary.Add(eventName, thisEvent);
         }
-        Debug.Log("Start listening to event: " + eventName);
+		Debugger.printLog("Start listening to event: " + eventName);
     }
 
     public static void stopListening (Events.EventList eventName, UnityAction listener)
@@ -51,7 +51,7 @@ public class EventManager : SingletonComponent<EventManager>
         {
             thisEvent.RemoveListener(listener);
         }
-        Debug.Log("Stop listening to event: " + eventName);
+		Debugger.printLog("Stop listening to event: " + eventName);
     }
 
     public static void triggerEvent(Events.EventList eventName)
@@ -60,7 +60,7 @@ public class EventManager : SingletonComponent<EventManager>
         if(Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent.Invoke();
-            Debug.Log("Trigger this event: " + eventName);
+			Debugger.printLog("Trigger this event: " + eventName);
         }
     }
 

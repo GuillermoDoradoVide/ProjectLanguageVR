@@ -8,9 +8,6 @@ public class Fase_1_Esperar : StateScript {
 	public CharacterManager characterManagerOfficer;
 	public AudioClip[] nextPlease;
 
-	private delegate void Steps();
-	private Steps Step;
-
 	void Start()
 	{
 		characterManager.animationReference.setTalking ();
@@ -21,7 +18,8 @@ public class Fase_1_Esperar : StateScript {
 	{
 //		characterManager.doUpdate ();
 //		characterManagerOfficer.doUpdate ();
-		Step ();
+		CurrentStep();
+//		Step ();
 	}
 
 	public void setTalkingFalse() {
@@ -36,7 +34,7 @@ public class Fase_1_Esperar : StateScript {
 	private void first() {
 		if (!characterManager.animationReference.getTalking()) {
 			Invoke ("disableCharacter", 3);
-			Step = second;
+			CurrentStep = second;
 			characterManagerOfficer.setWaitTalking (4, 2);
 		}
 	}
@@ -51,7 +49,7 @@ public class Fase_1_Esperar : StateScript {
 		characterManager.isActive = true;
 		characterManagerOfficer.setDialogs (nextPlease);
 		characterManager.setCharacterNextStates (stepsA);
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public override void atEnd()

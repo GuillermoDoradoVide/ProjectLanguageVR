@@ -100,12 +100,12 @@ public class GameManager : SingletonComponent<GameManager>
     private void pauseGame()
     {
         EventManager.triggerEvent(Events.EventList.STATE_Pause);
-        Debug.Log("Pausa del juego. abriendo el menu.");
+		Debugger.printLog("Pausa del juego. abriendo el menu.");
     }
 
     private void continueGame()
     {
         EventManager.triggerEvent(Events.EventList.STATE_Continue);
-        Debug.Log("Reanudar el juego.");
+		Debugger.printLog("Reanudar el juego.");
     }
 }

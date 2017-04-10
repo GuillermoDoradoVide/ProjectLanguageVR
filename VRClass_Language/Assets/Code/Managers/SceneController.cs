@@ -36,20 +36,20 @@ public class SceneController : SingletonComponent<SceneController>
 
     public static void loadAditiveScene(string addedAditiveScene)
     {
-        Debug.Log("AdditiveScene");
+		Debugger.printLog("AdditiveScene");
         if (instance != null)
         {
             if (!SceneManager.GetSceneByName(addedAditiveScene).IsValid())
             {
                 Instance.sceneLoadTask = SceneManager.LoadSceneAsync(addedAditiveScene, LoadSceneMode.Additive);
-                Debug.Log("Carga");
+				Debugger.printLog("Carga");
             }
         }
     }
 
     public static void unloadAditiveScene(string addedAditiveScene)
     {
-        Debug.Log("AdditiveScene");
+		Debugger.printLog("AdditiveScene");
         if (instance != null)
         {
             if (SceneManager.GetSceneByName(addedAditiveScene).IsValid())
@@ -63,7 +63,7 @@ public class SceneController : SingletonComponent<SceneController>
     {
 		currentSceneName = SceneManager.GetActiveScene().name;
 		nextSceneName = currentSceneName;
-        Debug.Log("[SceneManager] loading '" + nextSceneName + "' scene.");
+		Debugger.printLog("[SceneManager] loading '" + nextSceneName + "' scene.");
         sceneState = SceneState.Run; // first process
         sceneStateUpdates = new SceneStateUpdate[(int)SceneState.Count];
         //Set each scene state delegate

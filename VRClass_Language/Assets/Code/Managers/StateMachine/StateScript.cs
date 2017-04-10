@@ -72,9 +72,7 @@ public abstract class StateScript : MonoBehaviour {
 
     public void doChangeThisStateToFinished()
     {
-		#if UNITY_EDITOR
-		Debug.Log ("doChangeThisStateToFinished: " + name);
-		#endif
+		Debugger.printLog ("doChangeThisStateToFinished: " + name);
         stateMode = StateMode.Finished;
     }
 
@@ -86,9 +84,7 @@ public abstract class StateScript : MonoBehaviour {
 
     private void atStateFinished()
     {
-		#if UNITY_EDITOR
-		Debug.Log("State " + gameObject.name +" finished.");
-		#endif
+		Debugger.printLog("State " + gameObject.name +" finished.");
         EventManager.triggerEvent(Events.EventList.STATE_Next);
     }
 }

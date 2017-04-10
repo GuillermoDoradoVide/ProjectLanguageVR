@@ -19,8 +19,6 @@ public class Fase_2_pregunta : StateScript {
 	public UnityAction forthAction;
 	public UnityAction fifthAction;
 
-	private delegate void Steps();
-	private Steps Step;
 	void Start()
 	{
 	}
@@ -29,31 +27,32 @@ public class Fase_2_pregunta : StateScript {
 	public override void atUpdate()
 	{
 		//characterManager.doUpdate ();
-		Step ();
+		CurrentStep ();
 	}
 		
 	public void OptionrepeatQuestion() {
 		characterManager.setDialogs (dialogs3);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptiontellAboutBarcelona() {
+		Debugger.printLog ("barcelona");
 		characterManager.setDialogs (dialogs4);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptiongiveBoardingPass() {
 		characterManager.setDialogs (dialogs5);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptionhightFive() {
 		characterManager.setDialogs (dialogs6);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptiongivePassPort() {
@@ -64,10 +63,11 @@ public class Fase_2_pregunta : StateScript {
 	public void askName() {
 		characterManager.setDialogs (dialogs2);
 		characterManager.setTalking ();
-		Step = final;
+		CurrentStep = final;
 	}
 
 	private void showMenuGivePassPort() {
+		Debugger.printLog ("show");
 		menuController.addDialogTriggerAction (0,"Say, 'Could you repeat the question?'",firstAction);
 		menuController.addDialogTriggerAction (1,"Say, 'I was on vacation in Barcelona.'",secondAction);
 		menuController.addDialogTriggerAction (2,"Hand the officer your passport.",thirdAction);
@@ -75,10 +75,11 @@ public class Fase_2_pregunta : StateScript {
 		menuController.addDialogTriggerAction (4,"High-five the officer.",fifthAction);
 	}
 
-	private void first() {
+	public void first() {
+		Debugger.printLog ("first");
 		if(!characterManager.animationReference.getTalking()) {
 			showMenuGivePassPort ();
-			Step = characterWaitsForPlayer;
+			CurrentStep = characterWaitsForPlayer;
 		}
 	}
 
@@ -101,7 +102,7 @@ public class Fase_2_pregunta : StateScript {
 		thirdAction = new UnityAction (OptiongivePassPort);
 		forthAction = new UnityAction (OptiongiveBoardingPass);
 		fifthAction = new UnityAction (OptionhightFive);
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public override void atEnd()

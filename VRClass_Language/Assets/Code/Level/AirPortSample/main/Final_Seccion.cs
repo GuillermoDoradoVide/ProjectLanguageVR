@@ -7,9 +7,6 @@ public class Final_Seccion : StateScript {
 	public AudioClip incomingCall;
 	public AudioClip staticOn;
 
-	private delegate void Steps();
-	private Steps Step;
-
 	public AudioSource playerSource;
 	public AudioClip congratulations;
 
@@ -20,22 +17,22 @@ public class Final_Seccion : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		Step ();
+		CurrentStep ();
 	}
 
 	private IEnumerator contactWithBriefing() {
 		yield return new WaitForSeconds (1);
 		SoundManager.playSFX (incomingCall);
-		Debug.Log ("CONTACT");
+		Debugger.printLog ("CONTACT");
 		yield return  new WaitForSeconds (incomingCall.length);
-		Debug.Log ("END");
-		Step = makeContact;
+		Debugger.printLog ("END");
+		CurrentStep = makeContact;
 	}
 
 	private void makeContact() {
 			SoundManager.playSFX (staticOn);
 			playerSource.Play ();
-			Step = final;
+		CurrentStep = final;
 	}
 
 	private void final() {
@@ -49,7 +46,7 @@ public class Final_Seccion : StateScript {
 
 	public override void atInit()
 	{
-		Step = characterWaitsForPlayer;
+		CurrentStep = characterWaitsForPlayer;
 		StartCoroutine (contactWithBriefing());
 		EventManager.startListening (Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 		playerSource.clip = congratulations;

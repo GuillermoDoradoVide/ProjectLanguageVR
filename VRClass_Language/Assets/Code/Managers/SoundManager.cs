@@ -46,7 +46,7 @@ public class SoundManager : SingletonComponent<SoundManager> {
 			StartCoroutine (fadeMusic (toVolume, fadeDuration));
 		}
 		else {
-			Debug.LogError ("Error: Could not fade Music out as Music AudioSource has no currently playing clip.");
+			Debugger.printErrorLog ("Error: Could not fade Music out as Music AudioSource has no currently playing clip.");
 		}
 	}
 
@@ -215,16 +215,16 @@ public class SoundManager : SingletonComponent<SoundManager> {
 				manager.sfxSources [i].volume = getSFXVolume();
 			}
 		}
-		Debug.Log ("Music volume: " + getMusicVolume());
+		Debugger.printLog ("Music volume: " + getMusicVolume());
 		manager.musicSource.volume = getMusicVolume();
-		Debug.Log ("Music volume is now: " + getMusicVolume());
+		Debugger.printLog ("Music volume is now: " + getMusicVolume());
 	}
 
 	// sound manager methods
 
 	public static void setMusicBox(params AudioClip[] musics)
 	{
-		Debug.Log ("setMusicBox");
+		Debugger.printLog ("setMusicBox");
 		Instance.musicBox = musics;
 	}
 }

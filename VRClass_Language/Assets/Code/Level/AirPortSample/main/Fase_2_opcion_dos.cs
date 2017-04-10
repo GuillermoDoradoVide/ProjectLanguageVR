@@ -12,9 +12,6 @@ public class Fase_2_opcion_dos : StateScript {
 	public AudioClip[] dialogsE;
 	public CharacterManager characterManager;
 
-	private delegate void Steps();
-	private Steps Step;
-
 	public UnityAction firstAction;
 	public UnityAction secondAction;
 	public UnityAction thirdAction;
@@ -29,43 +26,43 @@ public class Fase_2_opcion_dos : StateScript {
 	public override void atUpdate()
 	{
 		//characterManager.doUpdate ();
-		Step ();
+		CurrentStep ();
 	}
 
 	public void Optionrepeat() {
 		characterManager.setDialogs (dialogsA);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void Optionagree() {
 		characterManager.setDialogs (dialogsB);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void Optionmiami() {
 		characterManager.setDialogs (dialogsC);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptionDC() {
 		characterManager.setDialogs (dialogsD);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptionBarcelona() {
 		characterManager.setDialogs (dialogsE);
 		characterManager.setTalking ();
-		Step = final;
+		CurrentStep = final;
 	}
 
 	private void first() {
 		if(!characterManager.animationReference.getTalking()) {
 			showFlyFromMenuOptions ();
-			Step = characterWaitsForPlayer;
+			CurrentStep = characterWaitsForPlayer;
 		}
 	}
 
@@ -88,7 +85,7 @@ public class Fase_2_opcion_dos : StateScript {
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-		Step = first;
+		CurrentStep = first;
 		firstAction = new UnityAction (Optionrepeat);
 		secondAction = new UnityAction (Optionagree);
 		thirdAction = new UnityAction (Optionmiami);

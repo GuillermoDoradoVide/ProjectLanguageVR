@@ -12,9 +12,6 @@ public class Fase3_pregunta_2 : StateScript {
 	public AudioClip[] dialogsE;
 	public CharacterManager characterManager;
 
-	private delegate void Steps();
-	private Steps Step;
-
 	public UnityAction firstAction;
 	public UnityAction secondAction;
 	public UnityAction thirdAction;
@@ -29,43 +26,43 @@ public class Fase3_pregunta_2 : StateScript {
 	public override void atUpdate()
 	{
 		//characterManager.doUpdate ();
-		Step ();
+		CurrentStep ();
 	}
 
 	public void Optionrepeat() {
 		characterManager.setDialogs (dialogsA);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptionSecretAgent() {
 		characterManager.setDialogs (dialogsB);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptioDC() {
 		characterManager.setDialogs (dialogsC);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptionLoveMiami() {
 		characterManager.setDialogs (dialogsD);
 		characterManager.setTalking ();
-		Step = first;
+		CurrentStep = first;
 	}
 
 	public void OptionMedicalConference() {
 		characterManager.setDialogs (dialogsE);
 		characterManager.setTalking ();
-		Step = final;
+		CurrentStep = final;
 	}
 
 	private void first() {
 		if(!characterManager.animationReference.getTalking()) {
 			showPlayerAdessMenuOptions ();
-			Step = characterWaitsForPlayer;
+			CurrentStep = characterWaitsForPlayer;
 		}
 	}
 
@@ -88,7 +85,7 @@ public class Fase3_pregunta_2 : StateScript {
 	public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-		Step = first;
+		CurrentStep = first;
 		firstAction = new UnityAction (Optionrepeat);
 		secondAction = new UnityAction (OptionSecretAgent);
 		thirdAction = new UnityAction (OptioDC);

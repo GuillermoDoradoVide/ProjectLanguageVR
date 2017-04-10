@@ -6,9 +6,6 @@ public class Fase_1_Instrucciones : StateScript
 	public InteractionMenuController menuController;
 	public Canvas instructions;
 
-	private delegate void Steps ();
-	private Steps Step;
-
 	public AudioClip introduction;
 	public AudioClip introduction2;
 	public AudioClip repeat;
