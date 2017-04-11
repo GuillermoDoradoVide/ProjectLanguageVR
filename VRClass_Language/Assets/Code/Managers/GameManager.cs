@@ -10,7 +10,7 @@ public class GameManager : SingletonComponent<GameManager>
     public SoundManager soundManager;
 
 	[Header("Pause Setting")]
-	public float pauseTriggerTimer = 4.0f;
+	public float pauseTriggerTimer = 3.0f;
 	public float currentPauseTimer;
 	public bool isPaused = false;
 	public LevelMusicAndSounds managerSounds;
