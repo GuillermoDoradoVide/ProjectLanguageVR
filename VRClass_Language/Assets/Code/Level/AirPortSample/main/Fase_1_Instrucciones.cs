@@ -26,6 +26,8 @@ public class Fase_1_Instrucciones : StateScript
 	private bool no = false;
 	public bool repeated = false;
 
+	public Transform Camera;
+
 	private void Start ()
 	{
 		resetGesture ();
@@ -59,9 +61,9 @@ public class Fase_1_Instrucciones : StateScript
 		SoundManager.playSFX (incomingCall);
 		instructions.gameObject.SetActive (true);
 		GetComponent<panelAlphaController> ().showPanel ();
-		Debug.Log ("CONTACT");
+		Debugger.printLog ("CONTACT");
 		yield return  new WaitForSeconds (incomingCall.length);
-		Debug.Log ("END");
+		Debugger.printLog ("END");
 		CurrentStep = makeContact;
 	}
 
@@ -163,7 +165,8 @@ public class Fase_1_Instrucciones : StateScript
 	private void headGestureRecognition ()
 	{
 		initHeadGesture ();
-		angles [index] = GvrViewer.Instance.HeadPose.Orientation.eulerAngles;
+		angles [index] = Camera.eulerAngles;
+		//angles [index] = GvrViewer.Instance.HeadPose.Orientation.eulerAngles;
 		index++;
 		if (index >= angleDetectorTime) {
 			checkHeadGesture ();
@@ -206,7 +209,8 @@ public class Fase_1_Instrucciones : StateScript
 	private void resetGesture() {
 		angles = new Vector3[angleDetectorTime];
 		index = 0;
-		centerAngle = GvrViewer.Instance.HeadPose.Orientation.eulerAngles;
+		centerAngle = Camera.eulerAngles;
+		//centerAngle = GvrViewer.Instance.HeadPose.Orientation.eulerAngles;
 	}
 
 	private void showStartMissionMenu() {
@@ -214,7 +218,7 @@ public class Fase_1_Instrucciones : StateScript
 	}
 
 	private void startMission() {
-		Debug.Log ("start mission");
+		Debugger.printLog ("start mission");
 		StartCoroutine (contactWithBriefing());
 		playerSource.clip = introduction;
 		// temporal
