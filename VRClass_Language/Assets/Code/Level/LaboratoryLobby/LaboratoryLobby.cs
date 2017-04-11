@@ -9,8 +9,6 @@ public class LaboratoryLobby : StateScript {
 	public Transform[] rotateTo;
 	public AudioClip[] firstAudio;
 
-	public RotateHologram _hologram;
-
 	public bool isIntro;
 
 	void Start()
@@ -58,7 +56,9 @@ public class LaboratoryLobby : StateScript {
 		}
 	}
 	private void third() {
-		_hologram.rotateHologram ();
+		if (!characterManager.animationReference.getTalking()) {
+			doChangeThisStateToFinished();
+		}
 	}
 
 	public override void atInit()

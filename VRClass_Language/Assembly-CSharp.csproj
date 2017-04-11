@@ -89,6 +89,7 @@
      <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventThird.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\TestScript.cs" />
      <Compile Include="Assets\Code\Level\SceneData.cs" />
+     <Compile Include="Assets\Code\Level\UserLobby\MissionBriefing_1.cs" />
      <Compile Include="Assets\Code\Level\UserLobby\RotateHologram.cs" />
      <Compile Include="Assets\Code\Managers\EffectManager.cs" />
      <Compile Include="Assets\Code\Managers\EventManager.cs" />
