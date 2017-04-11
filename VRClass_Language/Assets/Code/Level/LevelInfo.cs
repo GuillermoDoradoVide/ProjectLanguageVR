@@ -6,7 +6,7 @@ public class LevelInfo : MonoBehaviour {
 
     public string levelName;
     private SceneData sceneData;
-	public LevelMusicAndSounds musicAndSounds;
+	public LevelData levelData;
     public SceneData SceneData
     {
         get {
@@ -23,7 +23,7 @@ public class LevelInfo : MonoBehaviour {
 	void Start () {
         if (sceneData == null)
         {
-            Debug.Log("Current Scene doesn`t have a SceneData Scriptable.");
+			Debugger.printLog("Current Scene doesn`t have a SceneData Scriptable.");
         }
 	}
 }

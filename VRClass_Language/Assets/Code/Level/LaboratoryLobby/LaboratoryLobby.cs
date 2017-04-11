@@ -11,9 +11,6 @@ public class LaboratoryLobby : StateScript {
 
 	public RotateHologram _hologram;
 
-	private delegate void Steps();
-	private Steps Step;
-
 	public bool isIntro;
 
 	void Start()
@@ -23,11 +20,11 @@ public class LaboratoryLobby : StateScript {
 	// Update is called once per frame
 	public override void atUpdate()
 	{
-		Step ();
+		CurrentStep ();
 	}
 
 	public void loadAirPortLevel() {
-		Debug.Log ("Load");
+		Debugger.printLog ("Load");
 		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
 		Invoke ("changeToAirportScene", 2);
 	}
@@ -42,14 +39,14 @@ public class LaboratoryLobby : StateScript {
 
 	private void startIntro() {
 		characterManager.setCharacterNextStates (stepsA);
-		Step = first;
+		CurrentStep = first;
 	}
 
 	private void first () {
 		if (characterManager.isStandBy()) {
 			characterManager.setCharacterNextStates (RotateB);
 			characterManager.setWaypoints (rotateTo);
-			Step = second;
+			CurrentStep = second;
 		}
 	}
 
@@ -57,7 +54,7 @@ public class LaboratoryLobby : StateScript {
 		if (!characterManager.animationReference.getWalking()) {
 			characterManager.setDialogs (firstAudio);
 			characterManager.setTalking ();
-			Step = third;
+			CurrentStep = third;
 		}
 	}
 	private void third() {
@@ -67,10 +64,11 @@ public class LaboratoryLobby : StateScript {
 	public override void atInit()
 	{
 		if(!isIntro) {
-			Step = waitForPlayer;
+			CurrentStep = waitForPlayer;
 		}
 		else {
-			Step = startIntro;
+			CurrentStep = startIntro;
+			characterManager.isActive = true;
 		}
 	}
 

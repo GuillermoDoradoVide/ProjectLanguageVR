@@ -32,7 +32,7 @@ public class SceneData : MonoBehaviour {
     { 
         foreach (StateScript state in eventList)
         {
-            Debug.Log("Añadida la fase: " + state.name);
+			Debugger.printLog("Añadida la fase: " + state.name);
             sceneEventActivity.Add(state);
         }
 		sceneEventActivity.Reverse ();

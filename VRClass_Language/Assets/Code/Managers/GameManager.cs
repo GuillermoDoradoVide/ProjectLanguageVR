@@ -92,7 +92,7 @@ public class GameManager : SingletonComponent<GameManager>
 
 	private void triggerUnPause() {
 		isPaused = false;
-		SoundManager.playMusic (LevelManager.Instance.levelInfo.musicAndSounds.musics[0], true);
+		SoundManager.playMusic (LevelManager.Instance.levelInfo.levelData.music[0], true);
 		SoundManager.playSFX (managerSounds.sounds[0]);
 		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Continue);
 	}

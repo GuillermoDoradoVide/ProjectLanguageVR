@@ -7,10 +7,15 @@ public class ShowMenuSection : MonoBehaviour {
 	public Transform menuSection;
 	public GameObject imageHighLight;
 	public AudioClip changeMenu;
+	public AudioClip hoverMenu;
 	public Text title;
 	// Use this for initialization
 	void Start () {
 		EventManager.startListening (Events.EventList.MV_Hide_Active, hideSection);
+	}
+
+	public void hoverThisMenu() {
+		SoundManager.playSFX (hoverMenu);
 	}
 
 	public void showThisMenu() {

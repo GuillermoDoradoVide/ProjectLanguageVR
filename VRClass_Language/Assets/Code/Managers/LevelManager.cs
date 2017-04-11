@@ -30,7 +30,7 @@ public class LevelManager : SingletonComponent<LevelManager>
 		{
 			Debugger.printLog(" Fallo al recoger la informacion del nivel.");
 		}
-		SoundManager.setMusicBox (levelInfo.musicAndSounds.musics);
+		SoundManager.setMusicBox (levelInfo.levelData.music);
 	}
 	
 	// Update is called once per frame

@@ -80,6 +80,7 @@
      <Compile Include="Assets\Code\Level\CitizenShipExam\initCitizenShip.cs" />
      <Compile Include="Assets\Code\Level\LaboratoryLobby\LaboratoryLobby.cs" />
      <Compile Include="Assets\Code\Level\LaboratoryLobby\initLaboratoryLobby.cs" />
+     <Compile Include="Assets\Code\Level\LevelData.cs" />
      <Compile Include="Assets\Code\Level\LevelInfo.cs" />
      <Compile Include="Assets\Code\Level\ResetLevel.cs" />
      <Compile Include="Assets\Code\Level\SampleLevel\MainHistory\SceneEventActivity.cs" />
@@ -106,6 +107,7 @@
      <Compile Include="Assets\Code\MenuAndInterface\IMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IMove.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\IRotation.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\InGameMenu\PlayerContentMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\ButtonAction.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\IconAnimations.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs" />
