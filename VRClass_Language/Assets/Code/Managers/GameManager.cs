@@ -14,7 +14,7 @@ public class GameManager : SingletonComponent<GameManager>
 	public float currentPauseTimer;
 	public bool isPaused = false;
 	public LevelMusicAndSounds managerSounds;
-
+	public bool sample;
     private void Awake()
     {
         initManagers();
@@ -59,10 +59,22 @@ public class GameManager : SingletonComponent<GameManager>
     //*************************
     private void Update()
     {
-		if (GvrController.AppButton) {
-			Debug.Log ("click");
-			SoundManager.playSFX (managerSounds.sounds[0]);
-			checkPause ();
+		sample = GvrController.AppButton;
+		if (GvrController.AppButtonDown) {
+			if(isPaused) {
+				isPaused = false;
+			}else {
+				isPaused = true;
+			}
+//			isPaused = !isPaused;
+			if(isPaused) {
+				triggerPause();
+			}
+			else {
+				triggerUnPause();
+			}
+//			Debug.Log ("click");
+//			checkPause ();
 		}
 		else {
 			currentPauseTimer = 0;
@@ -87,15 +99,15 @@ public class GameManager : SingletonComponent<GameManager>
 
 	private void triggerPause() {
 		isPaused = true;
-		SoundManager.playMusic(managerSounds.musics[0], true);
-		SoundManager.playSFX (managerSounds.sounds[0]);
+//		SoundManager.playMusic(managerSounds.musics[0], true);
+//		SoundManager.playSFX (managerSounds.sounds[0]);
 		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Pause);
 	}
 
 	private void triggerUnPause() {
 		isPaused = false;
-		SoundManager.playMusic (LevelManager.Instance.levelInfo.levelData.music[0], true);
-		SoundManager.playSFX (managerSounds.sounds[0]);
+//		SoundManager.playMusic (LevelManager.Instance.levelInfo.levelData.music[0], true);
+//		SoundManager.playSFX (managerSounds.sounds[0]);
 		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Continue);
 	}
 
