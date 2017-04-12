@@ -60,6 +60,8 @@ public class GameManager : SingletonComponent<GameManager>
     private void Update()
     {
 		if (GvrController.AppButton) {
+			Debug.Log ("click");
+			SoundManager.playSFX (managerSounds.sounds[0]);
 			checkPause ();
 		}
 		else {

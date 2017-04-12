@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+﻿
 using UnityEngine;
 using UnityEngine.Internal;
 using System.Diagnostics;
@@ -32,4 +32,3 @@ public static class Debugger {
 //		UnityEngine.Debug.LogError (string.Concat(args));
 //	}
 }
-#endif
