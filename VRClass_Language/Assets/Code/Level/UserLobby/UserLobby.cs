@@ -23,6 +23,7 @@ public class UserLobby : StateScript {
 
 	private void waitForPlayer() {
 		if(isIntro) {
+			SessionManager.sendEvent ("Scene", "watch intro");
 			CurrentStep = startIntro;
 			characterManager.gameObject.SetActive (true);
 			characterManager.isActive = true;

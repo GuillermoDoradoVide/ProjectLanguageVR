@@ -14,6 +14,7 @@ public class SessionManager : SingletonComponent<SessionManager> {
 	private void Awake() {
 		userList = new UserList();
 		initAnalytics ();
+		createNewUser ();
 	}
     
 	// Use this for initialization
@@ -32,7 +33,7 @@ public class SessionManager : SingletonComponent<SessionManager> {
 	
 
 	private void initAnalytics() {
-		analytics = GoogleAnalyticsV4.getInstance ();
+		analytics = GameObject.Find ("GAv4").GetComponent<GoogleAnalyticsV4> ();
 		loadUserList ();
 	}
 
@@ -103,12 +104,17 @@ public class SessionManager : SingletonComponent<SessionManager> {
 
     private void loadUserGameData()
     {
+		analytics.enableAdId = true;
 		analytics.StartSession ();
 		analytics.SetOnTracker (Fields.USER_ID,userID.ToString().PadLeft(3,'0'));
 		analytics.LogEvent (new EventHitBuilder().SetEventCategory("User Session").SetEventAction("User sign in"));
 		analytics.DispatchHits ();
 		/* cargar los datos del usuario*/
     }
+
+	public static void sendEvent (string category, string action, string label ="empty", int value = 0) {
+		instance.analytics.LogEvent (category, action, label, value);
+	}
 
     private void saveUserGameData()
     {

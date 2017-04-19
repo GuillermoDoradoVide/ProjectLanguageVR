@@ -5,10 +5,10 @@
       <File FileName="Assets\Code\Managers\SceneController.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\initGame.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Managers\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Player\Session\SessionManager.cs" Line="109" Column="29" />
-      <File FileName="Assets\Code\MenuAndInterface\Login\EditUserID.cs" Line="9" Column="1" />
+      <File FileName="Assets\Code\Player\Session\SessionManager.cs" Line="108" Column="29" />
+      <File FileName="Assets\Code\MenuAndInterface\Login\EditUserID.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\MenuAndInterface\Login\UserLogginController.cs" Line="88" Column="38" />
-      <File FileName="Assets\Code\Level\UserLobby\UserLobby.cs" Line="27" Column="49" />
+      <File FileName="Assets\Code\Level\UserLobby\UserLobby.cs" Line="22" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
