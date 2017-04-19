@@ -15,6 +15,7 @@ public class GameManager : SingletonComponent<GameManager>
 	public bool isPaused = false;
 	public LevelMusicAndSounds managerSounds;
 	public bool sample;
+
     private void Awake()
     {
         initManagers();
@@ -49,13 +50,15 @@ public class GameManager : SingletonComponent<GameManager>
 		eventManager = EventManager.Instance;
 		soundManager = SoundManager.Instance;
         levelManager = LevelManager.Instance;
+		sessionManager = SessionManager.Instance;
     }
 
     private void initEventTriggers()
     {
         EventManager.startListening(Events.EventList.GAMEMANAGER_Pause, pauseGame);
         EventManager.startListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
-    }
+	}
+		
     //*************************
     private void Update()
     {

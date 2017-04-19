@@ -7,8 +7,6 @@ public class StateManager : ScriptableObject {
     [SerializeField]
     private StateScript currentState;
 
-	public GoogleAnalyticsV4 analytics;
-
 	private void Awake ()
 	{
 		if(stackStateList != null) {
@@ -18,8 +16,6 @@ public class StateManager : ScriptableObject {
 		currentState = null;
 		stackStateList = new Stack<StateScript>();
 		initMachine();
-		analytics = GoogleAnalyticsV4.getInstance ();
-		analytics.LogEvent ("Usuario nuevo conectado pixel.", "usuario logeado", "login", 1);
 	}
 
     private void OnDisable()

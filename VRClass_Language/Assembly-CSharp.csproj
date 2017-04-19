@@ -115,6 +115,8 @@
      <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\panelAlphaController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\InteractiveMenu.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\Login\EditUserID.cs" />
+     <Compile Include="Assets\Code\MenuAndInterface\Login\UserLogginController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\LookActionMenu.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuAnimationController.cs" />
      <Compile Include="Assets\Code\MenuAndInterface\MenuController.cs" />

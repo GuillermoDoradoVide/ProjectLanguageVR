@@ -4,74 +4,89 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-public class SessionManager : MonoBehaviour {
+public class SessionManager : SingletonComponent<SessionManager> {
 
-    private int usersIDCount;
+    public int userID;
+	public GoogleAnalyticsV4 analytics;
+	private UserList userList;
+	private UserProfile user;
 
-    [System.Serializable]
-    class UserProfile
-    {
-        public int userID;
-        public string userName;
-        public string userPassWord;
-    }
-
-    [System.Serializable]
-    class UserGameData
-    {
-        public int userID;
-        public bool completedLevel1 = false;
-        public bool completedLevel2 = false;
-        public bool completedLevel3 = false;
-        List<AchievementKeysList> achievementList = new List<AchievementKeysList>();
-    }
+	private void Awake() {
+		userList = new UserList();
+		initAnalytics ();
+	}
+    
 	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	private void Start () {
 	}
 
-    private void createNewUser()
+	private void Update() {
+//		if(Input.GetKeyDown(KeyCode.A)) {
+//			createNewUser ();
+//		}
+
+		if(Input.GetKeyDown(KeyCode.F)) {
+			loadUserProfileAndData (userID);
+		}
+	}
+	
+
+	private void initAnalytics() {
+		analytics = GoogleAnalyticsV4.getInstance ();
+		loadUserList ();
+	}
+
+	private void loadUserList() {
+		userList = new UserList();
+		userList.users = new List<UserProfile> ();
+		BinaryFormatter bf = new BinaryFormatter();
+		if (File.Exists (Application.persistentDataPath + "USERLIST")) {
+			FileStream file = File.Open(Application.persistentDataPath + "USERLIST", FileMode.Open);
+			userList.users = (List<UserProfile>)bf.Deserialize(file);
+			file.Close();
+			Debugger.printLog ("Lista de usuarios cargada! Nº usuarios: " + userList.users.Count);
+		}
+		else {
+			Debugger.printLog("Lista de usuarios no existe.");
+			FileStream file = File.Create(Application.persistentDataPath + "USERLIST");
+			bf.Serialize(file, userList.users);
+			file.Close();
+		}
+	}
+
+	public void createNewUser()
     {
         BinaryFormatter bf = new BinaryFormatter();
         UserGameData userData = new UserGameData();
         UserProfile userProfile = new UserProfile();
-        if (File.Exists(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA"))
-        {
-            // usuario ya existe
-        }
-        else
-        {
-            FileStream file = File.Create(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA");
-            userData.userID = usersIDCount;
-            bf.Serialize(file, userProfile);
-            bf.Serialize(file, userData);
-            file.Close();
-        }
+		loadUserList ();
+		userProfile.userID = userList.users.Count;
+		Debugger.printLog ("NEW USER: " + userProfile.userID);
+		FileStream file = File.Create (Application.persistentDataPath + "USER_" + userProfile.userID.ToString ().PadLeft (3, '0'));
+		userProfile.user = userData;
+		userList.users.Add (userProfile);
+		userID = userProfile.userID;
+        bf.Serialize(file, userProfile);
+        file.Close();
+		FileStream fileList = File.Open(Application.persistentDataPath + "USERLIST", FileMode.Open);
+		bf.Serialize(fileList, userList.users);
+		fileList.Close ();
+		analytics.SetUserIDOverride (userProfile.userID.ToString());
         userData = null;
         userProfile = null;
     }
 
-    private void loadUserProfileAndData(string name, string password)
+	public void loadUserProfileAndData(int ID)
     {
-        if (checkUserProfileData(name))
+		if (checkUserProfileData(ID))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + name, FileMode.Open);
+			FileStream file = File.Open (Application.persistentDataPath + "USER_" + ID.ToString ().PadLeft (3, '0'), FileMode.Open);
             UserProfile userData = (UserProfile)bf.Deserialize(file);
             file.Close();
-            if (password.CompareTo(userData.userPassWord) == 0)
-            {
-                usersIDCount = userData.userID;
-                loadUserGameData();
-            }
-            else
-            {
-                //EventManager.triggerEvent(Events.EventList.USERV_WRONG_PASS);
-            }
+			user = userData;
+			userID = userData.userID;
+            loadUserGameData();
         }
         else
         {
@@ -79,53 +94,57 @@ public class SessionManager : MonoBehaviour {
         }
     }
 
-    private bool checkUserProfileData(string name) // check password and user
+    private bool checkUserProfileData(int ID) // check user ID
     {
-        return (File.Exists(Application.persistentDataPath + name)) ? true : false;
+		loadUserList ();
+		return (userList.users.Exists (x => x.userID == ID)) ? true : false;
     }
 
     private void loadUserGameData()
     {
-        if (File.Exists(Application.persistentDataPath + ""))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "", FileMode.Open);
-            UserGameData userData = (UserGameData)bf.Deserialize(file);
-            file.Close();
-            usersIDCount = userData.userID;
-        }
+		analytics.StartSession ();
+		analytics.SetOnTracker (Fields.CLIENT_ID,userID.ToString().PadLeft(3,'0'));
+		analytics.LogEvent (new EventHitBuilder().SetEventCategory("User Session").SetEventAction("User sign in"));
+		/* cargar los datos del usuario*/
     }
 
     private void saveUserGameData()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        UserGameData userData = new UserGameData();
-        if (File.Exists(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA"))
+		if (File.Exists(Application.persistentDataPath + "USER_" + userID.ToString().PadLeft(3,'0')))
         {
-            FileStream file = File.Open(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA", FileMode.Open);
-            bf.Serialize(file, userData);
+			FileStream file = File.Open (Application.persistentDataPath + "USER_" + userID.ToString ().PadLeft (3, '0'), FileMode.Open);
+			UserProfile USER = (UserProfile)bf.Deserialize(file);
+			// realizar cambios en userData
+			bf.Serialize(file, USER);
             file.Close();
         }
-        userData = null;
     }
+}
 
-    private void saveUserProfile()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        UserProfile userProfile = new UserProfile();
-        userProfile.userID = usersIDCount;
-        userProfile.userName = "Name";
-        userProfile.userPassWord = "PassWord";
-        if (File.Exists(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA"))
-        {
-            FileStream file = File.Open(Application.persistentDataPath + "USER_" + usersIDCount + "_GAMEDATA", FileMode.Open);
-            bf.Serialize(file, userProfile);
-            file.Close();
-        }
-        else
-        {
-            //el usuario no existe (nombre equivocado)
-        }
-        userProfile = null;
-    }
+// system.Serializable
+[System.Serializable]
+public class UserProfile
+{
+	public int userID;
+	public UserGameData user;
+}
+
+[System.Serializable]
+ public class UserGameData
+{
+	public bool completedLevel1 = false;
+	public bool completedLevel2 = false;
+	public bool completedLevel3 = false;
+	List<AchievementKeysList> achievementList = new List<AchievementKeysList>();
+}
+
+[System.Serializable]
+ public class UserList
+{
+	public List<UserProfile> users;
+
+	public UserList () {
+		users = new List<UserProfile> ();
+	}
 }

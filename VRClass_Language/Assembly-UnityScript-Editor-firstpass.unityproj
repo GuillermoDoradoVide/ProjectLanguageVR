@@ -95,6 +95,15 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity 5.4.2f2-GVR13/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
+ <Reference Include="Google.IOSResolver">
+ <HintPath>C:/Users/Guillermo/Documents/TRABAJO/ProjectLanguageVR/VRClass_Language/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.JarResolver">
+ <HintPath>C:/Users/Guillermo/Documents/TRABAJO/ProjectLanguageVR/VRClass_Language/Assets/PlayServicesResolver/Editor/Google.JarResolver.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandler">
+ <HintPath>C:/Users/Guillermo/Documents/TRABAJO/ProjectLanguageVR/VRClass_Language/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ </Reference>
  <Reference Include="Google.ProtocolBuffers">
  <HintPath>C:/Users/Guillermo/Documents/TRABAJO/ProjectLanguageVR/VRClass_Language/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
@@ -106,15 +115,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity 5.4.2f2-GVR13/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="Google.VersionHandler">
- <HintPath>C:/Users/Guillermo/Documents/TRABAJO/ProjectLanguageVR/VRClass_Language/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
- </Reference>
- <Reference Include="Google.IOSResolver">
- <HintPath>C:/Users/Guillermo/Documents/TRABAJO/ProjectLanguageVR/VRClass_Language/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
- </Reference>
- <Reference Include="Google.JarResolver">
- <HintPath>C:/Users/Guillermo/Documents/TRABAJO/ProjectLanguageVR/VRClass_Language/Assets/PlayServicesResolver/Editor/Google.JarResolver.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
