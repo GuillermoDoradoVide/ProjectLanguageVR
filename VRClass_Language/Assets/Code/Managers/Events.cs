@@ -17,7 +17,7 @@ public class Events  : ScriptableObject
         ACHIEVEMENT_TriggerUnlocked_Achievement,
         PET_NewDialog,
 		PLAYER_FadeIn, PLAYER_FadeOut, PLAYER_Teleport, PLAYER_PickObject, PLAYER_Inspect,
-        LEVEL_Activity_Completed,
+        LEVEL_Activity_Completed, NEW_USER,
         GAMEMANAGER_Pause, GAMEMANAGER_Continue,
         Count };
 }

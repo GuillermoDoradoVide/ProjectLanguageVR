@@ -71,12 +71,12 @@ public class SessionManager : SingletonComponent<SessionManager> {
 		FileStream fileList = File.Open(Application.persistentDataPath + "USERLIST", FileMode.Open);
 		bf.Serialize(fileList, userList.users);
 		fileList.Close ();
-		analytics.SetUserIDOverride (userProfile.userID.ToString());
+		loadUserProfileAndData (userID);
         userData = null;
         userProfile = null;
     }
 
-	public void loadUserProfileAndData(int ID)
+	public bool loadUserProfileAndData(int ID)
     {
 		if (checkUserProfileData(ID))
         {
@@ -87,10 +87,11 @@ public class SessionManager : SingletonComponent<SessionManager> {
 			user = userData;
 			userID = userData.userID;
             loadUserGameData();
+			return true;
         }
         else
         {
-            //EventManager.triggerEvent(Events.EventList.USERV_WRONG_USER);
+			return false;
         }
     }
 
