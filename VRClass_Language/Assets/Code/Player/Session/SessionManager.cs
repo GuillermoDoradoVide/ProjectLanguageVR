@@ -104,8 +104,9 @@ public class SessionManager : SingletonComponent<SessionManager> {
     private void loadUserGameData()
     {
 		analytics.StartSession ();
-		analytics.SetOnTracker (Fields.CLIENT_ID,userID.ToString().PadLeft(3,'0'));
+		analytics.SetOnTracker (Fields.USER_ID,userID.ToString().PadLeft(3,'0'));
 		analytics.LogEvent (new EventHitBuilder().SetEventCategory("User Session").SetEventAction("User sign in"));
+		analytics.DispatchHits ();
 		/* cargar los datos del usuario*/
     }
 
