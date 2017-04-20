@@ -21,17 +21,6 @@ public class SessionManager : SingletonComponent<SessionManager> {
 	private void Start () {
 	}
 
-	private void Update() {
-//		if(Input.GetKeyDown(KeyCode.A)) {
-//			createNewUser ();
-//		}
-
-		if(Input.GetKeyDown(KeyCode.F)) {
-			loadUserProfileAndData (userID);
-		}
-	}
-	
-
 	private void initAnalytics() {
 		analytics = GameObject.Find ("GAv4").GetComponent<GoogleAnalyticsV4> ();
 		loadUserList ();
@@ -48,7 +37,7 @@ public class SessionManager : SingletonComponent<SessionManager> {
 			Debugger.printLog ("Lista de usuarios cargada! Nº usuarios: " + userList.users.Count);
 		}
 		else {
-			Debugger.printLog("Lista de usuarios no existe.");
+			Debugger.printLog("Lista de usuarios no existe. Creando lista de usuarios!");
 			FileStream file = File.Create(Application.persistentDataPath + "USERLIST");
 			bf.Serialize(file, userList.users);
 			file.Close();

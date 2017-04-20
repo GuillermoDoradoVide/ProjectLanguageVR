@@ -61,7 +61,7 @@ public class AchievementManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Error at unlocking achievement...");
+			Debugger.printLog("Error at unlocking achievement...");
         }
     }
 

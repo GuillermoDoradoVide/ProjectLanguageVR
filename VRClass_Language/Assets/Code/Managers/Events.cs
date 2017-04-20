@@ -25,7 +25,7 @@ public class Events  : ScriptableObject
 public class AchievementKeysList : ScriptableObject {
     public enum AchievementList
     {
-       LEVEL1_Table, LEVEL1_Chair, LEVEL1_Book, Sample,
+		FIRST_LOGGIN, SESSION_1, S1_LEVEL1, S1_LEVEL2, S1_LEVEL3, SESSION_2, S2_LEVEL1, S2_LEVEL2, S2_LEVEL3,
         Count
     };
 
