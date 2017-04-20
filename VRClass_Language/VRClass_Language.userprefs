@@ -1,14 +1,15 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Managers\GameManager.cs">
+﻿<Properties StartupItem="VRClass_Language.Plugins.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\MenuAndInterface\Script_MainMenu.cs">
     <Files>
       <File FileName="Assets\Code\Managers\SceneController.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\initGame.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Managers\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\Player\Session\SessionManager.cs" Line="11" Column="28" />
-      <File FileName="Assets\Code\MenuAndInterface\Login\UserLogginController.cs" Line="88" Column="38" />
+      <File FileName="Assets\Code\Player\Session\SessionManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\Login\UserLogginController.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Level\UserLobby\UserLobby.cs" Line="1" Column="1" />
       <File FileName="Assets\Code\Managers\SoundManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\MenuAndInterface\Script_MainMenu.cs" Line="29" Column="88" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

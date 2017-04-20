@@ -74,14 +74,14 @@ public class Fase_2_pregunta : StateScript {
 	}
 
 	private void first() {
-		if(!characterManager.animationReference.getTalking()) {
+		if(!characterManager.isTalking()) {
 			showMenuGivePassPort ();
 			CurrentStep = characterWaitsForPlayer;
 		}
 	}
 
 	private void final() {
-		if(!characterManager.animationReference.getTalking()) {
+		if(!characterManager.isTalking()) {
 			doChangeThisStateToFinished ();
 		}
 	}
@@ -101,12 +101,14 @@ public class Fase_2_pregunta : StateScript {
 		forthAction = new UnityAction (OptiongiveBoardingPass);
 		fifthAction = new UnityAction (OptionhightFive);
 		CurrentStep = first;
-	}
+        EventManager.startListening(Events.EventList.NPC_DIALOG_FINISHED, showMenuGivePassPort);
+    }
 
 	public override void atEnd()
 	{
 		EventManager.stopListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
-	}
+        EventManager.stopListening(Events.EventList.NPC_DIALOG_FINISHED, showMenuGivePassPort);
+    }
 
 	public override void atPause()
 	{

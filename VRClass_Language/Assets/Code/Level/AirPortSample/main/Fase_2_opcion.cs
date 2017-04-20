@@ -69,7 +69,7 @@ public class Fase_2_opcion : StateScript {
 	}
 
 	private void first() {
-		if(!characterManager.animationReference.getTalking()) {
+		if(!characterManager.isTalking()) {
 			showTellnameMenuOptions ();
 			CurrentStep = characterWaitsForPlayer;
 		}
@@ -78,7 +78,7 @@ public class Fase_2_opcion : StateScript {
 	private void characterWaitsForPlayer() {}
 
 	private void final() {
-		if(!characterManager.animationReference.getTalking()) {
+		if(!characterManager.isTalking()) {
 			doChangeThisStateToFinished ();
 		}
 	}

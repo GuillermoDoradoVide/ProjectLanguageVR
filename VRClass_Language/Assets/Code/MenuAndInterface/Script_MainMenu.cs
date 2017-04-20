@@ -26,7 +26,7 @@ public class Script_MainMenu : MonoBehaviour, IElement, IMenu {
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            EventManager.unlockAchievementEvent(AchievementKeysList.AchievementList.Sample);
+			EventManager.unlockAchievementEvent(AchievementKeysList.AchievementList.FIRST_LOGGIN);
             EventManager.triggerEvent(Events.EventList.ACHIEVEMENT_TriggerUnlocked_Achievement);
         }
     }

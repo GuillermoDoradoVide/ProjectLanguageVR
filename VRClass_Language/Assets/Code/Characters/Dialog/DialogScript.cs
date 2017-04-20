@@ -85,6 +85,7 @@ public class DialogScript : MonoBehaviour {
     public void continueDialog()
     {
         audioSource.UnPause();
+        animationController.SetBool("Talking", true);
     }
 
     public void setNewAudioClip(AudioClip audioClip)

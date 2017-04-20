@@ -60,14 +60,14 @@ public class Fase_2_opcion_dos : StateScript {
 	}
 
 	private void first() {
-		if(!characterManager.animationReference.getTalking()) {
+		if(!characterManager.isTalking()) {
 			showFlyFromMenuOptions ();
 			CurrentStep = characterWaitsForPlayer;
 		}
 	}
 
 	private void final() {
-		if(!characterManager.animationReference.getTalking()) {
+		if(!characterManager.isTalking()) {
 			doChangeThisStateToFinished ();
 		}
 	}

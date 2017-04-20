@@ -35,6 +35,7 @@ public class IconAnimations : MonoBehaviour {
 	private void OnDisable()
 	{
 		Debug.Log("Se DESactiva el objeto: [" + gameObject.name + "]");
+        StopAllCoroutines();
 	}
 
 	public void Onclick() {
@@ -51,11 +52,19 @@ public class IconAnimations : MonoBehaviour {
 	}
 
 	public void hidePanel() {
-		if(gameObject.activeSelf) {
+		if(gameObject.activeInHierarchy) {
 			eventTrigger.enabled = false;
 			isShowing = false;
 			StartCoroutine(hideAnimation ());
 		}
+        else
+        {
+            isShowing = false;
+            canvasGroup.alpha = 0;
+            iconRectTransform.localPosition = initPos;
+            eventTrigger.enabled = true;
+            deactiveMenu();
+        }
 	}
 
 	private void deactiveMenu () {

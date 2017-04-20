@@ -15,7 +15,7 @@ public class Events  : ScriptableObject
         // sistema de eventos para gestionar los menus. Si se selecciona 1 se desactivan el resto.
         // opciones --> triggerEvent desactivar el resto.
         ACHIEVEMENT_TriggerUnlocked_Achievement,
-        PET_NewDialog,
+        PET_NewDialog, NPC_DIALOG_FINISHED,
 		PLAYER_FadeIn, PLAYER_FadeOut, PLAYER_Teleport, PLAYER_PickObject, PLAYER_Inspect,
         LEVEL_Activity_Completed, NEW_USER,
         GAMEMANAGER_Pause, GAMEMANAGER_Continue,

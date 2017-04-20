@@ -27,12 +27,13 @@ public class Fase_1_Esperar : StateScript {
 	}
 
 	private void disableCharacter() {
-		characterManager.gameObject.SetActive (false);
+        characterManager.disableCharacter();
+        characterManager.gameObject.SetActive (false);
 		doChangeThisStateToFinished ();
 	}
 
 	private void first() {
-		if (!characterManager.animationReference.getTalking()) {
+		if (!characterManager.isTalking()) {
 			Invoke ("disableCharacter", 3);
 			CurrentStep = second;
 			characterManagerOfficer.setWaitTalking (4, 2);
@@ -45,8 +46,8 @@ public class Fase_1_Esperar : StateScript {
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 		Invoke ("setTalkingFalse", 4);
-		characterManagerOfficer.isActive = true;
-		characterManager.isActive = true;
+		characterManagerOfficer.activeCharacter();
+        characterManager.activeCharacter();
 		characterManagerOfficer.setDialogs (nextPlease);
 		characterManager.setCharacterNextStates (stepsA);
 		CurrentStep = first;

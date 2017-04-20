@@ -60,14 +60,14 @@ public class Fase3_pregunta_2 : StateScript {
 	}
 
 	private void first() {
-		if(!characterManager.animationReference.getTalking()) {
+		if(!characterManager.isTalking()) {
 			showPlayerAdessMenuOptions ();
 			CurrentStep = characterWaitsForPlayer;
 		}
 	}
 
 	private void final() {
-		if (!characterManager.animationReference.getTalking ()) {
+		if (!characterManager.isTalking()) {
 			doChangeThisStateToFinished ();
 		}
 	}

@@ -30,7 +30,9 @@ public class InteractionMenuController : MonoBehaviour {
 			dialogButton[x] = dialogGameObject [x].GetComponentInChildren<Button> ();
 			dialog[x] = dialogGameObject [x].GetComponentInChildren<Text> ();
 		}
-	}
+        EventManager.startListening(Events.EventList.STATE_Pause, pauseIsOn);
+        EventManager.startListening(Events.EventList.STATE_Continue, pauseIsOff);
+    }
 
 	//show dialog event action
 	public void addDialogTriggerAction(int optionNumber, string boxDialog, UnityAction dialogTriggerEvent) {
@@ -51,4 +53,14 @@ public class InteractionMenuController : MonoBehaviour {
 		/*transform.LookAt (player.position);
 		transform.RotateAround (transform.position, Vector3.up, 180);*/
 	}
+
+    private void pauseIsOn()
+    {
+        interactionMenuObject.SetActive(false);
+    }
+
+    private void pauseIsOff()
+    {
+        interactionMenuObject.SetActive(true);
+    }
 }

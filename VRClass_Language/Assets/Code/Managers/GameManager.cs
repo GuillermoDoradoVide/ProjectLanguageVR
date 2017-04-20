@@ -63,7 +63,7 @@ public class GameManager : SingletonComponent<GameManager>
     private void Update()
     {
 		sample = GvrController.AppButton;
-		if (GvrController.AppButtonDown) {
+		if (GvrController.AppButtonDown || Input.GetKeyDown(KeyCode.P)) {
 			if(isPaused) {
 				isPaused = false;
 			}else {

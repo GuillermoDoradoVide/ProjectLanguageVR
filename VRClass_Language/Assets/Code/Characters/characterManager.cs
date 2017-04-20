@@ -37,6 +37,7 @@ public class CharacterManager : MonoBehaviour
 	public CharacterState[] StatesSteps;
 //	public bool isPaused = false;
 	private bool talking = false;
+    public bool wasActive = false;
 	public bool isActive = false;
 	public float counterWaitTalk;
 	public float timer;
@@ -249,17 +250,34 @@ public class CharacterManager : MonoBehaviour
 		sound.PlayOneShot (stepsSound);
 	}
 
-	private void pauseThisCharacterManager() {
-		//dialogScript.audioSource.Pause ();
-		if(dialogScript != null) {
+    public void activeCharacter()
+    {
+        isActive = true;
+        wasActive = true;
+    }
+
+    public void disableCharacter()
+    {
+        isActive = false;
+        wasActive = false;
+    }
+
+    private void pauseThisCharacterManager() {
+        isActive = false;
+        //dialogScript.audioSource.Pause ();
+        if (dialogScript != null) {
 			dialogScript.pauseDialog();
 		}
 		animationReference.setWalking (false);
 	}
 
 	private void continueThisCharacterManager() {
-		//dialogScript.audioSource.UnPause ();
-		if (dialogScript != null) {
+        if(wasActive == true)
+        {
+            isActive = true;
+        }
+        //dialogScript.audioSource.UnPause ();
+        if (dialogScript != null) {
 			dialogScript.continueDialog ();
 		}
 	}
