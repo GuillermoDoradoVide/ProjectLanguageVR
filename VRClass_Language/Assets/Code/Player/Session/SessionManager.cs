@@ -14,7 +14,6 @@ public class SessionManager : SingletonComponent<SessionManager> {
 	private void Awake() {
 		userList = new UserList();
 		initAnalytics ();
-		createNewUser ();
 	}
     
 	// Use this for initialization

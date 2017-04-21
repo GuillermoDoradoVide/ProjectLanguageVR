@@ -263,19 +263,19 @@ public class CharacterManager : MonoBehaviour
     }
 
     private void pauseThisCharacterManager() {
-        isActive = false;
-        //dialogScript.audioSource.Pause ();
-        if (dialogScript != null) {
-			dialogScript.pauseDialog();
-		}
+  //      isActive = false;
+  //      //dialogScript.audioSource.Pause ();
+  //      if (dialogScript != null) {
+		//	dialogScript.pauseDialog();
+		//}
 		animationReference.setWalking (false);
 	}
 
 	private void continueThisCharacterManager() {
-        if(wasActive == true)
-        {
-            isActive = true;
-        }
+        //if(wasActive == true)
+        //{
+        //    isActive = true;
+        //}
         //dialogScript.audioSource.UnPause ();
         if (dialogScript != null) {
 			dialogScript.continueDialog ();

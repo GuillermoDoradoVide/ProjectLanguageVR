@@ -16,10 +16,13 @@ public class UserLogginController : MonoBehaviour {
 	public GameObject continueNewUserButton;
 
 	public GameObject agentCodePass;
-	public GameObject greetings;
-	public GameObject introInterface;
+    private ShowAndHideWithAlpha animationAgentCode;
+    public GameObject introGreetings;
+    private ShowAndHideWithAlpha animationIntroGreetings;
+    public GameObject introInterface;
+    private ShowAndHideWithAlpha animationIntroInterface;
 
-	public EditUserID EditUserFirstValue;
+    public EditUserID EditUserFirstValue;
 	public EditUserID EditUserSecondValue;
 	public EditUserID EditUserThirdValue;
 	public int userID_s;
@@ -29,16 +32,57 @@ public class UserLogginController : MonoBehaviour {
 	public AudioClip wrongLogin;
 	public AudioClip newAgentSound;
 
+    private ShowAndHideWithAlpha animationShowHide;
+
 	// Use this for initialization
 	private void Start () {
-		agentCodePass.SetActive (true);
-		greetings.SetActive (false);
+        animationAgentCode = agentCodePass.GetComponent<ShowAndHideWithAlpha>();
+        animationIntroGreetings = introGreetings.GetComponent<ShowAndHideWithAlpha>();
+        animationIntroInterface = introInterface.GetComponent<ShowAndHideWithAlpha>();
+        agentCodePass.SetActive (true);
+		introGreetings.SetActive (false);
+        introInterface.SetActive(false);
 		EditUserFirstValue = firstValue.GetComponent<EditUserID> ();
 		EditUserSecondValue = secondValue.GetComponent<EditUserID> ();
 		EditUserThirdValue = thirdValue.GetComponent<EditUserID> ();
-	}
-	
-	public void checkUserLoggin() {
+        animationShowHide = GetComponent<ShowAndHideWithAlpha>();
+        animationShowHide.showPanel();
+    }
+
+    public void showAgentCodeInterface()
+    {
+        agentCodePass.SetActive(true);
+        animationAgentCode.showPanel();
+    }
+
+    public void hideAgentCodeInterface()
+    {
+        animationAgentCode.hidePanel();
+    }
+
+    public void showIntroGreetings()
+    {
+        introGreetings.SetActive(true);
+        animationIntroGreetings.showPanel();
+    }
+
+    public void hideIntroGreetings()
+    {
+        animationIntroGreetings.hidePanel();
+    }
+
+    public void showIntroInterface()
+    {
+        introInterface.SetActive(true);
+        animationIntroInterface.showPanel();
+    }
+
+    public void hideIntroInterface()
+    {
+        animationIntroInterface.hidePanel();
+    }
+
+    public void checkUserLoggin() {
 		getValues ();
 		if(checkUser (userID_s)) {
 			SoundManager.playSFX (succesLogin);
@@ -65,8 +109,10 @@ public class UserLogginController : MonoBehaviour {
 	}
 
 	private void loginSucces() {
-		agentCodePass.SetActive (false);
-		greetings.SetActive (true);
+        animationAgentCode.hidePanel();
+		//agentCodePass.SetActive (false);
+		introGreetings.SetActive (true);
+        animationIntroGreetings.showPanel();
 		continueSessionButton.SetActive (true);
 		strID = userID_s.ToString().PadLeft (3, '0');
 		userIDV.text = strID;
@@ -80,24 +126,28 @@ public class UserLogginController : MonoBehaviour {
 
 	private void newAgentSessionStart() {
 		introInterface.SetActive (true);
+        animationIntroInterface.showPanel();
 		continueNewUserButton.SetActive (true);
 		strID = SessionManager.Instance.userID.ToString().PadLeft (3, '0');
 		newUserID.gameObject.SetActive (true);
 		newUserID.text = strID;
 		newUserID.text.PadLeft (3, '0');
 		SoundManager.playSFX (newAgentSound);
-		agentCodePass.SetActive (false);
-		greetings.SetActive (false);
+        //agentCodePass.SetActive (false);
+        //introGreetings.SetActive (false);
+        animationAgentCode.hidePanel();
+        animationIntroGreetings.hidePanel();
 		continueSessionButton.SetActive (false);
 	}
 
 	public void startIntro() {
 		EventManager.triggerEvent (Events.EventList.NEW_USER);
-		agentCodePass.SetActive (false);
-		greetings.SetActive (false);
-		continueSessionButton.SetActive (false);
-		introInterface.SetActive (false);
-		loginInterface.SetActive (false);
+        //agentCodePass.SetActive (false);
+        //introGreetings.SetActive (false);
+        //continueSessionButton.SetActive (false);
+        //introInterface.SetActive (false);
+        //loginInterface.SetActive (false);
+        animationShowHide.hidePanel();
 
 	}
 }
