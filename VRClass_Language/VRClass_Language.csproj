@@ -175,6 +175,7 @@
     <Compile Include="Assets\Code\MenuAndInterface\Script_MainMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ShowAndHideWithAlpha.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ShowMenuSection.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\UIEffects\UI_effects.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\hoverScript.cs" />
     <Compile Include="Assets\Code\Player\Achievements\AchievementData.cs" />
     <Compile Include="Assets\Code\Player\Achievements\AchievementManager.cs" />

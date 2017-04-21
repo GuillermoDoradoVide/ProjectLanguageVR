@@ -49,6 +49,11 @@ public class UserLogginController : MonoBehaviour {
         animationShowHide.showPanel();
     }
 
+    public void clickSound(AudioClip sound)
+    {
+        SoundManager.playSFX(sound);
+    }
+
     public void showAgentCodeInterface()
     {
         agentCodePass.SetActive(true);
