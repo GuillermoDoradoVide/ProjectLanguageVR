@@ -30,7 +30,7 @@ Shader "GoogleVR/UI/Overlay" {
 
   SubShader {
     Tags {
-    "Queue"="Overlay+100"
+    "Queue"="Overlay"
     "IgnoreProjector"="True"
     "RenderType"="Transparent"
     "PreviewType"="Plane"
@@ -45,10 +45,10 @@ Shader "GoogleVR/UI/Overlay" {
       WriteMask [_StencilWriteMask]
     }
 
-    Cull Off
+    Cull Back
     Lighting Off
     ZWrite Off
-    ZTest [unity_GUIZTestMode]
+    ZTest Always
     Blend SrcAlpha OneMinusSrcAlpha
     ColorMask [_ColorMask]
 
