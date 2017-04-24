@@ -109,7 +109,9 @@
     <Compile Include="Assets\Code\Level\CitizenShipExam\FirstIteration.cs" />
     <Compile Include="Assets\Code\Level\CitizenShipExam\initCitizenShip.cs" />
     <Compile Include="Assets\Code\Level\LaboratoryLobby\LaboratoryLobby.cs" />
+    <Compile Include="Assets\Code\Level\LaboratoryLobby\PlayVideoScreen.cs" />
     <Compile Include="Assets\Code\Level\LaboratoryLobby\initLaboratoryLobby.cs" />
+    <Compile Include="Assets\Code\Level\LaboratoryLobby\rotate_random_floating.cs" />
     <Compile Include="Assets\Code\Level\LevelData.cs" />
     <Compile Include="Assets\Code\Level\LevelInfo.cs" />
     <Compile Include="Assets\Code\Level\ResetLevel.cs" />

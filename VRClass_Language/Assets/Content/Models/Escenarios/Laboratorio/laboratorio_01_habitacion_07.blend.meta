@@ -47,6 +47,11 @@ ModelImporter:
     100078: ventilacion
     100080: ventilacion_001
     100082: Cube
+    100084: Cristal_Soporte_pruebas
+    100086: soporte_prueabas_003
+    100088: Cristal_Soporte_pruebas_2
+    100090: Cristal_Soporte_pruebas_3
+    100092: Pantalla_screen
     400000: almacen
     400002: almacen_001
     400004: cableado_pantalla
@@ -89,6 +94,11 @@ ModelImporter:
     400078: ventilacion
     400080: ventilacion_001
     400082: Cube
+    400084: Cristal_Soporte_pruebas
+    400086: soporte_prueabas_003
+    400088: Cristal_Soporte_pruebas_2
+    400090: Cristal_Soporte_pruebas_3
+    400092: Pantalla_screen
     2300000: almacen
     2300002: almacen_001
     2300004: cableado_pantalla
@@ -130,6 +140,11 @@ ModelImporter:
     2300076: ventilacion
     2300078: ventilacion_001
     2300080: Cube
+    2300082: Cristal_Soporte_pruebas
+    2300084: soporte_prueabas_003
+    2300086: Cristal_Soporte_pruebas_2
+    2300088: Cristal_Soporte_pruebas_3
+    2300090: Pantalla_screen
     3300000: almacen
     3300002: almacen_001
     3300004: cableado_pantalla
@@ -171,6 +186,11 @@ ModelImporter:
     3300076: ventilacion
     3300078: ventilacion_001
     3300080: Cube
+    3300082: Cristal_Soporte_pruebas
+    3300084: soporte_prueabas_003
+    3300086: Cristal_Soporte_pruebas_2
+    3300088: Cristal_Soporte_pruebas_3
+    3300090: Pantalla_screen
     4300000: laboratorio_puerta_angar
     4300002: soporte_prueabas_001
     4300004: Torre_pequenya_005
@@ -212,6 +232,11 @@ ModelImporter:
     4300076: proyector
     4300078: Torre
     4300080: Cube
+    4300082: soporte_prueabas_003
+    4300084: Cristal_Soporte_pruebas
+    4300086: Cristal_Soporte_pruebas_3
+    4300088: Cristal_Soporte_pruebas_2
+    4300090: Pantalla_screen
     7400000: Default Take
     9500000: //RootNode
   materials:
