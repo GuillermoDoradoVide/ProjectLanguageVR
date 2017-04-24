@@ -227,9 +227,9 @@ public class Fase_1_Instrucciones : StateScript
 
 	public override void atInit ()
 	{
-		CurrentStep = startMission;
-		//		CurrentStep = standBy;
-//		showStartMissionMenu ();
+		//CurrentStep = startMission;
+		CurrentStep = standBy;
+        showStartMissionMenu ();
 		EventManager.startListening (Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 	}
 

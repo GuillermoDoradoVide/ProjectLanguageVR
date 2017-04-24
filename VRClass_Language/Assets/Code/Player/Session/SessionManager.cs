@@ -25,6 +25,18 @@ public class SessionManager : SingletonComponent<SessionManager> {
 		loadUserList ();
 	}
 
+    public void logOutUser()
+    {
+        saveUserGameData();
+        analytics.LogEvent(new EventHitBuilder().SetEventCategory("Log out").SetEventAction("User logging out"));
+        analytics.StopSession();
+        user = null;
+        userID = -1;
+        analytics.LogEvent(new EventHitBuilder().SetEventCategory("Log out").SetEventAction("User has logged out"));
+        analytics.DispatchHits();
+
+    } 
+
 	private void loadUserList() {
 		userList = new UserList();
 		userList.users = new List<UserProfile> ();

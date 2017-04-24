@@ -29,7 +29,7 @@ public class GameManager : SingletonComponent<GameManager>
 	}
 
 	public static void resetGameManager() {
-		GameManager.instance.isPaused = false;
+		instance.isPaused = false;
 	}
 
     private void OnDisable()

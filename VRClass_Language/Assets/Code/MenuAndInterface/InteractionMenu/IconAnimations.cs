@@ -59,6 +59,7 @@ public class IconAnimations : MonoBehaviour {
 		}
         else
         {
+            Debugger.printLog(gameObject.name);
             isShowing = false;
             canvasGroup.alpha = 0;
             iconRectTransform.localPosition = initPos;

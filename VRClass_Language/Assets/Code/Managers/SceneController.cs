@@ -16,15 +16,22 @@ public class SceneController : SingletonComponent<SceneController>
     private List<string> scenes;
     private int numScenes;
 
-	public void resetScene() {
+    public static Scene getCurrentScene()
+    {
+        return SceneManager.GetActiveScene();
+    }
+
+	public static void resetScene() {
+        instance = Instance;
 		if (instance != null)
 		{
-			sceneState = SceneState.Reset;
+            instance.sceneState = SceneState.Reset;
 		}
 	}
 
     public static void SwitchScene(string nextSceneName)
     {
+        instance = Instance;
         if (instance != null)
         {
             if (instance.currentSceneName != nextSceneName)
@@ -36,7 +43,8 @@ public class SceneController : SingletonComponent<SceneController>
 
     public static void loadAditiveScene(string addedAditiveScene)
     {
-		Debugger.printLog("AdditiveScene");
+        instance = Instance;
+        Debugger.printLog("AdditiveScene");
         if (instance != null)
         {
             if (!SceneManager.GetSceneByName(addedAditiveScene).IsValid())
@@ -49,7 +57,8 @@ public class SceneController : SingletonComponent<SceneController>
 
     public static void unloadAditiveScene(string addedAditiveScene)
     {
-		Debugger.printLog("AdditiveScene");
+        instance = Instance;
+        Debugger.printLog("AdditiveScene");
         if (instance != null)
         {
             if (SceneManager.GetSceneByName(addedAditiveScene).IsValid())

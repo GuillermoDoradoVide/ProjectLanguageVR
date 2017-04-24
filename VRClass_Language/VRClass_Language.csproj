@@ -142,6 +142,7 @@
     <Compile Include="Assets\Code\MenuAndInterface\IMove.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\IRotation.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InGameMenu\DataContentMenu.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\InGameMenu\OptionsContentMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InGameMenu\PlayerContentMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\ButtonAction.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\IconAnimations.cs" />

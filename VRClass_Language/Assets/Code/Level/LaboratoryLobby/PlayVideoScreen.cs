@@ -11,9 +11,4 @@ public class PlayVideoScreen : MonoBehaviour {
         ((MovieTexture)renderer.material.mainTexture).loop = true;
         ((MovieTexture)renderer.material.mainTexture).Play();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

@@ -21,7 +21,20 @@ public class LaboratoryLobby : StateScript {
 		CurrentStep ();
 	}
 
-	public void loadAirPortLevel() {
+    public void backToLobby()
+    {
+        Debugger.printLog("back to lobby");
+        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+        SessionManager.Instance.logOutUser();
+        Invoke("changeToLobby", 2);
+    }
+
+    private void changeToLobby()
+    {
+        SceneController.SwitchScene("UserLobby");
+    }
+
+    public void loadAirPortLevel() {
 		Debugger.printLog ("Load");
 		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
 		Invoke ("changeToAirportScene", 2);

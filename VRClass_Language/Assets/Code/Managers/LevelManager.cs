@@ -60,7 +60,7 @@ public class LevelManager : SingletonComponent<LevelManager>
 	}
 
 	private void reloadScene() {
-		SceneController.Instance.resetScene ();
+		SceneController.resetScene ();
 	}
 
 	private void loadLobbyScene() {
