@@ -20,6 +20,9 @@ ModelImporter:
     100024: Data_shelves_2.001
     100026: Data_shelves_2.002
     100028: Data_shelves_2.003
+    100030: Cube
+    100032: Holo_projection_panel
+    100034: Plane
     400000: Data_shelves_1
     400002: Data_shelves_1_MeshPart0
     400004: Data_shelves_1_MeshPart1
@@ -35,6 +38,9 @@ ModelImporter:
     400024: Data_shelves_2.001
     400026: Data_shelves_2.002
     400028: Data_shelves_2.003
+    400030: Cube
+    400032: Holo_projection_panel
+    400034: Plane
     2300000: Data_shelves_1_MeshPart0
     2300002: Data_shelves_1_MeshPart1
     2300004: Data_shelves_2_MeshPart0
@@ -49,6 +55,9 @@ ModelImporter:
     2300022: Data_shelves_2.001
     2300024: Data_shelves_2.002
     2300026: Data_shelves_2.003
+    2300028: Cube
+    2300030: Holo_projection_panel
+    2300032: Plane
     3300000: Data_shelves_1_MeshPart0
     3300002: Data_shelves_1_MeshPart1
     3300004: Data_shelves_2_MeshPart0
@@ -63,6 +72,9 @@ ModelImporter:
     3300022: Data_shelves_2.001
     3300024: Data_shelves_2.002
     3300026: Data_shelves_2.003
+    3300028: Cube
+    3300030: Holo_projection_panel
+    3300032: Plane
     4300000: Lobby_Power_Computer
     4300002: Data_shelves_1_MeshPart0
     4300004: Data_shelves_1_MeshPart1
@@ -77,6 +89,9 @@ ModelImporter:
     4300022: Data_shelves_2.001
     4300024: Data_shelves_1
     4300026: Data_shelves_2
+    4300028: Cube
+    4300030: Plane
+    4300032: Holo_projection_panel
   materials:
     importMaterials: 1
     materialName: 0
