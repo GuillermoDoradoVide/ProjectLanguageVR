@@ -2,6 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum sfxType
+{
+    OnButtonClick,
+    OnButtonHover,
+    OnConfirm
+}
+
 public class SoundManager : SingletonComponent<SoundManager> {
 
 	public List<AudioSource> sfxSources;
@@ -135,6 +142,23 @@ public class SoundManager : SingletonComponent<SoundManager> {
 		Destroy (sfxSound);
 	}
 
+    private AudioClip getSoundEffect(sfxType type)
+    {
+        switch(type)
+        {
+            case sfxType.OnButtonClick:
+                return Resources.Load("Audio/InterfaceEffects/ClickSoundA") as AudioClip;
+                break;
+            case sfxType.OnButtonHover:
+                return Resources.Load("Audio/InterfaceEffects/HoverA") as AudioClip;
+                break;
+            case sfxType.OnConfirm:
+                return Resources.Load("Audio/InterfaceEffects/ScifiEffectConfirm") as AudioClip;
+                break;
+        }
+        return null;
+    }
+
 	// SFX FUNCTIONS
 	public static void playSFX(AudioClip sfxSound) {
 		SoundManager manager = Instance;
@@ -145,7 +169,17 @@ public class SoundManager : SingletonComponent<SoundManager> {
 		manager.StartCoroutine (manager.removeSFXSource(source));
 	}
 
-	public static void playSFXRandomized (AudioClip sfxSound) {
+    public static void playSFX(sfxType type)
+    {
+        SoundManager manager = Instance;
+        AudioSource source = manager.getSFXSource();
+        source.volume = getSFXVolume();
+        source.clip = manager.getSoundEffect(type);
+        source.Play();
+        manager.StartCoroutine(manager.removeSFXSource(source));
+    }
+
+    public static void playSFXRandomized (AudioClip sfxSound) {
 		SoundManager manager = Instance;
 		AudioSource source = manager.getSFXSource ();
 		source.volume = getSFXVolume ();

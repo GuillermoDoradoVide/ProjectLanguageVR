@@ -14,18 +14,20 @@ public class ScrollBarButtonInteraction : MonoBehaviour {
     }
     public void increaseValue()
     {
+        SoundManager.playSFX(sfxType.OnButtonClick);
         scrollBar.value += value;
         if (scrollBar.value > 1) scrollBar.value = 1;
     }
 
     public void decreaseValue()
     {
+        SoundManager.playSFX(sfxType.OnButtonClick);
         scrollBar.value -= value;
         if (scrollBar.value < 0) scrollBar.value = 0;
     }
 
     public void clickSound(AudioClip clip)
     {
-        SoundManager.playSFX(clip);
+        
     }
 }
