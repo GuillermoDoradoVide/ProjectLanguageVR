@@ -62,7 +62,7 @@ public class UserLobby : StateScript {
 	}
 
 	private void changeToLaboratoryLobby() {
-		SceneController.SwitchScene ("Laboratory");
+		SceneController.SwitchScene ("Aeropuerto_Pasaportes");
 	}
 
 	private void setIntroStart() {

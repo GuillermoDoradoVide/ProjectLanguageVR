@@ -64,6 +64,6 @@ public class LevelManager : SingletonComponent<LevelManager>
 	}
 
 	private void loadLobbyScene() {
-		SceneController.SwitchScene ("Boss_Oficce");
+		SceneController.SwitchScene ("UserLobby");
 	}
 }

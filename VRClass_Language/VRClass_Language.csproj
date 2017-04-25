@@ -147,6 +147,8 @@
     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\ButtonAction.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\IconAnimations.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\InteractionMenuController.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\MenuSoundsEffects.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\ScrollBarButtonInteraction.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\panelAlphaController.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InteractiveMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\Login\EditUserID.cs" />

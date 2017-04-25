@@ -15,6 +15,8 @@ public class initGame : MonoBehaviour {
 
 	private void Start() {
 		GameManager.Instance.levelManager.calculateLevelData ();
-		GameManager.resetGameManager ();
+        GameManager.Instance.sessionManager.initAnalytics();
+
+        GameManager.resetGameManager ();
 	}
 }

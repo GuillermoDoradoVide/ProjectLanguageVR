@@ -6,7 +6,7 @@ public class GameManager : SingletonComponent<GameManager>
     private SceneController sceneController;
 	public LevelManager levelManager;
     private EventManager eventManager;
-    private SessionManager sessionManager;
+    public SessionManager sessionManager;
     public SoundManager soundManager;
 
 	[Header("Pause Setting")]

@@ -20,7 +20,7 @@ public class SessionManager : SingletonComponent<SessionManager> {
 	private void Start () {
 	}
 
-	private void initAnalytics() {
+	public void initAnalytics() {
 		analytics = GameObject.Find ("GAv4").GetComponent<GoogleAnalyticsV4> ();
 		loadUserList ();
 	}
@@ -34,7 +34,6 @@ public class SessionManager : SingletonComponent<SessionManager> {
         userID = -1;
         analytics.LogEvent(new EventHitBuilder().SetEventCategory("Log out").SetEventAction("User has logged out"));
         analytics.DispatchHits();
-
     } 
 
 	private void loadUserList() {

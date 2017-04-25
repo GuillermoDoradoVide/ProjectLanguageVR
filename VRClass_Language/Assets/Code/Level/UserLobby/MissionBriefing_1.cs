@@ -32,13 +32,25 @@ public class MissionBriefing_1 : StateScript {
 
 	private void first () {
 		_hologram.rotateHologram ();
+        Invoke("loadlaboratory", 3);
 	}
 
 	private void waitForPlayer() {
 
 	}
 
-	public override void atInit()
+    public void loadlaboratory()
+    {
+        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+        Invoke("changeToLaboratoryLobby", 2);
+    }
+
+    private void changeToLaboratoryLobby()
+    {
+        SceneController.SwitchScene("Aeropuerto_Pasaportes");
+    }
+
+    public override void atInit()
 	{
 		CurrentStep = startBriefing;
 	}
