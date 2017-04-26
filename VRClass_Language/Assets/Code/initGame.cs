@@ -7,16 +7,11 @@ public class initGame : MonoBehaviour {
 
 	// Use this for initialization
 	private void Awake () {
-		QualitySettings.antiAliasing = 4;
-		Application.targetFrameRate = 60;
-		QualitySettings.vSyncCount = 0;
 		gameManager = GameManager.Instance;
-	}
+        gameManager.initGameGrpahicsRenderOptions();
+    }
 
 	private void Start() {
-		GameManager.Instance.levelManager.calculateLevelData ();
-        GameManager.Instance.sessionManager.initAnalytics();
-
-        GameManager.resetGameManager ();
-	}
+        gameManager.initManagers();
+    }
 }

@@ -125,6 +125,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\Editor\CustomPropertyReadOnly.cs" />
     <Compile Include="Assets\Code\Editor\ItemAsset.cs" />
     <Compile Include="Assets\Code\Editor\ItemEditor.cs" />
     <Compile Include="Assets\Code\Editor\ScriptableObjectUtility.cs" />

@@ -4,33 +4,27 @@ using System.Collections;
 public class GameManager : SingletonComponent<GameManager>
 {
     private SceneController sceneController;
-	public LevelManager levelManager;
+	private LevelManager levelManager;
     private EventManager eventManager;
-    public SessionManager sessionManager;
-    public SoundManager soundManager;
+    private SessionManager sessionManager;
+    private SoundManager soundManager;
 
 	[Header("Pause Setting")]
 	public float pauseTriggerTimer = 3.0f;
+    [ReadOnly]
 	public float currentPauseTimer;
 	public bool isPaused = false;
 	public LevelMusicAndSounds managerSounds;
-	public bool sample;
 
     private void Awake()
     {
-        initManagers();
+        initGameGrpahicsRenderOptions();
         initEventTriggers();
     }
 
 	private void Start() {
-		QualitySettings.antiAliasing = 4;
-		Application.targetFrameRate = 60;
-		QualitySettings.vSyncCount = 0;
-	}
-
-	public static void resetGameManager() {
-		instance.isPaused = false;
-	}
+        initManagers();
+    }
 
     private void OnDisable()
     {
@@ -44,25 +38,36 @@ public class GameManager : SingletonComponent<GameManager>
 		EventManager.stopListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
 	}
 
-    private void initManagers()
-    {
-        sceneController = SceneController.Instance;
-		eventManager = EventManager.Instance;
-		soundManager = SoundManager.Instance;
-        levelManager = LevelManager.Instance;
-		sessionManager = SessionManager.Instance;
-    }
+    /* INIT METHODS */
 
     private void initEventTriggers()
     {
         EventManager.startListening(Events.EventList.GAMEMANAGER_Pause, pauseGame);
         EventManager.startListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
-	}
-		
-    //*************************
+    }
+
+    public void initManagers()
+    {
+        resetGameManager();
+        sceneController = SceneController.Instance;
+		eventManager = EventManager.Instance;
+		soundManager = SoundManager.Instance;
+        levelManager = LevelManager.Instance;
+        /*Level restart and load scripts*/
+        levelManager.calculateLevelData();
+        sessionManager = SessionManager.Instance;
+        /*Session user reload user list*/
+        sessionManager.initAnalytics();
+    }
+
+    private void resetGameManager()
+    {
+        isPaused = false;
+    }
+
+    // UPDATE *************************
     private void Update()
     {
-		sample = GvrController.AppButton;
 		if (GvrController.AppButtonDown || Input.GetKeyDown(KeyCode.P)) {
 			if(isPaused) {
 				isPaused = false;
@@ -76,7 +81,6 @@ public class GameManager : SingletonComponent<GameManager>
 			else {
 				triggerUnPause();
 			}
-//			Debug.Log ("click");
 //			checkPause ();
 		}
 		else {
@@ -85,7 +89,14 @@ public class GameManager : SingletonComponent<GameManager>
     }
     //*************************
 
-	private void checkPause ()
+    public void initGameGrpahicsRenderOptions()
+    {
+        QualitySettings.antiAliasing = 4;
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+    }
+
+    private void checkPause ()
 	{
 		if (currentPauseTimer >= pauseTriggerTimer) {
 			currentPauseTimer = 0;
