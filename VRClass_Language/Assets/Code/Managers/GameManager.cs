@@ -54,7 +54,7 @@ public class GameManager : SingletonComponent<GameManager>
 		soundManager = SoundManager.Instance;
         levelManager = LevelManager.Instance;
         /*Level restart and load scripts*/
-        levelManager.calculateLevelData();
+        levelManager.initLevelData();
         sessionManager = SessionManager.Instance;
         /*Session user reload user list*/
         sessionManager.initAnalytics();

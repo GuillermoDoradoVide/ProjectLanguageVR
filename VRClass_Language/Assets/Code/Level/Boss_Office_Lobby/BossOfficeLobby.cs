@@ -26,7 +26,7 @@ public class BossOfficeLobby : StateScript {
 	}
 
 	private void changeScene() {
-		SceneController.SwitchScene ("Laboratory");
+		SceneController.Instance.SwitchScene ("Laboratory");
 	}
 
 	public override void atInit()

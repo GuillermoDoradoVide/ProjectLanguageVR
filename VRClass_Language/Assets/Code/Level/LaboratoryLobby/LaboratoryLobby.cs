@@ -31,7 +31,7 @@ public class LaboratoryLobby : StateScript {
 
     private void changeToLobby()
     {
-        SceneController.SwitchScene("UserLobby");
+        SceneController.Instance.SwitchScene("UserLobby");
     }
 
     public void loadAirPortLevel() {
@@ -41,7 +41,7 @@ public class LaboratoryLobby : StateScript {
 	}
 
 	private void changeToAirportScene() {
-		SceneController.SwitchScene ("Aeropuerto_Pasaportes");
+		SceneController.Instance.SwitchScene ("Aeropuerto_Pasaportes");
 	}
 
 	private void waitForPlayer() {

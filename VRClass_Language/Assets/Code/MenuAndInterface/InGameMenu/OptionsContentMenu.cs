@@ -6,7 +6,7 @@ public class OptionsContentMenu : MonoBehaviour {
     public GameObject returnToLaboratory;
 	// Use this for initialization
 	private void Start () {
-        string Scenename = SceneController.getCurrentScene().name;
+        string Scenename = SceneController.Instance.getCurrentScene().name;
         if(Scenename.CompareTo("UserLobby") == 0 || Scenename.CompareTo("Laboratory") == 0)
         {
             resetButton.SetActive(false);

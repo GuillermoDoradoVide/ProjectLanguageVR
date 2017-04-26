@@ -16,22 +16,20 @@ public class SceneController : SingletonComponent<SceneController>
     private List<string> scenes;
     private int numScenes;
 
-    public static Scene getCurrentScene()
+    public Scene getCurrentScene()
     {
         return SceneManager.GetActiveScene();
     }
 
-	public static void resetScene() {
-        instance = Instance;
+	public void resetScene() {
 		if (instance != null)
 		{
             instance.sceneState = SceneState.Reset;
 		}
 	}
 
-    public static void SwitchScene(string nextSceneName)
+    public void SwitchScene(string nextSceneName)
     {
-        instance = Instance;
         if (instance != null)
         {
             if (instance.currentSceneName != nextSceneName)
@@ -113,7 +111,7 @@ public class SceneController : SingletonComponent<SceneController>
 
     private void sceneStateReset()
     {
-        //Debug.Log("Reset");
+        Debugger.printLog("Reset Scene");
         // run a gc pass
         System.GC.Collect();
         sceneState = SceneState.Preload;
@@ -128,7 +126,7 @@ public class SceneController : SingletonComponent<SceneController>
 
     private void sceneStateLoad()
     {
-        //Debug.Log("Load");
+        Debugger.printLog("Loading new Scene");
         //done loading?
         if (sceneLoadTask.isDone == true)
         {
@@ -143,7 +141,6 @@ public class SceneController : SingletonComponent<SceneController>
 
     private void sceneStateUnload()
     {
-        //Debug.Log("Unload");
         // cleaning up resources yet?
         if (resourceUnloadTask == null)
         {
@@ -156,6 +153,7 @@ public class SceneController : SingletonComponent<SceneController>
             {
                 resourceUnloadTask = null;
                 sceneState = SceneState.Postload;
+                Debugger.printLog("Unload resources");
             }
         }
     }
@@ -169,7 +167,7 @@ public class SceneController : SingletonComponent<SceneController>
 
     private void sceneStateReady()
     {
-        //Debug.Log("Ready");
+        Debugger.printLog("Scene is ready");
         // run a gc pass 
         //if you have assets loaded in the scene
         // that are currently unnused but may be used later dont do this here

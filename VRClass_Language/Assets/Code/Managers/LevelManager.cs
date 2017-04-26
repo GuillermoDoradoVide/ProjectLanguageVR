@@ -3,14 +3,13 @@ using System.Collections;
 
 public class LevelManager : SingletonComponent<LevelManager>
 {
-    [SerializeField]
-    private StateManager stateActivityManager;
+    public StateManager stateMachineActivity;
     public LevelInfo levelInfo;
 
     private void Awake ()
     {
-		stateActivityManager = null;
-        if (stateActivityManager == null)
+        stateMachineActivity = null;
+        if (stateMachineActivity == null)
         {
             generateStateActivityManager();
         }
@@ -20,28 +19,17 @@ public class LevelManager : SingletonComponent<LevelManager>
 	private void Start () {
     }
 
-	public void calculateLevelData () {
-		getLevelData();
-		if(levelInfo)
-		{
-			stateActivityManager.getLevelStateList(levelInfo.SceneData.sceneEventActivity);
-		}
-		else
-		{
-			Debugger.printLog(" Fallo al recoger la informacion del nivel.");
-		}
-		SoundManager.setMusicBox (levelInfo.levelData.music);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        stateActivityManager.doUpdate();
-    }
-
     private void generateStateActivityManager()
     {
-		Debugger.printLog("crear stateManager");
-        stateActivityManager = ScriptableObject.CreateInstance<StateManager>();
+        Debugger.printLog("crear stateManager");
+        stateMachineActivity = ScriptableObject.CreateInstance<StateManager>();
+    }
+
+    public void initLevelData()
+    {
+        getLevelData();
+        calculateLevelData();
+        loadLevelMusicAndSounds();
     }
 
     public void getLevelData()
@@ -49,6 +37,28 @@ public class LevelManager : SingletonComponent<LevelManager>
         levelInfo = GameObject.Find("LevelInfo").GetComponent<LevelInfo>();
     }
 
+    private void calculateLevelData () {
+		
+		if(levelInfo)
+		{
+            stateMachineActivity.getLevelStateList(levelInfo.SceneData.sceneEventActivity);
+		}
+		else
+		{
+			Debugger.printLog(" Fallo al recoger la informacion del nivel.");
+		}
+	}
+
+    private void loadLevelMusicAndSounds()
+    {
+        SoundManager.setMusicBox(levelInfo.levelData.music);
+    }
+	
+	// UPDATE ****************
+	private void Update () {
+        stateMachineActivity.doUpdate();
+    }
+    // ********************
 	public void restartLevel() {
 		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
 		Invoke ("reloadScene", 2);
@@ -60,10 +70,10 @@ public class LevelManager : SingletonComponent<LevelManager>
 	}
 
 	private void reloadScene() {
-		SceneController.resetScene ();
+		SceneController.Instance.resetScene ();
 	}
 
 	private void loadLobbyScene() {
-		SceneController.SwitchScene ("UserLobby");
+		SceneController.Instance.SwitchScene ("UserLobby");
 	}
 }
