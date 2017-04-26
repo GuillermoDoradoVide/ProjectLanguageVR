@@ -176,8 +176,6 @@
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ToolTipPanel.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\OpcionesMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenu.cs" />
-    <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenuB.cs" />
-    <Compile Include="Assets\Code\MenuAndInterface\ScriptSubMenuC.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\Script_MainMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ShowAndHideWithAlpha.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ShowMenuSection.cs" />

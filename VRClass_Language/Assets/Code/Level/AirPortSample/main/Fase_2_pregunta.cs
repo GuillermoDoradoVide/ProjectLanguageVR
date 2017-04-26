@@ -19,7 +19,7 @@ public class Fase_2_pregunta : StateScript {
 	public UnityAction forthAction;
 	public UnityAction fifthAction;
 
-	void Start()
+    void Start()
 	{
 	}
 

@@ -3,6 +3,11 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
+public class IntUnityEvent : UnityEvent<int> {}
+[System.Serializable]
+public class StringUnityEvent : UnityEvent<string> {}
+
 public class EventManager : SingletonComponent<EventManager>
 {
     [SerializeField]
@@ -11,6 +16,14 @@ public class EventManager : SingletonComponent<EventManager>
     static setAchievementUnlocked achievementUnlocked;
 	public delegate void TeleportPlayer(Transform position);
 	static TeleportPlayer teleportPlayer;
+
+    public delegate void EventGenericDelegate<T>(T e) where T : UnityEvent;
+    private delegate void EventGenericDelegate(UnityEvent unityEvent);
+	
+	private Dictionary<System.Type, EventGenericDelegate> delegates = new Dictionary<System.Type, EventGenericDelegate>();
+    private Dictionary<System.Delegate, EventGenericDelegate> delegateLookup = new Dictionary<System.Delegate, EventGenericDelegate>();
+    private Dictionary<System.Delegate, System.Delegate> onceLookups = new Dictionary<System.Delegate, System.Delegate>();
+
 
     private void Awake()
     {
@@ -26,6 +39,25 @@ public class EventManager : SingletonComponent<EventManager>
     {
 
     }
+	
+	public void addListener<T> (EventGenericDelegate<T> del) where T : UnityEvent {
+
+        // Early-out if we've already registered this delegate
+        //if (delegateLookup.ContainsKey(del))
+        //    return null;
+
+        // Create a new non-generic delegate which calls our generic one.
+        // This is the delegate we actually invoke.
+        EventGenericDelegate internalDelegate = (e) => del((T)e);
+        delegateLookup[del] = internalDelegate;
+
+        EventGenericDelegate thisEvent = null;
+        if (delegates.TryGetValue(typeof(T), out thisEvent)) {
+            delegates[typeof(T)] = thisEvent += internalDelegate; 
+        } else {
+            delegates[typeof(T)] = internalDelegate;
+        }
+	}
     //Generic event EventManager
     public static void startListening (Events.EventList eventName, UnityAction listener)
     {

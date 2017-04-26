@@ -4,55 +4,83 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-public class InteractionMenuController : MonoBehaviour {
+public class InteractionMenuController : MonoBehaviour
+{
 
-	public GameObject[] dialogGameObject;
-	public Button[] dialogButton;
-	public Text[] dialog;
-	public Transform player;
+    public GameObject[] dialogGameObject;
+    public Button[] dialogButton;
+    public Text[] dialog;
+    public bool[] optionSelected;
+    public Transform player;
 
-	public GameObject interactionMenuObject;
+    public GameObject interactionMenuObject;
 
-	private static InteractionMenuController interactionMenu;
+    private static InteractionMenuController interactionMenu;
 
-	public static InteractionMenuController Instance() {
-		if(!interactionMenu) {
-			interactionMenu = FindObjectOfType (typeof(InteractionMenuController)) as InteractionMenuController;
-			if(!interactionMenu) {
-				Debugger.printErrorLog("There is not an active InteractionMenuController GameObject in the scene");
-			}
-		}
-		return interactionMenu;
-	}
-
-	private void Awake() {
-		for (int x = 0; x < dialogGameObject.Length; x ++) {
-			dialogButton[x] = dialogGameObject [x].GetComponentInChildren<Button> ();
-			dialog[x] = dialogGameObject [x].GetComponentInChildren<Text> ();
-		}
-        EventManager.startListening(Events.EventList.STATE_Pause, pauseIsOn);
-        EventManager.startListening(Events.EventList.STATE_Continue, pauseIsOff);
+    public static InteractionMenuController Instance()
+    {
+        if (!interactionMenu)
+        {
+            interactionMenu = FindObjectOfType(typeof(InteractionMenuController)) as InteractionMenuController;
+            if (!interactionMenu)
+            {
+                Debugger.printErrorLog("There is not an active InteractionMenuController GameObject in the scene");
+            }
+        }
+        return interactionMenu;
     }
 
-	//show dialog event action
-	public void addDialogTriggerAction(int optionNumber, string boxDialog, UnityAction dialogTriggerEvent) {
-		interactionMenuObject.SetActive (true);
-		dialogGameObject [optionNumber].SetActive (true);
-		dialogButton[optionNumber].onClick.RemoveAllListeners();
-		dialogButton [optionNumber].onClick.AddListener(dialogTriggerEvent);
-		dialog[optionNumber].text = boxDialog;
-	}
+    private void Awake()
+    {
+        for (int x = 0; x < dialogGameObject.Length; x++)
+        {
+            dialogButton[x] = dialogGameObject[x].GetComponentInChildren<Button>();
+            dialog[x] = dialogGameObject[x].GetComponentInChildren<Text>();
+            optionSelected[x] = false;
+        }
+        EventManager.startListening(Events.EventList.STATE_Pause, pauseIsOn);
+        EventManager.startListening(Events.EventList.STATE_Continue, pauseIsOff);
+        //EventManager.startListening(Events.EventList.DIALOG_Selected, setOptionXSelected);
+    }
 
-	public void closeInteractionMenu() {
-		interactionMenuObject.SetActive (false);
-	}
+    public void resetOptionStates()
+    {
+        for (int x = 0; x < dialogGameObject.Length; x++)
+        {
+            optionSelected[x] = false;
+        }
+    }
 
-	public void movePanelTo(Transform newPosition) {
-		if(newPosition != null)
-			gameObject.transform.position = newPosition.position;
-		/*transform.LookAt (player.position);
+    public void setOptionXSelected(int i)
+    {
+        if(i <= optionSelected.Length - 1)
+        {
+            optionSelected[i] = true;
+        }
+    }
+
+    //show dialog event action
+    public void addDialogTriggerAction(int optionNumber, string boxDialog, UnityAction dialogTriggerEvent)
+    {
+        interactionMenuObject.SetActive(true);
+        dialogGameObject[optionNumber].SetActive(true);
+        dialogButton[optionNumber].onClick.RemoveAllListeners();
+        dialogButton[optionNumber].onClick.AddListener(dialogTriggerEvent);
+        dialog[optionNumber].text = boxDialog;
+    }
+
+    public void closeInteractionMenu()
+    {
+        interactionMenuObject.SetActive(false);
+    }
+
+    public void movePanelTo(Transform newPosition)
+    {
+        if (newPosition != null)
+            gameObject.transform.position = newPosition.position;
+        /*transform.LookAt (player.position);
 		transform.RotateAround (transform.position, Vector3.up, 180);*/
-	}
+    }
 
     private void pauseIsOn()
     {
