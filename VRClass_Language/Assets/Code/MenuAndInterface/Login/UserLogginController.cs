@@ -86,7 +86,7 @@ public class UserLogginController : MonoBehaviour {
     {
         animationIntroInterface.hidePanel();
     }
-
+    [ContextMenu("CheckUserLoggin")]
     public void checkUserLoggin() {
 		getValues ();
 		if(checkUser (userID_s)) {

@@ -37,7 +37,7 @@ public class ShowAndHideWithAlpha : MonoBehaviour {
         isShowing = true;
         StartCoroutine(showAnimation());
     }
-
+    [ContextMenu("hidePanel")]
     public void hidePanel()
     {
         if (gameObject.activeInHierarchy)

@@ -152,6 +152,7 @@
     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\ScrollBarButtonInteraction.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InteractionMenu\panelAlphaController.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InteractiveMenu.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\Login\DisplayText.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\Login\EditUserID.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\Login\UserLogginController.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\LookActionMenu.cs" />
