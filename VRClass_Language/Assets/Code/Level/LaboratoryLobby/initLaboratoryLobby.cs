@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class initLaboratoryLobby : StateScript {
 
-	void Start()
+    private UnityEvent listen;
+
+	private void Start()
 	{
+        listen.AddListener(interString);
+        //EventManager.Instance.AddListener(listen);
+        //EventManager.Instance.TriggerEvent(listen);
 	}
 
 	// Update is called once per frame
@@ -32,4 +38,9 @@ public class initLaboratoryLobby : StateScript {
 	{
 		//throw new NotImplementedException();
 	}
+
+    public void interString()
+    {
+        Debugger.printErrorLog("Number: value > ");
+    }
 }

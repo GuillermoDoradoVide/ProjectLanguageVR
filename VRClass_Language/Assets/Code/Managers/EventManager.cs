@@ -3,11 +3,6 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class IntUnityEvent : UnityEvent<int> {}
-[System.Serializable]
-public class StringUnityEvent : UnityEvent<string> {}
-
 public class EventManager : SingletonComponent<EventManager>
 {
     [SerializeField]
@@ -40,11 +35,11 @@ public class EventManager : SingletonComponent<EventManager>
 
     }
 	
-	public void addListener<T> (EventGenericDelegate<T> del) where T : UnityEvent {
+	private EventGenericDelegate addDelegate<T> (EventGenericDelegate<T> del) where T : UnityEvent {
 
         // Early-out if we've already registered this delegate
-        //if (delegateLookup.ContainsKey(del))
-        //    return null;
+        if (delegateLookup.ContainsKey(del))
+            return null;
 
         // Create a new non-generic delegate which calls our generic one.
         // This is the delegate we actually invoke.
@@ -57,7 +52,92 @@ public class EventManager : SingletonComponent<EventManager>
         } else {
             delegates[typeof(T)] = internalDelegate;
         }
-	}
+
+        return internalDelegate;
+    }
+
+    public void AddListener<T>(EventGenericDelegate<T> del) where T : UnityEvent
+    {
+        addDelegate<T>(del);
+    }
+
+    public void AddListenerOnce<T>(EventGenericDelegate<T> del) where T : UnityEvent
+    {
+        EventGenericDelegate result = addDelegate<T>(del);
+
+        if (result != null)
+        {
+            // remember this is only called once
+            onceLookups[result] = del;
+        }
+    }
+
+    public void RemoveListener<T>(EventGenericDelegate<T> del) where T : UnityEvent
+    {
+        EventGenericDelegate internalDelegate;
+        if (delegateLookup.TryGetValue(del, out internalDelegate))
+        {
+            EventGenericDelegate tempDel;
+            if (delegates.TryGetValue(typeof(T), out tempDel))
+            {
+                tempDel -= internalDelegate;
+                if (tempDel == null)
+                {
+                    delegates.Remove(typeof(T));
+                }
+                else
+                {
+                    delegates[typeof(T)] = tempDel;
+                }
+            }
+
+            delegateLookup.Remove(del);
+        }
+    }
+
+    public void RemoveAll()
+    {
+        delegates.Clear();
+        delegateLookup.Clear();
+        onceLookups.Clear();
+    }
+
+    public bool HasListener<T>(EventGenericDelegate<T> del) where T : UnityEvent
+    {
+        return delegateLookup.ContainsKey(del);
+    }
+
+    public void TriggerEvent(UnityEvent e)
+    {
+        EventGenericDelegate del;
+        if (delegates.TryGetValue(e.GetType(), out del))
+        {
+            del.Invoke(e);
+
+            // remove listeners which should only be called once
+            foreach (EventGenericDelegate k in delegates[e.GetType()].GetInvocationList())
+            {
+                if (onceLookups.ContainsKey(k))
+                {
+                    delegates[e.GetType()] -= k;
+
+                    if (delegates[e.GetType()] == null)
+                    {
+                        delegates.Remove(e.GetType());
+                    }
+
+                    delegateLookup.Remove(onceLookups[k]);
+                    onceLookups.Remove(k);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Event: " + e.GetType() + " has no listeners");
+        }
+    }
+
+
     //Generic event EventManager
     public static void startListening (Events.EventList eventName, UnityAction listener)
     {
