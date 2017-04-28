@@ -36,7 +36,7 @@ public class InteractionMenuController : MonoBehaviour
         {
             dialogButton[x] = dialogGameObject[x].GetComponentInChildren<Button>();
             dialog[x] = dialogGameObject[x].GetComponentInChildren<Text>();
-            optionSelected[x] = false;
+            //optionSelected[x] = false;
         }
         EventManager.startListening(Events.EventList.STATE_Pause, pauseIsOn);
         EventManager.startListening(Events.EventList.STATE_Continue, pauseIsOff);

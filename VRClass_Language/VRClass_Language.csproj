@@ -154,6 +154,7 @@
     <Compile Include="Assets\Code\MenuAndInterface\InteractiveMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\Login\DisplayText.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\Login\EditUserID.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\Login\ShowAndHideAgentName.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\Login\UserLogginController.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\LookActionMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\MenuAnimationController.cs" />

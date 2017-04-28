@@ -8,7 +8,7 @@ public class initLaboratoryLobby : StateScript {
 
 	private void Start()
 	{
-        listen.AddListener(interString);
+        //listen.AddListener(interString);
         //EventManager.Instance.AddListener(listen);
         //EventManager.Instance.TriggerEvent(listen);
 	}

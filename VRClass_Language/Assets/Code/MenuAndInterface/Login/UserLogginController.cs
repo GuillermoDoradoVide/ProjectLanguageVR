@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class UserLogginController : MonoBehaviour {
 
 	public GameObject loginInterface;
+    public GameObject ABCLoggin;
+    public GameObject displayCodeName;
 
 	public Text userIDV;
 	public Text newUserID;
@@ -39,7 +41,7 @@ public class UserLogginController : MonoBehaviour {
         animationAgentCode = agentCodePass.GetComponent<ShowAndHideWithAlpha>();
         animationIntroGreetings = introGreetings.GetComponent<ShowAndHideWithAlpha>();
         animationIntroInterface = introInterface.GetComponent<ShowAndHideWithAlpha>();
-        agentCodePass.SetActive (true);
+        agentCodePass.SetActive (false);
 		introGreetings.SetActive (false);
         introInterface.SetActive(false);
 		EditUserFirstValue = firstValue.GetComponent<EditUserID> ();
@@ -114,9 +116,12 @@ public class UserLogginController : MonoBehaviour {
 	}
 
 	private void loginSucces() {
-        animationAgentCode.hidePanel();
-		//agentCodePass.SetActive (false);
-		introGreetings.SetActive (true);
+        //animationAgentCode.hidePanel();
+        //agentCodePass.SetActive (false);
+        ABCLoggin.SetActive(false);
+        displayCodeName.SetActive(false);
+
+        introGreetings.SetActive (true);
         animationIntroGreetings.showPanel();
 		continueSessionButton.SetActive (true);
 		strID = userID_s.ToString().PadLeft (3, '0');
