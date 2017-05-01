@@ -56,7 +56,8 @@ public class Fase3_pregunta4 : StateScript {
 	public void OptionNope() {
 		characterManager.setDialogs (dialogsE);
 		characterManager.setTalking ();
-		CurrentStep = final;
+        menuController.resetOptionStates();
+        CurrentStep = final;
 	}
 
 	private void first() {

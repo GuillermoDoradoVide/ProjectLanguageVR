@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class SingletonComponent<T> : MonoBehaviour where T : SingletonComponent<T>
 {
     protected static T instance = null;
+    public static bool isBeeingDestroyed = false;
     /// <summary>
     /// Returns the instance of this singleton.
     /// </summary>
@@ -12,6 +13,10 @@ public abstract class SingletonComponent<T> : MonoBehaviour where T : SingletonC
     {
         get
         {
+            if(isBeeingDestroyed)
+            {
+                return null;
+            }
             if(!instance)
             {
                 instance = FindObjectOfType<T>();
@@ -22,13 +27,18 @@ public abstract class SingletonComponent<T> : MonoBehaviour where T : SingletonC
                 instance = singleton.AddComponent<T>();
                 singleton.name = "(singleton)" + typeof(T).ToString();
                 DontDestroyOnLoad(singleton);
-                Debug.Log("[Singleton] An instance of " + typeof(T) + " is needed in the scene, so '" + singleton + "' was created with DontDestroyOnLoad.");
+                Debugger.printLog("[Singleton] An instance of " + typeof(T) + " is needed in the scene, so '" + singleton + "' was created with DontDestroyOnLoad.");
             }
             else
             {
-//                Debug.Log("[Singleton] Using instance already created: " + instance.gameObject.name);
+                Debugger.printLog("[Singleton] Using instance already created: " + instance.gameObject.name);
             }
             return instance;
         }
+    }
+
+    private void OnDestroy()
+    {
+        instance = null;
     }
 }

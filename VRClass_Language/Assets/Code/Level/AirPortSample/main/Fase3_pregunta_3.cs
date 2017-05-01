@@ -38,7 +38,8 @@ public class Fase3_pregunta_3 : StateScript {
 	public void OptionNotThatDoctor() {
 		characterManager.setDialogs (dialogsB);
 		characterManager.setTalking ();
-		CurrentStep = final;
+        menuController.resetOptionStates();
+        CurrentStep = final;
 	}
 
 	public void OptionGross() {

@@ -1,5 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+
+public class GameEvent
+{
+
+}
+
+///<summary>
+/// Raised when a dialog option is selected.
+/// </summary>
+public class DialogOptionSelectedEvent : GameEvent
+{
+    private int dialogSelected;
+    public int Dialog { get { return dialogSelected; } }
+    public DialogOptionSelectedEvent(int selected)
+    {
+        dialogSelected = selected;
+    }
+}
+
 [CreateAssetMenu(fileName ="EventsList", menuName ="EventsList", order =1)]
 public class Events  : ScriptableObject
 {

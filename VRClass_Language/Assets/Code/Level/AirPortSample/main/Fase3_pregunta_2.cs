@@ -56,7 +56,8 @@ public class Fase3_pregunta_2 : StateScript {
 	public void OptionMedicalConference() {
 		characterManager.setDialogs (dialogsE);
 		characterManager.setTalking ();
-		CurrentStep = final;
+        menuController.resetOptionStates();
+        CurrentStep = final;
 	}
 
 	private void first() {

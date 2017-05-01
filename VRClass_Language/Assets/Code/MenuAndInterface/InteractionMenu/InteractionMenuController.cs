@@ -12,6 +12,10 @@ public class InteractionMenuController : MonoBehaviour
     public Text[] dialog;
     public bool[] optionSelected;
     public Transform player;
+    public Color normal;
+    public Color highligted;
+    public Color normalSelected;
+    public Color highligtedSelected;
 
     public GameObject interactionMenuObject;
 
@@ -32,6 +36,7 @@ public class InteractionMenuController : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.Find("Player").GetComponent<Transform>();
         for (int x = 0; x < dialogGameObject.Length; x++)
         {
             dialogButton[x] = dialogGameObject[x].GetComponentInChildren<Button>();
@@ -43,19 +48,24 @@ public class InteractionMenuController : MonoBehaviour
         //EventManager.startListening(Events.EventList.DIALOG_Selected, setOptionXSelected);
     }
 
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener<DialogOptionSelectedEvent>(dialogHasBeenSelected);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener<DialogOptionSelectedEvent>(dialogHasBeenSelected);
+    }
+
     public void resetOptionStates()
     {
         for (int x = 0; x < dialogGameObject.Length; x++)
         {
-            optionSelected[x] = false;
-        }
-    }
-
-    public void setOptionXSelected(int i)
-    {
-        if(i <= optionSelected.Length - 1)
-        {
-            optionSelected[i] = true;
+            ColorBlock cb = dialogButton[x].colors;
+            cb.normalColor = normal;
+            cb.highlightedColor = highligted;
+            dialogButton[x].colors = cb;
         }
     }
 
@@ -78,17 +88,25 @@ public class InteractionMenuController : MonoBehaviour
     {
         if (newPosition != null)
             gameObject.transform.position = newPosition.position;
-        /*transform.LookAt (player.position);
-		transform.RotateAround (transform.position, Vector3.up, 180);*/
+        transform.LookAt (player.position);
+		transform.RotateAround (transform.position, Vector3.up, 180);
+    }
+
+    private void dialogHasBeenSelected(DialogOptionSelectedEvent e)
+    {
+        ColorBlock cb = dialogButton[e.Dialog].colors;
+        cb.normalColor = normalSelected;
+        cb.highlightedColor = highligtedSelected;
+        dialogButton[e.Dialog].colors = cb;
     }
 
     private void pauseIsOn()
     {
-        interactionMenuObject.SetActive(false);
+       // interactionMenuObject.SetActive(false);
     }
 
     private void pauseIsOff()
     {
-        interactionMenuObject.SetActive(true);
+      //  interactionMenuObject.SetActive(true);
     }
 }

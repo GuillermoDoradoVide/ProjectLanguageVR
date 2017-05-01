@@ -56,7 +56,8 @@ public class Fase_2_opcion_dos : StateScript {
 	public void OptionBarcelona() {
 		characterManager.setDialogs (dialogsE);
 		characterManager.setTalking ();
-		CurrentStep = final;
+        menuController.resetOptionStates();
+        CurrentStep = final;
 	}
 
 	private void first() {

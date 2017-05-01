@@ -12,30 +12,47 @@ public class EventManager : SingletonComponent<EventManager>
 	public delegate void TeleportPlayer(Transform position);
 	static TeleportPlayer teleportPlayer;
 
-    public delegate void EventGenericDelegate<T>(T e) where T : UnityEvent;
-    private delegate void EventGenericDelegate(UnityEvent unityEvent);
+    public bool LimitQueueProcesing = false;
+    public float QueueProcessTime = 0.0f;
+    private Queue m_eventQueue = new Queue();
+    ///<summary>
+    /// Delagate for game event data sent to listeners.
+    /// </summary>
+    /// <typeparam name="T">Game Event Sub Class</typeparam>
+    public delegate void EventGenericDelegate<T>(T e) where T : GameEvent;
+    private delegate void EventGenericDelegate(GameEvent gameEvent);
 	
 	private Dictionary<System.Type, EventGenericDelegate> delegates = new Dictionary<System.Type, EventGenericDelegate>();
     private Dictionary<System.Delegate, EventGenericDelegate> delegateLookup = new Dictionary<System.Delegate, EventGenericDelegate>();
     private Dictionary<System.Delegate, System.Delegate> onceLookups = new Dictionary<System.Delegate, System.Delegate>();
-
 
     private void Awake()
     {
        eventDictionary = new Dictionary<Events.EventList, UnityEvent>();
     }
 
-    private void Start()
+    private void Start() {}
+
+    private void Update()
     {
-        initEvents();
+        float timer = 0.0f;
+        while (m_eventQueue.Count > 0)
+        {
+            if (LimitQueueProcesing)
+            {
+                if (timer > QueueProcessTime)
+                    return;
+            }
+
+            GameEvent evt = m_eventQueue.Dequeue() as GameEvent;
+            TriggerEvent(evt);
+
+            if (LimitQueueProcesing)
+                timer += Time.deltaTime;
+        }
     }
 
-    private void initEvents()
-    {
-
-    }
-	
-	private EventGenericDelegate addDelegate<T> (EventGenericDelegate<T> del) where T : UnityEvent {
+    private EventGenericDelegate addDelegate<T> (EventGenericDelegate<T> del) where T : GameEvent {
 
         // Early-out if we've already registered this delegate
         if (delegateLookup.ContainsKey(del))
@@ -52,27 +69,35 @@ public class EventManager : SingletonComponent<EventManager>
         } else {
             delegates[typeof(T)] = internalDelegate;
         }
-
+        Debugger.printLog("Start listening to event: " + internalDelegate.ToString());
         return internalDelegate;
     }
 
-    public void AddListener<T>(EventGenericDelegate<T> del) where T : UnityEvent
+    ///<summary>
+    /// Adds method to be invoked when event raised.
+    /// </summary>
+    /// <typeparam name="T">The event associated with the event delegate.</typeparam>
+    /// <param name="del">The method to be stored and invoked if the event is raised.</param>
+    public void AddListener<T>(EventGenericDelegate<T> del) where T : GameEvent
     {
         addDelegate<T>(del);
     }
 
-    public void AddListenerOnce<T>(EventGenericDelegate<T> del) where T : UnityEvent
+    public void AddListenerOnce<T>(EventGenericDelegate<T> del) where T : GameEvent
     {
         EventGenericDelegate result = addDelegate<T>(del);
-
         if (result != null)
         {
             // remember this is only called once
             onceLookups[result] = del;
         }
     }
-
-    public void RemoveListener<T>(EventGenericDelegate<T> del) where T : UnityEvent
+    /// <summary>
+    /// Removes method to be invoked when event raised.
+    /// </summary>
+    /// <typeparam name="T">The event associated with the event delegate.</typeparam>
+    /// <param name="del">The method to be removed.</param>
+    public void RemoveListener<T>(EventGenericDelegate<T> del) where T : GameEvent
     {
         EventGenericDelegate internalDelegate;
         if (delegateLookup.TryGetValue(del, out internalDelegate))
@@ -90,7 +115,7 @@ public class EventManager : SingletonComponent<EventManager>
                     delegates[typeof(T)] = tempDel;
                 }
             }
-
+            Debugger.printLog("Remove event: " + del.ToString());
             delegateLookup.Remove(del);
         }
     }
@@ -102,30 +127,31 @@ public class EventManager : SingletonComponent<EventManager>
         onceLookups.Clear();
     }
 
-    public bool HasListener<T>(EventGenericDelegate<T> del) where T : UnityEvent
+    public bool HasListener<T>(EventGenericDelegate<T> del) where T : GameEvent
     {
         return delegateLookup.ContainsKey(del);
     }
 
-    public void TriggerEvent(UnityEvent e)
+    ///<summary>
+    /// Raises an event. ALl methods associated with event are invoked.
+    /// </summary>
+    /// <param name="e">THe event to raise. This is passed to associated delegates.</param>
+    public void TriggerEvent(GameEvent e)
     {
         EventGenericDelegate del;
         if (delegates.TryGetValue(e.GetType(), out del))
         {
             del.Invoke(e);
-
             // remove listeners which should only be called once
             foreach (EventGenericDelegate k in delegates[e.GetType()].GetInvocationList())
             {
                 if (onceLookups.ContainsKey(k))
                 {
                     delegates[e.GetType()] -= k;
-
                     if (delegates[e.GetType()] == null)
                     {
                         delegates.Remove(e.GetType());
                     }
-
                     delegateLookup.Remove(onceLookups[k]);
                     onceLookups.Remove(k);
                 }
@@ -133,11 +159,29 @@ public class EventManager : SingletonComponent<EventManager>
         }
         else
         {
-            Debug.LogWarning("Event: " + e.GetType() + " has no listeners");
+            Debugger.printErrorLog("Event: " + e.GetType() + " has no listeners");
         }
     }
 
+    public bool QueueEvent(GameEvent evt)
+    {
+        if (!delegates.ContainsKey(evt.GetType()))
+        {
+            Debug.LogWarning("EventManager: QueueEvent failed due to no listeners for event: " + evt.GetType());
+            return false;
+        }
 
+        m_eventQueue.Enqueue(evt);
+        return true;
+    }
+
+    public void OnApplicationQuit()
+    {
+        RemoveAll();
+        m_eventQueue.Clear();
+    }
+
+    // OLD EventManager
     //Generic event EventManager
     public static void startListening (Events.EventList eventName, UnityAction listener)
     {

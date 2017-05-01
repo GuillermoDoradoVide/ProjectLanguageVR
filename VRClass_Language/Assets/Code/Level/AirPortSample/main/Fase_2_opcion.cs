@@ -39,7 +39,8 @@ public class Fase_2_opcion : StateScript {
 	public void OptionSayName() {
 		characterManager.setDialogs (dialogsB);
 		characterManager.setTalking ();
-		CurrentStep = final;
+        menuController.resetOptionStates();
+        CurrentStep = final;
 	}
 
 	public void OptionSaySpecialAgent() {

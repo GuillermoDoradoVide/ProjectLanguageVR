@@ -19,7 +19,7 @@ public class Fase_2_pregunta : StateScript {
 	public UnityAction forthAction;
 	public UnityAction fifthAction;
 
-    void Start()
+    private void Start()
 	{
 	}
 
@@ -56,7 +56,8 @@ public class Fase_2_pregunta : StateScript {
 
 	public void OptiongivePassPort() {
 		characterManager.characterAnimator.SetTrigger ("Pick");
-		Invoke ("askName", 3);
+        menuController.resetOptionStates();
+        Invoke ("askName", 3);
 	}
 
 	public void askName() {

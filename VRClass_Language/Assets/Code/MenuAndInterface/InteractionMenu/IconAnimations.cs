@@ -29,17 +29,19 @@ public class IconAnimations : MonoBehaviour {
 	{
 		//initPos = iconRectTransform.localPosition;
 		showPanel ();
-		Debug.Log("Se activa el objeto: [" + gameObject.name + "]");
+		Debugger.printLog("Se activa el objeto: [" + gameObject.name + "]");
 	}
 
 	private void OnDisable()
 	{
-		Debug.Log("Se DESactiva el objeto: [" + gameObject.name + "]");
+        Debugger.printLog("Se DESactiva el objeto: [" + gameObject.name + "]");
         StopAllCoroutines();
 	}
 
 	public void Onclick() {
 		selectPanel ();
+        Debugger.printLog("Children position: " + transform.GetSiblingIndex());
+        EventManager.Instance.TriggerEvent( new DialogOptionSelectedEvent(transform.GetSiblingIndex()));
 	}
 
 	private void selectPanel() {
@@ -142,5 +144,4 @@ public class IconAnimations : MonoBehaviour {
 			yield return null;
 		}
 	}
-
 }

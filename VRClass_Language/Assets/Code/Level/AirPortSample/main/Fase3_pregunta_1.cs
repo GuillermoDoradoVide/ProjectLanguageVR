@@ -44,7 +44,8 @@ public class Fase3_pregunta_1  : StateScript {
 	public void Optionmiami() {
 		characterManager.setDialogs (dialogsC);
 		characterManager.setTalking ();
-		CurrentStep = final;
+        menuController.resetOptionStates();
+        CurrentStep = final;
 	}
 
 	public void OptionBoardingpass() {
