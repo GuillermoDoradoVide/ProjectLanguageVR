@@ -175,7 +175,7 @@ public class EventManager : SingletonComponent<EventManager>
         return true;
     }
 
-    public void OnApplicationQuit()
+    public void OnDestroy()
     {
         RemoveAll();
         m_eventQueue.Clear();
