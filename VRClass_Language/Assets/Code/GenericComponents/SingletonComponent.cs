@@ -36,9 +36,4 @@ public abstract class SingletonComponent<T> : MonoBehaviour where T : SingletonC
             return instance;
         }
     }
-
-    private void OnDestroy()
-    {
-        instance = null;
-    }
 }

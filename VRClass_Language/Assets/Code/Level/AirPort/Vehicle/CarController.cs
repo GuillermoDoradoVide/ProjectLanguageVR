@@ -18,9 +18,8 @@ public class CarController : MonoBehaviour {
     private Vector3 characterTravelDirection;
     private Quaternion movementQuaternionRotation;
     private Vector3 diferenceWaypointToCharacter;
-    private bool finished = false;
-    public float t = 0;
-
+    public bool stop = false;
+    
     private void Start()
     {
         if (waypoints.Length != 0)
@@ -48,20 +47,12 @@ public class CarController : MonoBehaviour {
 
     public void move()
     {
-        t += Time.deltaTime * maxDesplacementDistance;
-        if (t > 1)
+        if(!stop)
         {
-            t = 1;
+            car.Translate(Vector3.forward * Time.deltaTime * maxDesplacementDistance);
+            rotateCharacter();
         }
 
-        //Vector3 auxiliar;
-        //auxiliar = Vector3.Lerp(car.position, destinyWaypoint, t); ;
-        //auxiliar.y = car.position.y;
-        //auxiliar = auxiliar - car.position;
-        //Debugger.printLog(auxiliar + " ++ " + car.forward);
-        car.Translate(transform.forward * Time.deltaTime * maxDesplacementDistance);
-        //car.position = auxiliar;
-        rotateCharacter();
         checkDestinyWaypoint();
     }
 
@@ -79,7 +70,6 @@ public class CarController : MonoBehaviour {
         if (diferenceWaypointToCharacter.magnitude < minDistanceToPointError)
         {
             changeCurrentToNextWaypoint();
-            t = 0;
         }
     }
 
@@ -89,11 +79,9 @@ public class CarController : MonoBehaviour {
         {
             currentWaypoint++;
             destinyWaypoint = waypoints[currentWaypoint].position;
-            finished = false;
         }
         else
         {
-            finished = true;
             currentWaypoint = 0;
             destinyWaypoint = waypoints[currentWaypoint].position;
         }

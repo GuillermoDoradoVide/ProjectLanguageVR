@@ -175,10 +175,11 @@ public class EventManager : SingletonComponent<EventManager>
         return true;
     }
 
-    public void OnDestroy()
+    private void OnDestroy()
     {
         RemoveAll();
         m_eventQueue.Clear();
+        instance = null;
     }
 
     // OLD EventManager
