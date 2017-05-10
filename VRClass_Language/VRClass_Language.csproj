@@ -293,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\Modular_Road_and_Highway_Set\ReadMe.txt" />
+    <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />
     <None Include="Assets\GoogleVR\Demos\Environment\DemoEnvUnlitGrayscale.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoAmbientOcclusion.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoUnlitGrayscaleToColor.shader" />
