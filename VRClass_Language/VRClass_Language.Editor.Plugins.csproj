@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\Modular_Road_and_Highway_Set\ReadMe.txt" />
-    <None Include="Assets\Content\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />
     <None Include="Assets\GoogleVR\Demos\Environment\DemoEnvUnlitGrayscale.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoAmbientOcclusion.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoUnlitGrayscaleToColor.shader" />
@@ -144,8 +143,6 @@
     <None Include="Assets\Plugins\Android\AndroidManifest-Daydream.xml" />
     <None Include="Assets\Plugins\Android\proguard-gvr.txt" />
     <None Include="Assets\Plugins\Android\readme.txt" />
-    <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
-    <None Include="Assets\RainMaker\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: a65809c1df8a61044bce1a08a5bdae20
+timeCreated: 1494413863
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 2Lanes001.001
+    100002: 2Lanes001.002
+    100004: //RootNode
+    400000: 2Lanes001.001
+    400002: 2Lanes001.002
+    400004: //RootNode
+    2300000: 2Lanes001.001
+    2300002: 2Lanes001.002
+    3300000: 2Lanes001.001
+    3300002: 2Lanes001.002
+    4300000: 2Lanes001.002
+    4300002: 2Lanes001.001
+    7400000: 2Lanes001.002|2Lanes001|Take 001|BaseLayer
+    7400002: 2Lanes001.002|2Lanes002|Take 001|BaseLayer
+    7400004: 2Lanes001.002|2Lanes003|Take 001|BaseLayer
+    7400006: 2Lanes001.002|2LanesTIntersection|Take 001|BaseLayer
+    7400008: 2Lanes001.002|2LanesTurn|Take 001|BaseLayer
+    7400010: 2Lanes001.002|2LanesXIntersection|Take 001|BaseLayer
+    7400012: 2Lanes001.002|2Lanes|Take 001|BaseLayer
+    7400014: 2Lanes001.002|2LaneTIntersectionBoulevard|Take 001|BaseLayer
+    7400016: 2Lanes001.002|Boulevard-2Lanes|Take 001|BaseLayer
+    7400018: 2Lanes001.002|BoulevardStraight001|Take 001|BaseLayer
+    7400020: 2Lanes001.002|BoulevardStraight002|Take 001|BaseLayer
+    7400022: 2Lanes001.002|BoulevardStraight003|Take 001|BaseLayer
+    7400024: 2Lanes001.002|BoulevardStraight004|Take 001|BaseLayer
+    7400026: 2Lanes001.002|BoulevardStraight005|Take 001|BaseLayer
+    7400028: 2Lanes001.002|BoulevardStraight006|Take 001|BaseLayer
+    7400030: 2Lanes001.002|BoulevardStraight007|Take 001|BaseLayer
+    7400032: 2Lanes001.002|BoulevardStraight|Take 001|BaseLayer
+    7400034: 2Lanes001.002|BoulevardTIntersection2Lanes|Take 001|BaseLayer
+    7400036: 2Lanes001.002|BoulevardTIntersection|Take 001|BaseLayer
+    7400038: 2Lanes001.002|BoulevardXIntersection|Take 001|BaseLayer
+    7400040: 2Lanes001.002|Camera001|Take 001|BaseLayer
+    7400042: 2Lanes001.002|ExpresswayExit|Take 001|BaseLayer
+    7400044: 2Lanes001.002|ExpresswayStraight001|Take 001|BaseLayer
+    7400046: 2Lanes001.002|ExpresswayStraight002|Take 001|BaseLayer
+    7400048: 2Lanes001.002|ExpresswayStraight003|Take 001|BaseLayer
+    7400050: 2Lanes001.002|ExpresswayStraight004|Take 001|BaseLayer
+    7400052: 2Lanes001.002|ExpresswayStraight005|Take 001|BaseLayer
+    7400054: 2Lanes001.002|ExpresswayStraight|Take 001|BaseLayer
+    7400056: 2Lanes001.002|ExpresswayXIntersectionBoulevard|Take 001|BaseLayer
+    7400058: 2Lanes001.002|RampEntry|Take 001|BaseLayer
+    7400060: 2Lanes001.002|RampExit|Take 001|BaseLayer
+    7400062: 2Lanes001.001|2Lanes001|Take 001|BaseLayer
+    7400064: 2Lanes001.001|2Lanes002|Take 001|BaseLayer
+    7400066: 2Lanes001.001|2Lanes003|Take 001|BaseLayer
+    7400068: 2Lanes001.001|2LanesTIntersection|Take 001|BaseLayer
+    7400070: 2Lanes001.001|2LanesTurn|Take 001|BaseLayer
+    7400072: 2Lanes001.001|2LanesXIntersection|Take 001|BaseLayer
+    7400074: 2Lanes001.001|2Lanes|Take 001|BaseLayer
+    7400076: 2Lanes001.001|2LaneTIntersectionBoulevard|Take 001|BaseLayer
+    7400078: 2Lanes001.001|Boulevard-2Lanes|Take 001|BaseLayer
+    7400080: 2Lanes001.001|BoulevardStraight001|Take 001|BaseLayer
+    7400082: 2Lanes001.001|BoulevardStraight002|Take 001|BaseLayer
+    7400084: 2Lanes001.001|BoulevardStraight003|Take 001|BaseLayer
+    7400086: 2Lanes001.001|BoulevardStraight004|Take 001|BaseLayer
+    7400088: 2Lanes001.001|BoulevardStraight005|Take 001|BaseLayer
+    7400090: 2Lanes001.001|BoulevardStraight006|Take 001|BaseLayer
+    7400092: 2Lanes001.001|BoulevardStraight007|Take 001|BaseLayer
+    7400094: 2Lanes001.001|BoulevardStraight|Take 001|BaseLayer
+    7400096: 2Lanes001.001|BoulevardTIntersection2Lanes|Take 001|BaseLayer
+    7400098: 2Lanes001.001|BoulevardTIntersection|Take 001|BaseLayer
+    7400100: 2Lanes001.001|BoulevardXIntersection|Take 001|BaseLayer
+    7400102: 2Lanes001.001|Camera001|Take 001|BaseLayer
+    7400104: 2Lanes001.001|ExpresswayExit|Take 001|BaseLayer
+    7400106: 2Lanes001.001|ExpresswayStraight001|Take 001|BaseLayer
+    7400108: 2Lanes001.001|ExpresswayStraight002|Take 001|BaseLayer
+    7400110: 2Lanes001.001|ExpresswayStraight003|Take 001|BaseLayer
+    7400112: 2Lanes001.001|ExpresswayStraight004|Take 001|BaseLayer
+    7400114: 2Lanes001.001|ExpresswayStraight005|Take 001|BaseLayer
+    7400116: 2Lanes001.001|ExpresswayStraight|Take 001|BaseLayer
+    7400118: 2Lanes001.001|ExpresswayXIntersectionBoulevard|Take 001|BaseLayer
+    7400120: 2Lanes001.001|RampEntry|Take 001|BaseLayer
+    7400122: 2Lanes001.001|RampExit|Take 001|BaseLayer
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
