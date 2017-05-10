@@ -8,7 +8,7 @@ public class CarController : MonoBehaviour {
     public Vector3 destinyWaypoint;
     public int currentWaypoint;
 
-    [Range(0.0f, 15f)]
+    [Range(0.0f, 60f)]
     public float maxDesplacementDistance = 0.1f;
     [Range(0.1f, 5f)]
     public float minDistanceToPointError = 0.3f;

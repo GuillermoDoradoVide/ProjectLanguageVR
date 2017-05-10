@@ -179,7 +179,7 @@ public class EventManager : SingletonComponent<EventManager>
     {
         RemoveAll();
         m_eventQueue.Clear();
-        instance = null;
+        //instance = null;
     }
 
     // OLD EventManager

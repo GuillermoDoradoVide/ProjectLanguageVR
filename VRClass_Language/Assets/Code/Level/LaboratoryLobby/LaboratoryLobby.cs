@@ -44,7 +44,19 @@ public class LaboratoryLobby : StateScript {
 		SceneController.Instance.SwitchScene ("Aeropuerto_Pasaportes");
 	}
 
-	private void waitForPlayer() {
+    public void loadPickUpAirportLevel()
+    {
+        Debugger.printLog("Load");
+        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+        Invoke("changeToPickUpAirportScene", 2);
+    }
+
+    private void changeToPickUpAirportScene()
+    {
+        SceneController.Instance.SwitchScene("alternative_recogida");
+    }
+
+    private void waitForPlayer() {
 		
 	}
 

@@ -34,6 +34,7 @@ public class SoundManager : SingletonComponent<SoundManager> {
 		}
 		if (musicSource == null) {
 			musicSource = gameObject.AddComponent<AudioSource> () as AudioSource;
+            musicSource.loop = true;
 		}
     }
 

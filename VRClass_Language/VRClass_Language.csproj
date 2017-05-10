@@ -104,6 +104,8 @@
     <Compile Include="Assets\Code\Level\AirPort\Pasport\Fin.cs" />
     <Compile Include="Assets\Code\Level\AirPort\Pasport\Final_Seccion.cs" />
     <Compile Include="Assets\Code\Level\AirPort\Pasport\Inicio.cs" />
+    <Compile Include="Assets\Code\Level\AirPort\Recogida\BuildingTeleport.cs" />
+    <Compile Include="Assets\Code\Level\AirPort\Recogida\NextBuildingElement.cs" />
     <Compile Include="Assets\Code\Level\AirPort\Vehicle\CarController.cs" />
     <Compile Include="Assets\Code\Level\BackToLobby.cs" />
     <Compile Include="Assets\Code\Level\Boss_Office_Lobby\BossOfficeLobby.cs" />
@@ -291,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\Modular_Road_and_Highway_Set\ReadMe.txt" />
+    <None Include="Assets\Content\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />
     <None Include="Assets\GoogleVR\Demos\Environment\DemoEnvUnlitGrayscale.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoAmbientOcclusion.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoUnlitGrayscaleToColor.shader" />
@@ -312,6 +315,8 @@
     <None Include="Assets\Plugins\Android\AndroidManifest-Daydream.xml" />
     <None Include="Assets\Plugins\Android\proguard-gvr.txt" />
     <None Include="Assets\Plugins\Android\readme.txt" />
+    <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
+    <None Include="Assets\RainMaker\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
