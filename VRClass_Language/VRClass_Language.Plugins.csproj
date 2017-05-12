@@ -89,9 +89,11 @@
     <Compile Include="Assets\Plugins\GoogleAnalyticsV4\HitBuilders\TransactionHitBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\BackgroundCars\FreeCar\BackgroundCar-Free.txt" />
+    <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\BackgroundCars\FreeCar\BackgroundCar-Free.txt" />
     <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\Modular_Road_and_Highway_Set\ReadMe.txt" />
     <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />
+    <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\k14\fbx\Textures\Please Read - Textures source.txt" />
+    <None Include="Assets\Content\Scenes\SkySphere_V1\Documentation\How to use.txt" />
     <None Include="Assets\GoogleVR\Demos\Environment\DemoEnvUnlitGrayscale.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoAmbientOcclusion.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoUnlitGrayscaleToColor.shader" />

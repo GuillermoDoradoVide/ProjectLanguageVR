@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Content/Scenes/Sample_Tutorial.unity
-  isLoaded: 1
-  isActive: 1
