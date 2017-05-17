@@ -42,6 +42,13 @@ ModelImporter:
     100068: Plane.020_Plane.027
     100070: Plane.023_Plane.030
     100072: Plane.026_Plane.044
+    100074: Plane
+    100076: Plane.002
+    100078: Cube
+    100080: Cube.001
+    100082: Plane.003
+    100084: Plane.004
+    100086: Cube.002
     400000: Back_Seats_Cube.003
     400002: Body.001_Plane.016
     400004: Body.002_Plane
@@ -79,6 +86,13 @@ ModelImporter:
     400068: Plane.020_Plane.027
     400070: Plane.023_Plane.030
     400072: Plane.026_Plane.044
+    400074: Plane
+    400076: Plane.002
+    400078: Cube
+    400080: Cube.001
+    400082: Plane.003
+    400084: Plane.004
+    400086: Cube.002
     2300000: Back_Seats_Cube.003
     2300002: Body.001_Plane.016
     2300004: Body.002_Plane
@@ -115,6 +129,13 @@ ModelImporter:
     2300066: Plane.020_Plane.027
     2300068: Plane.023_Plane.030
     2300070: Plane.026_Plane.044
+    2300072: Plane
+    2300074: Plane.002
+    2300076: Cube
+    2300078: Cube.001
+    2300080: Plane.003
+    2300082: Plane.004
+    2300084: Cube.002
     3300000: Back_Seats_Cube.003
     3300002: Body.001_Plane.016
     3300004: Body.002_Plane
@@ -151,6 +172,13 @@ ModelImporter:
     3300066: Plane.020_Plane.027
     3300068: Plane.023_Plane.030
     3300070: Plane.026_Plane.044
+    3300072: Plane
+    3300074: Plane.002
+    3300076: Cube
+    3300078: Cube.001
+    3300080: Plane.003
+    3300082: Plane.004
+    3300084: Cube.002
     4300000: Cube_Cube.001
     4300002: Cylinder.045_Cylinder.014
     4300004: Cylinder
@@ -187,6 +215,13 @@ ModelImporter:
     4300066: Plane.023_Plane.030
     4300068: Cylinder.046_Cylinder.015
     4300070: Font.002_Mesh.004
+    4300072: Plane.002
+    4300074: Plane
+    4300076: Plane.004
+    4300078: Plane.003
+    4300080: Cube.001
+    4300082: Cube
+    4300084: Cube.002
   materials:
     importMaterials: 1
     materialName: 0
