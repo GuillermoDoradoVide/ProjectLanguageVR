@@ -15,11 +15,6 @@ public class PlayerController : MonoBehaviour
 		EventManager.startListening (Events.EventList.STATE_Continue, disableMenu);
 	}
 
-	private void OnDestroy() {
-		EventManager.stopListening (Events.EventList.STATE_Pause, activeMenu);
-		EventManager.stopListening (Events.EventList.STATE_Continue, disableMenu);
-	}
-
 	private void OnEnable() {
 		EventManager.startListening (Events.EventList.STATE_Pause, activeMenu);
 		EventManager.startListening (Events.EventList.STATE_Continue, disableMenu);

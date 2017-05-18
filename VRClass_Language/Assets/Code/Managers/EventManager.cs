@@ -177,6 +177,7 @@ public class EventManager : SingletonComponent<EventManager>
 
     private void OnDestroy()
     {
+        Debugger.printLog("OnDestroy EventManager");
         RemoveAll();
         m_eventQueue.Clear();
         //instance = null;

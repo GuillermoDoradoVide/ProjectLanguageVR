@@ -148,14 +148,23 @@ public class SoundManager : SingletonComponent<SoundManager> {
         switch(type)
         {
             case sfxType.OnButtonClick:
-                return Resources.Load("Audio/InterfaceEffects/ClickSoundA") as AudioClip;
-                break;
+                {
+                    return Resources.Load("Audio/InterfaceEffects/ClickSoundA") as AudioClip;
+                    break;
+                }
+               
             case sfxType.OnButtonHover:
-                return Resources.Load("Audio/InterfaceEffects/HoverA") as AudioClip;
-                break;
+                {
+                    return Resources.Load("Audio/InterfaceEffects/HoverA") as AudioClip;
+                    break;
+                }
+               
             case sfxType.OnConfirm:
-                return Resources.Load("Audio/InterfaceEffects/ScifiEffectConfirm") as AudioClip;
-                break;
+                {
+                    return Resources.Load("Audio/InterfaceEffects/ScifiEffectConfirm") as AudioClip;
+                    break;
+                }
+               
         }
         return null;
     }

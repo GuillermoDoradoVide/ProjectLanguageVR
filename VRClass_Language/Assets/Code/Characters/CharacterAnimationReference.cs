@@ -11,7 +11,7 @@ public class CharacterAnimationReference : MonoBehaviour {
 	private static int currentAnimation;
 
 	// Use this for initialization
-	void Start () {
+	private void Start () {
 		characterAnimator = GetComponent<Animator> ();
 		walkingID = Animator.StringToHash("Walking");
 		talkingID = Animator.StringToHash("Talking");

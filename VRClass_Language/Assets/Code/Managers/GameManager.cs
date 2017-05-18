@@ -32,11 +32,14 @@ public class GameManager : SingletonComponent<GameManager>
         EventManager.stopListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
     }
 
-	private void OnDestroy()
-	{
-		EventManager.stopListening(Events.EventList.GAMEMANAGER_Pause, pauseGame);
-		EventManager.stopListening(Events.EventList.GAMEMANAGER_Continue, continueGame);
-	}
+    private void OnApplicationQuit()
+    {
+        MonoBehaviour[] scripts = FindObjectsOfType<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            script.enabled = false;
+        }
+    }
 
     /* INIT METHODS */
 

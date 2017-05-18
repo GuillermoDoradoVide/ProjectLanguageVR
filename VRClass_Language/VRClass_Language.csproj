@@ -84,6 +84,7 @@
     <Compile Include="Assets\Code\Characters\CharacterManager.cs" />
     <Compile Include="Assets\Code\Characters\CharacterMovement.cs" />
     <Compile Include="Assets\Code\Characters\Dialog\DialogScript.cs" />
+    <Compile Include="Assets\Code\Characters\NPCMovement.cs" />
     <Compile Include="Assets\Code\GenericComponents\Debugger.cs" />
     <Compile Include="Assets\Code\GenericComponents\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />

@@ -34,7 +34,6 @@ public class RotateHologram : MonoBehaviour {
 		alpha = Transition.GetColor ("_TintColor");
 		float value = alpha.a;
 		meshR.material = Transition;
-		bool first = false;
 		while (alpha.a < 1) {
 			value += Time.deltaTime;
 			alpha.a = value;

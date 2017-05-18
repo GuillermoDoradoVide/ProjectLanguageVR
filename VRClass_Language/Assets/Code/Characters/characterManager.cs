@@ -116,10 +116,6 @@ public class CharacterManager : MonoBehaviour
 		}
 	}
 
-//	public void doUpdate ()
-//	{
-//	}
-
 	private void checkState ()
 	{
 		if (stateMode != nextStateMode) {

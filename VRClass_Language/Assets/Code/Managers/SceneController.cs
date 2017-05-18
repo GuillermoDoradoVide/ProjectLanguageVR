@@ -85,6 +85,7 @@ public class SceneController : SingletonComponent<SceneController>
 
     protected void OnDestroy()
     {
+        Debugger.printLog("OnDestroy SceneController");
         // clean up all the delegates
         if (sceneStateUpdates != null)
         {
