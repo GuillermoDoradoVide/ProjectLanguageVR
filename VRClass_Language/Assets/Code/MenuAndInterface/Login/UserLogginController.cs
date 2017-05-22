@@ -73,9 +73,9 @@ public class UserLogginController : MonoBehaviour {
 			SoundManager.playSFX (succesLogin);
 			loginSucces ();
 		}
-		else {
-			SoundManager.playSFX (wrongLogin);
-		}
+		//else {
+			//SoundManager.playSFX (wrongLogin);
+		//}
 	}
 
 	public void newAgent() {

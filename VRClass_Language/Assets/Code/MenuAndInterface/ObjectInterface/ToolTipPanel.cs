@@ -8,7 +8,7 @@ public class ToolTipPanel : MonoBehaviour {
 	public CanvasGroup toolTipCanvasGroup;
 	private RectTransform canvasRectTransform;
 	//panel info
-	public Text name;
+	public Text toolTipName;
 	public float timer = 1.0f;
 	public float transitionSpeed;
 
@@ -18,7 +18,7 @@ public class ToolTipPanel : MonoBehaviour {
 	}
 
 	public void updatePanelInfo(ObjectToolTipData toolTipObject) {
-		name.text = toolTipObject.itemData.getItemData().name;
+        toolTipName.text = toolTipObject.itemData.getItemData().name;
 		GameObject toolTipGO = toolTipObject.gameObject;
 		toolTipCanvasGroup.transform.position = new Vector3 (toolTipGO.transform.position.x , toolTipGO.GetComponent<MeshRenderer>().bounds.max.y + 0.5f, toolTipGO.transform.position.z);
 	}

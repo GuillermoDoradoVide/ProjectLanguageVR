@@ -11,8 +11,6 @@ public enum sfxType
 
 public class SoundManager : SingletonComponent<SoundManager>
 {
-    public List<AudioSource> sfxSources;
-    public AudioSource musicSource;
     [Header("Sound variations")]
     [Range(0.8f, 1.0f)]
     public float lowPitchRange;
@@ -26,8 +24,10 @@ public class SoundManager : SingletonComponent<SoundManager>
     public static float currentVolumenNormalized_Music = 1f;
     public static float currentVolumenNormalized_SFX = 1f;
 
+    public List<AudioSource> sfxSources;
+    public AudioSource musicSource;
     public AudioSource[] audioSourceCollection;
-    // init methods
+
     private void Awake()
     {
         if (sfxSources == null)
@@ -103,6 +103,29 @@ public class SoundManager : SingletonComponent<SoundManager>
         musicSource.volume = fadeToVolume * currentVolumenNormalized_Music;
     }
 
+    private IEnumerator fadeAllSounds(float fadeToVolume, float duration)
+    {
+        float elapsed = 0;
+        float t;
+        float volume;
+        float currentVolume = musicSource.volume;
+        while (duration >= elapsed)
+        {
+            t = (elapsed / duration);
+            volume = Mathf.Lerp(currentVolume, fadeToVolume * currentVolumenNormalized_Music, t);
+            for (int i = 0; i < audioSourceCollection.Length - 1; i++)
+            {
+                audioSourceCollection[i].volume = volume;
+            }
+            elapsed += Time.deltaTime;
+            yield return 0;
+        }
+        for (int i = 0; i < audioSourceCollection.Length - 1; i++)
+        {
+            audioSourceCollection[i].volume = fadeToVolume * currentVolumenNormalized_Music;
+        }
+    }
+
     public static void playMusic(AudioClip music, bool fade, float fadeDuration = 1f)
     {
         SoundManager manager = Instance;
@@ -162,30 +185,6 @@ public class SoundManager : SingletonComponent<SoundManager>
         }
     }
 
-    private IEnumerator fadeAllSounds(float fadeToVolume, float duration)
-    {
-        SoundManager manager = Instance;
-        float elapsed = 0;
-        float t;
-        float volume;
-        float currentVolume = musicSource.volume;
-        while (duration >= elapsed)
-        {
-            t = (elapsed / duration);
-            volume = Mathf.Lerp(currentVolume, fadeToVolume * currentVolumenNormalized_Music, t);
-            for (int i = 0; i < manager.audioSourceCollection.Length - 1; i++)
-            {
-                manager.audioSourceCollection[i].volume = volume;
-            }
-            elapsed += Time.deltaTime;
-            yield return 0;
-        }
-        for (int i = 0; i < manager.audioSourceCollection.Length - 1; i++)
-        {
-            manager.audioSourceCollection[i].volume = fadeToVolume * currentVolumenNormalized_Music;
-        }
-    }
-
     //[SECTCION] = SFX SOUND 
     /*************************/
     AudioSource getSFXSource()
@@ -214,28 +213,29 @@ public class SoundManager : SingletonComponent<SoundManager>
 
     private AudioClip getSoundEffect(sfxType type)
     {
+        AudioClip audioEffect = null;
         switch (type)
         {
             case sfxType.OnButtonClick:
                 {
-                    return Resources.Load("Audio/InterfaceEffects/ClickSoundA") as AudioClip;
+                    audioEffect = Resources.Load("Audio/InterfaceEffects/ClickSoundA") as AudioClip;
                     break;
                 }
 
             case sfxType.OnButtonHover:
                 {
-                    return Resources.Load("Audio/InterfaceEffects/HoverA") as AudioClip;
+                    audioEffect = Resources.Load("Audio/InterfaceEffects/HoverA") as AudioClip;
                     break;
                 }
 
             case sfxType.OnConfirm:
                 {
-                    return Resources.Load("Audio/InterfaceEffects/ScifiEffectConfirm") as AudioClip;
+                    audioEffect = Resources.Load("Audio/InterfaceEffects/ScifiEffectConfirm") as AudioClip;
                     break;
                 }
 
         }
-        return null;
+        return audioEffect;
     }
 
     // SFX FUNCTIONS

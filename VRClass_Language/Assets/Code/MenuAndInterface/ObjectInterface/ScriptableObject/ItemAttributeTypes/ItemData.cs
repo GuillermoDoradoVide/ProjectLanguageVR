@@ -3,7 +3,7 @@
 using UnityEditor;
 #endif
 public class ItemData : ItemAttribute {
-	public string name = "object";
+	public string Itemname = "object";
 	public string description = "Description";
 	#if UNITY_EDITOR
 	public override void DOLayout() {

@@ -8,15 +8,12 @@ public class CharacterAnimationReference : MonoBehaviour {
 	private static int talkingID;
 	private static int speedID;
 
-	private static int currentAnimation;
-
 	// Use this for initialization
 	private void Start () {
 		characterAnimator = GetComponent<Animator> ();
 		walkingID = Animator.StringToHash("Walking");
 		talkingID = Animator.StringToHash("Talking");
 		speedID = Animator.StringToHash("Speed");
-		currentAnimation = walkingID;
 	}
 
 	public void setWalking(bool walking = true, float speed = 1f) {
