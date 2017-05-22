@@ -60,20 +60,25 @@ public class LevelManager : SingletonComponent<LevelManager>
     }
     // ********************
 	public void restartLevel() {
-		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
-		Invoke ("reloadScene", 2);
-	}
+        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+        Invoke("reloadCurrentLevel", 2);
+    }
 
-	public void backToLobby() {
-		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
-		Invoke ("loadLobbyScene", 2);
-	}
+    private void reloadCurrentLevel()
+    {
+        SceneController.Instance.resetScene();
+    }
 
-	private void reloadScene() {
-		SceneController.Instance.resetScene ();
-	}
+    public void changeScene(string sceneName)
+    {
+        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+        StartCoroutine(loadNewScene(sceneName));
+        
+    }
 
-	private void loadLobbyScene() {
-		SceneController.Instance.SwitchScene ("UserLobby");
-	}
+    private IEnumerator loadNewScene(string sceneName)
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneController.Instance.SwitchScene(sceneName);
+    }
 }

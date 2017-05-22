@@ -9,73 +9,59 @@ public class FadeEffect : MonoBehaviour {
 	public Image fadeImage;
 	public Color currentFadeColor;
 	public Color originColor;
-	public enum fadeType
-	{
-		FIn, FOut
-	};
-	public fadeType type;
+    public bool isFadingIn;
 
 	private void Awake() {
-		fadeImage = GetComponentInChildren<Image> ();
+        isFadingIn = true;
+        fadeImage = GetComponentInChildren<Image> ();
 		currentFadeColor = fadeImage.color;
 		originColor = currentFadeColor;
 		fadeImage.rectTransform.sizeDelta = new Vector2(Screen.width + 25, Screen.height + 25);
 	}
 
-	// Use this for initialization
-	private void Start () {
-		
-	}
-
-	private void Update() {
-		fader ();
-	}
-
-	private void fader () {
-		switch (type) {
-			case fadeType.FIn: {
-				fadeIn ();
-				break;
-			}
-		case fadeType.FOut: {
-				fadeOut ();
-				break;
-			}
-		}
-	}
-
 	public void setFadeIn() {
 		new_alpha_color = 1;
-		type = FadeEffect.fadeType.FIn;
-	}
+        isFadingIn = true;
+        StartCoroutine(fadeIn());
+    }
 
 	public void setFadeOut() {
 		new_alpha_color = 0;
-		type = FadeEffect.fadeType.FOut;
-	}
+        isFadingIn = false;
+        StartCoroutine(fadeOut());
+    }
 
-	private void fadeIn() {
-		if (new_alpha_color < 0) {
-			currentFadeColor.a = 0;
-			fadeImage.color = currentFadeColor;
-			gameObject.SetActive (false);
-		}
-		else {
-			currentFadeColor.a = new_alpha_color;
-			fadeImage.color = currentFadeColor;
-		}
-		new_alpha_color -= fadeSpeed * Time.deltaTime;
-	}
+    private IEnumerator fadeIn()
+    {
+        while (new_alpha_color > 0)
+        {
+            if (!isFadingIn)
+                yield break;
+            currentFadeColor.a = new_alpha_color;
+            fadeImage.color = currentFadeColor;
+            new_alpha_color -= fadeSpeed * Time.deltaTime;
+            yield return null;
+        }
+        currentFadeColor.a = 0;
+        fadeImage.color = currentFadeColor;  
+        new_alpha_color = 0;
+        gameObject.SetActive(false);
+    }
 
-	private void fadeOut () {
-		new_alpha_color += fadeSpeed * Time.deltaTime;
-		if (new_alpha_color > 1) {
-			currentFadeColor.a = 1;
-			fadeImage.color = currentFadeColor;
-			//gameObject.SetActive (false);
-		} else {
-			currentFadeColor.a = new_alpha_color;
-			fadeImage.color = currentFadeColor;
-		}
-	}
+    private IEnumerator fadeOut()
+    {
+        while(new_alpha_color < 1)
+        {
+            if (isFadingIn)
+                yield break;
+            currentFadeColor.a = new_alpha_color;
+            fadeImage.color = currentFadeColor;
+            new_alpha_color += fadeSpeed * Time.deltaTime;
+
+            yield return null;
+        }
+        currentFadeColor.a = 1;
+        fadeImage.color = currentFadeColor;
+        new_alpha_color = 1;
+    }
 }

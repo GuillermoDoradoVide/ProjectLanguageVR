@@ -57,13 +57,8 @@ public class UserLobby : StateScript {
 	}
 
 	public void loadlaboratory() {
-		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
-		Invoke ("changeToLaboratoryLobby", 2);
-	}
-
-	private void changeToLaboratoryLobby() {
-		SceneController.Instance.SwitchScene ("Laboratory");
-	}
+        SceneController.Instance.SwitchScene("Laboratory");
+    }
 
 	private void setIntroStart() {
 		isIntro = true;

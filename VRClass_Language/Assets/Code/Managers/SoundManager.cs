@@ -117,7 +117,7 @@ public class SoundManager : SingletonComponent<SoundManager> {
 	}
 
 	public static void playRandomMusic() {
-		playMusic (SoundManager.Instance.musicBox[Random.Range(0,SoundManager.Instance.musicBox.Length)], true);
+		playMusic (Instance.musicBox[Random.Range(0, Instance.musicBox.Length)], true);
 	}
 
 	//[SECTCION] = SFX SOUND 

@@ -41,12 +41,6 @@ public class MissionBriefing_1 : StateScript {
 
     public void loadlaboratory()
     {
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
-        Invoke("changeToLaboratoryLobby", 2);
-    }
-
-    private void changeToLaboratoryLobby()
-    {
         SceneController.Instance.SwitchScene("Aeropuerto_Pasaportes");
     }
 
