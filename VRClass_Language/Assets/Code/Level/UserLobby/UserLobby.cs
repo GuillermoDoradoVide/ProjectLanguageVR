@@ -57,7 +57,7 @@ public class UserLobby : StateScript {
 	}
 
 	public void loadlaboratory() {
-        SceneController.Instance.SwitchScene("Laboratory");
+        LevelManager.Instance.changeScene("Laboratory");
     }
 
 	private void setIntroStart() {

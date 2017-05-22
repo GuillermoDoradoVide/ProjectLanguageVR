@@ -41,7 +41,7 @@ public class MissionBriefing_1 : StateScript {
 
     public void loadlaboratory()
     {
-        SceneController.Instance.SwitchScene("Aeropuerto_Pasaportes");
+        LevelManager.Instance.changeScene("Laboratory");
     }
 
     public override void atInit()

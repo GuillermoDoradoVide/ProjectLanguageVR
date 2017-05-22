@@ -111,7 +111,10 @@ public class CharacterManager : MonoBehaviour
 				Movements [(int)stateMode] ();
 			}
 			if (Actions != null) {
-				Actions ();
+                if(!GameManager.Instance.isPaused)
+                {
+                    Actions();
+                }
 			}
 		}
 	}
@@ -227,8 +230,6 @@ public class CharacterManager : MonoBehaviour
 		timer = time;
 		timerWaitTalk = timer;
 		maxRangeRandom = maxRange;
-		dialogScript.setNewAudioClip (dialogs [currentDialog]);
-		dialogScript.initDialog ();
 		Actions += waitForPlayerTalk;
 	}
 
@@ -259,20 +260,13 @@ public class CharacterManager : MonoBehaviour
     }
 
     private void pauseThisCharacterManager() {
-  //      isActive = false;
-  //      //dialogScript.audioSource.Pause ();
-  //      if (dialogScript != null) {
-		//	dialogScript.pauseDialog();
-		//}
+        if (dialogScript != null) {
+			dialogScript.pauseDialog();
+		}
 		animationReference.setWalking (false);
 	}
 
 	private void continueThisCharacterManager() {
-        //if(wasActive == true)
-        //{
-        //    isActive = true;
-        //}
-        //dialogScript.audioSource.UnPause ();
         if (dialogScript != null) {
 			dialogScript.continueDialog ();
 		}

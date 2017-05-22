@@ -13,13 +13,9 @@ public class Fase_1_Esperar : StateScript {
 		characterManager.animationReference.setTalking ();
 	}
 
-	// Update is called once per frame
 	public override void atUpdate()
 	{
-//		characterManager.doUpdate ();
-//		characterManagerOfficer.doUpdate ();
 		CurrentStep();
-//		Step ();
 	}
 
 	public void setTalkingFalse() {
@@ -35,9 +31,9 @@ public class Fase_1_Esperar : StateScript {
 	private void first() {
 		if (!characterManager.isTalking()) {
 			Invoke ("disableCharacter", 3);
-			CurrentStep = second;
 			characterManagerOfficer.setWaitTalking (4, 2);
-		}
+            CurrentStep = second;
+        }
 	}
 
 	private void second() {}
@@ -49,7 +45,7 @@ public class Fase_1_Esperar : StateScript {
 		characterManagerOfficer.activeCharacter();
         characterManager.activeCharacter();
 		characterManagerOfficer.setDialogs (nextPlease);
-		characterManager.setCharacterNextStates (stepsA);
+        characterManager.setCharacterNextStates (stepsA);
 		CurrentStep = first;
 	}
 

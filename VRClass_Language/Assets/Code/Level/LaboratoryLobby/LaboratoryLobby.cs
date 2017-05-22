@@ -26,34 +26,18 @@ public class LaboratoryLobby : StateScript {
         Debugger.printLog("back to lobby");
         EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         SessionManager.Instance.logOutUser();
-        Invoke("changeToLobby", 2);
-    }
-
-    private void changeToLobby()
-    {
-        SceneController.Instance.SwitchScene("UserLobby");
+        LevelManager.Instance.changeScene("changeToLobby");
     }
 
     public void loadAirPortLevel() {
 		Debugger.printLog ("Load");
-		EventManager.triggerEvent (Events.EventList.PLAYER_FadeOut);
-		Invoke ("changeToAirportScene", 2);
-	}
-
-	private void changeToAirportScene() {
-		SceneController.Instance.SwitchScene ("Aeropuerto_Pasaportes");
+        LevelManager.Instance.changeScene("Aeropuerto_Pasaportes");
 	}
 
     public void loadPickUpAirportLevel()
     {
         Debugger.printLog("Load");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
-        Invoke("changeToPickUpAirportScene", 2);
-    }
-
-    private void changeToPickUpAirportScene()
-    {
-        SceneController.Instance.SwitchScene("alternative_recogida");
+        LevelManager.Instance.changeScene("Aeropuerto_Recogida");
     }
 
     private void waitForPlayer() {

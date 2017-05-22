@@ -20,6 +20,7 @@ public class InteractionMenuController : MonoBehaviour
     public GameObject interactionMenuObject;
 
     private static InteractionMenuController interactionMenu;
+    public GvrPointerGraphicRaycaster gvrRaycast;
 
     public static InteractionMenuController Instance()
     {
@@ -37,6 +38,7 @@ public class InteractionMenuController : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<Transform>();
+        gvrRaycast = GetComponentInChildren(typeof(GvrPointerGraphicRaycaster), true) as GvrPointerGraphicRaycaster;
         for (int x = 0; x < dialogGameObject.Length; x++)
         {
             dialogButton[x] = dialogGameObject[x].GetComponentInChildren<Button>();
@@ -102,11 +104,11 @@ public class InteractionMenuController : MonoBehaviour
 
     private void pauseIsOn()
     {
-       // interactionMenuObject.SetActive(false);
+        gvrRaycast.enabled = false;
     }
 
     private void pauseIsOff()
     {
-      //  interactionMenuObject.SetActive(true);
+        gvrRaycast.enabled = true;
     }
 }
