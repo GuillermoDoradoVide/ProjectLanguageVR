@@ -22,9 +22,7 @@ public class CharacterMovement : MonoBehaviour {
 	private bool finished = false;
 
 	private void Start () {
-		if (waypoints.Length != 0) {
-			checkWaypoints ();
-		}
+		checkWaypoints ();
 	}
 
 	private void checkWaypoints() {
@@ -32,7 +30,7 @@ public class CharacterMovement : MonoBehaviour {
 			destinyWaypoint = waypoints [0].position;
 		}
 		else {
-			throw new UnityException(">The waypoint array is empty.");
+			Debugger.printErrorLog(">The waypoint array is empty.");
 		}
 	}
 
