@@ -51,7 +51,7 @@ public class LevelManager : SingletonComponent<LevelManager>
 
     private void loadLevelMusicAndSounds()
     {
-        SoundManager.setMusicBox(levelInfo.levelData.music);
+        SoundManager.playMusic(levelInfo.levelData.music[0], true);
     }
 	
 	// UPDATE ****************

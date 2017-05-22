@@ -13,7 +13,6 @@ public class SoundManager : SingletonComponent<SoundManager> {
 
 	public List<AudioSource> sfxSources;
     public AudioSource musicSource;
-	public AudioClip[] musicBox;
 	[Header ("Sound variations")]
     [Range(0.8f, 1.0f)]
     public float lowPitchRange;
@@ -116,10 +115,6 @@ public class SoundManager : SingletonComponent<SoundManager> {
 		}
 	}
 
-	public static void playRandomMusic() {
-		playMusic (Instance.musicBox[Random.Range(0, Instance.musicBox.Length)], true);
-	}
-
 	//[SECTCION] = SFX SOUND 
 	/*************************/
 	AudioSource getSFXSource() {
@@ -210,9 +205,6 @@ public class SoundManager : SingletonComponent<SoundManager> {
 		manager.StartCoroutine (manager.removeSFXSourceFixedLength(source, duration));	
 	}
 
-
-	// volume control functions
-
 	public static void disableSoundImmediate() {
 		SoundManager manager = Instance;
 		manager.StopAllCoroutines ();
@@ -264,11 +256,4 @@ public class SoundManager : SingletonComponent<SoundManager> {
 		Debugger.printLog ("Music volume is now: " + getMusicVolume());
 	}
 
-	// sound manager methods
-
-	public static void setMusicBox(params AudioClip[] musics)
-	{
-		Debugger.printLog ("setMusicBox");
-		Instance.musicBox = musics;
-	}
 }

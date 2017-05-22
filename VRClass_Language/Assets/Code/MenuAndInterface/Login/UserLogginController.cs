@@ -17,16 +17,11 @@ public class UserLogginController : MonoBehaviour {
 	public GameObject continueSessionButton;
 	public GameObject continueNewUserButton;
 
-	public GameObject agentCodePass;
-    private ShowAndHideWithAlpha animationAgentCode;
     public GameObject introGreetings;
     private ShowAndHideWithAlpha animationIntroGreetings;
     public GameObject introInterface;
     private ShowAndHideWithAlpha animationIntroInterface;
 
-    public EditUserID EditUserFirstValue;
-	public EditUserID EditUserSecondValue;
-	public EditUserID EditUserThirdValue;
 	public int userID_s;
 	public string strID;
 
@@ -38,15 +33,10 @@ public class UserLogginController : MonoBehaviour {
 
 	// Use this for initialization
 	private void Start () {
-        animationAgentCode = agentCodePass.GetComponent<ShowAndHideWithAlpha>();
         animationIntroGreetings = introGreetings.GetComponent<ShowAndHideWithAlpha>();
         animationIntroInterface = introInterface.GetComponent<ShowAndHideWithAlpha>();
-        agentCodePass.SetActive (false);
 		introGreetings.SetActive (false);
         introInterface.SetActive(false);
-		EditUserFirstValue = firstValue.GetComponent<EditUserID> ();
-		EditUserSecondValue = secondValue.GetComponent<EditUserID> ();
-		EditUserThirdValue = thirdValue.GetComponent<EditUserID> ();
         animationShowHide = GetComponent<ShowAndHideWithAlpha>();
         animationShowHide.showPanel();
     }
@@ -54,17 +44,6 @@ public class UserLogginController : MonoBehaviour {
     public void clickSound(AudioClip sound)
     {
         SoundManager.playSFX(sound);
-    }
-
-    public void showAgentCodeInterface()
-    {
-        agentCodePass.SetActive(true);
-        animationAgentCode.showPanel();
-    }
-
-    public void hideAgentCodeInterface()
-    {
-        animationAgentCode.hidePanel();
     }
 
     public void showIntroGreetings()
@@ -90,8 +69,7 @@ public class UserLogginController : MonoBehaviour {
     }
     [ContextMenu("CheckUserLoggin")]
     public void checkUserLoggin() {
-		getValues ();
-		if(checkUser (userID_s)) {
+		if(true) {
 			SoundManager.playSFX (succesLogin);
 			loginSucces ();
 		}
@@ -111,13 +89,7 @@ public class UserLogginController : MonoBehaviour {
 		}
 	}
 
-	private void getValues() {
-		userID_s = EditUserFirstValue.currentValue * 100 + EditUserSecondValue.currentValue * 10 + EditUserThirdValue.currentValue;
-	}
-
 	private void loginSucces() {
-        //animationAgentCode.hidePanel();
-        //agentCodePass.SetActive (false);
         ABCLoggin.SetActive(false);
         displayCodeName.SetActive(false);
 
@@ -143,20 +115,12 @@ public class UserLogginController : MonoBehaviour {
 		newUserID.text = strID;
 		newUserID.text.PadLeft (3, '0');
 		SoundManager.playSFX (newAgentSound);
-        //agentCodePass.SetActive (false);
-        //introGreetings.SetActive (false);
-        animationAgentCode.hidePanel();
         animationIntroGreetings.hidePanel();
 		continueSessionButton.SetActive (false);
 	}
 
 	public void startIntro() {
 		EventManager.triggerEvent (Events.EventList.NEW_USER);
-        //agentCodePass.SetActive (false);
-        //introGreetings.SetActive (false);
-        //continueSessionButton.SetActive (false);
-        //introInterface.SetActive (false);
-        //loginInterface.SetActive (false);
         animationShowHide.hidePanel();
 
 	}

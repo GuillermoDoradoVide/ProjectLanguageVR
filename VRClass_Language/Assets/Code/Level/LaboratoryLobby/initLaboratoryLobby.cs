@@ -26,7 +26,6 @@ public class initLaboratoryLobby : StateScript {
 
 	public override void atEnd()
 	{
-		SoundManager.playRandomMusic ();
 	}
 
 	public override void atPause()

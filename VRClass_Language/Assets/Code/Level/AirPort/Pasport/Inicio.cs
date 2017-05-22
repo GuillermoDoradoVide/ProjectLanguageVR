@@ -19,7 +19,6 @@ public class Inicio : StateScript {
 
 	public override void atEnd()
 	{
-		SoundManager.playRandomMusic();
 	}
 
 	public override void atPause()
