@@ -55,6 +55,7 @@ public class GameManager : SingletonComponent<GameManager>
         sceneController = SceneController.Instance;
 		eventManager = EventManager.Instance;
 		soundManager = SoundManager.Instance;
+        soundManager.initSoundManager();
         levelManager = LevelManager.Instance;
         /*Level restart and load scripts*/
         levelManager.initLevelData();

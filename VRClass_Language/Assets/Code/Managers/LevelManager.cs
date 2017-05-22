@@ -61,6 +61,7 @@ public class LevelManager : SingletonComponent<LevelManager>
     // ********************
 	public void restartLevel() {
         EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+        SoundManager.Instance.stopMusicAndSounds(true, 2);
         Invoke("reloadCurrentLevel", 2);
     }
 
@@ -72,6 +73,7 @@ public class LevelManager : SingletonComponent<LevelManager>
     public void changeScene(string sceneName)
     {
         EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+        SoundManager.Instance.stopMusicAndSounds(true, 2);
         StartCoroutine(loadNewScene(sceneName));
         
     }
