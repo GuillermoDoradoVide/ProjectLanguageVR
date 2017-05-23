@@ -6,7 +6,6 @@ public class DataContentMenu : MonoBehaviour {
 	public GameObject dataButton;
 	public GameObject AchievementButton;
 	public GameObject backButton;
-	public AudioClip selectSound;
 
 	private void Start() {
 	}
@@ -31,7 +30,7 @@ public class DataContentMenu : MonoBehaviour {
 		setMenuInterfaceButtons ();
 	}
 
-	public void playSelectedSound() {
-		SoundManager.playSFX (selectSound);
+	public void playUISFX(AudioClip clip) {
+		SoundManager.playSFX (clip);
 	}
 }
