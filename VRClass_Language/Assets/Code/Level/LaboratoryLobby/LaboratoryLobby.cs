@@ -26,7 +26,7 @@ public class LaboratoryLobby : StateScript {
         Debugger.printLog("back to lobby");
         EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         SessionManager.Instance.logOutUser();
-        LevelManager.Instance.changeScene("changeToLobby");
+        LevelManager.Instance.changeScene("UserLobby");
     }
 
     public void loadAirPortLevel() {
