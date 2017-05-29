@@ -135,6 +135,29 @@ ModelImporter:
     100254: Cylinder.037
     100256: Cylinder.038
     100258: Cylinder.039
+    100260: Cube.079
+    100262: Cube.080
+    100264: Cube.081
+    100266: Cube.082
+    100268: Cube.083
+    100270: Cube.084
+    100272: Cube.085
+    100274: Cube.086
+    100276: Cube.087
+    100278: Cube.088
+    100280: Cube.089
+    100282: Cube.090
+    100284: Cube.091
+    100286: Cube.092
+    100288: Cube.093
+    100290: Cylinder.040
+    100292: Cylinder.041
+    100294: Cylinder.042
+    100296: Cylinder.043
+    100298: Cylinder.044
+    100300: Cylinder.045
+    100302: Cube.094
+    100304: Cube.095
     400000: Cube
     400002: Cube.001
     400004: Cube.002
@@ -265,6 +288,29 @@ ModelImporter:
     400254: Cylinder.037
     400256: Cylinder.038
     400258: Cylinder.039
+    400260: Cube.079
+    400262: Cube.080
+    400264: Cube.081
+    400266: Cube.082
+    400268: Cube.083
+    400270: Cube.084
+    400272: Cube.085
+    400274: Cube.086
+    400276: Cube.087
+    400278: Cube.088
+    400280: Cube.089
+    400282: Cube.090
+    400284: Cube.091
+    400286: Cube.092
+    400288: Cube.093
+    400290: Cylinder.040
+    400292: Cylinder.041
+    400294: Cylinder.042
+    400296: Cylinder.043
+    400298: Cylinder.044
+    400300: Cylinder.045
+    400302: Cube.094
+    400304: Cube.095
     2300000: Cube
     2300002: Cube.001
     2300004: Cube.002
@@ -394,6 +440,29 @@ ModelImporter:
     2300252: Cylinder.037
     2300254: Cylinder.038
     2300256: Cylinder.039
+    2300258: Cube.079
+    2300260: Cube.080
+    2300262: Cube.081
+    2300264: Cube.082
+    2300266: Cube.083
+    2300268: Cube.084
+    2300270: Cube.085
+    2300272: Cube.086
+    2300274: Cube.087
+    2300276: Cube.088
+    2300278: Cube.089
+    2300280: Cube.090
+    2300282: Cube.091
+    2300284: Cube.092
+    2300286: Cube.093
+    2300288: Cylinder.040
+    2300290: Cylinder.041
+    2300292: Cylinder.042
+    2300294: Cylinder.043
+    2300296: Cylinder.044
+    2300298: Cylinder.045
+    2300300: Cube.094
+    2300302: Cube.095
     3300000: Cube
     3300002: Cube.001
     3300004: Cube.002
@@ -523,6 +592,29 @@ ModelImporter:
     3300252: Cylinder.037
     3300254: Cylinder.038
     3300256: Cylinder.039
+    3300258: Cube.079
+    3300260: Cube.080
+    3300262: Cube.081
+    3300264: Cube.082
+    3300266: Cube.083
+    3300268: Cube.084
+    3300270: Cube.085
+    3300272: Cube.086
+    3300274: Cube.087
+    3300276: Cube.088
+    3300278: Cube.089
+    3300280: Cube.090
+    3300282: Cube.091
+    3300284: Cube.092
+    3300286: Cube.093
+    3300288: Cylinder.040
+    3300290: Cylinder.041
+    3300292: Cylinder.042
+    3300294: Cylinder.043
+    3300296: Cylinder.044
+    3300298: Cylinder.045
+    3300300: Cube.094
+    3300302: Cube.095
     4300000: Cube.020
     4300002: Cube.019
     4300004: Cube.018
@@ -612,6 +704,20 @@ ModelImporter:
     4300172: Cylinder.039
     4300174: Cylinder.036
     4300176: Cylinder.032
+    4300178: Cube.093
+    4300180: Cylinder.045
+    4300182: Cylinder.044
+    4300184: Cylinder.043
+    4300186: Cylinder.042
+    4300188: Cylinder.041
+    4300190: Cylinder.040
+    4300192: Cube.092
+    4300194: Cube.090
+    4300196: Cube.089
+    4300198: Cube.083
+    4300200: Cube.082
+    4300202: Cube.095
+    4300204: Cube.081
   materials:
     importMaterials: 1
     materialName: 0
