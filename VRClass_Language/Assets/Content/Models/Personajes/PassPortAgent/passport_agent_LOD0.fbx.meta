@@ -192,7 +192,7 @@ ModelImporter:
     4300008: Eyes
     4300010: default
     7400000: Officer_Search
-    7400002: OfficerNod
+    7400002: Officer_Nod
     7400004: Officer_slowLookAroundIdle
     7400006: Officer_base_idle
     7400008: Officer_idle_head_sizes
@@ -200,7 +200,7 @@ ModelImporter:
     7400012: Officer_PickUp
     7400014: Armature|Talk
     7400016: Body|Talk
-    7400018: Talk
+    7400018: Officer_Talk
     7400020: Officer_BaseTalking
     7400022: Officer_HandGesture
     7400024: Officer_Arguing
@@ -480,7 +480,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: OfficerNod
+      name: Officer_Nod
       takeName: Armature|Armaheadnod
       firstFrame: 1
       lastFrame: 50
@@ -1520,7 +1520,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Talk
+      name: Officer_Talk
       takeName: Body|BodyAction
       firstFrame: 250
       lastFrame: 270
