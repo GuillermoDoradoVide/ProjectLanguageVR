@@ -84,6 +84,7 @@
     <Compile Include="Assets\Code\Characters\CharacterManager.cs" />
     <Compile Include="Assets\Code\Characters\CharacterMovement.cs" />
     <Compile Include="Assets\Code\Characters\Dialog\DialogScript.cs" />
+    <Compile Include="Assets\Code\Characters\Scripts\ItemParent.cs" />
     <Compile Include="Assets\Code\GenericComponents\Debugger.cs" />
     <Compile Include="Assets\Code\GenericComponents\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
@@ -276,6 +277,7 @@
     <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\Modular_Road_and_Highway_Set\ReadMe.txt" />
     <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />
     <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Recogida\k14\fbx\Textures\Please Read - Textures source.txt" />
+    <None Include="Assets\Content\Models\Escenarios\Aeropuerto\Vehiculos\Low Poly Car Set 2 - Tuningcars\readme.txt" />
     <None Include="Assets\Content\Scenes\SkySphere_V1\Documentation\How to use.txt" />
     <None Include="Assets\GoogleVR\Demos\Environment\DemoEnvUnlitGrayscale.shader" />
     <None Include="Assets\GoogleVR\Demos\Shaders\GVRDemo\GVRDemoAmbientOcclusion.shader" />
