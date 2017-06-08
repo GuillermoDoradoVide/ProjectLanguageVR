@@ -6,6 +6,7 @@ public class CharacterMovement : MonoBehaviour {
 	public Transform[] waypoints;
 	public Transform character;
 	public Vector3 destinyWaypoint;
+    public bool loop;
 
 	public int currentWaypoint;
 
@@ -61,7 +62,17 @@ public class CharacterMovement : MonoBehaviour {
 			finished = false;
 		}
 		else {
-			finished = true;
+            if(loop)
+            {
+                currentWaypoint = 0;
+                destinyWaypoint = waypoints[currentWaypoint].position;
+                finished = false;
+            }
+            else
+            {
+                finished = true;
+            }
+			
 		}
 	}
 
