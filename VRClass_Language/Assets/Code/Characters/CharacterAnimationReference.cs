@@ -11,26 +11,22 @@ public class CharacterAnimationReference : MonoBehaviour {
 	// Use this for initialization
 	private void Start () {
 		characterAnimator = GetComponent<Animator> ();
-		walkingID = Animator.StringToHash("Walking");
-		talkingID = Animator.StringToHash("Talking");
-		speedID = Animator.StringToHash("Speed");
 	}
 
 	public void setWalking(bool walking = true, float speed = 1f) {
-		characterAnimator.SetBool (walkingID, walking);
-		characterAnimator.SetFloat (speedID, speed);
+		characterAnimator.SetBool ("Walking", walking);
 	}
 
 	public bool getWalking() {
-		return characterAnimator.GetBool (walkingID);
+		return characterAnimator.GetBool ("Walking");
 	}
 
 	public void setTalking(bool talking = true, int animationType = 0) {
-		characterAnimator.SetBool (talkingID, talking);
+		characterAnimator.SetBool ("Talking", talking);
 	}
 
 	public bool getTalking() {
-		return characterAnimator.GetBool (talkingID);
+		return characterAnimator.GetBool ("Talking");
 	}
 
 	public void setAction(string action) {
