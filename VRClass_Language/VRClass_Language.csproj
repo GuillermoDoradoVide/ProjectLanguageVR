@@ -155,6 +155,7 @@
     <Compile Include="Assets\Code\MenuAndInterface\Login\ShowAndHideAgentName.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\Login\UserLogginController.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\MenuInteraction.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\IInteractable.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\Inventario.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\InventarioItemList.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ObjectToolTipData.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemInteractions.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemModel.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemTransform.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ShowObjectToolTip.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ShowAndHideWithAlpha.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ShowMenuSection.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\UIEffects\UI_effects.cs" />

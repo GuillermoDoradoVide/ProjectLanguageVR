@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 
 public class Fase_1_Acercarse : StateScript {
@@ -6,7 +7,10 @@ public class Fase_1_Acercarse : StateScript {
 	public Transform teleportLocation;
 	public CharacterManager characterManagerOfficer;
 
-	private void Start()
+    public UnityAction firstAction;
+    public InteractionMenuController menuController;
+
+    private void Start()
 	{
 		teleportLocation = GameObject.Find ("Beacon").GetComponent<Transform> ();
 		teleportLocation.gameObject.SetActive (false);
@@ -25,11 +29,23 @@ public class Fase_1_Acercarse : StateScript {
 		}
 	}
 
-	public override void atInit()
+    private void showMenuGivePassPort()
+    {
+        menuController.addDialogTriggerAction(0, "Check in your passport.", firstAction);
+    }
+
+    private void showTeleport()
+    {
+        EventManager.teleportPlayerToPosition(teleportLocation);
+    }
+
+    public override void atInit()
 	{
 		EventManager.startListening(Events.EventList.LEVEL_Activity_Completed, doChangeThisStateToFinished);
 		teleportLocation.gameObject.SetActive (true);
-	}
+        firstAction = new UnityAction(showTeleport);
+        showMenuGivePassPort();
+    }
 
 	public override void atEnd()
 	{
