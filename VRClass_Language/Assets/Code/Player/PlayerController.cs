@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentTouch = GvrController.TouchPos;
                 Debugger.printLog(firstTouch + "<::>" + currentTouch);
-                if (Vector2.Distance(firstTouch, currentTouch) > 0.1f)
+                if (Vector2.Distance(firstTouch, currentTouch) > 0.35f)
                 {
                     touching = false;
                     if (firstTouch.x > currentTouch.x)
