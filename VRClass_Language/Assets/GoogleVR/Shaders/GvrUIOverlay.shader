@@ -30,7 +30,8 @@ Shader "GoogleVR/UI/Overlay" {
 
   SubShader {
     Tags {
-    "Queue"="Overlay"
+    // Overlay+110 fixes depth sorting between UI and controller.
+    "Queue"="Overlay+110"
     "IgnoreProjector"="True"
     "RenderType"="Transparent"
     "PreviewType"="Plane"
@@ -45,10 +46,10 @@ Shader "GoogleVR/UI/Overlay" {
       WriteMask [_StencilWriteMask]
     }
 
-    Cull Back
+    Cull Off
     Lighting Off
     ZWrite Off
-    ZTest Always
+    ZTest [unity_GUIZTestMode]
     Blend SrcAlpha OneMinusSrcAlpha
     ColorMask [_ColorMask]
 

@@ -54,7 +54,7 @@ public class GvrPointerGraphicRaycaster : GvrBasePointerRaycaster {
               return Camera.main;
             }
 
-            Transform pointerTransform = GvrPointerManager.Pointer.GetPointerTransform();
+            Transform pointerTransform = GvrPointerManager.Pointer.PointerTransform;
             cachedPointerEventCamera = pointerTransform.GetComponent<Camera>();
 
             if (cachedPointerEventCamera == null) {
@@ -88,16 +88,12 @@ public class GvrPointerGraphicRaycaster : GvrBasePointerRaycaster {
       return;
     }
 
-    if (eventCamera == null) {
-      return;
-    }
-
-    if (!IsPointerAvailable()) {
+    if (!IsPointerAvailable() || eventCamera == null) {
       return;
     }
 
     if (canvas.renderMode != RenderMode.WorldSpace) {
-      Debug.LogError("GvrPointerGraphicRaycaster requires that the canvase renderMode is set to WorldSpace.");
+      Debug.LogError("GvrPointerGraphicRaycaster requires that the canvas renderMode is set to WorldSpace.");
       return;
     }
 
