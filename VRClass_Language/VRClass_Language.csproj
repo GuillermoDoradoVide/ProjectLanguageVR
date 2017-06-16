@@ -80,6 +80,7 @@
     <Compile Include="Assets\Code\Characters\AnimatorLayerScripts\AnimationLayerManagment.cs" />
     <Compile Include="Assets\Code\Characters\AnimatorLayerScripts\IdleAnimationCycleBehaviour.cs" />
     <Compile Include="Assets\Code\Characters\AnimatorLayerScripts\TalkingAnimationCycleBehaviour.cs" />
+    <Compile Include="Assets\Code\Characters\CharacterAction.cs" />
     <Compile Include="Assets\Code\Characters\CharacterAnimationReference.cs" />
     <Compile Include="Assets\Code\Characters\CharacterManager.cs" />
     <Compile Include="Assets\Code\Characters\CharacterMovement.cs" />

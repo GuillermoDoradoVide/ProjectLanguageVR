@@ -37,7 +37,7 @@ public class CharacterAnimationReference : MonoBehaviour {
 		characterAnimator.SetBool (action, false);
 	}
 
-	public void getAction(string action) {
-		characterAnimator.GetBool (action);
+	public bool getAction(string action) {
+		return characterAnimator.GetBool (action);
 	}
 }

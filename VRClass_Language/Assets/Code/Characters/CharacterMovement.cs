@@ -24,9 +24,10 @@ public class CharacterMovement : MonoBehaviour {
 
 	private void Start () {
 		checkWaypoints ();
-	}
+        character = GetComponent<Transform>();
+    }
 
-	private void checkWaypoints() {
+    private void checkWaypoints() {
 		if (waypoints.Length != 0) {
 			destinyWaypoint = waypoints [0].position;
 		}

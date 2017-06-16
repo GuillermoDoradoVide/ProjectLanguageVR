@@ -52,7 +52,9 @@ public class CharacterManager : MonoBehaviour
 	{
 		dialogScript = GetComponent<DialogScript> ();
 		characterAnimator = GetComponent<Animator> ();
-		Movements = new CharacterDisplacement[(int)CharacterState.Count]; // init array of delegates
+        characterMovement = GetComponent<CharacterMovement>();
+        animationReference = GetComponent<CharacterAnimationReference>();
+        Movements = new CharacterDisplacement[(int)CharacterState.Count]; // init array of delegates
 		// Set each action delegate
 		stateMode = CharacterState.StandBy;
 		nextStateMode = CharacterState.StandBy;
