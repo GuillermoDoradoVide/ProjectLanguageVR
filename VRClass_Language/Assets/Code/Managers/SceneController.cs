@@ -61,7 +61,7 @@ public class SceneController : SingletonComponent<SceneController>
         {
             if (SceneManager.GetSceneByName(addedAditiveScene).IsValid())
             {
-                SceneManager.UnloadScene(addedAditiveScene);
+                SceneManager.UnloadSceneAsync(addedAditiveScene);
             }
         }
     }
