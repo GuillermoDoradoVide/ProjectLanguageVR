@@ -143,6 +143,7 @@
     <Compile Include="Assets\Code\Level\LevelData.cs" />
     <Compile Include="Assets\Code\Level\LevelInfo.cs" />
     <Compile Include="Assets\Code\Level\LevelMusicAndSounds.cs" />
+    <Compile Include="Assets\Code\Level\MissionBriefingAgency\Alarm.cs" />
     <Compile Include="Assets\Code\Level\MissionBriefingAgency\DoorOpens.cs" />
     <Compile Include="Assets\Code\Level\MissionBriefingAgency\Trigger.cs" />
     <Compile Include="Assets\Code\Level\MissionBriefingAgency\TriggerController.cs" />
