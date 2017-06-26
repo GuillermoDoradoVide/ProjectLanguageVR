@@ -19,6 +19,7 @@ public class LaboratoryLobby : StateScript {
 	public override void atUpdate()
 	{
 		CurrentStep ();
+       
 	}
 
     public void backToLobby()

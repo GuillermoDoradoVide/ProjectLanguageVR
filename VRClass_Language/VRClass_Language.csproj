@@ -147,6 +147,7 @@
     <Compile Include="Assets\Code\Level\MissionBriefingAgency\DoorOpens.cs" />
     <Compile Include="Assets\Code\Level\MissionBriefingAgency\Trigger.cs" />
     <Compile Include="Assets\Code\Level\MissionBriefingAgency\TriggerController.cs" />
+    <Compile Include="Assets\Code\Level\MissionBriefingAgency\initMissionBriefing.cs" />
     <Compile Include="Assets\Code\Level\NotStarbucks\InitNotStarbucks.cs" />
     <Compile Include="Assets\Code\Level\ResetLevel.cs" />
     <Compile Include="Assets\Code\Level\SceneData.cs" />
