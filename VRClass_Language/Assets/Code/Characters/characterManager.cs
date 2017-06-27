@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[RequireComponent(typeof(CharacterMovement))]
+[RequireComponent(typeof(CharacterAnimationReference))]
+[RequireComponent(typeof(DialogScript))]
 public class CharacterManager : MonoBehaviour
 {
 	[Header("References")]
 	public CharacterMovement characterMovement;
 	public CharacterAnimationReference animationReference;
-	public Animator characterAnimator;
-	public DialogScript dialogScript;
+    public DialogScript dialogScript;
+    public Animator characterAnimator;
 	public AudioClip[] dialogs;
 	[Header("AudioClipsInfo")]
 	public int currentDialog;
 	public int currentStep = 0;
-
 
 	public enum CharacterState
 	{
@@ -47,13 +48,17 @@ public class CharacterManager : MonoBehaviour
 	public AudioClip stepsSound;
 	public AudioSource sound;
 
-	// Use this for initialization
-	private void Start ()
-	{
-		dialogScript = GetComponent<DialogScript> ();
-		characterAnimator = GetComponent<Animator> ();
+    private void Awake()
+    {
+        dialogScript = GetComponent<DialogScript>();
+        characterAnimator = GetComponent<Animator>();
         characterMovement = GetComponent<CharacterMovement>();
         animationReference = GetComponent<CharacterAnimationReference>();
+    }
+
+    // Use this for initialization
+    private void Start ()
+	{
         Movements = new CharacterDisplacement[(int)CharacterState.Count]; // init array of delegates
 		// Set each action delegate
 		stateMode = CharacterState.StandBy;

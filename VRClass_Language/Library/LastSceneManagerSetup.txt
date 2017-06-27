@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Content/Scenes/Levels/[Lecciones]/CAPITULO_1/init_NotAStarbuck.unity
+- path: Assets/Content/Scenes/Levels/[Lecciones]/CAPITULO_1/init_PrincipalBriefing.unity
   isLoaded: 1
   isActive: 1
