@@ -102,8 +102,11 @@
     <Compile Include="Assets\Code\Characters\CharacterAnimationReference.cs" />
     <Compile Include="Assets\Code\Characters\CharacterManager.cs" />
     <Compile Include="Assets\Code\Characters\CharacterMovement.cs" />
+    <Compile Include="Assets\Code\Characters\Dialog\DialogData.cs" />
+    <Compile Include="Assets\Code\Characters\Dialog\DialogManager.cs" />
     <Compile Include="Assets\Code\Characters\Dialog\DialogScript.cs" />
     <Compile Include="Assets\Code\Characters\Scripts\ItemParent.cs" />
+    <Compile Include="Assets\Code\CustomVariables\CustomVariables.cs" />
     <Compile Include="Assets\Code\GenericComponents\Debugger.cs" />
     <Compile Include="Assets\Code\GenericComponents\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Code\GenericComponents\ScriptableObjectSingletonComponent.cs" />
