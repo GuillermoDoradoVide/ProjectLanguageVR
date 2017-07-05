@@ -169,6 +169,7 @@
     <Compile Include="Assets\Code\Managers\StateMachine\StateScript.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ActiveChildren.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\BeaconIdle.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\Effects\Icon_blink_effect.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\FadeEffect.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InGameMenu\DataContentMenu.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\InGameMenu\OptionsContentMenu.cs" />
