@@ -6,7 +6,8 @@ public class ResetLevel : MonoBehaviour {
 	int x = 0;
 	public void resetLevel() {
 		EventManager.triggerEvent (Events.EventList.STATE_Pause);
-		LevelManager.Instance.restartLevel ();
+        EventManager.triggerEvent(Events.EventList.MENU_Hide);
+        LevelManager.Instance.restartLevel ();
 	}
 
 	public void pauseUnPause() {

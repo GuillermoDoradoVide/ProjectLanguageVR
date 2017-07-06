@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
 		menuCanvas.SetActive (false);
 		EventManager.startListening (Events.EventList.STATE_Pause, activeMenu);
 		EventManager.startListening (Events.EventList.STATE_Continue, disableMenu);
+        EventManager.startListening (Events.EventList.MENU_Show, activeMenu);
+        EventManager.startListening (Events.EventList.MENU_Hide, disableMenu);
+            
         touching = false;
 
     }
@@ -24,12 +27,16 @@ public class PlayerController : MonoBehaviour
 	private void OnEnable() {
 		EventManager.startListening (Events.EventList.STATE_Pause, activeMenu);
 		EventManager.startListening (Events.EventList.STATE_Continue, disableMenu);
-	}
+        EventManager.startListening (Events.EventList.MENU_Show, activeMenu);
+        EventManager.startListening (Events.EventList.MENU_Hide, disableMenu);
+    }
 
 	private void OnDisable() {
 		EventManager.stopListening (Events.EventList.STATE_Pause, activeMenu);
 		EventManager.stopListening (Events.EventList.STATE_Continue, disableMenu);
-	}
+        EventManager.stopListening (Events.EventList.MENU_Show, activeMenu);
+        EventManager.stopListening (Events.EventList.MENU_Hide, disableMenu);
+    }
 
 	private void activeMenu() {
 		menuCanvas.SetActive (true);
