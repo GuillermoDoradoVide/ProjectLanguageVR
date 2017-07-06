@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class ResetLevel : MonoBehaviour {
 	int x = 0;
 	public void resetLevel() {
-        //SoundManager.playSFX(sfxType.OnButtonClick);
+        SoundManager.playSFX(sfxType.OnButtonClick);
         EventManager.triggerEvent (Events.EventList.STATE_Pause);
         EventManager.triggerEvent(Events.EventList.MENU_Hide);
         LevelManager.Instance.restartLevel ();

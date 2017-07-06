@@ -127,7 +127,7 @@ public class SceneController : SingletonComponent<SceneController>
 
     private void sceneStateLoad()
     {
-        Debugger.printLog("Loading new Scene");
+        //Debugger.printLog("Loading new Scene");
         //done loading?
         if (sceneLoadTask.isDone == true)
         {
