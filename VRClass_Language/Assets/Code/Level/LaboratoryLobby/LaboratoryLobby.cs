@@ -25,56 +25,56 @@ public class LaboratoryLobby : StateScript {
     public void BackToLaboratory()
     {
         Debugger.printLog("back to lab");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+       // EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         LevelManager.Instance.changeScene("laboratory");
     }
 
     public void backToLobby()
     {
         Debugger.printLog("back to lobby");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+       // EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         SessionManager.Instance.logOutUser();
         LevelManager.Instance.changeScene("UserLobby");
     }
 
     public void loadAirPortLevel() {
 		Debugger.printLog ("Load");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+        //EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         LevelManager.Instance.changeScene("Aeropuerto_Pasaportes");
 	}
 
     public void loadPickUpAirportLevel()
     {
         Debugger.printLog("Load");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+       // EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         LevelManager.Instance.changeScene("Aeropuerto_Recogida");
     }
 
     public void loadHotelReception()
     {
         Debugger.printLog("Load");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+      //  EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         LevelManager.Instance.changeScene("Hotel_reception_A");
     }
 
     public void loadHotelBar()
     {
         Debugger.printLog("Load");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+       // EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         LevelManager.Instance.changeScene("Hotel_Bar");
     }
 
     public void loadStarbucks()
     {
         Debugger.printLog("Load");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+      //  EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         LevelManager.Instance.changeScene("init_NotAStarbuck");
     }
 
     public void loadBriefing()
     {
         Debugger.printLog("Load");
-        EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
+       // EventManager.triggerEvent(Events.EventList.PLAYER_FadeOut);
         LevelManager.Instance.changeScene("init_PrincipalBriefing");
     }
 
