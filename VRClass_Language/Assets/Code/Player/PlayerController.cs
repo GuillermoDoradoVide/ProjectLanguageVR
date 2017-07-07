@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public bool touching;
     public Vector2 firstTouch;
     public Vector2 currentTouch;
+    public GetSceneInfoData infoDataScene;
 
 	// Use this for initialization
 	private void Start ()
@@ -21,7 +22,6 @@ public class PlayerController : MonoBehaviour
         EventManager.startListening (Events.EventList.MENU_Hide, disableMenu);
             
         touching = false;
-
     }
 
 	private void OnEnable() {

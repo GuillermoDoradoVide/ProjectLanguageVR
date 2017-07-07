@@ -13,5 +13,6 @@ public class initGame : MonoBehaviour {
 
 	private void Start() {
         gameManager.initManagers();
+        EventManager.Instance.TriggerEvent(new FinishedLoadingManagers());
     }
 }

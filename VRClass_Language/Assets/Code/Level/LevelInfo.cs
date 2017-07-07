@@ -25,5 +25,6 @@ public class LevelInfo : MonoBehaviour {
         {
 			Debugger.printLog("Current Scene doesn`t have a SceneData Scriptable.");
         }
-	}
+
+    }
 }

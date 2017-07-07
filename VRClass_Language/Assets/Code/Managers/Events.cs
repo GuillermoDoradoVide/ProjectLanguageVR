@@ -9,6 +9,13 @@ public class GameEvent
 ///<summary>
 /// Raised when a dialog option is selected.
 /// </summary>
+public class FinishedLoadingManagers : GameEvent
+{
+}
+
+///<summary>
+/// Raised when a dialog option is selected.
+/// </summary>
 public class DialogOptionSelectedEvent : GameEvent
 {
     private int dialogSelected;
