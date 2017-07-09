@@ -117,15 +117,15 @@ public class GameManager : SingletonComponent<GameManager>
 
 	private void triggerPause() {
 		isPaused = true;
-		SoundManager.playMusic(managerSounds.musics[0], true);
-		SoundManager.playSFX (managerSounds.sounds[0]);
+		//SoundManager.playMusic(managerSounds.musics[0], true);
+		//SoundManager.playSFX (managerSounds.sounds[0]);
 		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Pause);
 	}
 
 	private void triggerUnPause() {
 		isPaused = false;
-		SoundManager.playMusic (LevelManager.Instance.levelInfo.levelData.music[0], true);
-		SoundManager.playSFX (managerSounds.sounds[0]);
+		//SoundManager.playMusic (LevelManager.Instance.levelInfo.levelData.music[0], true);
+		//SoundManager.playSFX (managerSounds.sounds[0]);
 		EventManager.triggerEvent(Events.EventList.GAMEMANAGER_Continue);
 	}
 
