@@ -98,6 +98,7 @@ public class GameManager : SingletonComponent<GameManager>
         QualitySettings.antiAliasing = 4;
         Application.targetFrameRate = 60;
         QualitySettings.vSyncCount = 0;
+        
     }
 
     private void checkPause ()
