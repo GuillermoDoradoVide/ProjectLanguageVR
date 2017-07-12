@@ -193,6 +193,7 @@
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemModel.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ScriptableObject\ItemAttributeTypes\ItemTransform.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ObjectInterface\ShowObjectToolTip.cs" />
+    <Compile Include="Assets\Code\MenuAndInterface\QualityInfo.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ShowAndHideWithAlpha.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\ShowMenuSection.cs" />
     <Compile Include="Assets\Code\MenuAndInterface\UIEffects\UI_effects.cs" />
