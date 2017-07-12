@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GVR;
 
 public class GameManager : SingletonComponent<GameManager>
 {
