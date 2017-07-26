@@ -1,4 +1,4 @@
-// Copyright 2017 Google Inc. All rights reserved.
+// Copyright 2016 Google Inc. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,14 +17,6 @@ using UnityEngine.UI;
 using System;
 
 public class DemoInputManager : MonoBehaviour {
-// Build for iOS, or for a pre-native integration Unity version, for Android, and running on-device.
-#if UNITY_IOS || (!UNITY_HAS_GOOGLEVR && !UNITY_5_6_OR_NEWER && UNITY_ANDROID && !UNITY_EDITOR)
-  void Start() {
-    GameObject messageCanvas = transform.Find("MessageCanvas").gameObject;
-    messageCanvas.SetActive(false);
-  }
-#endif  // UNITY_IOS || (!UNITY_HAS_GOOGLEVR && !UNITY_5_6_OR_NEWER && UNITY_ANDROID && !UNITY_EDITOR)
-
 // Cardboard / Daydream switching does not apply to pre-native integration versions
 // of Unity, or platforms other than Android, since those are Cardboard-only.
 #if UNITY_HAS_GOOGLEVR && UNITY_ANDROID
@@ -43,6 +35,8 @@ public class DemoInputManager : MonoBehaviour {
   private const string FIELD_SDK_INT = "SDK_INT";
   private const string PACKAGE_BUILD_VERSION = "android.os.Build$VERSION";
   private const string PACKAGE_DAYDREAM_API_CLASS = "com.google.vr.ndk.base.DaydreamApi";
+  private const string PACKAGE_UNITY_PLAYER = "com.unity3d.player.UnityPlayer";
+  private const string METHOD_CURRENT_ACTIVITY = "currentActivity";
   private const string METHOD_IS_DAYDREAM_READY = "isDaydreamReadyPlatform";
 
   private bool isDaydream = false;
@@ -74,8 +68,6 @@ public class DemoInputManager : MonoBehaviour {
   [Tooltip("Emulated GVR Platform")]
   public EmulatedPlatformType gvrEmulatedPlatformType = EmulatedPlatformType.Daydream;
   public static string EMULATED_PLATFORM_PROP_NAME = "gvrEmulatedPlatformType";
-#else
-  private GvrSettings.ViewerPlatformType viewerPlatform;
 #endif  // UNITY_EDITOR
 
   void Start() {
@@ -95,22 +87,18 @@ public class DemoInputManager : MonoBehaviour {
     }
     isDaydream = (gvrEmulatedPlatformType == EmulatedPlatformType.Daydream);
 #else
-    viewerPlatform = GvrSettings.ViewerPlatform;
     // First loaded device in Player Settings.
     string vrDeviceName = UnityEngine.VR.VRSettings.loadedDeviceName;
     if (vrDeviceName != CARDBOARD_DEVICE_NAME &&
         vrDeviceName != DAYDREAM_DEVICE_NAME) {
-      Debug.LogErrorFormat("Loaded device was '{0}', must be one of '{1}' or '{2}'",
-            vrDeviceName, DAYDREAM_DEVICE_NAME, CARDBOARD_DEVICE_NAME);
+      Debug.Log(string.Format("Loaded device was {0} must be one of {1} or {2}",
+            vrDeviceName, DAYDREAM_DEVICE_NAME, CARDBOARD_DEVICE_NAME));
       return;
     }
 
-    // On a non-Daydream ready phone, fall back to Cardboard if it's present in the list of
-    // enabled VR SDKs.
-    // On a Daydream-ready phone, go into Cardboard mode if it's the currently-paired viewer.
-    if ((!IsDeviceDaydreamReady() && playerSettingsHasCardboard()) ||
-        (IsDeviceDaydreamReady() && playerSettingsHasCardboard() &&
-         GvrSettings.ViewerPlatform == GvrSettings.ViewerPlatformType.Cardboard)) {
+    // On a non-Daydream ready phone, fall back to Cardboard if it's present in the
+    // list of enabled VR SDKs.
+    if (!IsDeviceDaydreamReady() && playerSettingsHasCardboard()) {
       vrDeviceName = CARDBOARD_DEVICE_NAME;
     }
     isDaydream = (vrDeviceName == DAYDREAM_DEVICE_NAME);
@@ -130,19 +118,7 @@ public class DemoInputManager : MonoBehaviour {
     }
     isDaydream = (gvrEmulatedPlatformType == EmulatedPlatformType.Daydream);
     SetVRInputMechanism();
-#else
-    // Viewer type switched at runtime.
-    if (!IsDeviceDaydreamReady() || viewerPlatform == GvrSettings.ViewerPlatform) {
-      return;
-    }
-    isDaydream = (GvrSettings.ViewerPlatform == GvrSettings.ViewerPlatformType.Daydream);
-    viewerPlatform = GvrSettings.ViewerPlatform;
-    SetVRInputMechanism();
 #endif  // UNITY_EDITOR
-  }
-
-  public bool IsCurrentlyDaydream() {
-    return isDaydream;
   }
 
   public static bool playerSettingsHasDaydream() {
@@ -186,7 +162,9 @@ public class DemoInputManager : MonoBehaviour {
     // API level > 24, check whether the device is Daydream-ready..
     AndroidJavaObject androidActivity = null;
     try {
-      androidActivity = GvrActivityHelper.GetActivity();
+      using (AndroidJavaObject unityPlayer = new AndroidJavaClass(PACKAGE_UNITY_PLAYER)) {
+        androidActivity = unityPlayer.GetStatic<AndroidJavaObject>(METHOD_CURRENT_ACTIVITY);
+      }
     } catch (AndroidJavaException e) {
       Debug.LogError("Exception while connecting to the Activity: " + e);
       return false;
@@ -266,10 +244,9 @@ public class DemoInputManager : MonoBehaviour {
       return;
     }
 
-    GvrReticlePointer pointer =
-        reticlePointer.GetComponent<GvrReticlePointer>();
+    GvrBasePointer pointer = reticlePointer.GetComponent<GvrBasePointer>();
     if (pointer != null) {
-      pointer.SetAsMainPointer();
+      GvrPointerManager.Pointer = pointer;
     }
   }
 
@@ -286,10 +263,9 @@ public class DemoInputManager : MonoBehaviour {
     if (!active) {
       return;
     }
-    GvrLaserPointer pointer =
-        controllerPointer.GetComponentInChildren<GvrLaserPointer>(true);
+    GvrBasePointer pointer = controllerPointer.GetComponentInChildren<GvrBasePointer>(true);
     if (pointer != null) {
-      pointer.SetAsMainPointer();
+      GvrPointerManager.Pointer = pointer;
     }
   }
 

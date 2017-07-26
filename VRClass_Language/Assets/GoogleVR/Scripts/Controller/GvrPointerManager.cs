@@ -16,14 +16,14 @@ using UnityEngine;
 using System.Collections;
 
 /// GvrPointerManager is a standard interface for
-/// controlling which GvrBasePointer is being used
+/// controlling which IGvrPointer is being used
 /// for user input affordance.
 ///
 public class GvrPointerManager : MonoBehaviour {
   private static GvrPointerManager instance;
 
-  /// Change the GvrBasePointer that is currently being used.
-  public static GvrBasePointer Pointer
+  /// Change the IGvrPointer that is currently being used.
+  public static IGvrPointer Pointer
   {
     get {
       return instance == null ? null : instance.pointer;
@@ -42,17 +42,17 @@ public class GvrPointerManager : MonoBehaviour {
   /// will assign the newly created one by default.
   ///
   /// This simplifies the common case of having only one
-  /// GvrBasePointer so is can be automatically hooked up
+  /// IGvrPointer so is can be automatically hooked up
   /// to the manager.  If multiple GvrGazePointers are in
   /// the scene, the app has to take responsibility for
   /// setting which one is active.
-  public static void OnPointerCreated(GvrBasePointer createdPointer) {
+  public static void OnPointerCreated(IGvrPointer createdPointer) {
     if (instance != null && GvrPointerManager.Pointer == null) {
       GvrPointerManager.Pointer = createdPointer;
     }
   }
 
-  private GvrBasePointer pointer;
+  private IGvrPointer pointer;
 
   void Awake() {
     if (instance != null) {

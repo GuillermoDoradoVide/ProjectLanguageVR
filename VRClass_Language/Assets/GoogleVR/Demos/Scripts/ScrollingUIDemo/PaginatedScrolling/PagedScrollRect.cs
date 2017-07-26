@@ -60,15 +60,6 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
   [Tooltip("Determines if the last extra page should be shown when the scroll rect is at rest.")]
   public bool showNextPagesAtRest = false;
 
-  /// This is used to determine if the tiles will be interactable
-  /// regardless of the state of the paged scroll rect. If false,
-  /// then tiles will not be interactable if they aren't on the active page.
-  [Tooltip("Determines if the tiles should always be interactable.")]
-  public bool shouldTilesAlwaysBeInteractable = true;
-
-  [Tooltip("Determines if scrolling is enabled.")]
-  public bool scrollingEnabled = true;
-
   /// A callback to indicate that the active page has changed.
   public delegate void ActivePageChangedDelegate(RectTransform activePage,int activePageIndex,RectTransform previousPage,int previousPageIndex);
 
@@ -92,8 +83,8 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
   private float previousTouchTimestamp;
   private Vector2 overallVelocity;
 
+  private bool canScroll = false;
   private bool isScrolling = false;
-  private bool isPointerHovering = false;
   private float scrollOffset = float.MaxValue;
 
   /// Lerp towards the target scroll offset to smooth the motion.
@@ -109,13 +100,9 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
   private Dictionary<int, RectTransform> indexToVisiblePage = new Dictionary<int, RectTransform>();
   private Dictionary<RectTransform, int> visiblePageToIndex = new Dictionary<RectTransform, int>();
 
-  /// Store the visible pages in a separate list
-  /// so that we have a collection that we can remove elements from while iterating through it.
-  private List<RectTransform> visiblePages = new List<RectTransform>();
-
   /// Touch Delta is required to be higher than
   /// the click threshold to avoid detecting clicks as swipes.
-  private const float kClickThreshold = 0.15f;
+  private const float kClickThreshold = 0.125f;
 
   /// overallVelocity must be greater than the swipe threshold
   /// to detect a swipe.
@@ -236,7 +223,19 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
   /// Returns true if scrolling is currently allowed
   public bool CanScroll {
     get {
-      return scrollingEnabled && (isPointerHovering || !onlyScrollWhenPointing);
+      return canScroll;
+    }
+    set {
+      if (canScroll == value) {
+        return;
+      }
+
+      canScroll = value;
+
+      if (!canScroll) {
+        StopScrolling();
+        StopTouchTracking();
+      }
     }
   }
 
@@ -249,20 +248,12 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
         return true;
       }
 
-      float moveDistance = CurrentMoveDistance;
+      float moveDistance = Mathf.Abs(targetScrollOffset - ScrollOffset);
       if (moveDistance > GetMovingThreshold()) {
         return true;
       }
 
       return false;
-    }
-  }
-
-  /// Returns the distance between the targetScrollOffset and the ScrollOffset.
-  /// This can be used to determine how quickly the PagedScrollRect is scrolling.
-  public float CurrentMoveDistance {
-    get {
-      return Mathf.Abs(targetScrollOffset - ScrollOffset);
     }
   }
 
@@ -347,31 +338,6 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     isScrollOffsetOverridden = newIsScrollOffsetOverridden;
   }
 
-  /// Removes all pages and goes back to the starting page.
-  /// Call this function if the PageProvider changes.
-  public void Reset() {
-    foreach (KeyValuePair<RectTransform, int> pair in visiblePageToIndex) {
-      pageProvider.RemovePage(pair.Value, pair.Key);
-    }
-
-    visiblePageToIndex.Clear();
-    indexToVisiblePage.Clear();
-    scrollOffset = float.MaxValue;
-    targetScrollOffset = 0.0f;
-    SetScrollOffsetOverride(null, true);
-    ScrollOffset = targetScrollOffset;
-  }
-
-  void OnDisable() {
-    if (pageProvider == null) {
-      return;
-    }
-
-    SetScrollOffsetOverride(null, true);
-    StopScrolling(true, true);
-    StopTouchTracking();
-  }
-
   void Start() {
     pageProvider = GetComponent<IPageProvider>();
 
@@ -391,6 +357,10 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
       scrollEffects = GetComponents<BaseScrollEffect>();
     }
 
+    if (!onlyScrollWhenPointing) {
+      CanScroll = true;
+    }
+
     // Immediately snap to the starting page.
     SnapToPage(StartPage, true, true);
   }
@@ -399,7 +369,7 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
   public void OnPointerEnter(PointerEventData eventData) {
 #if UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
     if (onlyScrollWhenPointing) {
-      isPointerHovering = true;
+      CanScroll = true;
     }
 #endif  // UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
   }
@@ -407,7 +377,7 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
   public void OnPointerExit(PointerEventData eventData) {
 #if UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
     if (onlyScrollWhenPointing) {
-      isPointerHovering = false;
+      CanScroll = false;
     }
 #endif  // UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
   }
@@ -420,8 +390,6 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
 
     if (!CanScroll) {
-      StopScrolling();
-      StopTouchTracking();
       return;
     }
 
@@ -477,7 +445,7 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     isScrolling = true;
   }
 
-  private void StopScrolling(bool snapToPage = true, bool snapImmediate = false) {
+  private void StopScrolling(bool snapToPage = true) {
     if (!isScrolling) {
       return;
     }
@@ -485,13 +453,13 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     if (snapToPage) {
       if (overallVelocity.x > kSwipeThreshold) {
         /// If I was swiping to the right.
-        SnapToPageInDirection(SnapDirection.Left, snapImmediate);
+        SnapToPageInDirection(SnapDirection.Left);
       } else if (overallVelocity.x < -kSwipeThreshold) {
         /// If I was swiping to the left.
-        SnapToPageInDirection(SnapDirection.Right, snapImmediate);
+        SnapToPageInDirection(SnapDirection.Right);
       } else {
         /// If the touch delta is not big enough, just snap to the closest page.
-        SnapToPageInDirection(SnapDirection.Closest, snapImmediate);
+        SnapToPageInDirection(SnapDirection.Closest);
       }
     }
 
@@ -507,10 +475,6 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
   }
 
   private void StopTouchTracking() {
-    if (!isTrackingTouches) {
-      return;
-    }
-
     isTrackingTouches = false;
     initialTouchPos = Vector2.zero;
     previousTouchPos = Vector2.zero;
@@ -543,7 +507,7 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
   }
 
 
-  private void SnapToPageInDirection(SnapDirection snapDirection, bool immediate = false) {
+  private void SnapToPageInDirection(SnapDirection snapDirection) {
     int closestPageIndex = 0;
     bool didClamp;
     float directionBias = pageProvider.GetSpacing() * 0.55f;
@@ -572,7 +536,7 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
 
     /// If we found a page in that direction.
-    SnapToPage(closestPageIndex, immediate, true);
+    SnapToPage(closestPageIndex, false, true);
   }
 
   private void OnScrolled() {
@@ -585,8 +549,8 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
 
     /// Update existing pages
-    for (int i = visiblePages.Count - 1; i >= 0; i--) {
-      RectTransform page = visiblePages[i];
+    foreach (Transform pageTransform in transform) {
+      RectTransform page = pageTransform.GetComponent<RectTransform>();
 
       /// If this object doesn't have a RectTransform it isn't a valid page.
       /// Not necessarily an issue, could be something else.
@@ -742,7 +706,6 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     page.SetParent(transform, false);
     indexToVisiblePage[index] = page;
     visiblePageToIndex[page] = index;
-    visiblePages.Add(page);
 
     if (isActivePage) {
       ActivePage = page;
@@ -762,11 +725,6 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     visiblePageToIndex.Remove(page);
     indexToVisiblePage.Remove(index);
 
-    // This could be slow if numExtraPagesShown is set to a large number.
-    // Considering having numExtraPagesShown set above 1 is against UX recommendations,
-    // this should be all right.
-    visiblePages.Remove(page);
-
     pageProvider.RemovePage(pageIndex, page);
   }
 
@@ -775,7 +733,7 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     float offset = OffsetFromIndex(index);
 
     bool isActivePage = page == activePage;
-    bool isInteractable = shouldTilesAlwaysBeInteractable || isActivePage;
+    bool isInteractable = !IsMoving && isActivePage;
 
     BaseScrollEffect.UpdateData updateData = new BaseScrollEffect.UpdateData();
     updateData.page = page;
@@ -786,10 +744,8 @@ public class PagedScrollRect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     updateData.spacing = pageProvider.GetSpacing();
     updateData.looping = loop;
     updateData.isInteractable = isInteractable;
-    updateData.moveDistance = CurrentMoveDistance;
 
-    for (int i = 0; i < scrollEffects.Length; i++) {
-      BaseScrollEffect scrollEffect = scrollEffects[i];
+    foreach (BaseScrollEffect scrollEffect in scrollEffects) {
       if (scrollEffect.enabled) {
         scrollEffect.ApplyEffect(updateData);
       }

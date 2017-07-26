@@ -37,7 +37,6 @@ public abstract class BaseScrollEffect : MonoBehaviour {
     public float spacing;
     public bool looping;
     public bool isInteractable;
-    public float moveDistance;
   }
 
   public abstract void ApplyEffect(UpdateData updateData);

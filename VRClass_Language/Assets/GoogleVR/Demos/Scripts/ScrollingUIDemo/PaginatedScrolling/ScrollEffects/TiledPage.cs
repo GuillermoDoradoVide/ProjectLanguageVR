@@ -56,7 +56,7 @@ public class TiledPage : MonoBehaviour {
 
   /// The Key is an x position relative to the left side of the layoutTransform.
   /// The value is a list of tiles that exist at that x position.
-  private List<List<Transform>> tilesByDistanceFromLeft;
+  private SortedDictionary<float, List<Transform>> tilesByDistanceFromLeft;
 
   /// When the distance between two tiles is within
   /// TileGroupThreshold from eachother, they
@@ -93,36 +93,30 @@ public class TiledPage : MonoBehaviour {
   /// <param name="scrollSpacing">Spacing between pages.</param>
   /// <param name="isInteractable">True is the PagedScrollRect is currently scrolling.</param>
   public void ApplyScrollEffect(float scrollDistance, float scrollSpacing, bool isInteractable) {
-    if (Tiles == null) {
-      FlushLayoutCache();
-      return;
-    }
-
     /// Organize the tiles by their x position
     /// So that we can stagger them correctly.
     CalculateTilesByDistance();
 
-    int iterateIndex;
-    int increment;
+    IEnumerable<KeyValuePair<float, List<Transform>>> iterator;
+    float directionCoeff;
 
     if (scrollDistance > 0) {
       /// Scrolling Left
-      iterateIndex = 0;
-      increment = 1;
+      iterator = tilesByDistanceFromLeft;
+      directionCoeff = -1.0f;
     } else {
       /// Scrolling Right
-      iterateIndex = tilesByDistanceFromLeft.Count - 1;
-      increment = -1;
+      iterator = tilesByDistanceFromLeft.Reverse();
+      directionCoeff = 1.0f;
     }
 
     float scrollMagnitude = Mathf.Abs(scrollDistance);
     float ratioScrolled = scrollMagnitude / scrollSpacing;
     int index = 0;
-    float directionCoeff = -increment;
+
     bool updatedAnimatingTiles = false;
 
-    for (; iterateIndex >= 0 && iterateIndex < tilesByDistanceFromLeft.Count; iterateIndex += increment) {
-      List<Transform> tiles = tilesByDistanceFromLeft[iterateIndex];
+    foreach (var pair in iterator) {
       float tileGroupRatio = (index + 1.0f) / tilesByDistanceFromLeft.Count;
       float tileGroupInterval = scrollSpacing / tilesByDistanceFromLeft.Count;
       tileGroupInterval *= staggerAnimationIntensity;
@@ -130,14 +124,13 @@ public class TiledPage : MonoBehaviour {
       /// These tiles are currently animating based on the
       /// Amount that the user has scrolled the scroll rect.
       if (ratioScrolled < tileGroupRatio && !updatedAnimatingTiles) {
-        for (int i = 0; i < tiles.Count; i++) {
-          Transform tile = tiles[i];
+        foreach (Transform tile in pair.Value) {
           float offset = tileGroupInterval * index;
-          float animatedXPos =
-            (scrollMagnitude * staggerAnimationIntensity * directionCoeff) - (offset * directionCoeff);
+          float animatedXPos = (scrollMagnitude * staggerAnimationIntensity * directionCoeff) - (offset * directionCoeff);
 
           RectTransform cellRect = GetTileCell(tile);
-          Vector3 position = cellRect.TransformPoint(new Vector3(animatedXPos, 0.0f, 0.0f));
+          Vector3 position = tile.position;
+          position.x = cellRect.TransformPoint(new Vector3(animatedXPos, 0.0f, 0.0f)).x;
           UpdateTile(tile, position, isInteractable);
         }
         updatedAnimatingTiles = true;
@@ -145,19 +138,19 @@ public class TiledPage : MonoBehaviour {
         /// These tiles have not been animated yet,
         /// Make sure their local position is reset.
         if (updatedAnimatingTiles) {
-          for (int i = 0; i < tiles.Count; i++) {
-            Transform tile = tiles[i];
+          foreach (Transform tile in pair.Value) {
             RectTransform cellRect = GetTileCell(tile);
-            Vector3 position = cellRect.TransformPoint(Vector3.zero);
+            Vector3 position = tile.position;
+            position.x = cellRect.TransformPoint(Vector3.zero).x;
             UpdateTile(tile, position, isInteractable);
           }
         } else {
           /// These tiles have already finished animating
           /// Make sure they snap to their final position.
-          for (int i = 0; i < tiles.Count; i++) {
-            Transform tile = tiles[i];
+          foreach (Transform tile in pair.Value) {
             RectTransform cellRect = GetTileCell(tile);
-            Vector3 position = cellRect.TransformPoint(new Vector3(tileGroupInterval * directionCoeff, 0.0f, 0.0f));
+            Vector3 position = tile.position;
+            position.x = cellRect.TransformPoint(new Vector3(tileGroupInterval * directionCoeff, 0.0f, 0.0f)).x;
             UpdateTile(tile, position, isInteractable);
           }
         }
@@ -168,17 +161,8 @@ public class TiledPage : MonoBehaviour {
   }
 
   private void UpdateTile(Transform tile, Vector3 position, bool isInteractable) {
-    // The Tile's cell is not necessarily the parent of the tile due
-    // to work arounds for the fact that depth sorting of Unity UI is tied to
-    // the objects location in the scene hierarchy instead of the z-position.
-    // As a result, the staggered position of the tile is passed into this function
-    // in world space. It must be translated back into the local space of the
-    // tile's parent to make sure that the the staggered animation is only overriding the
-    // x-axis of the tile in local space.
-    Vector3 animatedLocalPos = tile.parent.InverseTransformPoint(position);
-    Vector3 localPosition = tile.localPosition;
-    localPosition.x = animatedLocalPos.x;
-    tile.localPosition = localPosition;
+    tile.position = position;
+
     BaseTile Tile = tile.GetComponent<BaseTile>();
     if (Tile != null) {
       Tile.IsInteractable = isInteractable;
@@ -193,14 +177,9 @@ public class TiledPage : MonoBehaviour {
 
     Canvas.ForceUpdateCanvases();
 
-    SortedDictionary<float, List<Transform>> tilesByDistance = new SortedDictionary<float, List<Transform>>();
+    tilesByDistanceFromLeft = new SortedDictionary<float, List<Transform>>();
 
-    // Ignore disabled tiles, otherwise this won't behave correctly when some tiles are disabled.
     foreach (Transform tile in tiles) {
-      if (!tile.gameObject.activeInHierarchy) {
-        continue;
-      }
-
       RectTransform cellRect = GetTileCell(tile);
       RectTransform tileRect = tile.GetComponent<RectTransform>();
 
@@ -212,12 +191,12 @@ public class TiledPage : MonoBehaviour {
 
       /// Add the tile into the appropriate group based on it's x position.
       List<Transform> tilesAtDistance;
-      if (tilesByDistance.TryGetValue(distanceFromLeft, out tilesAtDistance)) {
+      if (tilesByDistanceFromLeft.TryGetValue(distanceFromLeft, out tilesAtDistance)) {
         tilesAtDistance.Add(tile);
       } else {
         /// See if their is already a tile group that exists
         /// Within range of the TileGroupThreshold.
-        tilesAtDistance = tilesByDistance.FirstOrDefault(
+        tilesAtDistance = tilesByDistanceFromLeft.FirstOrDefault(
           pair => {
             float distance = Mathf.Abs(distanceFromLeft - pair.Key);
             return distance < kTileGroupThreshold;
@@ -229,12 +208,10 @@ public class TiledPage : MonoBehaviour {
         } else {
           tilesAtDistance = new List<Transform>();
           tilesAtDistance.Add(tile);
-          tilesByDistance.Add(distanceFromLeft, tilesAtDistance);
+          tilesByDistanceFromLeft[distanceFromLeft] = tilesAtDistance;
         }
       }
     }
-
-    tilesByDistanceFromLeft = tilesByDistance.Values.ToList();
   }
 
   private Vector3 GetTilePoint(RectTransform tileRect) {

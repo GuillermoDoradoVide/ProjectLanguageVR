@@ -120,20 +120,6 @@ public class GvrAudioSource : MonoBehaviour {
   [Range(0, 256)]
   private int sourcePriority = 128;
 
-  /// Sets how much this source is affected by 3D spatialization calculations (attenuation, doppler).
-  public float spatialBlend {
-    get { return sourceSpatialBlend; }
-    set {
-      sourceSpatialBlend = value;
-      if (audioSource != null) {
-        audioSource.spatialBlend = sourceSpatialBlend;
-      }
-    }
-  }
-  [SerializeField]
-  [Range(0.0f, 1.0f)]
-  private float sourceSpatialBlend = 1.0f;
-
   /// Sets the Doppler scale for this audio source.
   public float dopplerLevel {
     get { return sourceDopplerLevel; }
@@ -281,9 +267,7 @@ public class GvrAudioSource : MonoBehaviour {
     audioSource.hideFlags = HideFlags.HideInInspector | HideFlags.HideAndDontSave;
     audioSource.playOnAwake = false;
     audioSource.bypassReverbZones = true;
-#if UNITY_5_5_OR_NEWER
-    audioSource.spatializePostEffects = true;
-#endif  // UNITY_5_5_OR_NEWER
+    audioSource.spatialBlend = 1.0f;
     OnValidate();
     // Route the source output to |GvrAudioMixer|.
     AudioMixer mixer = (Resources.Load("GvrAudioMixer") as AudioMixer);
@@ -421,20 +405,6 @@ public class GvrAudioSource : MonoBehaviour {
     }
   }
 
-  /// Changes the time at which a sound that has already been scheduled to play will end.
-  public void SetScheduledEndTime(double time) {
-    if (audioSource != null) {
-      audioSource.SetScheduledEndTime(time);
-    }
-  }
-
-  /// Changes the time at which a sound that has already been scheduled to play will start.
-  public void SetScheduledStartTime(double time) {
-    if (audioSource != null) {
-      audioSource.SetScheduledStartTime(time);
-    }
-  }
-
   /// Stops playing the clip.
   public void Stop () {
     if (audioSource != null) {
@@ -496,7 +466,6 @@ public class GvrAudioSource : MonoBehaviour {
     mute = sourceMute;
     pitch = sourcePitch;
     priority = sourcePriority;
-    spatialBlend = sourceSpatialBlend;
     volume = sourceVolume;
     dopplerLevel = sourceDopplerLevel;
     spread = sourceSpread;

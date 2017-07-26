@@ -64,8 +64,6 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
   private IntPtr renderEventFunction;
 
   private bool processingRunning;
-  private bool exitProcessing;
-  private bool playOnResume;
 
   /// <summary>List of callbacks to invoke when the video is ready.</summary>
   private List<Action<int>> onEventCallbacks;
@@ -91,7 +89,7 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
   };
 
   public enum VideoResolution {
-    Lowest = 1,
+    Lowest = 0,
     _720 = 720,
     _1080 = 1080,
     _2048 = 2048,
@@ -229,18 +227,7 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
 
   /// Create the video player instance and the event base id.
   void Awake() {
-    // Find the components on which to set the video texture.
-    graphicComponent = GetComponent<Graphic>();
-    rendererComponent = GetComponent<Renderer>();
-
-    CreatePlayer();
-  }
-
-  void CreatePlayer() {
     bufferSize = bufferSize < MIN_BUFFER_SIZE ? MIN_BUFFER_SIZE : bufferSize;
-    if (videoTextures != null) {
-      DestroyVideoTextures();
-    }
     videoTextures = new Texture2D[bufferSize];
     currentTexture = 0;
     videoPlayerPtr = CreateVideoPlayer();
@@ -256,6 +243,10 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
     SetOnExceptionCallback((type, msg) => {
       Debug.LogError("Exception: " + type + ": " + msg);
     });
+
+    // find the components to set the video texture on
+    graphicComponent = GetComponent<Graphic>();
+    rendererComponent = GetComponent<Renderer>();
 
     initialized = false;
 
@@ -306,12 +297,10 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
 
   public void CleanupVideo() {
     Debug.Log("Cleaning Up video!");
-    exitProcessing = true;
     if (videoPlayerPtr != IntPtr.Zero) {
       DestroyVideoPlayer(videoPlayerPtr);
       videoPlayerPtr = IntPtr.Zero;
     }
-    DestroyVideoTextures();
     if (rendererComponent != null) {
       rendererComponent.sharedMaterial.mainTexture = initialTexture;
     } else if (graphicComponent != null) {
@@ -327,26 +316,11 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
     }
 
     if (videoPlayerPtr == IntPtr.Zero) {
-      CreatePlayer();
+      Awake();
       IssuePlayerEvent(RenderCommand.InitializePlayer);
     }
     if (Init()) {
       StartCoroutine(CallPluginAtEndOfFrames());
-    }
-  }
-
-  void DestroyVideoTextures() {
-    if (videoTextures != null) {
-      foreach (Texture2D t in videoTextures) {
-        if (t != null) {
-          // Free GPU memory immediately.
-          t.Resize(1, 1);
-          t.Apply();
-          // Unity's destroy is lazy.
-          Destroy(t);
-        }
-      }
-      videoTextures = null;
     }
   }
 
@@ -360,7 +334,9 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
     if (videoPlayerPtr != IntPtr.Zero) {
       DestroyVideoPlayer(videoPlayerPtr);
     }
-    DestroyVideoTextures();
+    foreach (Texture2D t in videoTextures) {
+      Destroy(t);
+    }
   }
 
   void OnValidate() {
@@ -375,12 +351,9 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
   void OnApplicationPause(bool bPause) {
     if (videoPlayerPtr != IntPtr.Zero) {
       if (bPause) {
-        playOnResume = !IsPaused;
         PauseVideo(videoPlayerPtr);
       } else {
-        if (playOnResume) {
-          PlayVideo(videoPlayerPtr);
-        }
+        PlayVideo(videoPlayerPtr);
       }
     }
   }
@@ -436,8 +409,6 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
       } else {
         graphicComponent.material.mainTexture = newTex;
       }
-    } else {
-      Debug.LogError("GvrVideoPlayerTexture: No render or graphic component.");
     }
   }
 
@@ -562,26 +533,20 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
 
       int[] tex_ids = new int[videoTextures.Length];
       for (int idx = 0; idx < videoTextures.Length; idx++) {
-        // Resize the existing texture if there, otherwise create it.
+        // Destroy the existing texture if there.
         if (videoTextures[idx] != null) {
-          if (videoTextures[idx].width != texWidth
-              || videoTextures[idx].height != texHeight)
-          {
-            videoTextures[idx].Resize(texWidth, texHeight);
-            videoTextures[idx].Apply();
-          }
-        } else {
-          videoTextures[idx] = new Texture2D(texWidth, texHeight,
-            TextureFormat.RGBA32, false);
-          videoTextures[idx].filterMode = FilterMode.Bilinear;
-          videoTextures[idx].wrapMode = TextureWrapMode.Clamp;
+          Destroy(videoTextures[idx]);
         }
+        videoTextures[idx] = new Texture2D(texWidth, texHeight,
+          TextureFormat.RGBA32, false);
+        videoTextures[idx].filterMode = FilterMode.Bilinear;
+        videoTextures[idx].wrapMode = TextureWrapMode.Clamp;
 
         tex_ids[idx] = videoTextures[idx].GetNativeTexturePtr().ToInt32();
       }
 
       SetExternalTextures(videoPlayerPtr, tex_ids, tex_ids.Length,
-                          texWidth, texHeight);
+        texWidth, texHeight);
       currentTexture = 0;
       UpdateStatusText();
     }
@@ -632,16 +597,9 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
     // Only run while the video is playing.
     bool running = true;
     processingRunning = true;
-    exitProcessing = false;
-    WaitForEndOfFrame wfeof = new WaitForEndOfFrame();
     while (running) {
       // Wait until all frame rendering is done
-      yield return wfeof;
-
-      if (exitProcessing) {
-        running = false;
-        break;
-      }
+      yield return new WaitForEndOfFrame();
 
       if (videoPlayerPtr != IntPtr.Zero) {
         CreateTextureForVideoMaybe();
@@ -666,13 +624,10 @@ public class GvrVideoPlayerTexture : MonoBehaviour {
 
       int w = GetWidth(videoPlayerPtr);
       int h = GetHeight(videoPlayerPtr);
-      // Limit total pixel count to the same as 2160p.
-      // 3840 * 2160 == 2880 * 2880
-      if (w * h > 2880 * 2880) {
-        // Clamp the max resolution preserving aspect ratio.
-        float aspectRoot = (float) Math.Sqrt(w / h);
-        w = (int) (2880 * aspectRoot);
-        h = (int) (2880 / aspectRoot);
+      if (w > 2560 && h > 10) {
+        // Clamp the max resolution.
+        w = 2560;
+        h = 1440;
       }
       texWidth = w;
       texHeight = h;

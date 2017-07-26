@@ -51,7 +51,6 @@ namespace Gvr.Internal {
 
       if (EmulatorConfig.Instance.PHONE_EVENT_MODE != EmulatorConfig.Mode.OFF) {
         phoneEventThread = new Thread(phoneEventSocketLoop);
-        phoneEventThread.IsBackground = true;
         phoneEventThread.Start();
       }
     }

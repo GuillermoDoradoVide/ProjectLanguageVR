@@ -30,8 +30,7 @@ Shader "GoogleVR/UI/Overlay" {
 
   SubShader {
     Tags {
-    // Overlay+110 fixes depth sorting between UI and controller.
-    "Queue"="Overlay+110"
+    "Queue"="Overlay+100"
     "IgnoreProjector"="True"
     "RenderType"="Transparent"
     "PreviewType"="Plane"

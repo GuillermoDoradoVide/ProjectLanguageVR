@@ -66,7 +66,11 @@ public class GvrPointerPhysicsRaycaster : GvrBasePointerRaycaster {
   }
 
   public override void Raycast(PointerEventData eventData, List<RaycastResult> resultAppendList) {
-    if (!IsPointerAvailable() || eventCamera == null) {
+    if (eventCamera == null) {
+      return;
+    }
+
+    if (!IsPointerAvailable()) {
       return;
     }
 

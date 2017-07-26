@@ -16,8 +16,8 @@
 // GVR native integration.
 
 using UnityEngine;
-using UnityEngine.VR;
 using System.Collections;
+using UnityEngine.VR;
 
 /// The GvrArmModel is a standard interface to interact with a scene with the controller.
 /// It is responsible for:
@@ -95,10 +95,6 @@ public class GvrArmModel : MonoBehaviour {
   /// Multiplier for handedness such that 1 = Right, 0 = Center, -1 = left.
   private Vector3 handedMultiplier;
 
-#if UNITY_EDITOR
-  private Camera editorHeadCamera;
-#endif // UNITY_EDITOR
-
   /// Use the GvrController singleton to obtain a singleton for this class.
   public static GvrArmModel Instance {
     get {
@@ -124,24 +120,17 @@ public class GvrArmModel : MonoBehaviour {
   [Range(0.0f, 0.2f)]
   public float addedElbowDepth = 0.0f;
 
-  /// The Downward tilt or pitch of the laser pointer relative to the controller (degrees).
+  /// Downward tilt of the laser pointer relative to the controller (degrees).
   [Range(0.0f, 30.0f)]
   public float pointerTiltAngle = 15.0f;
 
-  /// Controller distance from the face after which the controller disappears (meters).
+  /// Controller distance from the face after which the alpha value decreases (meters).
   [Range(0.0f, 0.4f)]
   public float fadeDistanceFromFace = 0.32f;
 
-  /// Controller distance from face after which the tooltips appear (meters).
+  /// Controller distance from face after which the tooltip alpha increases (meters).
   [Range(0.4f, 0.6f)]
   public float tooltipMinDistanceFromFace = 0.45f;
-
-  /// When the angle (degrees) between the controller and the head is larger than
-  /// this value, the tooltips disappear.
-  /// If the value is 180, then the tooltips are always shown.
-  /// If the value is 90, the tooltips are only shown when they are facing the camera.
-  [Range(0, 180)]
-  public int tooltipMaxAngleFromCamera = 80;
 
   /// Determines if the shoulder should follow the gaze
   public GazeBehavior followGaze = GazeBehavior.DuringMotion;
@@ -182,10 +171,8 @@ public class GvrArmModel : MonoBehaviour {
   public Quaternion shoulderRotation { get; private set; }
 
   /// The suggested rendering alpha value of the controller.
-  /// This is to prevent the controller from intersecting the face.
-  /// The range is always 0 - 1 but can be scaled by individual
-  /// objects when using the GvrBaseControllerVisual script.
-  public float preferredAlpha { get; private set; }
+  /// This is to prevent the controller from intersecting face.
+  public float alphaValue { get; private set; }
 
   /// The suggested rendering alpha value of the controller tooltips.
   /// This is to only display the tooltips when the player is looking
@@ -209,6 +196,7 @@ public class GvrArmModel : MonoBehaviour {
     // Reset other relevant state.
     firstUpdate = true;
     elbowOffset = Vector3.zero;
+    alphaValue = 1.0f;
     zeroAccel.Set(0, GRAVITY_FORCE, 0);
   }
 
@@ -220,12 +208,6 @@ public class GvrArmModel : MonoBehaviour {
     // Reset the singleton instance.
     instance = null;
   }
-
-#if UNITY_EDITOR
-  void Update() {
-    editorHeadCamera = Camera.main;
-  }
-#endif // UNITY_EDITOR
 
   private void OnControllerUpdate() {
     if (GvrController.Recentered) {
@@ -274,17 +256,7 @@ public class GvrArmModel : MonoBehaviour {
 
   private Vector3 GetHeadOrientation() {
 #if UNITY_EDITOR
-    if (editorHeadCamera == null) {
-      Debug.LogWarning("No Head Camera.");
-      return Vector3.forward;
-    }
-
-    Vector3 forward = editorHeadCamera.transform.forward;
-    if (editorHeadCamera.transform.parent != null) {
-      forward = editorHeadCamera.transform.parent.InverseTransformDirection(forward);
-    }
-
-    return forward;
+    return GvrViewer.Instance.HeadPose.Orientation * Vector3.forward;
 #else
     return InputTracking.GetLocalRotation(VRNode.Head) * Vector3.forward;
 #endif // UNITY_EDITOR
@@ -409,22 +381,17 @@ public class GvrArmModel : MonoBehaviour {
 
   private void UpdateTransparency() {
     // Determine how vertical the controller is pointing.
-    float animationDelta = DELTA_ALPHA * Time.deltaTime;
     float distToFace = Vector3.Distance(wristPosition, Vector3.zero);
     if (distToFace < fadeDistanceFromFace) {
-      preferredAlpha = Mathf.Max(0.0f, preferredAlpha - animationDelta);
+      alphaValue = Mathf.Max(0.0f, alphaValue - DELTA_ALPHA * Time.deltaTime);
     } else {
-      preferredAlpha = Mathf.Min(1.0f, preferredAlpha + animationDelta);
+      alphaValue = Mathf.Min(1.0f, alphaValue + DELTA_ALPHA * Time.deltaTime);
     }
 
-    float dot = Vector3.Dot(wristRotation * Vector3.up, -wristPosition.normalized);
-    float minDot = (tooltipMaxAngleFromCamera - 90.0f) / -90.0f;
-    if (distToFace < fadeDistanceFromFace
-        || distToFace > tooltipMinDistanceFromFace
-        || dot < minDot) {
-      tooltipAlphaValue = Mathf.Max(0.0f, tooltipAlphaValue - animationDelta);
+    if (distToFace < fadeDistanceFromFace || distToFace > tooltipMinDistanceFromFace) {
+      tooltipAlphaValue = Mathf.Max(0.0f, tooltipAlphaValue - DELTA_ALPHA * Time.deltaTime);
     } else {
-      tooltipAlphaValue = Mathf.Min(1.0f, tooltipAlphaValue + animationDelta);
+      tooltipAlphaValue = Mathf.Min(1.0f, tooltipAlphaValue + DELTA_ALPHA * Time.deltaTime);
     }
   }
 

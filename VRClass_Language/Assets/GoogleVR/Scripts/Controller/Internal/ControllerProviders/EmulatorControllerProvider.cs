@@ -56,11 +56,6 @@ namespace Gvr.Internal {
             GvrConnectionState.Connecting;
         state.apiStatus = EmulatorManager.Instance.Connected ? GvrControllerApiStatus.Ok :
             GvrControllerApiStatus.Unavailable;
-
-        // During emulation, just assume the controller is fully charged
-        state.isCharging = false;
-        state.batteryLevel = GvrControllerBatteryLevel.Full;
-
         outState.CopyFrom(state);
       }
       state.ClearTransientState();
@@ -167,6 +162,7 @@ namespace Gvr.Internal {
         state.orientation = Quaternion.identity;
         state.recentering = false;
         state.recentered = true;
+        state.headsetRecenterRequested = true;
       }
     }
   }
