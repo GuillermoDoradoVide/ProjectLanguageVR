@@ -1,4 +1,1 @@
-sceneSetups:
-- path: Assets/Content/Scenes/Levels/[Lecciones]/CAPITULO_1/init_NotAStarbuck.unity
-  isLoaded: 1
-  isActive: 1
+sceneSetups: []
